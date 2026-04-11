@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>МУИС - Дипломын ажлын систем</title>
+    <!-- Tailwind CSS CDN for the index page styles to be independent of the modules -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+        body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; }
+        .feature-icon-svg { width: 1.75rem; height: 1.75rem; color: white; }
+    </style>
+</h:head>
+<h:body>
+    <div class="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 flex flex-col items-center justify-center p-6 relative overflow-hidden">
+        
+        <!-- Background pattern -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute -top-40 -right-40 w-96 h-96 bg-blue-100 rounded-full opacity-50 blur-3xl"></div>
+            <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-violet-100 rounded-full opacity-50 blur-3xl"></div>
+        </div>
+
+        <div class="relative z-10 w-full max-w-5xl">
+            <!-- Header -->
+            <div class="text-center mb-12">
+                <div class="inline-flex items-center gap-3 bg-white border border-blue-100 rounded-2xl px-6 py-3 shadow-sm mb-6">
+                    <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl flex items-center justify-center">
+                        <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                        </svg>
+                    </div>
+                    <div class="text-left">
+                        <p class="text-xs text-slate-500 uppercase tracking-widest">Монгол Улсын Их Сургууль</p>
+                        <p class="text-slate-800 font-semibold">Бакалаврын судалгааны ажлын удирдах систем</p>
+                    </div>
+                </div>
+                <h1 class="text-4xl text-slate-900 mb-3"></h1>
+                <p class="text-slate-500 text-lg">Хэрэглэгчийн төрлөө сонгоно уу</p>
+            </div>
+
+            <!-- Role Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Admin -->
+                <a href="#{request.contextPath}/admin.xhtml" class="group relative bg-white border-2 border-blue-200 hover:border-blue-400 rounded-2xl p-7 text-left transition-all duration-300 hover:shadow-xl hover:shadow-blue-200 hover:-translate-y-1 block cursor-pointer">
+                    <div class="w-14 h-14 bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl flex items-center justify-center mb-5 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                        <svg class="feature-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="16" height="20" x="4" y="2" rx="2" ry="2"></rect>
+                            <path d="M9 22v-4h6v4"></path>
+                            <path d="M8 6h.01"></path>
+                            <path d="M16 6h.01"></path>
+                            <path d="M12 6h.01"></path>
+                            <path d="M12 10h.01"></path>
+                            <path d="M12 14h.01"></path>
+                            <path d="M16 10h.01"></path>
+                            <path d="M16 14h.01"></path>
+                            <path d="M8 10h.01"></path>
+                            <path d="M8 14h.01"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-slate-900 text-lg mb-2">Тэнхимийн админ</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-5">Багш, оюутан, судалгааны ажил болон тэнхимийн статистик удирдах</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center gap-2 text-sm text-slate-600"><div class="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue-600 to-blue-800"></div> Багш, оюутан удирдах</li>
+                        <li class="flex items-center gap-2 text-sm text-slate-600"><div class="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue-600 to-blue-800"></div> Бүх судалгааны ажлыг хянах</li>
+                        <li class="flex items-center gap-2 text-sm text-slate-600"><div class="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue-600 to-blue-800"></div> Статистик, тайлан харах</li>
+                    </ul>
+                    <div class="flex items-center gap-2 text-blue-700 text-sm font-semibold">
+                        <span>Орох</span>
+                        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-br from-blue-600 to-blue-800 opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-300"></div>
+                </a>
+
+                <!-- Teacher -->
+                <a href="#{request.contextPath}/teacher.xhtml" class="group relative bg-white border-2 border-emerald-200 hover:border-emerald-400 rounded-2xl p-7 text-left transition-all duration-300 hover:shadow-xl hover:shadow-emerald-200 hover:-translate-y-1 block cursor-pointer">
+                    <div class="w-14 h-14 bg-gradient-to-br from-emerald-600 to-emerald-800 rounded-2xl flex items-center justify-center mb-5 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                        <svg class="feature-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-slate-900 text-lg mb-2">Багш / Удирдагч</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-5">Судалгааны ажил удирдах, зөвлөгөө өгөх, оюутны явцыг хянах</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center gap-2 text-sm text-slate-600"><div class="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-emerald-600 to-emerald-800"></div> Оюутны илгээлтийг шалгах</li>
+                        <li class="flex items-center gap-2 text-sm text-slate-600"><div class="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-emerald-600 to-emerald-800"></div> Санал хүсэлт өгөх</li>
+                        <li class="flex items-center gap-2 text-sm text-slate-600"><div class="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-emerald-600 to-emerald-800"></div> Явцыг хянах</li>
+                    </ul>
+                    <div class="flex items-center gap-2 text-emerald-700 text-sm font-semibold">
+                        <span>Орох</span>
+                        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-br from-emerald-600 to-emerald-800 opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-300"></div>
+                </a>
+
+                <!-- Student -->
+                <a href="#{request.contextPath}/student.xhtml" class="group relative bg-white border-2 border-violet-200 hover:border-violet-400 rounded-2xl p-7 text-left transition-all duration-300 hover:shadow-xl hover:shadow-violet-200 hover:-translate-y-1 block cursor-pointer">
+                    <div class="w-14 h-14 bg-gradient-to-br from-violet-600 to-violet-800 rounded-2xl flex items-center justify-center mb-5 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                        <svg class="feature-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21.42 10.922a2 2 0 0 1-.019 3.07l-9.28 8.07a2 2 0 0 1-2.234 0l-9.28-8.07a2 2 0 0 1-.019-3.07l9.28-8.07a2 2 0 0 1 2.234 0l9.28 8.07Z"></path>
+                            <path d="M12 2v20"></path>
+                        </svg> <!-- Fallback icon, original GraduationCap better -->
+                    </div>
+                    <h3 class="text-slate-900 text-lg mb-2">Оюутан</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-5">Судалгааны ажлаа илгээх, багштай харилцах, явцаа хянах</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center gap-2 text-sm text-slate-600"><div class="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-violet-600 to-violet-800"></div> Бүлгүүдээ илгээх</li>
+                        <li class="flex items-center gap-2 text-sm text-slate-600"><div class="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-violet-600 to-violet-800"></div> Удирдагчтайгаа харилцах</li>
+                        <li class="flex items-center gap-2 text-sm text-slate-600"><div class="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-violet-600 to-violet-800"></div> Явцаа шалгах</li>
+                    </ul>
+                    <div class="flex items-center gap-2 text-violet-700 text-sm font-semibold">
+                        <span>Орох</span>
+                        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-br from-violet-600 to-violet-800 opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-300"></div>
+                </a>
+            </div>
+
+            <!-- Footer -->
+            <p class="text-center text-slate-400 text-sm mt-10">
+                2025-2026 оны хичээлийн жилийн Хаврын улирал
+            </p>
+        </div>
+    </div>
+</h:body>
+</html>

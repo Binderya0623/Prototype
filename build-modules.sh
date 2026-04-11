@@ -34,6 +34,7 @@ build_module() {
 }
 
 # ---------- Vite+TypeScript модулиуд ----------
+build_module "module-auth"
 build_module "module-admin"
 build_module "module-teacher"
 build_module "module-student"
@@ -47,8 +48,13 @@ echo " JSF хостыг эхлүүлнэ үү:"
 echo "   cd jsf-host && mvn tomcat7:run"
 echo ""
 echo " URL-ууд:"
-echo "   Нүүр хуудас  : http://localhost:8080"
+echo "   Нэвтрэх       : http://localhost:8080/login.xhtml"
 echo "   Admin         : http://localhost:8080/admin.xhtml"
 echo "   Teacher       : http://localhost:8080/teacher.xhtml"
 echo "   Student       : http://localhost:8080/student.xhtml"
+echo ""
+echo " Demo нэвтрэх нэрүүд:"
+echo "   admin   / admin123   → Admin хуудас"
+echo "   teacher / teacher123 → Teacher хуудас"
+echo "   student / student123 → Student хуудас"
 echo "========================================"

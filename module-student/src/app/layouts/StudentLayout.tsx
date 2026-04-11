@@ -3,6 +3,8 @@ import { Outlet, useLocation, useNavigate } from "react-router";
 import StudentSidebar from "../components/StudentSidebar";
 import TopHeader from "../components/TopHeader";
 import { FloatingMessageButton } from "../components/FloatingMessageButton";
+import type { StoredUser } from "../../lib/authGuard";
+import { logout } from "../../lib/authGuard";
 
 const pageTitles: Record<string, { title: string; subtitle: string }> = {
   "/student": { title: "Миний Хянах самбар", subtitle: "Судалгааны ажлын явцаа хянах" },
@@ -14,12 +16,22 @@ const pageTitles: Record<string, { title: string; subtitle: string }> = {
   "/student/profile": { title: "Миний профайл", subtitle: "Хувийн мэдээллээ харах, засварлах" },
 };
 
+interface StudentLayoutProps {
+  user: StoredUser;
+}
 
-export default function StudentLayout() {
+export default function StudentLayout({ user }: StudentLayoutProps) {
   const [collapsed, setCollapsed] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const pageInfo = pageTitles[location.pathname] || pageTitles["/student"];
+
+  const initials = user.displayName
+    .split(' ')
+    .map((w) => w[0])
+    .join('')
+    .slice(0, 2)
+    .toUpperCase();
 
   return (
     <div className="flex h-screen bg-slate-50 overflow-hidden">
@@ -28,10 +40,11 @@ export default function StudentLayout() {
         <TopHeader
           title={pageInfo.title}
           subtitle={pageInfo.subtitle}
-          userName="Батбаяр"
+          userName={user.displayName}
           userRole="Оюутан"
-          userInitials="ББ"
+          userInitials={initials}
           avatarColor="from-blue-500 to-blue-700"
+          onLogout={logout}
         />
         <main className="flex-1 overflow-y-auto p-6">
           <Outlet />

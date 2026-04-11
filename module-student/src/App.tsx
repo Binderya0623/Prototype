@@ -12,12 +12,15 @@ import StudentMessages from './app/pages/student/StudentMessages';
 import StudentFeedback from './app/pages/student/StudentFeedback';
 import StudentEvaluationDeadlines from './app/pages/student/StudentEvaluationDeadlines';
 import StudentFinalGrade from './app/pages/student/StudentFinalGrade';
+import type { StoredUser } from './lib/authGuard';
 
-export default function App() {
+interface AppProps { user: StoredUser; }
+
+export default function App({ user }: AppProps) {
   return (
     <HashRouter>
       <Routes>
-        <Route path="/student" element={<StudentLayout />}>
+        <Route path="/student" element={<StudentLayout user={user} />}>
           <Route index element={<StudentDashboard />} />
           <Route path="profile"    element={<StudentProfile />} />
           <Route path="thesis"     element={<StudentThesis />} />

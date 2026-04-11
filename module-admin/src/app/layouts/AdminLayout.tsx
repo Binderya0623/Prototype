@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Outlet, useLocation } from "react-router";
 import AdminSidebar from "../components/AdminSidebar";
 import TopHeader from "../components/TopHeader";
+import type { StoredUser } from "../../lib/authGuard";
+import { logout } from "../../lib/authGuard";
 
 const pageTitles: Record<string, { title: string; subtitle: string }> = {
   "/admin": { title: "Хянах самбар", subtitle: "Тавтай морилно уу, Тэнхимийн администратор" },
@@ -18,11 +20,22 @@ const pageTitles: Record<string, { title: string; subtitle: string }> = {
   "/admin/closure": { title: "Комисс хаах", subtitle: "Үнэлгээний комиссыг хааж, түгжих" },
 };
 
+interface AdminLayoutProps {
+  user: StoredUser;
+}
 
-export default function AdminLayout() {
+export default function AdminLayout({ user }: AdminLayoutProps) {
   const [collapsed, setCollapsed] = useState(false);
   const location = useLocation();
   const pageInfo = pageTitles[location.pathname] || pageTitles["/admin"];
+
+  // Нэрийн эхний үсгийг авах
+  const initials = user.displayName
+    .split(' ')
+    .map((w) => w[0])
+    .join('')
+    .slice(0, 2)
+    .toUpperCase();
 
   return (
     <div className="flex h-screen bg-slate-100 overflow-hidden">
@@ -31,10 +44,11 @@ export default function AdminLayout() {
         <TopHeader
           title={pageInfo.title}
           subtitle={pageInfo.subtitle}
-          userName="Admin"
-          userRole="Department Admin"
-          userInitials="DA"
-          avatarColor="from-blue-500 to-blue-700"
+          userName={user.displayName}
+          userRole="Администратор"
+          userInitials={initials}
+          avatarColor="from-purple-500 to-purple-700"
+          onLogout={logout}
         />
         <main className="flex-1 overflow-y-auto p-6">
           <Outlet />

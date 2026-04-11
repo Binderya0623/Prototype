@@ -18,12 +18,17 @@ import AdminReports from './app/pages/admin/AdminReports';
 import AdminGrades from './app/pages/admin/AdminGrades';
 import AdminTopicManagement from './app/pages/admin/AdminTopicManagement';
 import ComingSoon from './app/pages/ComingSoon';
+import type { StoredUser } from './lib/authGuard';
 
-export default function App() {
+interface AppProps {
+  user: StoredUser;
+}
+
+export default function App({ user }: AppProps) {
   return (
     <HashRouter>
       <Routes>
-        <Route path="/admin" element={<AdminLayout />}>
+        <Route path="/admin" element={<AdminLayout user={user} />}>
           <Route index element={<AdminDashboard />} />
           <Route path="teachers"          element={<Teachers />} />
           <Route path="students"          element={<Students />} />

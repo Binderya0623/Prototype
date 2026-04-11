@@ -12,12 +12,15 @@ import TeacherMessages from './app/pages/teacher/TeacherMessages';
 import TeacherProgress from './app/pages/teacher/TeacherProgress';
 import TeacherCommittee from './app/pages/teacher/TeacherCommittee';
 import ComingSoon from './app/pages/ComingSoon';
+import type { StoredUser } from './lib/authGuard';
 
-export default function App() {
+interface AppProps { user: StoredUser; }
+
+export default function App({ user }: AppProps) {
   return (
     <HashRouter>
       <Routes>
-        <Route path="/teacher" element={<TeacherLayout />}>
+        <Route path="/teacher" element={<TeacherLayout user={user} />}>
           <Route index element={<TeacherDashboard />} />
           <Route path="students"    element={<TeacherStudents />} />
           <Route path="thesis"      element={<TeacherThesis />} />

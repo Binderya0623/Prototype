@@ -1,4 +1,4 @@
-import { createBrowserRouter, Navigate } from 'react-router';
+import { createHashRouter, Navigate } from 'react-router';
 import LoginPage from '@/pages/LoginPage';
 import RegisterPage from '@/pages/RegisterPage';
 
@@ -11,7 +11,7 @@ import RegisterPage from '@/pages/RegisterPage';
  * Нэвтрэлт шаардах хамгаалалт энд байхгүй — нэвтрэлтийн дараа
  * AuthContext-ийн login() функц JSF хуудас руу шууд redirect хийнэ.
  */
-export const router = createBrowserRouter(
+export const router = createHashRouter(
   [
     {
       path: '/',

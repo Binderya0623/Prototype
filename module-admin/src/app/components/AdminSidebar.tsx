@@ -1,4 +1,5 @@
 import { NavLink, useNavigate } from "react-router";
+import numLogo from "../../assets/image/num_logo.png";
 
 import {
   LayoutDashboard,
@@ -6,7 +7,6 @@ import {
   GraduationCap,
   BookOpen,
   BarChart3,
-  LogOut,
   ChevronLeft,
   Bell,
   UserCheck,
@@ -48,7 +48,7 @@ export default function AdminSidebar({ collapsed, onToggle }: AdminSidebarProps)
       {/* Logo */}
       <div className="flex items-center gap-3 px-4 py-2.5 border-b border-slate-200">
         <img
-          src="../../assets/image/num_logo.png"
+          src={numLogo}
           alt="logo"
           width={32}
           height={32}
@@ -105,13 +105,6 @@ export default function AdminSidebar({ collapsed, onToggle }: AdminSidebarProps)
         <button className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-blue-200/70 hover:bg-white/10 hover:text-white transition-all ${collapsed ? "justify-center" : ""}`}>
           <Bell className="w-5 h-5 shrink-0 text-blue-300/70" />
           {!collapsed && <span className="text-sm font-medium">Мэдэгдэл</span>}
-        </button>
-        <button
-          onClick={() => navigate("/")}
-          className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-blue-200/70 hover:bg-red-500/20 hover:text-red-300 transition-all ${collapsed ? "justify-center" : ""}`}
-        >
-          <LogOut className="w-5 h-5 shrink-0" />
-          {!collapsed && <span className="text-sm font-medium">Гарах</span>}
         </button>
       </div>
 

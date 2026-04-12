@@ -1,0 +1,6 @@
+0:0:0:0:0:0:0:1 - - [12/Apr/2026:14:18:12 +0800] "GET /login.xhtml HTTP/1.1" 200 4459 http-bio-8080-exec-2 13
+0:0:0:0:0:0:0:1 - - [12/Apr/2026:14:18:12 +0800] "GET /microfrontends/module-auth/dist/bootstrap.css HTTP/1.1" 304 - http-bio-8080-exec-2 1
+0:0:0:0:0:0:0:1 - - [12/Apr/2026:14:18:12 +0800] "GET /microfrontends/module-auth/dist/main.js HTTP/1.1" 304 - http-bio-8080-exec-3 3
+0:0:0:0:0:0:0:1 - - [12/Apr/2026:14:18:12 +0800] "GET /microfrontends/module-auth/dist/chunk-bootstrap.js HTTP/1.1" 304 - http-bio-8080-exec-3 1
+0:0:0:0:0:0:0:1 - - [12/Apr/2026:14:18:12 +0800] "GET /microfrontends/module-auth/dist/student.png HTTP/1.1" 304 - http-bio-8080-exec-2 1
+0:0:0:0:0:0:0:1 - - [12/Apr/2026:14:18:12 +0800] "GET /microfrontends/module-auth/dist/logo.png HTTP/1.1" 304 - http-bio-8080-exec-3 8

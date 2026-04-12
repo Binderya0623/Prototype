@@ -1,5 +1,6 @@
 import { useNavigate, useLocation } from "react-router";
-import { Home, BookOpen, MessageSquare, ChevronLeft, ChevronRight, LogOut, CheckCircle, Calendar, Award, Search, FileEdit, LayoutList, FilePen } from "lucide-react";
+import numLogo from "../../assets/image/num_logo.png";
+import { Home, BookOpen, MessageSquare, ChevronLeft, ChevronRight, CheckCircle, Calendar, Award, Search, FileEdit, LayoutList, FilePen } from "lucide-react";
 import { Button } from "./ui/button";
 
 interface StudentSidebarProps {
@@ -26,7 +27,7 @@ export default function StudentSidebar({ collapsed, onToggle }: StudentSidebarPr
       {/* Logo */}
       <div className="flex items-center gap-3 px-4 py-2.5 border-b border-slate-200">
         <img
-          src="../../assets/image/num_logo.png"
+          src={numLogo}
           alt="logo"
           width={32}
           height={32}
@@ -62,18 +63,6 @@ export default function StudentSidebar({ collapsed, onToggle }: StudentSidebarPr
         })}
 
       </nav>
-
-      {/* Logout */}
-      <div className="p-3 border-t border-slate-200">
-        <button
-          onClick={() => navigate("/")}
-          className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-red-600 hover:bg-red-50 transition-colors ${collapsed ? "justify-center" : ""
-            }`}
-        >
-          <LogOut className="h-5 w-5" />
-          {!collapsed && <span className="text-sm font-medium">Гарах</span>}
-        </button>
-      </div>
     </div>
   );
 }

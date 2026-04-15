@@ -127,7 +127,18 @@ public class UserController {
     @GetMapping("/all")
     public Flux<User> findAll() {
         log.info("Received find user request. All user");
-
         return findUserUseCase.findAll();
+    }
+
+    @GetMapping("/students")
+    public Flux<User> findStudents(@RequestParam(required = false) String departmentId) {
+        log.info("Fetching students. departmentId={}", departmentId);
+        return findUserUseCase.findStudents(departmentId);
+    }
+
+    @GetMapping("/teachers")
+    public Flux<User> findTeachers(@RequestParam(required = false) String departmentId) {
+        log.info("Fetching teachers. departmentId={}", departmentId);
+        return findUserUseCase.findTeachers(departmentId);
     }
 }

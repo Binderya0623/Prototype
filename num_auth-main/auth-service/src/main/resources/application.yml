@@ -5,18 +5,22 @@ spring:
     name: auth-service
   main:
     allow-circular-references: true
+  datasource:
+    url: ${AUTH_DB_URL:jdbc:postgresql://localhost:5432/auth_service_db}
+    username: ${AUTH_DB_USERNAME:postgres}
+    password: ${AUTH_DB_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
   cloud:
     compatibility-verifier:
       enabled: false
-  # data:
-  #   mongodb:
-  #     host: localhost
-  #     port: 27017
-  #     database: auth_service_db
-
-  data:
-    mongodb:
-      uri: mongodb+srv://lhagvabatulzii:Lhagv%401592@authentication.cyi8i.mongodb.net/auth_service_db?retryWrites=true&w=majority&appName=Authentication&ssl=true&tls=true&authSource=admin&maxPoolSize=50&minPoolSize=5
 
 eureka:
   client:
@@ -27,4 +31,3 @@ eureka:
 jwt:
   secret: YW5kMTIzNDU2Nzg5MGFiY2RlZmdoaWprbG1ub3BxcnN0dXZ3eHl6MTIzNDU2Nzg5MA==
   expiration: 86400000
-

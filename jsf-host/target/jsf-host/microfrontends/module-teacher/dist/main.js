@@ -1,2 +1,72 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["chunk-bootstrap.js","bootstrap.css"])))=>i.map(i=>d[i]);
-const E="modulepreload",v=function(l){return"/microfrontends/module-teacher/dist/"+l},d={},P=function(m,i,p){let c=Promise.resolve();if(i&&i.length>0){let n=function(t){return Promise.all(t.map(o=>Promise.resolve(o).then(s=>({status:"fulfilled",value:s}),s=>({status:"rejected",reason:s}))))};document.getElementsByTagName("link");const e=document.querySelector("meta[property=csp-nonce]"),u=(e==null?void 0:e.nonce)||(e==null?void 0:e.getAttribute("nonce"));c=n(i.map(t=>{if(t=v(t),t in d)return;d[t]=!0;const o=t.endsWith(".css"),s=o?'[rel="stylesheet"]':"";if(document.querySelector(`link[href="${t}"]${s}`))return;const r=document.createElement("link");if(r.rel=o?"stylesheet":E,o||(r.as="script"),r.crossOrigin="",r.href=t,u&&r.setAttribute("nonce",u),document.head.appendChild(r),o)return new Promise((f,h)=>{r.addEventListener("load",f),r.addEventListener("error",()=>h(new Error(`Unable to preload CSS for ${t}`)))})}))}function a(n){const e=new Event("vite:preloadError",{cancelable:!0});if(e.payload=n,window.dispatchEvent(e),!e.defaultPrevented)throw n}return c.then(n=>{for(const e of n||[])e.status==="rejected"&&a(e.reason);return m().catch(a)})};P(()=>import("./chunk-bootstrap.js"),__vite__mapDeps([0,1]));
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["chunk-bootstrap.js","chunk-_virtual___federation_fn_import.js","chunk-index.js","chunk-index2.js"])))=>i.map(i=>d[i]);
+const scriptRel = 'modulepreload';const assetsURL = function(dep) { return "/microfrontends/module-teacher/dist/"+dep };const seen = {};const __vitePreload = function preload(baseModule, deps, importerUrl) {
+  let promise = Promise.resolve();
+  if (true               && deps && deps.length > 0) {
+    let allSettled2 = function(promises) {
+      return Promise.all(
+        promises.map(
+          (p) => Promise.resolve(p).then(
+            (value) => ({ status: "fulfilled", value }),
+            (reason) => ({ status: "rejected", reason })
+          )
+        )
+      );
+    };
+    document.getElementsByTagName("link");
+    const cspNonceMeta = document.querySelector(
+      "meta[property=csp-nonce]"
+    );
+    const cspNonce = cspNonceMeta?.nonce || cspNonceMeta?.getAttribute("nonce");
+    promise = allSettled2(
+      deps.map((dep) => {
+        dep = assetsURL(dep);
+        if (dep in seen) return;
+        seen[dep] = true;
+        const isCss = dep.endsWith(".css");
+        const cssSelector = isCss ? '[rel="stylesheet"]' : "";
+        if (document.querySelector(`link[href="${dep}"]${cssSelector}`)) {
+          return;
+        }
+        const link = document.createElement("link");
+        link.rel = isCss ? "stylesheet" : scriptRel;
+        if (!isCss) {
+          link.as = "script";
+        }
+        link.crossOrigin = "";
+        link.href = dep;
+        if (cspNonce) {
+          link.setAttribute("nonce", cspNonce);
+        }
+        document.head.appendChild(link);
+        if (isCss) {
+          return new Promise((res, rej) => {
+            link.addEventListener("load", res);
+            link.addEventListener(
+              "error",
+              () => rej(new Error(`Unable to preload CSS for ${dep}`))
+            );
+          });
+        }
+      })
+    );
+  }
+  function handlePreloadError(err) {
+    const e = new Event("vite:preloadError", {
+      cancelable: true
+    });
+    e.payload = err;
+    window.dispatchEvent(e);
+    if (!e.defaultPrevented) {
+      throw err;
+    }
+  }
+  return promise.then((res) => {
+    for (const item of res || []) {
+      if (item.status !== "rejected") continue;
+      handlePreloadError(item.reason);
+    }
+    return baseModule().catch(handlePreloadError);
+  });
+};
+
+__vitePreload(() => import('./chunk-bootstrap.js'),true              ?__vite__mapDeps([0,1,2,3]):void 0);

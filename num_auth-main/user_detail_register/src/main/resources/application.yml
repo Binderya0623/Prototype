@@ -6,17 +6,22 @@ spring:
     name: user_detail_register
   main:
     allow-circular-references: true
+  datasource:
+    url: ${USER_DETAIL_DB_URL:jdbc:postgresql://localhost:5432/user_detail_register_db}
+    username: ${USER_DETAIL_DB_USERNAME:postgres}
+    password: ${USER_DETAIL_DB_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
   cloud:
     compatibility-verifier:
       enabled: false
-  # data:
-  #   mongodb:
-  #     host: localhost
-  #     port: 27017
-  #     database: user_detail_register_db
-  data:
-    mongodb:
-      uri: mongodb+srv://lhagvabatulzii:Lhagv%401592@authentication.cyi8i.mongodb.net/user_detail_register_db?retryWrites=true&w=majority&appName=Authentication&ssl=true&tls=true&authSource=admin&maxPoolSize=50&minPoolSize=5
 eureka:
   client:
     enabled: false

@@ -30,4 +30,14 @@ public class FindUserService implements FindUserUseCase {
     public Mono<User> findByName(String name) {
         return userRepositoryPort.findById(name);
     }
+
+    @Override
+    public Flux<User> findStudents(String departmentId) {
+        return userRepositoryPort.findStudents(departmentId);
+    }
+
+    @Override
+    public Flux<User> findTeachers(String departmentId) {
+        return userRepositoryPort.findTeachers(departmentId);
+    }
 }

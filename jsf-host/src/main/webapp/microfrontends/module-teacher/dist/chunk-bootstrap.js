@@ -1,12 +1,12 @@
-function Th(l,u){for(var o=0;o<u.length;o++){const c=u[o];if(typeof c!="string"&&!Array.isArray(c)){for(const d in c)if(d!=="default"&&!(d in l)){const m=Object.getOwnPropertyDescriptor(c,d);m&&Object.defineProperty(l,d,m.get?m:{enumerable:!0,get:()=>c[d]})}}}return Object.freeze(Object.defineProperty(l,Symbol.toStringTag,{value:"Module"}))}function Mh(l){return l&&l.__esModule&&Object.prototype.hasOwnProperty.call(l,"default")?l.default:l}var Ho={exports:{}},cs={},Go={exports:{}},ce={};/**
- * @license React
- * react.production.min.js
- *
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */var Ed;function Lh(){if(Ed)return ce;Ed=1;var l=Symbol.for("react.element"),u=Symbol.for("react.portal"),o=Symbol.for("react.fragment"),c=Symbol.for("react.strict_mode"),d=Symbol.for("react.profiler"),m=Symbol.for("react.provider"),p=Symbol.for("react.context"),g=Symbol.for("react.forward_ref"),h=Symbol.for("react.suspense"),y=Symbol.for("react.memo"),N=Symbol.for("react.lazy"),j=Symbol.iterator;function T(k){return k===null||typeof k!="object"?null:(k=j&&k[j]||k["@@iterator"],typeof k=="function"?k:null)}var A={isMounted:function(){return!1},enqueueForceUpdate:function(){},enqueueReplaceState:function(){},enqueueSetState:function(){}},I=Object.assign,M={};function D(k,z,Z){this.props=k,this.context=z,this.refs=M,this.updater=Z||A}D.prototype.isReactComponent={},D.prototype.setState=function(k,z){if(typeof k!="object"&&typeof k!="function"&&k!=null)throw Error("setState(...): takes an object of state variables to update or a function which returns an object of state variables.");this.updater.enqueueSetState(this,k,z,"setState")},D.prototype.forceUpdate=function(k){this.updater.enqueueForceUpdate(this,k,"forceUpdate")};function _(){}_.prototype=D.prototype;function R(k,z,Z){this.props=k,this.context=z,this.refs=M,this.updater=Z||A}var S=R.prototype=new _;S.constructor=R,I(S,D.prototype),S.isPureReactComponent=!0;var H=Array.isArray,U=Object.prototype.hasOwnProperty,ie={current:null},ve={key:!0,ref:!0,__self:!0,__source:!0};function V(k,z,Z){var re,de={},fe=null,ae=null;if(z!=null)for(re in z.ref!==void 0&&(ae=z.ref),z.key!==void 0&&(fe=""+z.key),z)U.call(z,re)&&!ve.hasOwnProperty(re)&&(de[re]=z[re]);var xe=arguments.length-2;if(xe===1)de.children=Z;else if(1<xe){for(var be=Array(xe),Ue=0;Ue<xe;Ue++)be[Ue]=arguments[Ue+2];de.children=be}if(k&&k.defaultProps)for(re in xe=k.defaultProps,xe)de[re]===void 0&&(de[re]=xe[re]);return{$$typeof:l,type:k,key:fe,ref:ae,props:de,_owner:ie.current}}function je(k,z){return{$$typeof:l,type:k.type,key:z,ref:k.ref,props:k.props,_owner:k._owner}}function Le(k){return typeof k=="object"&&k!==null&&k.$$typeof===l}function st(k){var z={"=":"=0",":":"=2"};return"$"+k.replace(/[=:]/g,function(Z){return z[Z]})}var Ge=/\/+/g;function $e(k,z){return typeof k=="object"&&k!==null&&k.key!=null?st(""+k.key):z.toString(36)}function Xe(k,z,Z,re,de){var fe=typeof k;(fe==="undefined"||fe==="boolean")&&(k=null);var ae=!1;if(k===null)ae=!0;else switch(fe){case"string":case"number":ae=!0;break;case"object":switch(k.$$typeof){case l:case u:ae=!0}}if(ae)return ae=k,de=de(ae),k=re===""?"."+$e(ae,0):re,H(de)?(Z="",k!=null&&(Z=k.replace(Ge,"$&/")+"/"),Xe(de,z,Z,"",function(Ue){return Ue})):de!=null&&(Le(de)&&(de=je(de,Z+(!de.key||ae&&ae.key===de.key?"":(""+de.key).replace(Ge,"$&/")+"/")+k)),z.push(de)),1;if(ae=0,re=re===""?".":re+":",H(k))for(var xe=0;xe<k.length;xe++){fe=k[xe];var be=re+$e(fe,xe);ae+=Xe(fe,z,Z,be,de)}else if(be=T(k),typeof be=="function")for(k=be.call(k),xe=0;!(fe=k.next()).done;)fe=fe.value,be=re+$e(fe,xe++),ae+=Xe(fe,z,Z,be,de);else if(fe==="object")throw z=String(k),Error("Objects are not valid as a React child (found: "+(z==="[object Object]"?"object with keys {"+Object.keys(k).join(", ")+"}":z)+"). If you meant to render a collection of children, use an array instead.");return ae}function Ae(k,z,Z){if(k==null)return k;var re=[],de=0;return Xe(k,re,"","",function(fe){return z.call(Z,fe,de++)}),re}function he(k){if(k._status===-1){var z=k._result;z=z(),z.then(function(Z){(k._status===0||k._status===-1)&&(k._status=1,k._result=Z)},function(Z){(k._status===0||k._status===-1)&&(k._status=2,k._result=Z)}),k._status===-1&&(k._status=0,k._result=z)}if(k._status===1)return k._result.default;throw k._result}var ye={current:null},L={transition:null},ee={ReactCurrentDispatcher:ye,ReactCurrentBatchConfig:L,ReactCurrentOwner:ie};function G(){throw Error("act(...) is not supported in production builds of React.")}return ce.Children={map:Ae,forEach:function(k,z,Z){Ae(k,function(){z.apply(this,arguments)},Z)},count:function(k){var z=0;return Ae(k,function(){z++}),z},toArray:function(k){return Ae(k,function(z){return z})||[]},only:function(k){if(!Le(k))throw Error("React.Children.only expected to receive a single React element child.");return k}},ce.Component=D,ce.Fragment=o,ce.Profiler=d,ce.PureComponent=R,ce.StrictMode=c,ce.Suspense=h,ce.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED=ee,ce.act=G,ce.cloneElement=function(k,z,Z){if(k==null)throw Error("React.cloneElement(...): The argument must be a React element, but you passed "+k+".");var re=I({},k.props),de=k.key,fe=k.ref,ae=k._owner;if(z!=null){if(z.ref!==void 0&&(fe=z.ref,ae=ie.current),z.key!==void 0&&(de=""+z.key),k.type&&k.type.defaultProps)var xe=k.type.defaultProps;for(be in z)U.call(z,be)&&!ve.hasOwnProperty(be)&&(re[be]=z[be]===void 0&&xe!==void 0?xe[be]:z[be])}var be=arguments.length-2;if(be===1)re.children=Z;else if(1<be){xe=Array(be);for(var Ue=0;Ue<be;Ue++)xe[Ue]=arguments[Ue+2];re.children=xe}return{$$typeof:l,type:k.type,key:de,ref:fe,props:re,_owner:ae}},ce.createContext=function(k){return k={$$typeof:p,_currentValue:k,_currentValue2:k,_threadCount:0,Provider:null,Consumer:null,_defaultValue:null,_globalName:null},k.Provider={$$typeof:m,_context:k},k.Consumer=k},ce.createElement=V,ce.createFactory=function(k){var z=V.bind(null,k);return z.type=k,z},ce.createRef=function(){return{current:null}},ce.forwardRef=function(k){return{$$typeof:g,render:k}},ce.isValidElement=Le,ce.lazy=function(k){return{$$typeof:N,_payload:{_status:-1,_result:k},_init:he}},ce.memo=function(k,z){return{$$typeof:y,type:k,compare:z===void 0?null:z}},ce.startTransition=function(k){var z=L.transition;L.transition={};try{k()}finally{L.transition=z}},ce.unstable_act=G,ce.useCallback=function(k,z){return ye.current.useCallback(k,z)},ce.useContext=function(k){return ye.current.useContext(k)},ce.useDebugValue=function(){},ce.useDeferredValue=function(k){return ye.current.useDeferredValue(k)},ce.useEffect=function(k,z){return ye.current.useEffect(k,z)},ce.useId=function(){return ye.current.useId()},ce.useImperativeHandle=function(k,z,Z){return ye.current.useImperativeHandle(k,z,Z)},ce.useInsertionEffect=function(k,z){return ye.current.useInsertionEffect(k,z)},ce.useLayoutEffect=function(k,z){return ye.current.useLayoutEffect(k,z)},ce.useMemo=function(k,z){return ye.current.useMemo(k,z)},ce.useReducer=function(k,z,Z){return ye.current.useReducer(k,z,Z)},ce.useRef=function(k){return ye.current.useRef(k)},ce.useState=function(k){return ye.current.useState(k)},ce.useSyncExternalStore=function(k,z,Z){return ye.current.useSyncExternalStore(k,z,Z)},ce.useTransition=function(){return ye.current.useTransition()},ce.version="18.3.1",ce}var _d;function fi(){return _d||(_d=1,Go.exports=Lh()),Go.exports}/**
+import { importShared } from './chunk-_virtual___federation_fn_import.js';
+import { requireReact } from './chunk-index.js';
+import { requireReactDom } from './chunk-index2.js';
+
+var jsxRuntime = {exports: {}};
+
+var reactJsxRuntime_production_min = {};
+
+/**
  * @license React
  * react-jsx-runtime.production.min.js
  *
@@ -14,288 +14,9529 @@ function Th(l,u){for(var o=0;o<u.length;o++){const c=u[o];if(typeof c!="string"&
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
- */var Rd;function Dh(){if(Rd)return cs;Rd=1;var l=fi(),u=Symbol.for("react.element"),o=Symbol.for("react.fragment"),c=Object.prototype.hasOwnProperty,d=l.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner,m={key:!0,ref:!0,__self:!0,__source:!0};function p(g,h,y){var N,j={},T=null,A=null;y!==void 0&&(T=""+y),h.key!==void 0&&(T=""+h.key),h.ref!==void 0&&(A=h.ref);for(N in h)c.call(h,N)&&!m.hasOwnProperty(N)&&(j[N]=h[N]);if(g&&g.defaultProps)for(N in h=g.defaultProps,h)j[N]===void 0&&(j[N]=h[N]);return{$$typeof:u,type:g,key:T,ref:A,props:j,_owner:d.current}}return cs.Fragment=o,cs.jsx=p,cs.jsxs=p,cs}var Pd;function Ih(){return Pd||(Pd=1,Ho.exports=Dh()),Ho.exports}var r=Ih(),x=fi();const en=Mh(x),zh=Th({__proto__:null,default:en},[x]);var Ll={},Qo={exports:{}},ct={},Ko={exports:{}},Yo={};/**
- * @license React
- * scheduler.production.min.js
- *
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */var Td;function Ah(){return Td||(Td=1,(function(l){function u(L,ee){var G=L.length;L.push(ee);e:for(;0<G;){var k=G-1>>>1,z=L[k];if(0<d(z,ee))L[k]=ee,L[G]=z,G=k;else break e}}function o(L){return L.length===0?null:L[0]}function c(L){if(L.length===0)return null;var ee=L[0],G=L.pop();if(G!==ee){L[0]=G;e:for(var k=0,z=L.length,Z=z>>>1;k<Z;){var re=2*(k+1)-1,de=L[re],fe=re+1,ae=L[fe];if(0>d(de,G))fe<z&&0>d(ae,de)?(L[k]=ae,L[fe]=G,k=fe):(L[k]=de,L[re]=G,k=re);else if(fe<z&&0>d(ae,G))L[k]=ae,L[fe]=G,k=fe;else break e}}return ee}function d(L,ee){var G=L.sortIndex-ee.sortIndex;return G!==0?G:L.id-ee.id}if(typeof performance=="object"&&typeof performance.now=="function"){var m=performance;l.unstable_now=function(){return m.now()}}else{var p=Date,g=p.now();l.unstable_now=function(){return p.now()-g}}var h=[],y=[],N=1,j=null,T=3,A=!1,I=!1,M=!1,D=typeof setTimeout=="function"?setTimeout:null,_=typeof clearTimeout=="function"?clearTimeout:null,R=typeof setImmediate<"u"?setImmediate:null;typeof navigator<"u"&&navigator.scheduling!==void 0&&navigator.scheduling.isInputPending!==void 0&&navigator.scheduling.isInputPending.bind(navigator.scheduling);function S(L){for(var ee=o(y);ee!==null;){if(ee.callback===null)c(y);else if(ee.startTime<=L)c(y),ee.sortIndex=ee.expirationTime,u(h,ee);else break;ee=o(y)}}function H(L){if(M=!1,S(L),!I)if(o(h)!==null)I=!0,he(U);else{var ee=o(y);ee!==null&&ye(H,ee.startTime-L)}}function U(L,ee){I=!1,M&&(M=!1,_(V),V=-1),A=!0;var G=T;try{for(S(ee),j=o(h);j!==null&&(!(j.expirationTime>ee)||L&&!st());){var k=j.callback;if(typeof k=="function"){j.callback=null,T=j.priorityLevel;var z=k(j.expirationTime<=ee);ee=l.unstable_now(),typeof z=="function"?j.callback=z:j===o(h)&&c(h),S(ee)}else c(h);j=o(h)}if(j!==null)var Z=!0;else{var re=o(y);re!==null&&ye(H,re.startTime-ee),Z=!1}return Z}finally{j=null,T=G,A=!1}}var ie=!1,ve=null,V=-1,je=5,Le=-1;function st(){return!(l.unstable_now()-Le<je)}function Ge(){if(ve!==null){var L=l.unstable_now();Le=L;var ee=!0;try{ee=ve(!0,L)}finally{ee?$e():(ie=!1,ve=null)}}else ie=!1}var $e;if(typeof R=="function")$e=function(){R(Ge)};else if(typeof MessageChannel<"u"){var Xe=new MessageChannel,Ae=Xe.port2;Xe.port1.onmessage=Ge,$e=function(){Ae.postMessage(null)}}else $e=function(){D(Ge,0)};function he(L){ve=L,ie||(ie=!0,$e())}function ye(L,ee){V=D(function(){L(l.unstable_now())},ee)}l.unstable_IdlePriority=5,l.unstable_ImmediatePriority=1,l.unstable_LowPriority=4,l.unstable_NormalPriority=3,l.unstable_Profiling=null,l.unstable_UserBlockingPriority=2,l.unstable_cancelCallback=function(L){L.callback=null},l.unstable_continueExecution=function(){I||A||(I=!0,he(U))},l.unstable_forceFrameRate=function(L){0>L||125<L?console.error("forceFrameRate takes a positive int between 0 and 125, forcing frame rates higher than 125 fps is not supported"):je=0<L?Math.floor(1e3/L):5},l.unstable_getCurrentPriorityLevel=function(){return T},l.unstable_getFirstCallbackNode=function(){return o(h)},l.unstable_next=function(L){switch(T){case 1:case 2:case 3:var ee=3;break;default:ee=T}var G=T;T=ee;try{return L()}finally{T=G}},l.unstable_pauseExecution=function(){},l.unstable_requestPaint=function(){},l.unstable_runWithPriority=function(L,ee){switch(L){case 1:case 2:case 3:case 4:case 5:break;default:L=3}var G=T;T=L;try{return ee()}finally{T=G}},l.unstable_scheduleCallback=function(L,ee,G){var k=l.unstable_now();switch(typeof G=="object"&&G!==null?(G=G.delay,G=typeof G=="number"&&0<G?k+G:k):G=k,L){case 1:var z=-1;break;case 2:z=250;break;case 5:z=1073741823;break;case 4:z=1e4;break;default:z=5e3}return z=G+z,L={id:N++,callback:ee,priorityLevel:L,startTime:G,expirationTime:z,sortIndex:-1},G>k?(L.sortIndex=G,u(y,L),o(h)===null&&L===o(y)&&(M?(_(V),V=-1):M=!0,ye(H,G-k))):(L.sortIndex=z,u(h,L),I||A||(I=!0,he(U))),L},l.unstable_shouldYield=st,l.unstable_wrapCallback=function(L){var ee=T;return function(){var G=T;T=ee;try{return L.apply(this,arguments)}finally{T=G}}}})(Yo)),Yo}var Md;function Fh(){return Md||(Md=1,Ko.exports=Ah()),Ko.exports}/**
- * @license React
- * react-dom.production.min.js
- *
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */var Ld;function Oh(){if(Ld)return ct;Ld=1;var l=fi(),u=Fh();function o(e){for(var t="https://reactjs.org/docs/error-decoder.html?invariant="+e,n=1;n<arguments.length;n++)t+="&args[]="+encodeURIComponent(arguments[n]);return"Minified React error #"+e+"; visit "+t+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings."}var c=new Set,d={};function m(e,t){p(e,t),p(e+"Capture",t)}function p(e,t){for(d[e]=t,e=0;e<t.length;e++)c.add(t[e])}var g=!(typeof window>"u"||typeof window.document>"u"||typeof window.document.createElement>"u"),h=Object.prototype.hasOwnProperty,y=/^[:A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD][:A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD\-.0-9\u00B7\u0300-\u036F\u203F-\u2040]*$/,N={},j={};function T(e){return h.call(j,e)?!0:h.call(N,e)?!1:y.test(e)?j[e]=!0:(N[e]=!0,!1)}function A(e,t,n,s){if(n!==null&&n.type===0)return!1;switch(typeof t){case"function":case"symbol":return!0;case"boolean":return s?!1:n!==null?!n.acceptsBooleans:(e=e.toLowerCase().slice(0,5),e!=="data-"&&e!=="aria-");default:return!1}}function I(e,t,n,s){if(t===null||typeof t>"u"||A(e,t,n,s))return!0;if(s)return!1;if(n!==null)switch(n.type){case 3:return!t;case 4:return t===!1;case 5:return isNaN(t);case 6:return isNaN(t)||1>t}return!1}function M(e,t,n,s,a,i,f){this.acceptsBooleans=t===2||t===3||t===4,this.attributeName=s,this.attributeNamespace=a,this.mustUseProperty=n,this.propertyName=e,this.type=t,this.sanitizeURL=i,this.removeEmptyString=f}var D={};"children dangerouslySetInnerHTML defaultValue defaultChecked innerHTML suppressContentEditableWarning suppressHydrationWarning style".split(" ").forEach(function(e){D[e]=new M(e,0,!1,e,null,!1,!1)}),[["acceptCharset","accept-charset"],["className","class"],["htmlFor","for"],["httpEquiv","http-equiv"]].forEach(function(e){var t=e[0];D[t]=new M(t,1,!1,e[1],null,!1,!1)}),["contentEditable","draggable","spellCheck","value"].forEach(function(e){D[e]=new M(e,2,!1,e.toLowerCase(),null,!1,!1)}),["autoReverse","externalResourcesRequired","focusable","preserveAlpha"].forEach(function(e){D[e]=new M(e,2,!1,e,null,!1,!1)}),"allowFullScreen async autoFocus autoPlay controls default defer disabled disablePictureInPicture disableRemotePlayback formNoValidate hidden loop noModule noValidate open playsInline readOnly required reversed scoped seamless itemScope".split(" ").forEach(function(e){D[e]=new M(e,3,!1,e.toLowerCase(),null,!1,!1)}),["checked","multiple","muted","selected"].forEach(function(e){D[e]=new M(e,3,!0,e,null,!1,!1)}),["capture","download"].forEach(function(e){D[e]=new M(e,4,!1,e,null,!1,!1)}),["cols","rows","size","span"].forEach(function(e){D[e]=new M(e,6,!1,e,null,!1,!1)}),["rowSpan","start"].forEach(function(e){D[e]=new M(e,5,!1,e.toLowerCase(),null,!1,!1)});var _=/[\-:]([a-z])/g;function R(e){return e[1].toUpperCase()}"accent-height alignment-baseline arabic-form baseline-shift cap-height clip-path clip-rule color-interpolation color-interpolation-filters color-profile color-rendering dominant-baseline enable-background fill-opacity fill-rule flood-color flood-opacity font-family font-size font-size-adjust font-stretch font-style font-variant font-weight glyph-name glyph-orientation-horizontal glyph-orientation-vertical horiz-adv-x horiz-origin-x image-rendering letter-spacing lighting-color marker-end marker-mid marker-start overline-position overline-thickness paint-order panose-1 pointer-events rendering-intent shape-rendering stop-color stop-opacity strikethrough-position strikethrough-thickness stroke-dasharray stroke-dashoffset stroke-linecap stroke-linejoin stroke-miterlimit stroke-opacity stroke-width text-anchor text-decoration text-rendering underline-position underline-thickness unicode-bidi unicode-range units-per-em v-alphabetic v-hanging v-ideographic v-mathematical vector-effect vert-adv-y vert-origin-x vert-origin-y word-spacing writing-mode xmlns:xlink x-height".split(" ").forEach(function(e){var t=e.replace(_,R);D[t]=new M(t,1,!1,e,null,!1,!1)}),"xlink:actuate xlink:arcrole xlink:role xlink:show xlink:title xlink:type".split(" ").forEach(function(e){var t=e.replace(_,R);D[t]=new M(t,1,!1,e,"http://www.w3.org/1999/xlink",!1,!1)}),["xml:base","xml:lang","xml:space"].forEach(function(e){var t=e.replace(_,R);D[t]=new M(t,1,!1,e,"http://www.w3.org/XML/1998/namespace",!1,!1)}),["tabIndex","crossOrigin"].forEach(function(e){D[e]=new M(e,1,!1,e.toLowerCase(),null,!1,!1)}),D.xlinkHref=new M("xlinkHref",1,!1,"xlink:href","http://www.w3.org/1999/xlink",!0,!1),["src","href","action","formAction"].forEach(function(e){D[e]=new M(e,1,!1,e.toLowerCase(),null,!0,!0)});function S(e,t,n,s){var a=D.hasOwnProperty(t)?D[t]:null;(a!==null?a.type!==0:s||!(2<t.length)||t[0]!=="o"&&t[0]!=="O"||t[1]!=="n"&&t[1]!=="N")&&(I(t,n,a,s)&&(n=null),s||a===null?T(t)&&(n===null?e.removeAttribute(t):e.setAttribute(t,""+n)):a.mustUseProperty?e[a.propertyName]=n===null?a.type===3?!1:"":n:(t=a.attributeName,s=a.attributeNamespace,n===null?e.removeAttribute(t):(a=a.type,n=a===3||a===4&&n===!0?"":""+n,s?e.setAttributeNS(s,t,n):e.setAttribute(t,n))))}var H=l.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED,U=Symbol.for("react.element"),ie=Symbol.for("react.portal"),ve=Symbol.for("react.fragment"),V=Symbol.for("react.strict_mode"),je=Symbol.for("react.profiler"),Le=Symbol.for("react.provider"),st=Symbol.for("react.context"),Ge=Symbol.for("react.forward_ref"),$e=Symbol.for("react.suspense"),Xe=Symbol.for("react.suspense_list"),Ae=Symbol.for("react.memo"),he=Symbol.for("react.lazy"),ye=Symbol.for("react.offscreen"),L=Symbol.iterator;function ee(e){return e===null||typeof e!="object"?null:(e=L&&e[L]||e["@@iterator"],typeof e=="function"?e:null)}var G=Object.assign,k;function z(e){if(k===void 0)try{throw Error()}catch(n){var t=n.stack.trim().match(/\n( *(at )?)/);k=t&&t[1]||""}return`
-`+k+e}var Z=!1;function re(e,t){if(!e||Z)return"";Z=!0;var n=Error.prepareStackTrace;Error.prepareStackTrace=void 0;try{if(t)if(t=function(){throw Error()},Object.defineProperty(t.prototype,"props",{set:function(){throw Error()}}),typeof Reflect=="object"&&Reflect.construct){try{Reflect.construct(t,[])}catch(P){var s=P}Reflect.construct(e,[],t)}else{try{t.call()}catch(P){s=P}e.call(t.prototype)}else{try{throw Error()}catch(P){s=P}e()}}catch(P){if(P&&s&&typeof P.stack=="string"){for(var a=P.stack.split(`
-`),i=s.stack.split(`
-`),f=a.length-1,v=i.length-1;1<=f&&0<=v&&a[f]!==i[v];)v--;for(;1<=f&&0<=v;f--,v--)if(a[f]!==i[v]){if(f!==1||v!==1)do if(f--,v--,0>v||a[f]!==i[v]){var w=`
-`+a[f].replace(" at new "," at ");return e.displayName&&w.includes("<anonymous>")&&(w=w.replace("<anonymous>",e.displayName)),w}while(1<=f&&0<=v);break}}}finally{Z=!1,Error.prepareStackTrace=n}return(e=e?e.displayName||e.name:"")?z(e):""}function de(e){switch(e.tag){case 5:return z(e.type);case 16:return z("Lazy");case 13:return z("Suspense");case 19:return z("SuspenseList");case 0:case 2:case 15:return e=re(e.type,!1),e;case 11:return e=re(e.type.render,!1),e;case 1:return e=re(e.type,!0),e;default:return""}}function fe(e){if(e==null)return null;if(typeof e=="function")return e.displayName||e.name||null;if(typeof e=="string")return e;switch(e){case ve:return"Fragment";case ie:return"Portal";case je:return"Profiler";case V:return"StrictMode";case $e:return"Suspense";case Xe:return"SuspenseList"}if(typeof e=="object")switch(e.$$typeof){case st:return(e.displayName||"Context")+".Consumer";case Le:return(e._context.displayName||"Context")+".Provider";case Ge:var t=e.render;return e=e.displayName,e||(e=t.displayName||t.name||"",e=e!==""?"ForwardRef("+e+")":"ForwardRef"),e;case Ae:return t=e.displayName||null,t!==null?t:fe(e.type)||"Memo";case he:t=e._payload,e=e._init;try{return fe(e(t))}catch{}}return null}function ae(e){var t=e.type;switch(e.tag){case 24:return"Cache";case 9:return(t.displayName||"Context")+".Consumer";case 10:return(t._context.displayName||"Context")+".Provider";case 18:return"DehydratedFragment";case 11:return e=t.render,e=e.displayName||e.name||"",t.displayName||(e!==""?"ForwardRef("+e+")":"ForwardRef");case 7:return"Fragment";case 5:return t;case 4:return"Portal";case 3:return"Root";case 6:return"Text";case 16:return fe(t);case 8:return t===V?"StrictMode":"Mode";case 22:return"Offscreen";case 12:return"Profiler";case 21:return"Scope";case 13:return"Suspense";case 19:return"SuspenseList";case 25:return"TracingMarker";case 1:case 0:case 17:case 2:case 14:case 15:if(typeof t=="function")return t.displayName||t.name||null;if(typeof t=="string")return t}return null}function xe(e){switch(typeof e){case"boolean":case"number":case"string":case"undefined":return e;case"object":return e;default:return""}}function be(e){var t=e.type;return(e=e.nodeName)&&e.toLowerCase()==="input"&&(t==="checkbox"||t==="radio")}function Ue(e){var t=be(e)?"checked":"value",n=Object.getOwnPropertyDescriptor(e.constructor.prototype,t),s=""+e[t];if(!e.hasOwnProperty(t)&&typeof n<"u"&&typeof n.get=="function"&&typeof n.set=="function"){var a=n.get,i=n.set;return Object.defineProperty(e,t,{configurable:!0,get:function(){return a.call(this)},set:function(f){s=""+f,i.call(this,f)}}),Object.defineProperty(e,t,{enumerable:n.enumerable}),{getValue:function(){return s},setValue:function(f){s=""+f},stopTracking:function(){e._valueTracker=null,delete e[t]}}}}function an(e){e._valueTracker||(e._valueTracker=Ue(e))}function Pn(e){if(!e)return!1;var t=e._valueTracker;if(!t)return!0;var n=t.getValue(),s="";return e&&(s=be(e)?e.checked?"true":"false":e.value),e=s,e!==n?(t.setValue(e),!0):!1}function ks(e){if(e=e||(typeof document<"u"?document:void 0),typeof e>"u")return null;try{return e.activeElement||e.body}catch{return e.body}}function Xl(e,t){var n=t.checked;return G({},t,{defaultChecked:void 0,defaultValue:void 0,value:void 0,checked:n??e._wrapperState.initialChecked})}function Di(e,t){var n=t.defaultValue==null?"":t.defaultValue,s=t.checked!=null?t.checked:t.defaultChecked;n=xe(t.value!=null?t.value:n),e._wrapperState={initialChecked:s,initialValue:n,controlled:t.type==="checkbox"||t.type==="radio"?t.checked!=null:t.value!=null}}function Ii(e,t){t=t.checked,t!=null&&S(e,"checked",t,!1)}function ql(e,t){Ii(e,t);var n=xe(t.value),s=t.type;if(n!=null)s==="number"?(n===0&&e.value===""||e.value!=n)&&(e.value=""+n):e.value!==""+n&&(e.value=""+n);else if(s==="submit"||s==="reset"){e.removeAttribute("value");return}t.hasOwnProperty("value")?Zl(e,t.type,n):t.hasOwnProperty("defaultValue")&&Zl(e,t.type,xe(t.defaultValue)),t.checked==null&&t.defaultChecked!=null&&(e.defaultChecked=!!t.defaultChecked)}function zi(e,t,n){if(t.hasOwnProperty("value")||t.hasOwnProperty("defaultValue")){var s=t.type;if(!(s!=="submit"&&s!=="reset"||t.value!==void 0&&t.value!==null))return;t=""+e._wrapperState.initialValue,n||t===e.value||(e.value=t),e.defaultValue=t}n=e.name,n!==""&&(e.name=""),e.defaultChecked=!!e._wrapperState.initialChecked,n!==""&&(e.name=n)}function Zl(e,t,n){(t!=="number"||ks(e.ownerDocument)!==e)&&(n==null?e.defaultValue=""+e._wrapperState.initialValue:e.defaultValue!==""+n&&(e.defaultValue=""+n))}var Sr=Array.isArray;function Qn(e,t,n,s){if(e=e.options,t){t={};for(var a=0;a<n.length;a++)t["$"+n[a]]=!0;for(n=0;n<e.length;n++)a=t.hasOwnProperty("$"+e[n].value),e[n].selected!==a&&(e[n].selected=a),a&&s&&(e[n].defaultSelected=!0)}else{for(n=""+xe(n),t=null,a=0;a<e.length;a++){if(e[a].value===n){e[a].selected=!0,s&&(e[a].defaultSelected=!0);return}t!==null||e[a].disabled||(t=e[a])}t!==null&&(t.selected=!0)}}function ea(e,t){if(t.dangerouslySetInnerHTML!=null)throw Error(o(91));return G({},t,{value:void 0,defaultValue:void 0,children:""+e._wrapperState.initialValue})}function Ai(e,t){var n=t.value;if(n==null){if(n=t.children,t=t.defaultValue,n!=null){if(t!=null)throw Error(o(92));if(Sr(n)){if(1<n.length)throw Error(o(93));n=n[0]}t=n}t==null&&(t=""),n=t}e._wrapperState={initialValue:xe(n)}}function Fi(e,t){var n=xe(t.value),s=xe(t.defaultValue);n!=null&&(n=""+n,n!==e.value&&(e.value=n),t.defaultValue==null&&e.defaultValue!==n&&(e.defaultValue=n)),s!=null&&(e.defaultValue=""+s)}function Oi(e){var t=e.textContent;t===e._wrapperState.initialValue&&t!==""&&t!==null&&(e.value=t)}function Bi(e){switch(e){case"svg":return"http://www.w3.org/2000/svg";case"math":return"http://www.w3.org/1998/Math/MathML";default:return"http://www.w3.org/1999/xhtml"}}function ta(e,t){return e==null||e==="http://www.w3.org/1999/xhtml"?Bi(t):e==="http://www.w3.org/2000/svg"&&t==="foreignObject"?"http://www.w3.org/1999/xhtml":e}var Ss,$i=(function(e){return typeof MSApp<"u"&&MSApp.execUnsafeLocalFunction?function(t,n,s,a){MSApp.execUnsafeLocalFunction(function(){return e(t,n,s,a)})}:e})(function(e,t){if(e.namespaceURI!=="http://www.w3.org/2000/svg"||"innerHTML"in e)e.innerHTML=t;else{for(Ss=Ss||document.createElement("div"),Ss.innerHTML="<svg>"+t.valueOf().toString()+"</svg>",t=Ss.firstChild;e.firstChild;)e.removeChild(e.firstChild);for(;t.firstChild;)e.appendChild(t.firstChild)}});function Cr(e,t){if(t){var n=e.firstChild;if(n&&n===e.lastChild&&n.nodeType===3){n.nodeValue=t;return}}e.textContent=t}var Er={animationIterationCount:!0,aspectRatio:!0,borderImageOutset:!0,borderImageSlice:!0,borderImageWidth:!0,boxFlex:!0,boxFlexGroup:!0,boxOrdinalGroup:!0,columnCount:!0,columns:!0,flex:!0,flexGrow:!0,flexPositive:!0,flexShrink:!0,flexNegative:!0,flexOrder:!0,gridArea:!0,gridRow:!0,gridRowEnd:!0,gridRowSpan:!0,gridRowStart:!0,gridColumn:!0,gridColumnEnd:!0,gridColumnSpan:!0,gridColumnStart:!0,fontWeight:!0,lineClamp:!0,lineHeight:!0,opacity:!0,order:!0,orphans:!0,tabSize:!0,widows:!0,zIndex:!0,zoom:!0,fillOpacity:!0,floodOpacity:!0,stopOpacity:!0,strokeDasharray:!0,strokeDashoffset:!0,strokeMiterlimit:!0,strokeOpacity:!0,strokeWidth:!0},Im=["Webkit","ms","Moz","O"];Object.keys(Er).forEach(function(e){Im.forEach(function(t){t=t+e.charAt(0).toUpperCase()+e.substring(1),Er[t]=Er[e]})});function Ui(e,t,n){return t==null||typeof t=="boolean"||t===""?"":n||typeof t!="number"||t===0||Er.hasOwnProperty(e)&&Er[e]?(""+t).trim():t+"px"}function Vi(e,t){e=e.style;for(var n in t)if(t.hasOwnProperty(n)){var s=n.indexOf("--")===0,a=Ui(n,t[n],s);n==="float"&&(n="cssFloat"),s?e.setProperty(n,a):e[n]=a}}var zm=G({menuitem:!0},{area:!0,base:!0,br:!0,col:!0,embed:!0,hr:!0,img:!0,input:!0,keygen:!0,link:!0,meta:!0,param:!0,source:!0,track:!0,wbr:!0});function na(e,t){if(t){if(zm[e]&&(t.children!=null||t.dangerouslySetInnerHTML!=null))throw Error(o(137,e));if(t.dangerouslySetInnerHTML!=null){if(t.children!=null)throw Error(o(60));if(typeof t.dangerouslySetInnerHTML!="object"||!("__html"in t.dangerouslySetInnerHTML))throw Error(o(61))}if(t.style!=null&&typeof t.style!="object")throw Error(o(62))}}function ra(e,t){if(e.indexOf("-")===-1)return typeof t.is=="string";switch(e){case"annotation-xml":case"color-profile":case"font-face":case"font-face-src":case"font-face-uri":case"font-face-format":case"font-face-name":case"missing-glyph":return!1;default:return!0}}var sa=null;function la(e){return e=e.target||e.srcElement||window,e.correspondingUseElement&&(e=e.correspondingUseElement),e.nodeType===3?e.parentNode:e}var aa=null,Kn=null,Yn=null;function Wi(e){if(e=Yr(e)){if(typeof aa!="function")throw Error(o(280));var t=e.stateNode;t&&(t=Ks(t),aa(e.stateNode,e.type,t))}}function Hi(e){Kn?Yn?Yn.push(e):Yn=[e]:Kn=e}function Gi(){if(Kn){var e=Kn,t=Yn;if(Yn=Kn=null,Wi(e),t)for(e=0;e<t.length;e++)Wi(t[e])}}function Qi(e,t){return e(t)}function Ki(){}var oa=!1;function Yi(e,t,n){if(oa)return e(t,n);oa=!0;try{return Qi(e,t,n)}finally{oa=!1,(Kn!==null||Yn!==null)&&(Ki(),Gi())}}function _r(e,t){var n=e.stateNode;if(n===null)return null;var s=Ks(n);if(s===null)return null;n=s[t];e:switch(t){case"onClick":case"onClickCapture":case"onDoubleClick":case"onDoubleClickCapture":case"onMouseDown":case"onMouseDownCapture":case"onMouseMove":case"onMouseMoveCapture":case"onMouseUp":case"onMouseUpCapture":case"onMouseEnter":(s=!s.disabled)||(e=e.type,s=!(e==="button"||e==="input"||e==="select"||e==="textarea")),e=!s;break e;default:e=!1}if(e)return null;if(n&&typeof n!="function")throw Error(o(231,t,typeof n));return n}var ia=!1;if(g)try{var Rr={};Object.defineProperty(Rr,"passive",{get:function(){ia=!0}}),window.addEventListener("test",Rr,Rr),window.removeEventListener("test",Rr,Rr)}catch{ia=!1}function Am(e,t,n,s,a,i,f,v,w){var P=Array.prototype.slice.call(arguments,3);try{t.apply(n,P)}catch(O){this.onError(O)}}var Pr=!1,Cs=null,Es=!1,ua=null,Fm={onError:function(e){Pr=!0,Cs=e}};function Om(e,t,n,s,a,i,f,v,w){Pr=!1,Cs=null,Am.apply(Fm,arguments)}function Bm(e,t,n,s,a,i,f,v,w){if(Om.apply(this,arguments),Pr){if(Pr){var P=Cs;Pr=!1,Cs=null}else throw Error(o(198));Es||(Es=!0,ua=P)}}function Tn(e){var t=e,n=e;if(e.alternate)for(;t.return;)t=t.return;else{e=t;do t=e,(t.flags&4098)!==0&&(n=t.return),e=t.return;while(e)}return t.tag===3?n:null}function Ji(e){if(e.tag===13){var t=e.memoizedState;if(t===null&&(e=e.alternate,e!==null&&(t=e.memoizedState)),t!==null)return t.dehydrated}return null}function Xi(e){if(Tn(e)!==e)throw Error(o(188))}function $m(e){var t=e.alternate;if(!t){if(t=Tn(e),t===null)throw Error(o(188));return t!==e?null:e}for(var n=e,s=t;;){var a=n.return;if(a===null)break;var i=a.alternate;if(i===null){if(s=a.return,s!==null){n=s;continue}break}if(a.child===i.child){for(i=a.child;i;){if(i===n)return Xi(a),e;if(i===s)return Xi(a),t;i=i.sibling}throw Error(o(188))}if(n.return!==s.return)n=a,s=i;else{for(var f=!1,v=a.child;v;){if(v===n){f=!0,n=a,s=i;break}if(v===s){f=!0,s=a,n=i;break}v=v.sibling}if(!f){for(v=i.child;v;){if(v===n){f=!0,n=i,s=a;break}if(v===s){f=!0,s=i,n=a;break}v=v.sibling}if(!f)throw Error(o(189))}}if(n.alternate!==s)throw Error(o(190))}if(n.tag!==3)throw Error(o(188));return n.stateNode.current===n?e:t}function qi(e){return e=$m(e),e!==null?Zi(e):null}function Zi(e){if(e.tag===5||e.tag===6)return e;for(e=e.child;e!==null;){var t=Zi(e);if(t!==null)return t;e=e.sibling}return null}var eu=u.unstable_scheduleCallback,tu=u.unstable_cancelCallback,Um=u.unstable_shouldYield,Vm=u.unstable_requestPaint,De=u.unstable_now,Wm=u.unstable_getCurrentPriorityLevel,ca=u.unstable_ImmediatePriority,nu=u.unstable_UserBlockingPriority,_s=u.unstable_NormalPriority,Hm=u.unstable_LowPriority,ru=u.unstable_IdlePriority,Rs=null,At=null;function Gm(e){if(At&&typeof At.onCommitFiberRoot=="function")try{At.onCommitFiberRoot(Rs,e,void 0,(e.current.flags&128)===128)}catch{}}var _t=Math.clz32?Math.clz32:Ym,Qm=Math.log,Km=Math.LN2;function Ym(e){return e>>>=0,e===0?32:31-(Qm(e)/Km|0)|0}var Ps=64,Ts=4194304;function Tr(e){switch(e&-e){case 1:return 1;case 2:return 2;case 4:return 4;case 8:return 8;case 16:return 16;case 32:return 32;case 64:case 128:case 256:case 512:case 1024:case 2048:case 4096:case 8192:case 16384:case 32768:case 65536:case 131072:case 262144:case 524288:case 1048576:case 2097152:return e&4194240;case 4194304:case 8388608:case 16777216:case 33554432:case 67108864:return e&130023424;case 134217728:return 134217728;case 268435456:return 268435456;case 536870912:return 536870912;case 1073741824:return 1073741824;default:return e}}function Ms(e,t){var n=e.pendingLanes;if(n===0)return 0;var s=0,a=e.suspendedLanes,i=e.pingedLanes,f=n&268435455;if(f!==0){var v=f&~a;v!==0?s=Tr(v):(i&=f,i!==0&&(s=Tr(i)))}else f=n&~a,f!==0?s=Tr(f):i!==0&&(s=Tr(i));if(s===0)return 0;if(t!==0&&t!==s&&(t&a)===0&&(a=s&-s,i=t&-t,a>=i||a===16&&(i&4194240)!==0))return t;if((s&4)!==0&&(s|=n&16),t=e.entangledLanes,t!==0)for(e=e.entanglements,t&=s;0<t;)n=31-_t(t),a=1<<n,s|=e[n],t&=~a;return s}function Jm(e,t){switch(e){case 1:case 2:case 4:return t+250;case 8:case 16:case 32:case 64:case 128:case 256:case 512:case 1024:case 2048:case 4096:case 8192:case 16384:case 32768:case 65536:case 131072:case 262144:case 524288:case 1048576:case 2097152:return t+5e3;case 4194304:case 8388608:case 16777216:case 33554432:case 67108864:return-1;case 134217728:case 268435456:case 536870912:case 1073741824:return-1;default:return-1}}function Xm(e,t){for(var n=e.suspendedLanes,s=e.pingedLanes,a=e.expirationTimes,i=e.pendingLanes;0<i;){var f=31-_t(i),v=1<<f,w=a[f];w===-1?((v&n)===0||(v&s)!==0)&&(a[f]=Jm(v,t)):w<=t&&(e.expiredLanes|=v),i&=~v}}function da(e){return e=e.pendingLanes&-1073741825,e!==0?e:e&1073741824?1073741824:0}function su(){var e=Ps;return Ps<<=1,(Ps&4194240)===0&&(Ps=64),e}function fa(e){for(var t=[],n=0;31>n;n++)t.push(e);return t}function Mr(e,t,n){e.pendingLanes|=t,t!==536870912&&(e.suspendedLanes=0,e.pingedLanes=0),e=e.eventTimes,t=31-_t(t),e[t]=n}function qm(e,t){var n=e.pendingLanes&~t;e.pendingLanes=t,e.suspendedLanes=0,e.pingedLanes=0,e.expiredLanes&=t,e.mutableReadLanes&=t,e.entangledLanes&=t,t=e.entanglements;var s=e.eventTimes;for(e=e.expirationTimes;0<n;){var a=31-_t(n),i=1<<a;t[a]=0,s[a]=-1,e[a]=-1,n&=~i}}function ma(e,t){var n=e.entangledLanes|=t;for(e=e.entanglements;n;){var s=31-_t(n),a=1<<s;a&t|e[s]&t&&(e[s]|=t),n&=~a}}var Ne=0;function lu(e){return e&=-e,1<e?4<e?(e&268435455)!==0?16:536870912:4:1}var au,pa,ou,iu,uu,ha=!1,Ls=[],on=null,un=null,cn=null,Lr=new Map,Dr=new Map,dn=[],Zm="mousedown mouseup touchcancel touchend touchstart auxclick dblclick pointercancel pointerdown pointerup dragend dragstart drop compositionend compositionstart keydown keypress keyup input textInput copy cut paste click change contextmenu reset submit".split(" ");function cu(e,t){switch(e){case"focusin":case"focusout":on=null;break;case"dragenter":case"dragleave":un=null;break;case"mouseover":case"mouseout":cn=null;break;case"pointerover":case"pointerout":Lr.delete(t.pointerId);break;case"gotpointercapture":case"lostpointercapture":Dr.delete(t.pointerId)}}function Ir(e,t,n,s,a,i){return e===null||e.nativeEvent!==i?(e={blockedOn:t,domEventName:n,eventSystemFlags:s,nativeEvent:i,targetContainers:[a]},t!==null&&(t=Yr(t),t!==null&&pa(t)),e):(e.eventSystemFlags|=s,t=e.targetContainers,a!==null&&t.indexOf(a)===-1&&t.push(a),e)}function ep(e,t,n,s,a){switch(t){case"focusin":return on=Ir(on,e,t,n,s,a),!0;case"dragenter":return un=Ir(un,e,t,n,s,a),!0;case"mouseover":return cn=Ir(cn,e,t,n,s,a),!0;case"pointerover":var i=a.pointerId;return Lr.set(i,Ir(Lr.get(i)||null,e,t,n,s,a)),!0;case"gotpointercapture":return i=a.pointerId,Dr.set(i,Ir(Dr.get(i)||null,e,t,n,s,a)),!0}return!1}function du(e){var t=Mn(e.target);if(t!==null){var n=Tn(t);if(n!==null){if(t=n.tag,t===13){if(t=Ji(n),t!==null){e.blockedOn=t,uu(e.priority,function(){ou(n)});return}}else if(t===3&&n.stateNode.current.memoizedState.isDehydrated){e.blockedOn=n.tag===3?n.stateNode.containerInfo:null;return}}}e.blockedOn=null}function Ds(e){if(e.blockedOn!==null)return!1;for(var t=e.targetContainers;0<t.length;){var n=ga(e.domEventName,e.eventSystemFlags,t[0],e.nativeEvent);if(n===null){n=e.nativeEvent;var s=new n.constructor(n.type,n);sa=s,n.target.dispatchEvent(s),sa=null}else return t=Yr(n),t!==null&&pa(t),e.blockedOn=n,!1;t.shift()}return!0}function fu(e,t,n){Ds(e)&&n.delete(t)}function tp(){ha=!1,on!==null&&Ds(on)&&(on=null),un!==null&&Ds(un)&&(un=null),cn!==null&&Ds(cn)&&(cn=null),Lr.forEach(fu),Dr.forEach(fu)}function zr(e,t){e.blockedOn===t&&(e.blockedOn=null,ha||(ha=!0,u.unstable_scheduleCallback(u.unstable_NormalPriority,tp)))}function Ar(e){function t(a){return zr(a,e)}if(0<Ls.length){zr(Ls[0],e);for(var n=1;n<Ls.length;n++){var s=Ls[n];s.blockedOn===e&&(s.blockedOn=null)}}for(on!==null&&zr(on,e),un!==null&&zr(un,e),cn!==null&&zr(cn,e),Lr.forEach(t),Dr.forEach(t),n=0;n<dn.length;n++)s=dn[n],s.blockedOn===e&&(s.blockedOn=null);for(;0<dn.length&&(n=dn[0],n.blockedOn===null);)du(n),n.blockedOn===null&&dn.shift()}var Jn=H.ReactCurrentBatchConfig,Is=!0;function np(e,t,n,s){var a=Ne,i=Jn.transition;Jn.transition=null;try{Ne=1,xa(e,t,n,s)}finally{Ne=a,Jn.transition=i}}function rp(e,t,n,s){var a=Ne,i=Jn.transition;Jn.transition=null;try{Ne=4,xa(e,t,n,s)}finally{Ne=a,Jn.transition=i}}function xa(e,t,n,s){if(Is){var a=ga(e,t,n,s);if(a===null)Da(e,t,s,zs,n),cu(e,s);else if(ep(a,e,t,n,s))s.stopPropagation();else if(cu(e,s),t&4&&-1<Zm.indexOf(e)){for(;a!==null;){var i=Yr(a);if(i!==null&&au(i),i=ga(e,t,n,s),i===null&&Da(e,t,s,zs,n),i===a)break;a=i}a!==null&&s.stopPropagation()}else Da(e,t,s,null,n)}}var zs=null;function ga(e,t,n,s){if(zs=null,e=la(s),e=Mn(e),e!==null)if(t=Tn(e),t===null)e=null;else if(n=t.tag,n===13){if(e=Ji(t),e!==null)return e;e=null}else if(n===3){if(t.stateNode.current.memoizedState.isDehydrated)return t.tag===3?t.stateNode.containerInfo:null;e=null}else t!==e&&(e=null);return zs=e,null}function mu(e){switch(e){case"cancel":case"click":case"close":case"contextmenu":case"copy":case"cut":case"auxclick":case"dblclick":case"dragend":case"dragstart":case"drop":case"focusin":case"focusout":case"input":case"invalid":case"keydown":case"keypress":case"keyup":case"mousedown":case"mouseup":case"paste":case"pause":case"play":case"pointercancel":case"pointerdown":case"pointerup":case"ratechange":case"reset":case"resize":case"seeked":case"submit":case"touchcancel":case"touchend":case"touchstart":case"volumechange":case"change":case"selectionchange":case"textInput":case"compositionstart":case"compositionend":case"compositionupdate":case"beforeblur":case"afterblur":case"beforeinput":case"blur":case"fullscreenchange":case"focus":case"hashchange":case"popstate":case"select":case"selectstart":return 1;case"drag":case"dragenter":case"dragexit":case"dragleave":case"dragover":case"mousemove":case"mouseout":case"mouseover":case"pointermove":case"pointerout":case"pointerover":case"scroll":case"toggle":case"touchmove":case"wheel":case"mouseenter":case"mouseleave":case"pointerenter":case"pointerleave":return 4;case"message":switch(Wm()){case ca:return 1;case nu:return 4;case _s:case Hm:return 16;case ru:return 536870912;default:return 16}default:return 16}}var fn=null,va=null,As=null;function pu(){if(As)return As;var e,t=va,n=t.length,s,a="value"in fn?fn.value:fn.textContent,i=a.length;for(e=0;e<n&&t[e]===a[e];e++);var f=n-e;for(s=1;s<=f&&t[n-s]===a[i-s];s++);return As=a.slice(e,1<s?1-s:void 0)}function Fs(e){var t=e.keyCode;return"charCode"in e?(e=e.charCode,e===0&&t===13&&(e=13)):e=t,e===10&&(e=13),32<=e||e===13?e:0}function Os(){return!0}function hu(){return!1}function pt(e){function t(n,s,a,i,f){this._reactName=n,this._targetInst=a,this.type=s,this.nativeEvent=i,this.target=f,this.currentTarget=null;for(var v in e)e.hasOwnProperty(v)&&(n=e[v],this[v]=n?n(i):i[v]);return this.isDefaultPrevented=(i.defaultPrevented!=null?i.defaultPrevented:i.returnValue===!1)?Os:hu,this.isPropagationStopped=hu,this}return G(t.prototype,{preventDefault:function(){this.defaultPrevented=!0;var n=this.nativeEvent;n&&(n.preventDefault?n.preventDefault():typeof n.returnValue!="unknown"&&(n.returnValue=!1),this.isDefaultPrevented=Os)},stopPropagation:function(){var n=this.nativeEvent;n&&(n.stopPropagation?n.stopPropagation():typeof n.cancelBubble!="unknown"&&(n.cancelBubble=!0),this.isPropagationStopped=Os)},persist:function(){},isPersistent:Os}),t}var Xn={eventPhase:0,bubbles:0,cancelable:0,timeStamp:function(e){return e.timeStamp||Date.now()},defaultPrevented:0,isTrusted:0},ya=pt(Xn),Fr=G({},Xn,{view:0,detail:0}),sp=pt(Fr),wa,ba,Or,Bs=G({},Fr,{screenX:0,screenY:0,clientX:0,clientY:0,pageX:0,pageY:0,ctrlKey:0,shiftKey:0,altKey:0,metaKey:0,getModifierState:ja,button:0,buttons:0,relatedTarget:function(e){return e.relatedTarget===void 0?e.fromElement===e.srcElement?e.toElement:e.fromElement:e.relatedTarget},movementX:function(e){return"movementX"in e?e.movementX:(e!==Or&&(Or&&e.type==="mousemove"?(wa=e.screenX-Or.screenX,ba=e.screenY-Or.screenY):ba=wa=0,Or=e),wa)},movementY:function(e){return"movementY"in e?e.movementY:ba}}),xu=pt(Bs),lp=G({},Bs,{dataTransfer:0}),ap=pt(lp),op=G({},Fr,{relatedTarget:0}),Na=pt(op),ip=G({},Xn,{animationName:0,elapsedTime:0,pseudoElement:0}),up=pt(ip),cp=G({},Xn,{clipboardData:function(e){return"clipboardData"in e?e.clipboardData:window.clipboardData}}),dp=pt(cp),fp=G({},Xn,{data:0}),gu=pt(fp),mp={Esc:"Escape",Spacebar:" ",Left:"ArrowLeft",Up:"ArrowUp",Right:"ArrowRight",Down:"ArrowDown",Del:"Delete",Win:"OS",Menu:"ContextMenu",Apps:"ContextMenu",Scroll:"ScrollLock",MozPrintableKey:"Unidentified"},pp={8:"Backspace",9:"Tab",12:"Clear",13:"Enter",16:"Shift",17:"Control",18:"Alt",19:"Pause",20:"CapsLock",27:"Escape",32:" ",33:"PageUp",34:"PageDown",35:"End",36:"Home",37:"ArrowLeft",38:"ArrowUp",39:"ArrowRight",40:"ArrowDown",45:"Insert",46:"Delete",112:"F1",113:"F2",114:"F3",115:"F4",116:"F5",117:"F6",118:"F7",119:"F8",120:"F9",121:"F10",122:"F11",123:"F12",144:"NumLock",145:"ScrollLock",224:"Meta"},hp={Alt:"altKey",Control:"ctrlKey",Meta:"metaKey",Shift:"shiftKey"};function xp(e){var t=this.nativeEvent;return t.getModifierState?t.getModifierState(e):(e=hp[e])?!!t[e]:!1}function ja(){return xp}var gp=G({},Fr,{key:function(e){if(e.key){var t=mp[e.key]||e.key;if(t!=="Unidentified")return t}return e.type==="keypress"?(e=Fs(e),e===13?"Enter":String.fromCharCode(e)):e.type==="keydown"||e.type==="keyup"?pp[e.keyCode]||"Unidentified":""},code:0,location:0,ctrlKey:0,shiftKey:0,altKey:0,metaKey:0,repeat:0,locale:0,getModifierState:ja,charCode:function(e){return e.type==="keypress"?Fs(e):0},keyCode:function(e){return e.type==="keydown"||e.type==="keyup"?e.keyCode:0},which:function(e){return e.type==="keypress"?Fs(e):e.type==="keydown"||e.type==="keyup"?e.keyCode:0}}),vp=pt(gp),yp=G({},Bs,{pointerId:0,width:0,height:0,pressure:0,tangentialPressure:0,tiltX:0,tiltY:0,twist:0,pointerType:0,isPrimary:0}),vu=pt(yp),wp=G({},Fr,{touches:0,targetTouches:0,changedTouches:0,altKey:0,metaKey:0,ctrlKey:0,shiftKey:0,getModifierState:ja}),bp=pt(wp),Np=G({},Xn,{propertyName:0,elapsedTime:0,pseudoElement:0}),jp=pt(Np),kp=G({},Bs,{deltaX:function(e){return"deltaX"in e?e.deltaX:"wheelDeltaX"in e?-e.wheelDeltaX:0},deltaY:function(e){return"deltaY"in e?e.deltaY:"wheelDeltaY"in e?-e.wheelDeltaY:"wheelDelta"in e?-e.wheelDelta:0},deltaZ:0,deltaMode:0}),Sp=pt(kp),Cp=[9,13,27,32],ka=g&&"CompositionEvent"in window,Br=null;g&&"documentMode"in document&&(Br=document.documentMode);var Ep=g&&"TextEvent"in window&&!Br,yu=g&&(!ka||Br&&8<Br&&11>=Br),wu=" ",bu=!1;function Nu(e,t){switch(e){case"keyup":return Cp.indexOf(t.keyCode)!==-1;case"keydown":return t.keyCode!==229;case"keypress":case"mousedown":case"focusout":return!0;default:return!1}}function ju(e){return e=e.detail,typeof e=="object"&&"data"in e?e.data:null}var qn=!1;function _p(e,t){switch(e){case"compositionend":return ju(t);case"keypress":return t.which!==32?null:(bu=!0,wu);case"textInput":return e=t.data,e===wu&&bu?null:e;default:return null}}function Rp(e,t){if(qn)return e==="compositionend"||!ka&&Nu(e,t)?(e=pu(),As=va=fn=null,qn=!1,e):null;switch(e){case"paste":return null;case"keypress":if(!(t.ctrlKey||t.altKey||t.metaKey)||t.ctrlKey&&t.altKey){if(t.char&&1<t.char.length)return t.char;if(t.which)return String.fromCharCode(t.which)}return null;case"compositionend":return yu&&t.locale!=="ko"?null:t.data;default:return null}}var Pp={color:!0,date:!0,datetime:!0,"datetime-local":!0,email:!0,month:!0,number:!0,password:!0,range:!0,search:!0,tel:!0,text:!0,time:!0,url:!0,week:!0};function ku(e){var t=e&&e.nodeName&&e.nodeName.toLowerCase();return t==="input"?!!Pp[e.type]:t==="textarea"}function Su(e,t,n,s){Hi(s),t=Hs(t,"onChange"),0<t.length&&(n=new ya("onChange","change",null,n,s),e.push({event:n,listeners:t}))}var $r=null,Ur=null;function Tp(e){Vu(e,0)}function $s(e){var t=rr(e);if(Pn(t))return e}function Mp(e,t){if(e==="change")return t}var Cu=!1;if(g){var Sa;if(g){var Ca="oninput"in document;if(!Ca){var Eu=document.createElement("div");Eu.setAttribute("oninput","return;"),Ca=typeof Eu.oninput=="function"}Sa=Ca}else Sa=!1;Cu=Sa&&(!document.documentMode||9<document.documentMode)}function _u(){$r&&($r.detachEvent("onpropertychange",Ru),Ur=$r=null)}function Ru(e){if(e.propertyName==="value"&&$s(Ur)){var t=[];Su(t,Ur,e,la(e)),Yi(Tp,t)}}function Lp(e,t,n){e==="focusin"?(_u(),$r=t,Ur=n,$r.attachEvent("onpropertychange",Ru)):e==="focusout"&&_u()}function Dp(e){if(e==="selectionchange"||e==="keyup"||e==="keydown")return $s(Ur)}function Ip(e,t){if(e==="click")return $s(t)}function zp(e,t){if(e==="input"||e==="change")return $s(t)}function Ap(e,t){return e===t&&(e!==0||1/e===1/t)||e!==e&&t!==t}var Rt=typeof Object.is=="function"?Object.is:Ap;function Vr(e,t){if(Rt(e,t))return!0;if(typeof e!="object"||e===null||typeof t!="object"||t===null)return!1;var n=Object.keys(e),s=Object.keys(t);if(n.length!==s.length)return!1;for(s=0;s<n.length;s++){var a=n[s];if(!h.call(t,a)||!Rt(e[a],t[a]))return!1}return!0}function Pu(e){for(;e&&e.firstChild;)e=e.firstChild;return e}function Tu(e,t){var n=Pu(e);e=0;for(var s;n;){if(n.nodeType===3){if(s=e+n.textContent.length,e<=t&&s>=t)return{node:n,offset:t-e};e=s}e:{for(;n;){if(n.nextSibling){n=n.nextSibling;break e}n=n.parentNode}n=void 0}n=Pu(n)}}function Mu(e,t){return e&&t?e===t?!0:e&&e.nodeType===3?!1:t&&t.nodeType===3?Mu(e,t.parentNode):"contains"in e?e.contains(t):e.compareDocumentPosition?!!(e.compareDocumentPosition(t)&16):!1:!1}function Lu(){for(var e=window,t=ks();t instanceof e.HTMLIFrameElement;){try{var n=typeof t.contentWindow.location.href=="string"}catch{n=!1}if(n)e=t.contentWindow;else break;t=ks(e.document)}return t}function Ea(e){var t=e&&e.nodeName&&e.nodeName.toLowerCase();return t&&(t==="input"&&(e.type==="text"||e.type==="search"||e.type==="tel"||e.type==="url"||e.type==="password")||t==="textarea"||e.contentEditable==="true")}function Fp(e){var t=Lu(),n=e.focusedElem,s=e.selectionRange;if(t!==n&&n&&n.ownerDocument&&Mu(n.ownerDocument.documentElement,n)){if(s!==null&&Ea(n)){if(t=s.start,e=s.end,e===void 0&&(e=t),"selectionStart"in n)n.selectionStart=t,n.selectionEnd=Math.min(e,n.value.length);else if(e=(t=n.ownerDocument||document)&&t.defaultView||window,e.getSelection){e=e.getSelection();var a=n.textContent.length,i=Math.min(s.start,a);s=s.end===void 0?i:Math.min(s.end,a),!e.extend&&i>s&&(a=s,s=i,i=a),a=Tu(n,i);var f=Tu(n,s);a&&f&&(e.rangeCount!==1||e.anchorNode!==a.node||e.anchorOffset!==a.offset||e.focusNode!==f.node||e.focusOffset!==f.offset)&&(t=t.createRange(),t.setStart(a.node,a.offset),e.removeAllRanges(),i>s?(e.addRange(t),e.extend(f.node,f.offset)):(t.setEnd(f.node,f.offset),e.addRange(t)))}}for(t=[],e=n;e=e.parentNode;)e.nodeType===1&&t.push({element:e,left:e.scrollLeft,top:e.scrollTop});for(typeof n.focus=="function"&&n.focus(),n=0;n<t.length;n++)e=t[n],e.element.scrollLeft=e.left,e.element.scrollTop=e.top}}var Op=g&&"documentMode"in document&&11>=document.documentMode,Zn=null,_a=null,Wr=null,Ra=!1;function Du(e,t,n){var s=n.window===n?n.document:n.nodeType===9?n:n.ownerDocument;Ra||Zn==null||Zn!==ks(s)||(s=Zn,"selectionStart"in s&&Ea(s)?s={start:s.selectionStart,end:s.selectionEnd}:(s=(s.ownerDocument&&s.ownerDocument.defaultView||window).getSelection(),s={anchorNode:s.anchorNode,anchorOffset:s.anchorOffset,focusNode:s.focusNode,focusOffset:s.focusOffset}),Wr&&Vr(Wr,s)||(Wr=s,s=Hs(_a,"onSelect"),0<s.length&&(t=new ya("onSelect","select",null,t,n),e.push({event:t,listeners:s}),t.target=Zn)))}function Us(e,t){var n={};return n[e.toLowerCase()]=t.toLowerCase(),n["Webkit"+e]="webkit"+t,n["Moz"+e]="moz"+t,n}var er={animationend:Us("Animation","AnimationEnd"),animationiteration:Us("Animation","AnimationIteration"),animationstart:Us("Animation","AnimationStart"),transitionend:Us("Transition","TransitionEnd")},Pa={},Iu={};g&&(Iu=document.createElement("div").style,"AnimationEvent"in window||(delete er.animationend.animation,delete er.animationiteration.animation,delete er.animationstart.animation),"TransitionEvent"in window||delete er.transitionend.transition);function Vs(e){if(Pa[e])return Pa[e];if(!er[e])return e;var t=er[e],n;for(n in t)if(t.hasOwnProperty(n)&&n in Iu)return Pa[e]=t[n];return e}var zu=Vs("animationend"),Au=Vs("animationiteration"),Fu=Vs("animationstart"),Ou=Vs("transitionend"),Bu=new Map,$u="abort auxClick cancel canPlay canPlayThrough click close contextMenu copy cut drag dragEnd dragEnter dragExit dragLeave dragOver dragStart drop durationChange emptied encrypted ended error gotPointerCapture input invalid keyDown keyPress keyUp load loadedData loadedMetadata loadStart lostPointerCapture mouseDown mouseMove mouseOut mouseOver mouseUp paste pause play playing pointerCancel pointerDown pointerMove pointerOut pointerOver pointerUp progress rateChange reset resize seeked seeking stalled submit suspend timeUpdate touchCancel touchEnd touchStart volumeChange scroll toggle touchMove waiting wheel".split(" ");function mn(e,t){Bu.set(e,t),m(t,[e])}for(var Ta=0;Ta<$u.length;Ta++){var Ma=$u[Ta],Bp=Ma.toLowerCase(),$p=Ma[0].toUpperCase()+Ma.slice(1);mn(Bp,"on"+$p)}mn(zu,"onAnimationEnd"),mn(Au,"onAnimationIteration"),mn(Fu,"onAnimationStart"),mn("dblclick","onDoubleClick"),mn("focusin","onFocus"),mn("focusout","onBlur"),mn(Ou,"onTransitionEnd"),p("onMouseEnter",["mouseout","mouseover"]),p("onMouseLeave",["mouseout","mouseover"]),p("onPointerEnter",["pointerout","pointerover"]),p("onPointerLeave",["pointerout","pointerover"]),m("onChange","change click focusin focusout input keydown keyup selectionchange".split(" ")),m("onSelect","focusout contextmenu dragend focusin keydown keyup mousedown mouseup selectionchange".split(" ")),m("onBeforeInput",["compositionend","keypress","textInput","paste"]),m("onCompositionEnd","compositionend focusout keydown keypress keyup mousedown".split(" ")),m("onCompositionStart","compositionstart focusout keydown keypress keyup mousedown".split(" ")),m("onCompositionUpdate","compositionupdate focusout keydown keypress keyup mousedown".split(" "));var Hr="abort canplay canplaythrough durationchange emptied encrypted ended error loadeddata loadedmetadata loadstart pause play playing progress ratechange resize seeked seeking stalled suspend timeupdate volumechange waiting".split(" "),Up=new Set("cancel close invalid load scroll toggle".split(" ").concat(Hr));function Uu(e,t,n){var s=e.type||"unknown-event";e.currentTarget=n,Bm(s,t,void 0,e),e.currentTarget=null}function Vu(e,t){t=(t&4)!==0;for(var n=0;n<e.length;n++){var s=e[n],a=s.event;s=s.listeners;e:{var i=void 0;if(t)for(var f=s.length-1;0<=f;f--){var v=s[f],w=v.instance,P=v.currentTarget;if(v=v.listener,w!==i&&a.isPropagationStopped())break e;Uu(a,v,P),i=w}else for(f=0;f<s.length;f++){if(v=s[f],w=v.instance,P=v.currentTarget,v=v.listener,w!==i&&a.isPropagationStopped())break e;Uu(a,v,P),i=w}}}if(Es)throw e=ua,Es=!1,ua=null,e}function Se(e,t){var n=t[Ba];n===void 0&&(n=t[Ba]=new Set);var s=e+"__bubble";n.has(s)||(Wu(t,e,2,!1),n.add(s))}function La(e,t,n){var s=0;t&&(s|=4),Wu(n,e,s,t)}var Ws="_reactListening"+Math.random().toString(36).slice(2);function Gr(e){if(!e[Ws]){e[Ws]=!0,c.forEach(function(n){n!=="selectionchange"&&(Up.has(n)||La(n,!1,e),La(n,!0,e))});var t=e.nodeType===9?e:e.ownerDocument;t===null||t[Ws]||(t[Ws]=!0,La("selectionchange",!1,t))}}function Wu(e,t,n,s){switch(mu(t)){case 1:var a=np;break;case 4:a=rp;break;default:a=xa}n=a.bind(null,t,n,e),a=void 0,!ia||t!=="touchstart"&&t!=="touchmove"&&t!=="wheel"||(a=!0),s?a!==void 0?e.addEventListener(t,n,{capture:!0,passive:a}):e.addEventListener(t,n,!0):a!==void 0?e.addEventListener(t,n,{passive:a}):e.addEventListener(t,n,!1)}function Da(e,t,n,s,a){var i=s;if((t&1)===0&&(t&2)===0&&s!==null)e:for(;;){if(s===null)return;var f=s.tag;if(f===3||f===4){var v=s.stateNode.containerInfo;if(v===a||v.nodeType===8&&v.parentNode===a)break;if(f===4)for(f=s.return;f!==null;){var w=f.tag;if((w===3||w===4)&&(w=f.stateNode.containerInfo,w===a||w.nodeType===8&&w.parentNode===a))return;f=f.return}for(;v!==null;){if(f=Mn(v),f===null)return;if(w=f.tag,w===5||w===6){s=i=f;continue e}v=v.parentNode}}s=s.return}Yi(function(){var P=i,O=la(n),B=[];e:{var F=Bu.get(e);if(F!==void 0){var W=ya,K=e;switch(e){case"keypress":if(Fs(n)===0)break e;case"keydown":case"keyup":W=vp;break;case"focusin":K="focus",W=Na;break;case"focusout":K="blur",W=Na;break;case"beforeblur":case"afterblur":W=Na;break;case"click":if(n.button===2)break e;case"auxclick":case"dblclick":case"mousedown":case"mousemove":case"mouseup":case"mouseout":case"mouseover":case"contextmenu":W=xu;break;case"drag":case"dragend":case"dragenter":case"dragexit":case"dragleave":case"dragover":case"dragstart":case"drop":W=ap;break;case"touchcancel":case"touchend":case"touchmove":case"touchstart":W=bp;break;case zu:case Au:case Fu:W=up;break;case Ou:W=jp;break;case"scroll":W=sp;break;case"wheel":W=Sp;break;case"copy":case"cut":case"paste":W=dp;break;case"gotpointercapture":case"lostpointercapture":case"pointercancel":case"pointerdown":case"pointermove":case"pointerout":case"pointerover":case"pointerup":W=vu}var X=(t&4)!==0,Ie=!X&&e==="scroll",C=X?F!==null?F+"Capture":null:F;X=[];for(var b=P,E;b!==null;){E=b;var $=E.stateNode;if(E.tag===5&&$!==null&&(E=$,C!==null&&($=_r(b,C),$!=null&&X.push(Qr(b,$,E)))),Ie)break;b=b.return}0<X.length&&(F=new W(F,K,null,n,O),B.push({event:F,listeners:X}))}}if((t&7)===0){e:{if(F=e==="mouseover"||e==="pointerover",W=e==="mouseout"||e==="pointerout",F&&n!==sa&&(K=n.relatedTarget||n.fromElement)&&(Mn(K)||K[Ht]))break e;if((W||F)&&(F=O.window===O?O:(F=O.ownerDocument)?F.defaultView||F.parentWindow:window,W?(K=n.relatedTarget||n.toElement,W=P,K=K?Mn(K):null,K!==null&&(Ie=Tn(K),K!==Ie||K.tag!==5&&K.tag!==6)&&(K=null)):(W=null,K=P),W!==K)){if(X=xu,$="onMouseLeave",C="onMouseEnter",b="mouse",(e==="pointerout"||e==="pointerover")&&(X=vu,$="onPointerLeave",C="onPointerEnter",b="pointer"),Ie=W==null?F:rr(W),E=K==null?F:rr(K),F=new X($,b+"leave",W,n,O),F.target=Ie,F.relatedTarget=E,$=null,Mn(O)===P&&(X=new X(C,b+"enter",K,n,O),X.target=E,X.relatedTarget=Ie,$=X),Ie=$,W&&K)t:{for(X=W,C=K,b=0,E=X;E;E=tr(E))b++;for(E=0,$=C;$;$=tr($))E++;for(;0<b-E;)X=tr(X),b--;for(;0<E-b;)C=tr(C),E--;for(;b--;){if(X===C||C!==null&&X===C.alternate)break t;X=tr(X),C=tr(C)}X=null}else X=null;W!==null&&Hu(B,F,W,X,!1),K!==null&&Ie!==null&&Hu(B,Ie,K,X,!0)}}e:{if(F=P?rr(P):window,W=F.nodeName&&F.nodeName.toLowerCase(),W==="select"||W==="input"&&F.type==="file")var q=Mp;else if(ku(F))if(Cu)q=zp;else{q=Dp;var te=Lp}else(W=F.nodeName)&&W.toLowerCase()==="input"&&(F.type==="checkbox"||F.type==="radio")&&(q=Ip);if(q&&(q=q(e,P))){Su(B,q,n,O);break e}te&&te(e,F,P),e==="focusout"&&(te=F._wrapperState)&&te.controlled&&F.type==="number"&&Zl(F,"number",F.value)}switch(te=P?rr(P):window,e){case"focusin":(ku(te)||te.contentEditable==="true")&&(Zn=te,_a=P,Wr=null);break;case"focusout":Wr=_a=Zn=null;break;case"mousedown":Ra=!0;break;case"contextmenu":case"mouseup":case"dragend":Ra=!1,Du(B,n,O);break;case"selectionchange":if(Op)break;case"keydown":case"keyup":Du(B,n,O)}var ne;if(ka)e:{switch(e){case"compositionstart":var se="onCompositionStart";break e;case"compositionend":se="onCompositionEnd";break e;case"compositionupdate":se="onCompositionUpdate";break e}se=void 0}else qn?Nu(e,n)&&(se="onCompositionEnd"):e==="keydown"&&n.keyCode===229&&(se="onCompositionStart");se&&(yu&&n.locale!=="ko"&&(qn||se!=="onCompositionStart"?se==="onCompositionEnd"&&qn&&(ne=pu()):(fn=O,va="value"in fn?fn.value:fn.textContent,qn=!0)),te=Hs(P,se),0<te.length&&(se=new gu(se,e,null,n,O),B.push({event:se,listeners:te}),ne?se.data=ne:(ne=ju(n),ne!==null&&(se.data=ne)))),(ne=Ep?_p(e,n):Rp(e,n))&&(P=Hs(P,"onBeforeInput"),0<P.length&&(O=new gu("onBeforeInput","beforeinput",null,n,O),B.push({event:O,listeners:P}),O.data=ne))}Vu(B,t)})}function Qr(e,t,n){return{instance:e,listener:t,currentTarget:n}}function Hs(e,t){for(var n=t+"Capture",s=[];e!==null;){var a=e,i=a.stateNode;a.tag===5&&i!==null&&(a=i,i=_r(e,n),i!=null&&s.unshift(Qr(e,i,a)),i=_r(e,t),i!=null&&s.push(Qr(e,i,a))),e=e.return}return s}function tr(e){if(e===null)return null;do e=e.return;while(e&&e.tag!==5);return e||null}function Hu(e,t,n,s,a){for(var i=t._reactName,f=[];n!==null&&n!==s;){var v=n,w=v.alternate,P=v.stateNode;if(w!==null&&w===s)break;v.tag===5&&P!==null&&(v=P,a?(w=_r(n,i),w!=null&&f.unshift(Qr(n,w,v))):a||(w=_r(n,i),w!=null&&f.push(Qr(n,w,v)))),n=n.return}f.length!==0&&e.push({event:t,listeners:f})}var Vp=/\r\n?/g,Wp=/\u0000|\uFFFD/g;function Gu(e){return(typeof e=="string"?e:""+e).replace(Vp,`
-`).replace(Wp,"")}function Gs(e,t,n){if(t=Gu(t),Gu(e)!==t&&n)throw Error(o(425))}function Qs(){}var Ia=null,za=null;function Aa(e,t){return e==="textarea"||e==="noscript"||typeof t.children=="string"||typeof t.children=="number"||typeof t.dangerouslySetInnerHTML=="object"&&t.dangerouslySetInnerHTML!==null&&t.dangerouslySetInnerHTML.__html!=null}var Fa=typeof setTimeout=="function"?setTimeout:void 0,Hp=typeof clearTimeout=="function"?clearTimeout:void 0,Qu=typeof Promise=="function"?Promise:void 0,Gp=typeof queueMicrotask=="function"?queueMicrotask:typeof Qu<"u"?function(e){return Qu.resolve(null).then(e).catch(Qp)}:Fa;function Qp(e){setTimeout(function(){throw e})}function Oa(e,t){var n=t,s=0;do{var a=n.nextSibling;if(e.removeChild(n),a&&a.nodeType===8)if(n=a.data,n==="/$"){if(s===0){e.removeChild(a),Ar(t);return}s--}else n!=="$"&&n!=="$?"&&n!=="$!"||s++;n=a}while(n);Ar(t)}function pn(e){for(;e!=null;e=e.nextSibling){var t=e.nodeType;if(t===1||t===3)break;if(t===8){if(t=e.data,t==="$"||t==="$!"||t==="$?")break;if(t==="/$")return null}}return e}function Ku(e){e=e.previousSibling;for(var t=0;e;){if(e.nodeType===8){var n=e.data;if(n==="$"||n==="$!"||n==="$?"){if(t===0)return e;t--}else n==="/$"&&t++}e=e.previousSibling}return null}var nr=Math.random().toString(36).slice(2),Ft="__reactFiber$"+nr,Kr="__reactProps$"+nr,Ht="__reactContainer$"+nr,Ba="__reactEvents$"+nr,Kp="__reactListeners$"+nr,Yp="__reactHandles$"+nr;function Mn(e){var t=e[Ft];if(t)return t;for(var n=e.parentNode;n;){if(t=n[Ht]||n[Ft]){if(n=t.alternate,t.child!==null||n!==null&&n.child!==null)for(e=Ku(e);e!==null;){if(n=e[Ft])return n;e=Ku(e)}return t}e=n,n=e.parentNode}return null}function Yr(e){return e=e[Ft]||e[Ht],!e||e.tag!==5&&e.tag!==6&&e.tag!==13&&e.tag!==3?null:e}function rr(e){if(e.tag===5||e.tag===6)return e.stateNode;throw Error(o(33))}function Ks(e){return e[Kr]||null}var $a=[],sr=-1;function hn(e){return{current:e}}function Ce(e){0>sr||(e.current=$a[sr],$a[sr]=null,sr--)}function ke(e,t){sr++,$a[sr]=e.current,e.current=t}var xn={},qe=hn(xn),lt=hn(!1),Ln=xn;function lr(e,t){var n=e.type.contextTypes;if(!n)return xn;var s=e.stateNode;if(s&&s.__reactInternalMemoizedUnmaskedChildContext===t)return s.__reactInternalMemoizedMaskedChildContext;var a={},i;for(i in n)a[i]=t[i];return s&&(e=e.stateNode,e.__reactInternalMemoizedUnmaskedChildContext=t,e.__reactInternalMemoizedMaskedChildContext=a),a}function at(e){return e=e.childContextTypes,e!=null}function Ys(){Ce(lt),Ce(qe)}function Yu(e,t,n){if(qe.current!==xn)throw Error(o(168));ke(qe,t),ke(lt,n)}function Ju(e,t,n){var s=e.stateNode;if(t=t.childContextTypes,typeof s.getChildContext!="function")return n;s=s.getChildContext();for(var a in s)if(!(a in t))throw Error(o(108,ae(e)||"Unknown",a));return G({},n,s)}function Js(e){return e=(e=e.stateNode)&&e.__reactInternalMemoizedMergedChildContext||xn,Ln=qe.current,ke(qe,e),ke(lt,lt.current),!0}function Xu(e,t,n){var s=e.stateNode;if(!s)throw Error(o(169));n?(e=Ju(e,t,Ln),s.__reactInternalMemoizedMergedChildContext=e,Ce(lt),Ce(qe),ke(qe,e)):Ce(lt),ke(lt,n)}var Gt=null,Xs=!1,Ua=!1;function qu(e){Gt===null?Gt=[e]:Gt.push(e)}function Jp(e){Xs=!0,qu(e)}function gn(){if(!Ua&&Gt!==null){Ua=!0;var e=0,t=Ne;try{var n=Gt;for(Ne=1;e<n.length;e++){var s=n[e];do s=s(!0);while(s!==null)}Gt=null,Xs=!1}catch(a){throw Gt!==null&&(Gt=Gt.slice(e+1)),eu(ca,gn),a}finally{Ne=t,Ua=!1}}return null}var ar=[],or=0,qs=null,Zs=0,wt=[],bt=0,Dn=null,Qt=1,Kt="";function In(e,t){ar[or++]=Zs,ar[or++]=qs,qs=e,Zs=t}function Zu(e,t,n){wt[bt++]=Qt,wt[bt++]=Kt,wt[bt++]=Dn,Dn=e;var s=Qt;e=Kt;var a=32-_t(s)-1;s&=~(1<<a),n+=1;var i=32-_t(t)+a;if(30<i){var f=a-a%5;i=(s&(1<<f)-1).toString(32),s>>=f,a-=f,Qt=1<<32-_t(t)+a|n<<a|s,Kt=i+e}else Qt=1<<i|n<<a|s,Kt=e}function Va(e){e.return!==null&&(In(e,1),Zu(e,1,0))}function Wa(e){for(;e===qs;)qs=ar[--or],ar[or]=null,Zs=ar[--or],ar[or]=null;for(;e===Dn;)Dn=wt[--bt],wt[bt]=null,Kt=wt[--bt],wt[bt]=null,Qt=wt[--bt],wt[bt]=null}var ht=null,xt=null,Ee=!1,Pt=null;function ec(e,t){var n=St(5,null,null,0);n.elementType="DELETED",n.stateNode=t,n.return=e,t=e.deletions,t===null?(e.deletions=[n],e.flags|=16):t.push(n)}function tc(e,t){switch(e.tag){case 5:var n=e.type;return t=t.nodeType!==1||n.toLowerCase()!==t.nodeName.toLowerCase()?null:t,t!==null?(e.stateNode=t,ht=e,xt=pn(t.firstChild),!0):!1;case 6:return t=e.pendingProps===""||t.nodeType!==3?null:t,t!==null?(e.stateNode=t,ht=e,xt=null,!0):!1;case 13:return t=t.nodeType!==8?null:t,t!==null?(n=Dn!==null?{id:Qt,overflow:Kt}:null,e.memoizedState={dehydrated:t,treeContext:n,retryLane:1073741824},n=St(18,null,null,0),n.stateNode=t,n.return=e,e.child=n,ht=e,xt=null,!0):!1;default:return!1}}function Ha(e){return(e.mode&1)!==0&&(e.flags&128)===0}function Ga(e){if(Ee){var t=xt;if(t){var n=t;if(!tc(e,t)){if(Ha(e))throw Error(o(418));t=pn(n.nextSibling);var s=ht;t&&tc(e,t)?ec(s,n):(e.flags=e.flags&-4097|2,Ee=!1,ht=e)}}else{if(Ha(e))throw Error(o(418));e.flags=e.flags&-4097|2,Ee=!1,ht=e}}}function nc(e){for(e=e.return;e!==null&&e.tag!==5&&e.tag!==3&&e.tag!==13;)e=e.return;ht=e}function el(e){if(e!==ht)return!1;if(!Ee)return nc(e),Ee=!0,!1;var t;if((t=e.tag!==3)&&!(t=e.tag!==5)&&(t=e.type,t=t!=="head"&&t!=="body"&&!Aa(e.type,e.memoizedProps)),t&&(t=xt)){if(Ha(e))throw rc(),Error(o(418));for(;t;)ec(e,t),t=pn(t.nextSibling)}if(nc(e),e.tag===13){if(e=e.memoizedState,e=e!==null?e.dehydrated:null,!e)throw Error(o(317));e:{for(e=e.nextSibling,t=0;e;){if(e.nodeType===8){var n=e.data;if(n==="/$"){if(t===0){xt=pn(e.nextSibling);break e}t--}else n!=="$"&&n!=="$!"&&n!=="$?"||t++}e=e.nextSibling}xt=null}}else xt=ht?pn(e.stateNode.nextSibling):null;return!0}function rc(){for(var e=xt;e;)e=pn(e.nextSibling)}function ir(){xt=ht=null,Ee=!1}function Qa(e){Pt===null?Pt=[e]:Pt.push(e)}var Xp=H.ReactCurrentBatchConfig;function Jr(e,t,n){if(e=n.ref,e!==null&&typeof e!="function"&&typeof e!="object"){if(n._owner){if(n=n._owner,n){if(n.tag!==1)throw Error(o(309));var s=n.stateNode}if(!s)throw Error(o(147,e));var a=s,i=""+e;return t!==null&&t.ref!==null&&typeof t.ref=="function"&&t.ref._stringRef===i?t.ref:(t=function(f){var v=a.refs;f===null?delete v[i]:v[i]=f},t._stringRef=i,t)}if(typeof e!="string")throw Error(o(284));if(!n._owner)throw Error(o(290,e))}return e}function tl(e,t){throw e=Object.prototype.toString.call(t),Error(o(31,e==="[object Object]"?"object with keys {"+Object.keys(t).join(", ")+"}":e))}function sc(e){var t=e._init;return t(e._payload)}function lc(e){function t(C,b){if(e){var E=C.deletions;E===null?(C.deletions=[b],C.flags|=16):E.push(b)}}function n(C,b){if(!e)return null;for(;b!==null;)t(C,b),b=b.sibling;return null}function s(C,b){for(C=new Map;b!==null;)b.key!==null?C.set(b.key,b):C.set(b.index,b),b=b.sibling;return C}function a(C,b){return C=Sn(C,b),C.index=0,C.sibling=null,C}function i(C,b,E){return C.index=E,e?(E=C.alternate,E!==null?(E=E.index,E<b?(C.flags|=2,b):E):(C.flags|=2,b)):(C.flags|=1048576,b)}function f(C){return e&&C.alternate===null&&(C.flags|=2),C}function v(C,b,E,$){return b===null||b.tag!==6?(b=Oo(E,C.mode,$),b.return=C,b):(b=a(b,E),b.return=C,b)}function w(C,b,E,$){var q=E.type;return q===ve?O(C,b,E.props.children,$,E.key):b!==null&&(b.elementType===q||typeof q=="object"&&q!==null&&q.$$typeof===he&&sc(q)===b.type)?($=a(b,E.props),$.ref=Jr(C,b,E),$.return=C,$):($=Sl(E.type,E.key,E.props,null,C.mode,$),$.ref=Jr(C,b,E),$.return=C,$)}function P(C,b,E,$){return b===null||b.tag!==4||b.stateNode.containerInfo!==E.containerInfo||b.stateNode.implementation!==E.implementation?(b=Bo(E,C.mode,$),b.return=C,b):(b=a(b,E.children||[]),b.return=C,b)}function O(C,b,E,$,q){return b===null||b.tag!==7?(b=Vn(E,C.mode,$,q),b.return=C,b):(b=a(b,E),b.return=C,b)}function B(C,b,E){if(typeof b=="string"&&b!==""||typeof b=="number")return b=Oo(""+b,C.mode,E),b.return=C,b;if(typeof b=="object"&&b!==null){switch(b.$$typeof){case U:return E=Sl(b.type,b.key,b.props,null,C.mode,E),E.ref=Jr(C,null,b),E.return=C,E;case ie:return b=Bo(b,C.mode,E),b.return=C,b;case he:var $=b._init;return B(C,$(b._payload),E)}if(Sr(b)||ee(b))return b=Vn(b,C.mode,E,null),b.return=C,b;tl(C,b)}return null}function F(C,b,E,$){var q=b!==null?b.key:null;if(typeof E=="string"&&E!==""||typeof E=="number")return q!==null?null:v(C,b,""+E,$);if(typeof E=="object"&&E!==null){switch(E.$$typeof){case U:return E.key===q?w(C,b,E,$):null;case ie:return E.key===q?P(C,b,E,$):null;case he:return q=E._init,F(C,b,q(E._payload),$)}if(Sr(E)||ee(E))return q!==null?null:O(C,b,E,$,null);tl(C,E)}return null}function W(C,b,E,$,q){if(typeof $=="string"&&$!==""||typeof $=="number")return C=C.get(E)||null,v(b,C,""+$,q);if(typeof $=="object"&&$!==null){switch($.$$typeof){case U:return C=C.get($.key===null?E:$.key)||null,w(b,C,$,q);case ie:return C=C.get($.key===null?E:$.key)||null,P(b,C,$,q);case he:var te=$._init;return W(C,b,E,te($._payload),q)}if(Sr($)||ee($))return C=C.get(E)||null,O(b,C,$,q,null);tl(b,$)}return null}function K(C,b,E,$){for(var q=null,te=null,ne=b,se=b=0,He=null;ne!==null&&se<E.length;se++){ne.index>se?(He=ne,ne=null):He=ne.sibling;var ge=F(C,ne,E[se],$);if(ge===null){ne===null&&(ne=He);break}e&&ne&&ge.alternate===null&&t(C,ne),b=i(ge,b,se),te===null?q=ge:te.sibling=ge,te=ge,ne=He}if(se===E.length)return n(C,ne),Ee&&In(C,se),q;if(ne===null){for(;se<E.length;se++)ne=B(C,E[se],$),ne!==null&&(b=i(ne,b,se),te===null?q=ne:te.sibling=ne,te=ne);return Ee&&In(C,se),q}for(ne=s(C,ne);se<E.length;se++)He=W(ne,C,se,E[se],$),He!==null&&(e&&He.alternate!==null&&ne.delete(He.key===null?se:He.key),b=i(He,b,se),te===null?q=He:te.sibling=He,te=He);return e&&ne.forEach(function(Cn){return t(C,Cn)}),Ee&&In(C,se),q}function X(C,b,E,$){var q=ee(E);if(typeof q!="function")throw Error(o(150));if(E=q.call(E),E==null)throw Error(o(151));for(var te=q=null,ne=b,se=b=0,He=null,ge=E.next();ne!==null&&!ge.done;se++,ge=E.next()){ne.index>se?(He=ne,ne=null):He=ne.sibling;var Cn=F(C,ne,ge.value,$);if(Cn===null){ne===null&&(ne=He);break}e&&ne&&Cn.alternate===null&&t(C,ne),b=i(Cn,b,se),te===null?q=Cn:te.sibling=Cn,te=Cn,ne=He}if(ge.done)return n(C,ne),Ee&&In(C,se),q;if(ne===null){for(;!ge.done;se++,ge=E.next())ge=B(C,ge.value,$),ge!==null&&(b=i(ge,b,se),te===null?q=ge:te.sibling=ge,te=ge);return Ee&&In(C,se),q}for(ne=s(C,ne);!ge.done;se++,ge=E.next())ge=W(ne,C,se,ge.value,$),ge!==null&&(e&&ge.alternate!==null&&ne.delete(ge.key===null?se:ge.key),b=i(ge,b,se),te===null?q=ge:te.sibling=ge,te=ge);return e&&ne.forEach(function(Ph){return t(C,Ph)}),Ee&&In(C,se),q}function Ie(C,b,E,$){if(typeof E=="object"&&E!==null&&E.type===ve&&E.key===null&&(E=E.props.children),typeof E=="object"&&E!==null){switch(E.$$typeof){case U:e:{for(var q=E.key,te=b;te!==null;){if(te.key===q){if(q=E.type,q===ve){if(te.tag===7){n(C,te.sibling),b=a(te,E.props.children),b.return=C,C=b;break e}}else if(te.elementType===q||typeof q=="object"&&q!==null&&q.$$typeof===he&&sc(q)===te.type){n(C,te.sibling),b=a(te,E.props),b.ref=Jr(C,te,E),b.return=C,C=b;break e}n(C,te);break}else t(C,te);te=te.sibling}E.type===ve?(b=Vn(E.props.children,C.mode,$,E.key),b.return=C,C=b):($=Sl(E.type,E.key,E.props,null,C.mode,$),$.ref=Jr(C,b,E),$.return=C,C=$)}return f(C);case ie:e:{for(te=E.key;b!==null;){if(b.key===te)if(b.tag===4&&b.stateNode.containerInfo===E.containerInfo&&b.stateNode.implementation===E.implementation){n(C,b.sibling),b=a(b,E.children||[]),b.return=C,C=b;break e}else{n(C,b);break}else t(C,b);b=b.sibling}b=Bo(E,C.mode,$),b.return=C,C=b}return f(C);case he:return te=E._init,Ie(C,b,te(E._payload),$)}if(Sr(E))return K(C,b,E,$);if(ee(E))return X(C,b,E,$);tl(C,E)}return typeof E=="string"&&E!==""||typeof E=="number"?(E=""+E,b!==null&&b.tag===6?(n(C,b.sibling),b=a(b,E),b.return=C,C=b):(n(C,b),b=Oo(E,C.mode,$),b.return=C,C=b),f(C)):n(C,b)}return Ie}var ur=lc(!0),ac=lc(!1),nl=hn(null),rl=null,cr=null,Ka=null;function Ya(){Ka=cr=rl=null}function Ja(e){var t=nl.current;Ce(nl),e._currentValue=t}function Xa(e,t,n){for(;e!==null;){var s=e.alternate;if((e.childLanes&t)!==t?(e.childLanes|=t,s!==null&&(s.childLanes|=t)):s!==null&&(s.childLanes&t)!==t&&(s.childLanes|=t),e===n)break;e=e.return}}function dr(e,t){rl=e,Ka=cr=null,e=e.dependencies,e!==null&&e.firstContext!==null&&((e.lanes&t)!==0&&(ot=!0),e.firstContext=null)}function Nt(e){var t=e._currentValue;if(Ka!==e)if(e={context:e,memoizedValue:t,next:null},cr===null){if(rl===null)throw Error(o(308));cr=e,rl.dependencies={lanes:0,firstContext:e}}else cr=cr.next=e;return t}var zn=null;function qa(e){zn===null?zn=[e]:zn.push(e)}function oc(e,t,n,s){var a=t.interleaved;return a===null?(n.next=n,qa(t)):(n.next=a.next,a.next=n),t.interleaved=n,Yt(e,s)}function Yt(e,t){e.lanes|=t;var n=e.alternate;for(n!==null&&(n.lanes|=t),n=e,e=e.return;e!==null;)e.childLanes|=t,n=e.alternate,n!==null&&(n.childLanes|=t),n=e,e=e.return;return n.tag===3?n.stateNode:null}var vn=!1;function Za(e){e.updateQueue={baseState:e.memoizedState,firstBaseUpdate:null,lastBaseUpdate:null,shared:{pending:null,interleaved:null,lanes:0},effects:null}}function ic(e,t){e=e.updateQueue,t.updateQueue===e&&(t.updateQueue={baseState:e.baseState,firstBaseUpdate:e.firstBaseUpdate,lastBaseUpdate:e.lastBaseUpdate,shared:e.shared,effects:e.effects})}function Jt(e,t){return{eventTime:e,lane:t,tag:0,payload:null,callback:null,next:null}}function yn(e,t,n){var s=e.updateQueue;if(s===null)return null;if(s=s.shared,(me&2)!==0){var a=s.pending;return a===null?t.next=t:(t.next=a.next,a.next=t),s.pending=t,Yt(e,n)}return a=s.interleaved,a===null?(t.next=t,qa(s)):(t.next=a.next,a.next=t),s.interleaved=t,Yt(e,n)}function sl(e,t,n){if(t=t.updateQueue,t!==null&&(t=t.shared,(n&4194240)!==0)){var s=t.lanes;s&=e.pendingLanes,n|=s,t.lanes=n,ma(e,n)}}function uc(e,t){var n=e.updateQueue,s=e.alternate;if(s!==null&&(s=s.updateQueue,n===s)){var a=null,i=null;if(n=n.firstBaseUpdate,n!==null){do{var f={eventTime:n.eventTime,lane:n.lane,tag:n.tag,payload:n.payload,callback:n.callback,next:null};i===null?a=i=f:i=i.next=f,n=n.next}while(n!==null);i===null?a=i=t:i=i.next=t}else a=i=t;n={baseState:s.baseState,firstBaseUpdate:a,lastBaseUpdate:i,shared:s.shared,effects:s.effects},e.updateQueue=n;return}e=n.lastBaseUpdate,e===null?n.firstBaseUpdate=t:e.next=t,n.lastBaseUpdate=t}function ll(e,t,n,s){var a=e.updateQueue;vn=!1;var i=a.firstBaseUpdate,f=a.lastBaseUpdate,v=a.shared.pending;if(v!==null){a.shared.pending=null;var w=v,P=w.next;w.next=null,f===null?i=P:f.next=P,f=w;var O=e.alternate;O!==null&&(O=O.updateQueue,v=O.lastBaseUpdate,v!==f&&(v===null?O.firstBaseUpdate=P:v.next=P,O.lastBaseUpdate=w))}if(i!==null){var B=a.baseState;f=0,O=P=w=null,v=i;do{var F=v.lane,W=v.eventTime;if((s&F)===F){O!==null&&(O=O.next={eventTime:W,lane:0,tag:v.tag,payload:v.payload,callback:v.callback,next:null});e:{var K=e,X=v;switch(F=t,W=n,X.tag){case 1:if(K=X.payload,typeof K=="function"){B=K.call(W,B,F);break e}B=K;break e;case 3:K.flags=K.flags&-65537|128;case 0:if(K=X.payload,F=typeof K=="function"?K.call(W,B,F):K,F==null)break e;B=G({},B,F);break e;case 2:vn=!0}}v.callback!==null&&v.lane!==0&&(e.flags|=64,F=a.effects,F===null?a.effects=[v]:F.push(v))}else W={eventTime:W,lane:F,tag:v.tag,payload:v.payload,callback:v.callback,next:null},O===null?(P=O=W,w=B):O=O.next=W,f|=F;if(v=v.next,v===null){if(v=a.shared.pending,v===null)break;F=v,v=F.next,F.next=null,a.lastBaseUpdate=F,a.shared.pending=null}}while(!0);if(O===null&&(w=B),a.baseState=w,a.firstBaseUpdate=P,a.lastBaseUpdate=O,t=a.shared.interleaved,t!==null){a=t;do f|=a.lane,a=a.next;while(a!==t)}else i===null&&(a.shared.lanes=0);On|=f,e.lanes=f,e.memoizedState=B}}function cc(e,t,n){if(e=t.effects,t.effects=null,e!==null)for(t=0;t<e.length;t++){var s=e[t],a=s.callback;if(a!==null){if(s.callback=null,s=n,typeof a!="function")throw Error(o(191,a));a.call(s)}}}var Xr={},Ot=hn(Xr),qr=hn(Xr),Zr=hn(Xr);function An(e){if(e===Xr)throw Error(o(174));return e}function eo(e,t){switch(ke(Zr,t),ke(qr,e),ke(Ot,Xr),e=t.nodeType,e){case 9:case 11:t=(t=t.documentElement)?t.namespaceURI:ta(null,"");break;default:e=e===8?t.parentNode:t,t=e.namespaceURI||null,e=e.tagName,t=ta(t,e)}Ce(Ot),ke(Ot,t)}function fr(){Ce(Ot),Ce(qr),Ce(Zr)}function dc(e){An(Zr.current);var t=An(Ot.current),n=ta(t,e.type);t!==n&&(ke(qr,e),ke(Ot,n))}function to(e){qr.current===e&&(Ce(Ot),Ce(qr))}var Re=hn(0);function al(e){for(var t=e;t!==null;){if(t.tag===13){var n=t.memoizedState;if(n!==null&&(n=n.dehydrated,n===null||n.data==="$?"||n.data==="$!"))return t}else if(t.tag===19&&t.memoizedProps.revealOrder!==void 0){if((t.flags&128)!==0)return t}else if(t.child!==null){t.child.return=t,t=t.child;continue}if(t===e)break;for(;t.sibling===null;){if(t.return===null||t.return===e)return null;t=t.return}t.sibling.return=t.return,t=t.sibling}return null}var no=[];function ro(){for(var e=0;e<no.length;e++)no[e]._workInProgressVersionPrimary=null;no.length=0}var ol=H.ReactCurrentDispatcher,so=H.ReactCurrentBatchConfig,Fn=0,Pe=null,Fe=null,Ve=null,il=!1,es=!1,ts=0,qp=0;function Ze(){throw Error(o(321))}function lo(e,t){if(t===null)return!1;for(var n=0;n<t.length&&n<e.length;n++)if(!Rt(e[n],t[n]))return!1;return!0}function ao(e,t,n,s,a,i){if(Fn=i,Pe=t,t.memoizedState=null,t.updateQueue=null,t.lanes=0,ol.current=e===null||e.memoizedState===null?nh:rh,e=n(s,a),es){i=0;do{if(es=!1,ts=0,25<=i)throw Error(o(301));i+=1,Ve=Fe=null,t.updateQueue=null,ol.current=sh,e=n(s,a)}while(es)}if(ol.current=dl,t=Fe!==null&&Fe.next!==null,Fn=0,Ve=Fe=Pe=null,il=!1,t)throw Error(o(300));return e}function oo(){var e=ts!==0;return ts=0,e}function Bt(){var e={memoizedState:null,baseState:null,baseQueue:null,queue:null,next:null};return Ve===null?Pe.memoizedState=Ve=e:Ve=Ve.next=e,Ve}function jt(){if(Fe===null){var e=Pe.alternate;e=e!==null?e.memoizedState:null}else e=Fe.next;var t=Ve===null?Pe.memoizedState:Ve.next;if(t!==null)Ve=t,Fe=e;else{if(e===null)throw Error(o(310));Fe=e,e={memoizedState:Fe.memoizedState,baseState:Fe.baseState,baseQueue:Fe.baseQueue,queue:Fe.queue,next:null},Ve===null?Pe.memoizedState=Ve=e:Ve=Ve.next=e}return Ve}function ns(e,t){return typeof t=="function"?t(e):t}function io(e){var t=jt(),n=t.queue;if(n===null)throw Error(o(311));n.lastRenderedReducer=e;var s=Fe,a=s.baseQueue,i=n.pending;if(i!==null){if(a!==null){var f=a.next;a.next=i.next,i.next=f}s.baseQueue=a=i,n.pending=null}if(a!==null){i=a.next,s=s.baseState;var v=f=null,w=null,P=i;do{var O=P.lane;if((Fn&O)===O)w!==null&&(w=w.next={lane:0,action:P.action,hasEagerState:P.hasEagerState,eagerState:P.eagerState,next:null}),s=P.hasEagerState?P.eagerState:e(s,P.action);else{var B={lane:O,action:P.action,hasEagerState:P.hasEagerState,eagerState:P.eagerState,next:null};w===null?(v=w=B,f=s):w=w.next=B,Pe.lanes|=O,On|=O}P=P.next}while(P!==null&&P!==i);w===null?f=s:w.next=v,Rt(s,t.memoizedState)||(ot=!0),t.memoizedState=s,t.baseState=f,t.baseQueue=w,n.lastRenderedState=s}if(e=n.interleaved,e!==null){a=e;do i=a.lane,Pe.lanes|=i,On|=i,a=a.next;while(a!==e)}else a===null&&(n.lanes=0);return[t.memoizedState,n.dispatch]}function uo(e){var t=jt(),n=t.queue;if(n===null)throw Error(o(311));n.lastRenderedReducer=e;var s=n.dispatch,a=n.pending,i=t.memoizedState;if(a!==null){n.pending=null;var f=a=a.next;do i=e(i,f.action),f=f.next;while(f!==a);Rt(i,t.memoizedState)||(ot=!0),t.memoizedState=i,t.baseQueue===null&&(t.baseState=i),n.lastRenderedState=i}return[i,s]}function fc(){}function mc(e,t){var n=Pe,s=jt(),a=t(),i=!Rt(s.memoizedState,a);if(i&&(s.memoizedState=a,ot=!0),s=s.queue,co(xc.bind(null,n,s,e),[e]),s.getSnapshot!==t||i||Ve!==null&&Ve.memoizedState.tag&1){if(n.flags|=2048,rs(9,hc.bind(null,n,s,a,t),void 0,null),We===null)throw Error(o(349));(Fn&30)!==0||pc(n,t,a)}return a}function pc(e,t,n){e.flags|=16384,e={getSnapshot:t,value:n},t=Pe.updateQueue,t===null?(t={lastEffect:null,stores:null},Pe.updateQueue=t,t.stores=[e]):(n=t.stores,n===null?t.stores=[e]:n.push(e))}function hc(e,t,n,s){t.value=n,t.getSnapshot=s,gc(t)&&vc(e)}function xc(e,t,n){return n(function(){gc(t)&&vc(e)})}function gc(e){var t=e.getSnapshot;e=e.value;try{var n=t();return!Rt(e,n)}catch{return!0}}function vc(e){var t=Yt(e,1);t!==null&&Dt(t,e,1,-1)}function yc(e){var t=Bt();return typeof e=="function"&&(e=e()),t.memoizedState=t.baseState=e,e={pending:null,interleaved:null,lanes:0,dispatch:null,lastRenderedReducer:ns,lastRenderedState:e},t.queue=e,e=e.dispatch=th.bind(null,Pe,e),[t.memoizedState,e]}function rs(e,t,n,s){return e={tag:e,create:t,destroy:n,deps:s,next:null},t=Pe.updateQueue,t===null?(t={lastEffect:null,stores:null},Pe.updateQueue=t,t.lastEffect=e.next=e):(n=t.lastEffect,n===null?t.lastEffect=e.next=e:(s=n.next,n.next=e,e.next=s,t.lastEffect=e)),e}function wc(){return jt().memoizedState}function ul(e,t,n,s){var a=Bt();Pe.flags|=e,a.memoizedState=rs(1|t,n,void 0,s===void 0?null:s)}function cl(e,t,n,s){var a=jt();s=s===void 0?null:s;var i=void 0;if(Fe!==null){var f=Fe.memoizedState;if(i=f.destroy,s!==null&&lo(s,f.deps)){a.memoizedState=rs(t,n,i,s);return}}Pe.flags|=e,a.memoizedState=rs(1|t,n,i,s)}function bc(e,t){return ul(8390656,8,e,t)}function co(e,t){return cl(2048,8,e,t)}function Nc(e,t){return cl(4,2,e,t)}function jc(e,t){return cl(4,4,e,t)}function kc(e,t){if(typeof t=="function")return e=e(),t(e),function(){t(null)};if(t!=null)return e=e(),t.current=e,function(){t.current=null}}function Sc(e,t,n){return n=n!=null?n.concat([e]):null,cl(4,4,kc.bind(null,t,e),n)}function fo(){}function Cc(e,t){var n=jt();t=t===void 0?null:t;var s=n.memoizedState;return s!==null&&t!==null&&lo(t,s[1])?s[0]:(n.memoizedState=[e,t],e)}function Ec(e,t){var n=jt();t=t===void 0?null:t;var s=n.memoizedState;return s!==null&&t!==null&&lo(t,s[1])?s[0]:(e=e(),n.memoizedState=[e,t],e)}function _c(e,t,n){return(Fn&21)===0?(e.baseState&&(e.baseState=!1,ot=!0),e.memoizedState=n):(Rt(n,t)||(n=su(),Pe.lanes|=n,On|=n,e.baseState=!0),t)}function Zp(e,t){var n=Ne;Ne=n!==0&&4>n?n:4,e(!0);var s=so.transition;so.transition={};try{e(!1),t()}finally{Ne=n,so.transition=s}}function Rc(){return jt().memoizedState}function eh(e,t,n){var s=jn(e);if(n={lane:s,action:n,hasEagerState:!1,eagerState:null,next:null},Pc(e))Tc(t,n);else if(n=oc(e,t,n,s),n!==null){var a=rt();Dt(n,e,s,a),Mc(n,t,s)}}function th(e,t,n){var s=jn(e),a={lane:s,action:n,hasEagerState:!1,eagerState:null,next:null};if(Pc(e))Tc(t,a);else{var i=e.alternate;if(e.lanes===0&&(i===null||i.lanes===0)&&(i=t.lastRenderedReducer,i!==null))try{var f=t.lastRenderedState,v=i(f,n);if(a.hasEagerState=!0,a.eagerState=v,Rt(v,f)){var w=t.interleaved;w===null?(a.next=a,qa(t)):(a.next=w.next,w.next=a),t.interleaved=a;return}}catch{}finally{}n=oc(e,t,a,s),n!==null&&(a=rt(),Dt(n,e,s,a),Mc(n,t,s))}}function Pc(e){var t=e.alternate;return e===Pe||t!==null&&t===Pe}function Tc(e,t){es=il=!0;var n=e.pending;n===null?t.next=t:(t.next=n.next,n.next=t),e.pending=t}function Mc(e,t,n){if((n&4194240)!==0){var s=t.lanes;s&=e.pendingLanes,n|=s,t.lanes=n,ma(e,n)}}var dl={readContext:Nt,useCallback:Ze,useContext:Ze,useEffect:Ze,useImperativeHandle:Ze,useInsertionEffect:Ze,useLayoutEffect:Ze,useMemo:Ze,useReducer:Ze,useRef:Ze,useState:Ze,useDebugValue:Ze,useDeferredValue:Ze,useTransition:Ze,useMutableSource:Ze,useSyncExternalStore:Ze,useId:Ze,unstable_isNewReconciler:!1},nh={readContext:Nt,useCallback:function(e,t){return Bt().memoizedState=[e,t===void 0?null:t],e},useContext:Nt,useEffect:bc,useImperativeHandle:function(e,t,n){return n=n!=null?n.concat([e]):null,ul(4194308,4,kc.bind(null,t,e),n)},useLayoutEffect:function(e,t){return ul(4194308,4,e,t)},useInsertionEffect:function(e,t){return ul(4,2,e,t)},useMemo:function(e,t){var n=Bt();return t=t===void 0?null:t,e=e(),n.memoizedState=[e,t],e},useReducer:function(e,t,n){var s=Bt();return t=n!==void 0?n(t):t,s.memoizedState=s.baseState=t,e={pending:null,interleaved:null,lanes:0,dispatch:null,lastRenderedReducer:e,lastRenderedState:t},s.queue=e,e=e.dispatch=eh.bind(null,Pe,e),[s.memoizedState,e]},useRef:function(e){var t=Bt();return e={current:e},t.memoizedState=e},useState:yc,useDebugValue:fo,useDeferredValue:function(e){return Bt().memoizedState=e},useTransition:function(){var e=yc(!1),t=e[0];return e=Zp.bind(null,e[1]),Bt().memoizedState=e,[t,e]},useMutableSource:function(){},useSyncExternalStore:function(e,t,n){var s=Pe,a=Bt();if(Ee){if(n===void 0)throw Error(o(407));n=n()}else{if(n=t(),We===null)throw Error(o(349));(Fn&30)!==0||pc(s,t,n)}a.memoizedState=n;var i={value:n,getSnapshot:t};return a.queue=i,bc(xc.bind(null,s,i,e),[e]),s.flags|=2048,rs(9,hc.bind(null,s,i,n,t),void 0,null),n},useId:function(){var e=Bt(),t=We.identifierPrefix;if(Ee){var n=Kt,s=Qt;n=(s&~(1<<32-_t(s)-1)).toString(32)+n,t=":"+t+"R"+n,n=ts++,0<n&&(t+="H"+n.toString(32)),t+=":"}else n=qp++,t=":"+t+"r"+n.toString(32)+":";return e.memoizedState=t},unstable_isNewReconciler:!1},rh={readContext:Nt,useCallback:Cc,useContext:Nt,useEffect:co,useImperativeHandle:Sc,useInsertionEffect:Nc,useLayoutEffect:jc,useMemo:Ec,useReducer:io,useRef:wc,useState:function(){return io(ns)},useDebugValue:fo,useDeferredValue:function(e){var t=jt();return _c(t,Fe.memoizedState,e)},useTransition:function(){var e=io(ns)[0],t=jt().memoizedState;return[e,t]},useMutableSource:fc,useSyncExternalStore:mc,useId:Rc,unstable_isNewReconciler:!1},sh={readContext:Nt,useCallback:Cc,useContext:Nt,useEffect:co,useImperativeHandle:Sc,useInsertionEffect:Nc,useLayoutEffect:jc,useMemo:Ec,useReducer:uo,useRef:wc,useState:function(){return uo(ns)},useDebugValue:fo,useDeferredValue:function(e){var t=jt();return Fe===null?t.memoizedState=e:_c(t,Fe.memoizedState,e)},useTransition:function(){var e=uo(ns)[0],t=jt().memoizedState;return[e,t]},useMutableSource:fc,useSyncExternalStore:mc,useId:Rc,unstable_isNewReconciler:!1};function Tt(e,t){if(e&&e.defaultProps){t=G({},t),e=e.defaultProps;for(var n in e)t[n]===void 0&&(t[n]=e[n]);return t}return t}function mo(e,t,n,s){t=e.memoizedState,n=n(s,t),n=n==null?t:G({},t,n),e.memoizedState=n,e.lanes===0&&(e.updateQueue.baseState=n)}var fl={isMounted:function(e){return(e=e._reactInternals)?Tn(e)===e:!1},enqueueSetState:function(e,t,n){e=e._reactInternals;var s=rt(),a=jn(e),i=Jt(s,a);i.payload=t,n!=null&&(i.callback=n),t=yn(e,i,a),t!==null&&(Dt(t,e,a,s),sl(t,e,a))},enqueueReplaceState:function(e,t,n){e=e._reactInternals;var s=rt(),a=jn(e),i=Jt(s,a);i.tag=1,i.payload=t,n!=null&&(i.callback=n),t=yn(e,i,a),t!==null&&(Dt(t,e,a,s),sl(t,e,a))},enqueueForceUpdate:function(e,t){e=e._reactInternals;var n=rt(),s=jn(e),a=Jt(n,s);a.tag=2,t!=null&&(a.callback=t),t=yn(e,a,s),t!==null&&(Dt(t,e,s,n),sl(t,e,s))}};function Lc(e,t,n,s,a,i,f){return e=e.stateNode,typeof e.shouldComponentUpdate=="function"?e.shouldComponentUpdate(s,i,f):t.prototype&&t.prototype.isPureReactComponent?!Vr(n,s)||!Vr(a,i):!0}function Dc(e,t,n){var s=!1,a=xn,i=t.contextType;return typeof i=="object"&&i!==null?i=Nt(i):(a=at(t)?Ln:qe.current,s=t.contextTypes,i=(s=s!=null)?lr(e,a):xn),t=new t(n,i),e.memoizedState=t.state!==null&&t.state!==void 0?t.state:null,t.updater=fl,e.stateNode=t,t._reactInternals=e,s&&(e=e.stateNode,e.__reactInternalMemoizedUnmaskedChildContext=a,e.__reactInternalMemoizedMaskedChildContext=i),t}function Ic(e,t,n,s){e=t.state,typeof t.componentWillReceiveProps=="function"&&t.componentWillReceiveProps(n,s),typeof t.UNSAFE_componentWillReceiveProps=="function"&&t.UNSAFE_componentWillReceiveProps(n,s),t.state!==e&&fl.enqueueReplaceState(t,t.state,null)}function po(e,t,n,s){var a=e.stateNode;a.props=n,a.state=e.memoizedState,a.refs={},Za(e);var i=t.contextType;typeof i=="object"&&i!==null?a.context=Nt(i):(i=at(t)?Ln:qe.current,a.context=lr(e,i)),a.state=e.memoizedState,i=t.getDerivedStateFromProps,typeof i=="function"&&(mo(e,t,i,n),a.state=e.memoizedState),typeof t.getDerivedStateFromProps=="function"||typeof a.getSnapshotBeforeUpdate=="function"||typeof a.UNSAFE_componentWillMount!="function"&&typeof a.componentWillMount!="function"||(t=a.state,typeof a.componentWillMount=="function"&&a.componentWillMount(),typeof a.UNSAFE_componentWillMount=="function"&&a.UNSAFE_componentWillMount(),t!==a.state&&fl.enqueueReplaceState(a,a.state,null),ll(e,n,a,s),a.state=e.memoizedState),typeof a.componentDidMount=="function"&&(e.flags|=4194308)}function mr(e,t){try{var n="",s=t;do n+=de(s),s=s.return;while(s);var a=n}catch(i){a=`
-Error generating stack: `+i.message+`
-`+i.stack}return{value:e,source:t,stack:a,digest:null}}function ho(e,t,n){return{value:e,source:null,stack:n??null,digest:t??null}}function xo(e,t){try{console.error(t.value)}catch(n){setTimeout(function(){throw n})}}var lh=typeof WeakMap=="function"?WeakMap:Map;function zc(e,t,n){n=Jt(-1,n),n.tag=3,n.payload={element:null};var s=t.value;return n.callback=function(){yl||(yl=!0,To=s),xo(e,t)},n}function Ac(e,t,n){n=Jt(-1,n),n.tag=3;var s=e.type.getDerivedStateFromError;if(typeof s=="function"){var a=t.value;n.payload=function(){return s(a)},n.callback=function(){xo(e,t)}}var i=e.stateNode;return i!==null&&typeof i.componentDidCatch=="function"&&(n.callback=function(){xo(e,t),typeof s!="function"&&(bn===null?bn=new Set([this]):bn.add(this));var f=t.stack;this.componentDidCatch(t.value,{componentStack:f!==null?f:""})}),n}function Fc(e,t,n){var s=e.pingCache;if(s===null){s=e.pingCache=new lh;var a=new Set;s.set(t,a)}else a=s.get(t),a===void 0&&(a=new Set,s.set(t,a));a.has(n)||(a.add(n),e=yh.bind(null,e,t,n),t.then(e,e))}function Oc(e){do{var t;if((t=e.tag===13)&&(t=e.memoizedState,t=t!==null?t.dehydrated!==null:!0),t)return e;e=e.return}while(e!==null);return null}function Bc(e,t,n,s,a){return(e.mode&1)===0?(e===t?e.flags|=65536:(e.flags|=128,n.flags|=131072,n.flags&=-52805,n.tag===1&&(n.alternate===null?n.tag=17:(t=Jt(-1,1),t.tag=2,yn(n,t,1))),n.lanes|=1),e):(e.flags|=65536,e.lanes=a,e)}var ah=H.ReactCurrentOwner,ot=!1;function nt(e,t,n,s){t.child=e===null?ac(t,null,n,s):ur(t,e.child,n,s)}function $c(e,t,n,s,a){n=n.render;var i=t.ref;return dr(t,a),s=ao(e,t,n,s,i,a),n=oo(),e!==null&&!ot?(t.updateQueue=e.updateQueue,t.flags&=-2053,e.lanes&=~a,Xt(e,t,a)):(Ee&&n&&Va(t),t.flags|=1,nt(e,t,s,a),t.child)}function Uc(e,t,n,s,a){if(e===null){var i=n.type;return typeof i=="function"&&!Fo(i)&&i.defaultProps===void 0&&n.compare===null&&n.defaultProps===void 0?(t.tag=15,t.type=i,Vc(e,t,i,s,a)):(e=Sl(n.type,null,s,t,t.mode,a),e.ref=t.ref,e.return=t,t.child=e)}if(i=e.child,(e.lanes&a)===0){var f=i.memoizedProps;if(n=n.compare,n=n!==null?n:Vr,n(f,s)&&e.ref===t.ref)return Xt(e,t,a)}return t.flags|=1,e=Sn(i,s),e.ref=t.ref,e.return=t,t.child=e}function Vc(e,t,n,s,a){if(e!==null){var i=e.memoizedProps;if(Vr(i,s)&&e.ref===t.ref)if(ot=!1,t.pendingProps=s=i,(e.lanes&a)!==0)(e.flags&131072)!==0&&(ot=!0);else return t.lanes=e.lanes,Xt(e,t,a)}return go(e,t,n,s,a)}function Wc(e,t,n){var s=t.pendingProps,a=s.children,i=e!==null?e.memoizedState:null;if(s.mode==="hidden")if((t.mode&1)===0)t.memoizedState={baseLanes:0,cachePool:null,transitions:null},ke(hr,gt),gt|=n;else{if((n&1073741824)===0)return e=i!==null?i.baseLanes|n:n,t.lanes=t.childLanes=1073741824,t.memoizedState={baseLanes:e,cachePool:null,transitions:null},t.updateQueue=null,ke(hr,gt),gt|=e,null;t.memoizedState={baseLanes:0,cachePool:null,transitions:null},s=i!==null?i.baseLanes:n,ke(hr,gt),gt|=s}else i!==null?(s=i.baseLanes|n,t.memoizedState=null):s=n,ke(hr,gt),gt|=s;return nt(e,t,a,n),t.child}function Hc(e,t){var n=t.ref;(e===null&&n!==null||e!==null&&e.ref!==n)&&(t.flags|=512,t.flags|=2097152)}function go(e,t,n,s,a){var i=at(n)?Ln:qe.current;return i=lr(t,i),dr(t,a),n=ao(e,t,n,s,i,a),s=oo(),e!==null&&!ot?(t.updateQueue=e.updateQueue,t.flags&=-2053,e.lanes&=~a,Xt(e,t,a)):(Ee&&s&&Va(t),t.flags|=1,nt(e,t,n,a),t.child)}function Gc(e,t,n,s,a){if(at(n)){var i=!0;Js(t)}else i=!1;if(dr(t,a),t.stateNode===null)pl(e,t),Dc(t,n,s),po(t,n,s,a),s=!0;else if(e===null){var f=t.stateNode,v=t.memoizedProps;f.props=v;var w=f.context,P=n.contextType;typeof P=="object"&&P!==null?P=Nt(P):(P=at(n)?Ln:qe.current,P=lr(t,P));var O=n.getDerivedStateFromProps,B=typeof O=="function"||typeof f.getSnapshotBeforeUpdate=="function";B||typeof f.UNSAFE_componentWillReceiveProps!="function"&&typeof f.componentWillReceiveProps!="function"||(v!==s||w!==P)&&Ic(t,f,s,P),vn=!1;var F=t.memoizedState;f.state=F,ll(t,s,f,a),w=t.memoizedState,v!==s||F!==w||lt.current||vn?(typeof O=="function"&&(mo(t,n,O,s),w=t.memoizedState),(v=vn||Lc(t,n,v,s,F,w,P))?(B||typeof f.UNSAFE_componentWillMount!="function"&&typeof f.componentWillMount!="function"||(typeof f.componentWillMount=="function"&&f.componentWillMount(),typeof f.UNSAFE_componentWillMount=="function"&&f.UNSAFE_componentWillMount()),typeof f.componentDidMount=="function"&&(t.flags|=4194308)):(typeof f.componentDidMount=="function"&&(t.flags|=4194308),t.memoizedProps=s,t.memoizedState=w),f.props=s,f.state=w,f.context=P,s=v):(typeof f.componentDidMount=="function"&&(t.flags|=4194308),s=!1)}else{f=t.stateNode,ic(e,t),v=t.memoizedProps,P=t.type===t.elementType?v:Tt(t.type,v),f.props=P,B=t.pendingProps,F=f.context,w=n.contextType,typeof w=="object"&&w!==null?w=Nt(w):(w=at(n)?Ln:qe.current,w=lr(t,w));var W=n.getDerivedStateFromProps;(O=typeof W=="function"||typeof f.getSnapshotBeforeUpdate=="function")||typeof f.UNSAFE_componentWillReceiveProps!="function"&&typeof f.componentWillReceiveProps!="function"||(v!==B||F!==w)&&Ic(t,f,s,w),vn=!1,F=t.memoizedState,f.state=F,ll(t,s,f,a);var K=t.memoizedState;v!==B||F!==K||lt.current||vn?(typeof W=="function"&&(mo(t,n,W,s),K=t.memoizedState),(P=vn||Lc(t,n,P,s,F,K,w)||!1)?(O||typeof f.UNSAFE_componentWillUpdate!="function"&&typeof f.componentWillUpdate!="function"||(typeof f.componentWillUpdate=="function"&&f.componentWillUpdate(s,K,w),typeof f.UNSAFE_componentWillUpdate=="function"&&f.UNSAFE_componentWillUpdate(s,K,w)),typeof f.componentDidUpdate=="function"&&(t.flags|=4),typeof f.getSnapshotBeforeUpdate=="function"&&(t.flags|=1024)):(typeof f.componentDidUpdate!="function"||v===e.memoizedProps&&F===e.memoizedState||(t.flags|=4),typeof f.getSnapshotBeforeUpdate!="function"||v===e.memoizedProps&&F===e.memoizedState||(t.flags|=1024),t.memoizedProps=s,t.memoizedState=K),f.props=s,f.state=K,f.context=w,s=P):(typeof f.componentDidUpdate!="function"||v===e.memoizedProps&&F===e.memoizedState||(t.flags|=4),typeof f.getSnapshotBeforeUpdate!="function"||v===e.memoizedProps&&F===e.memoizedState||(t.flags|=1024),s=!1)}return vo(e,t,n,s,i,a)}function vo(e,t,n,s,a,i){Hc(e,t);var f=(t.flags&128)!==0;if(!s&&!f)return a&&Xu(t,n,!1),Xt(e,t,i);s=t.stateNode,ah.current=t;var v=f&&typeof n.getDerivedStateFromError!="function"?null:s.render();return t.flags|=1,e!==null&&f?(t.child=ur(t,e.child,null,i),t.child=ur(t,null,v,i)):nt(e,t,v,i),t.memoizedState=s.state,a&&Xu(t,n,!0),t.child}function Qc(e){var t=e.stateNode;t.pendingContext?Yu(e,t.pendingContext,t.pendingContext!==t.context):t.context&&Yu(e,t.context,!1),eo(e,t.containerInfo)}function Kc(e,t,n,s,a){return ir(),Qa(a),t.flags|=256,nt(e,t,n,s),t.child}var yo={dehydrated:null,treeContext:null,retryLane:0};function wo(e){return{baseLanes:e,cachePool:null,transitions:null}}function Yc(e,t,n){var s=t.pendingProps,a=Re.current,i=!1,f=(t.flags&128)!==0,v;if((v=f)||(v=e!==null&&e.memoizedState===null?!1:(a&2)!==0),v?(i=!0,t.flags&=-129):(e===null||e.memoizedState!==null)&&(a|=1),ke(Re,a&1),e===null)return Ga(t),e=t.memoizedState,e!==null&&(e=e.dehydrated,e!==null)?((t.mode&1)===0?t.lanes=1:e.data==="$!"?t.lanes=8:t.lanes=1073741824,null):(f=s.children,e=s.fallback,i?(s=t.mode,i=t.child,f={mode:"hidden",children:f},(s&1)===0&&i!==null?(i.childLanes=0,i.pendingProps=f):i=Cl(f,s,0,null),e=Vn(e,s,n,null),i.return=t,e.return=t,i.sibling=e,t.child=i,t.child.memoizedState=wo(n),t.memoizedState=yo,e):bo(t,f));if(a=e.memoizedState,a!==null&&(v=a.dehydrated,v!==null))return oh(e,t,f,s,v,a,n);if(i){i=s.fallback,f=t.mode,a=e.child,v=a.sibling;var w={mode:"hidden",children:s.children};return(f&1)===0&&t.child!==a?(s=t.child,s.childLanes=0,s.pendingProps=w,t.deletions=null):(s=Sn(a,w),s.subtreeFlags=a.subtreeFlags&14680064),v!==null?i=Sn(v,i):(i=Vn(i,f,n,null),i.flags|=2),i.return=t,s.return=t,s.sibling=i,t.child=s,s=i,i=t.child,f=e.child.memoizedState,f=f===null?wo(n):{baseLanes:f.baseLanes|n,cachePool:null,transitions:f.transitions},i.memoizedState=f,i.childLanes=e.childLanes&~n,t.memoizedState=yo,s}return i=e.child,e=i.sibling,s=Sn(i,{mode:"visible",children:s.children}),(t.mode&1)===0&&(s.lanes=n),s.return=t,s.sibling=null,e!==null&&(n=t.deletions,n===null?(t.deletions=[e],t.flags|=16):n.push(e)),t.child=s,t.memoizedState=null,s}function bo(e,t){return t=Cl({mode:"visible",children:t},e.mode,0,null),t.return=e,e.child=t}function ml(e,t,n,s){return s!==null&&Qa(s),ur(t,e.child,null,n),e=bo(t,t.pendingProps.children),e.flags|=2,t.memoizedState=null,e}function oh(e,t,n,s,a,i,f){if(n)return t.flags&256?(t.flags&=-257,s=ho(Error(o(422))),ml(e,t,f,s)):t.memoizedState!==null?(t.child=e.child,t.flags|=128,null):(i=s.fallback,a=t.mode,s=Cl({mode:"visible",children:s.children},a,0,null),i=Vn(i,a,f,null),i.flags|=2,s.return=t,i.return=t,s.sibling=i,t.child=s,(t.mode&1)!==0&&ur(t,e.child,null,f),t.child.memoizedState=wo(f),t.memoizedState=yo,i);if((t.mode&1)===0)return ml(e,t,f,null);if(a.data==="$!"){if(s=a.nextSibling&&a.nextSibling.dataset,s)var v=s.dgst;return s=v,i=Error(o(419)),s=ho(i,s,void 0),ml(e,t,f,s)}if(v=(f&e.childLanes)!==0,ot||v){if(s=We,s!==null){switch(f&-f){case 4:a=2;break;case 16:a=8;break;case 64:case 128:case 256:case 512:case 1024:case 2048:case 4096:case 8192:case 16384:case 32768:case 65536:case 131072:case 262144:case 524288:case 1048576:case 2097152:case 4194304:case 8388608:case 16777216:case 33554432:case 67108864:a=32;break;case 536870912:a=268435456;break;default:a=0}a=(a&(s.suspendedLanes|f))!==0?0:a,a!==0&&a!==i.retryLane&&(i.retryLane=a,Yt(e,a),Dt(s,e,a,-1))}return Ao(),s=ho(Error(o(421))),ml(e,t,f,s)}return a.data==="$?"?(t.flags|=128,t.child=e.child,t=wh.bind(null,e),a._reactRetry=t,null):(e=i.treeContext,xt=pn(a.nextSibling),ht=t,Ee=!0,Pt=null,e!==null&&(wt[bt++]=Qt,wt[bt++]=Kt,wt[bt++]=Dn,Qt=e.id,Kt=e.overflow,Dn=t),t=bo(t,s.children),t.flags|=4096,t)}function Jc(e,t,n){e.lanes|=t;var s=e.alternate;s!==null&&(s.lanes|=t),Xa(e.return,t,n)}function No(e,t,n,s,a){var i=e.memoizedState;i===null?e.memoizedState={isBackwards:t,rendering:null,renderingStartTime:0,last:s,tail:n,tailMode:a}:(i.isBackwards=t,i.rendering=null,i.renderingStartTime=0,i.last=s,i.tail=n,i.tailMode=a)}function Xc(e,t,n){var s=t.pendingProps,a=s.revealOrder,i=s.tail;if(nt(e,t,s.children,n),s=Re.current,(s&2)!==0)s=s&1|2,t.flags|=128;else{if(e!==null&&(e.flags&128)!==0)e:for(e=t.child;e!==null;){if(e.tag===13)e.memoizedState!==null&&Jc(e,n,t);else if(e.tag===19)Jc(e,n,t);else if(e.child!==null){e.child.return=e,e=e.child;continue}if(e===t)break e;for(;e.sibling===null;){if(e.return===null||e.return===t)break e;e=e.return}e.sibling.return=e.return,e=e.sibling}s&=1}if(ke(Re,s),(t.mode&1)===0)t.memoizedState=null;else switch(a){case"forwards":for(n=t.child,a=null;n!==null;)e=n.alternate,e!==null&&al(e)===null&&(a=n),n=n.sibling;n=a,n===null?(a=t.child,t.child=null):(a=n.sibling,n.sibling=null),No(t,!1,a,n,i);break;case"backwards":for(n=null,a=t.child,t.child=null;a!==null;){if(e=a.alternate,e!==null&&al(e)===null){t.child=a;break}e=a.sibling,a.sibling=n,n=a,a=e}No(t,!0,n,null,i);break;case"together":No(t,!1,null,null,void 0);break;default:t.memoizedState=null}return t.child}function pl(e,t){(t.mode&1)===0&&e!==null&&(e.alternate=null,t.alternate=null,t.flags|=2)}function Xt(e,t,n){if(e!==null&&(t.dependencies=e.dependencies),On|=t.lanes,(n&t.childLanes)===0)return null;if(e!==null&&t.child!==e.child)throw Error(o(153));if(t.child!==null){for(e=t.child,n=Sn(e,e.pendingProps),t.child=n,n.return=t;e.sibling!==null;)e=e.sibling,n=n.sibling=Sn(e,e.pendingProps),n.return=t;n.sibling=null}return t.child}function ih(e,t,n){switch(t.tag){case 3:Qc(t),ir();break;case 5:dc(t);break;case 1:at(t.type)&&Js(t);break;case 4:eo(t,t.stateNode.containerInfo);break;case 10:var s=t.type._context,a=t.memoizedProps.value;ke(nl,s._currentValue),s._currentValue=a;break;case 13:if(s=t.memoizedState,s!==null)return s.dehydrated!==null?(ke(Re,Re.current&1),t.flags|=128,null):(n&t.child.childLanes)!==0?Yc(e,t,n):(ke(Re,Re.current&1),e=Xt(e,t,n),e!==null?e.sibling:null);ke(Re,Re.current&1);break;case 19:if(s=(n&t.childLanes)!==0,(e.flags&128)!==0){if(s)return Xc(e,t,n);t.flags|=128}if(a=t.memoizedState,a!==null&&(a.rendering=null,a.tail=null,a.lastEffect=null),ke(Re,Re.current),s)break;return null;case 22:case 23:return t.lanes=0,Wc(e,t,n)}return Xt(e,t,n)}var qc,jo,Zc,ed;qc=function(e,t){for(var n=t.child;n!==null;){if(n.tag===5||n.tag===6)e.appendChild(n.stateNode);else if(n.tag!==4&&n.child!==null){n.child.return=n,n=n.child;continue}if(n===t)break;for(;n.sibling===null;){if(n.return===null||n.return===t)return;n=n.return}n.sibling.return=n.return,n=n.sibling}},jo=function(){},Zc=function(e,t,n,s){var a=e.memoizedProps;if(a!==s){e=t.stateNode,An(Ot.current);var i=null;switch(n){case"input":a=Xl(e,a),s=Xl(e,s),i=[];break;case"select":a=G({},a,{value:void 0}),s=G({},s,{value:void 0}),i=[];break;case"textarea":a=ea(e,a),s=ea(e,s),i=[];break;default:typeof a.onClick!="function"&&typeof s.onClick=="function"&&(e.onclick=Qs)}na(n,s);var f;n=null;for(P in a)if(!s.hasOwnProperty(P)&&a.hasOwnProperty(P)&&a[P]!=null)if(P==="style"){var v=a[P];for(f in v)v.hasOwnProperty(f)&&(n||(n={}),n[f]="")}else P!=="dangerouslySetInnerHTML"&&P!=="children"&&P!=="suppressContentEditableWarning"&&P!=="suppressHydrationWarning"&&P!=="autoFocus"&&(d.hasOwnProperty(P)?i||(i=[]):(i=i||[]).push(P,null));for(P in s){var w=s[P];if(v=a!=null?a[P]:void 0,s.hasOwnProperty(P)&&w!==v&&(w!=null||v!=null))if(P==="style")if(v){for(f in v)!v.hasOwnProperty(f)||w&&w.hasOwnProperty(f)||(n||(n={}),n[f]="");for(f in w)w.hasOwnProperty(f)&&v[f]!==w[f]&&(n||(n={}),n[f]=w[f])}else n||(i||(i=[]),i.push(P,n)),n=w;else P==="dangerouslySetInnerHTML"?(w=w?w.__html:void 0,v=v?v.__html:void 0,w!=null&&v!==w&&(i=i||[]).push(P,w)):P==="children"?typeof w!="string"&&typeof w!="number"||(i=i||[]).push(P,""+w):P!=="suppressContentEditableWarning"&&P!=="suppressHydrationWarning"&&(d.hasOwnProperty(P)?(w!=null&&P==="onScroll"&&Se("scroll",e),i||v===w||(i=[])):(i=i||[]).push(P,w))}n&&(i=i||[]).push("style",n);var P=i;(t.updateQueue=P)&&(t.flags|=4)}},ed=function(e,t,n,s){n!==s&&(t.flags|=4)};function ss(e,t){if(!Ee)switch(e.tailMode){case"hidden":t=e.tail;for(var n=null;t!==null;)t.alternate!==null&&(n=t),t=t.sibling;n===null?e.tail=null:n.sibling=null;break;case"collapsed":n=e.tail;for(var s=null;n!==null;)n.alternate!==null&&(s=n),n=n.sibling;s===null?t||e.tail===null?e.tail=null:e.tail.sibling=null:s.sibling=null}}function et(e){var t=e.alternate!==null&&e.alternate.child===e.child,n=0,s=0;if(t)for(var a=e.child;a!==null;)n|=a.lanes|a.childLanes,s|=a.subtreeFlags&14680064,s|=a.flags&14680064,a.return=e,a=a.sibling;else for(a=e.child;a!==null;)n|=a.lanes|a.childLanes,s|=a.subtreeFlags,s|=a.flags,a.return=e,a=a.sibling;return e.subtreeFlags|=s,e.childLanes=n,t}function uh(e,t,n){var s=t.pendingProps;switch(Wa(t),t.tag){case 2:case 16:case 15:case 0:case 11:case 7:case 8:case 12:case 9:case 14:return et(t),null;case 1:return at(t.type)&&Ys(),et(t),null;case 3:return s=t.stateNode,fr(),Ce(lt),Ce(qe),ro(),s.pendingContext&&(s.context=s.pendingContext,s.pendingContext=null),(e===null||e.child===null)&&(el(t)?t.flags|=4:e===null||e.memoizedState.isDehydrated&&(t.flags&256)===0||(t.flags|=1024,Pt!==null&&(Do(Pt),Pt=null))),jo(e,t),et(t),null;case 5:to(t);var a=An(Zr.current);if(n=t.type,e!==null&&t.stateNode!=null)Zc(e,t,n,s,a),e.ref!==t.ref&&(t.flags|=512,t.flags|=2097152);else{if(!s){if(t.stateNode===null)throw Error(o(166));return et(t),null}if(e=An(Ot.current),el(t)){s=t.stateNode,n=t.type;var i=t.memoizedProps;switch(s[Ft]=t,s[Kr]=i,e=(t.mode&1)!==0,n){case"dialog":Se("cancel",s),Se("close",s);break;case"iframe":case"object":case"embed":Se("load",s);break;case"video":case"audio":for(a=0;a<Hr.length;a++)Se(Hr[a],s);break;case"source":Se("error",s);break;case"img":case"image":case"link":Se("error",s),Se("load",s);break;case"details":Se("toggle",s);break;case"input":Di(s,i),Se("invalid",s);break;case"select":s._wrapperState={wasMultiple:!!i.multiple},Se("invalid",s);break;case"textarea":Ai(s,i),Se("invalid",s)}na(n,i),a=null;for(var f in i)if(i.hasOwnProperty(f)){var v=i[f];f==="children"?typeof v=="string"?s.textContent!==v&&(i.suppressHydrationWarning!==!0&&Gs(s.textContent,v,e),a=["children",v]):typeof v=="number"&&s.textContent!==""+v&&(i.suppressHydrationWarning!==!0&&Gs(s.textContent,v,e),a=["children",""+v]):d.hasOwnProperty(f)&&v!=null&&f==="onScroll"&&Se("scroll",s)}switch(n){case"input":an(s),zi(s,i,!0);break;case"textarea":an(s),Oi(s);break;case"select":case"option":break;default:typeof i.onClick=="function"&&(s.onclick=Qs)}s=a,t.updateQueue=s,s!==null&&(t.flags|=4)}else{f=a.nodeType===9?a:a.ownerDocument,e==="http://www.w3.org/1999/xhtml"&&(e=Bi(n)),e==="http://www.w3.org/1999/xhtml"?n==="script"?(e=f.createElement("div"),e.innerHTML="<script><\/script>",e=e.removeChild(e.firstChild)):typeof s.is=="string"?e=f.createElement(n,{is:s.is}):(e=f.createElement(n),n==="select"&&(f=e,s.multiple?f.multiple=!0:s.size&&(f.size=s.size))):e=f.createElementNS(e,n),e[Ft]=t,e[Kr]=s,qc(e,t,!1,!1),t.stateNode=e;e:{switch(f=ra(n,s),n){case"dialog":Se("cancel",e),Se("close",e),a=s;break;case"iframe":case"object":case"embed":Se("load",e),a=s;break;case"video":case"audio":for(a=0;a<Hr.length;a++)Se(Hr[a],e);a=s;break;case"source":Se("error",e),a=s;break;case"img":case"image":case"link":Se("error",e),Se("load",e),a=s;break;case"details":Se("toggle",e),a=s;break;case"input":Di(e,s),a=Xl(e,s),Se("invalid",e);break;case"option":a=s;break;case"select":e._wrapperState={wasMultiple:!!s.multiple},a=G({},s,{value:void 0}),Se("invalid",e);break;case"textarea":Ai(e,s),a=ea(e,s),Se("invalid",e);break;default:a=s}na(n,a),v=a;for(i in v)if(v.hasOwnProperty(i)){var w=v[i];i==="style"?Vi(e,w):i==="dangerouslySetInnerHTML"?(w=w?w.__html:void 0,w!=null&&$i(e,w)):i==="children"?typeof w=="string"?(n!=="textarea"||w!=="")&&Cr(e,w):typeof w=="number"&&Cr(e,""+w):i!=="suppressContentEditableWarning"&&i!=="suppressHydrationWarning"&&i!=="autoFocus"&&(d.hasOwnProperty(i)?w!=null&&i==="onScroll"&&Se("scroll",e):w!=null&&S(e,i,w,f))}switch(n){case"input":an(e),zi(e,s,!1);break;case"textarea":an(e),Oi(e);break;case"option":s.value!=null&&e.setAttribute("value",""+xe(s.value));break;case"select":e.multiple=!!s.multiple,i=s.value,i!=null?Qn(e,!!s.multiple,i,!1):s.defaultValue!=null&&Qn(e,!!s.multiple,s.defaultValue,!0);break;default:typeof a.onClick=="function"&&(e.onclick=Qs)}switch(n){case"button":case"input":case"select":case"textarea":s=!!s.autoFocus;break e;case"img":s=!0;break e;default:s=!1}}s&&(t.flags|=4)}t.ref!==null&&(t.flags|=512,t.flags|=2097152)}return et(t),null;case 6:if(e&&t.stateNode!=null)ed(e,t,e.memoizedProps,s);else{if(typeof s!="string"&&t.stateNode===null)throw Error(o(166));if(n=An(Zr.current),An(Ot.current),el(t)){if(s=t.stateNode,n=t.memoizedProps,s[Ft]=t,(i=s.nodeValue!==n)&&(e=ht,e!==null))switch(e.tag){case 3:Gs(s.nodeValue,n,(e.mode&1)!==0);break;case 5:e.memoizedProps.suppressHydrationWarning!==!0&&Gs(s.nodeValue,n,(e.mode&1)!==0)}i&&(t.flags|=4)}else s=(n.nodeType===9?n:n.ownerDocument).createTextNode(s),s[Ft]=t,t.stateNode=s}return et(t),null;case 13:if(Ce(Re),s=t.memoizedState,e===null||e.memoizedState!==null&&e.memoizedState.dehydrated!==null){if(Ee&&xt!==null&&(t.mode&1)!==0&&(t.flags&128)===0)rc(),ir(),t.flags|=98560,i=!1;else if(i=el(t),s!==null&&s.dehydrated!==null){if(e===null){if(!i)throw Error(o(318));if(i=t.memoizedState,i=i!==null?i.dehydrated:null,!i)throw Error(o(317));i[Ft]=t}else ir(),(t.flags&128)===0&&(t.memoizedState=null),t.flags|=4;et(t),i=!1}else Pt!==null&&(Do(Pt),Pt=null),i=!0;if(!i)return t.flags&65536?t:null}return(t.flags&128)!==0?(t.lanes=n,t):(s=s!==null,s!==(e!==null&&e.memoizedState!==null)&&s&&(t.child.flags|=8192,(t.mode&1)!==0&&(e===null||(Re.current&1)!==0?Oe===0&&(Oe=3):Ao())),t.updateQueue!==null&&(t.flags|=4),et(t),null);case 4:return fr(),jo(e,t),e===null&&Gr(t.stateNode.containerInfo),et(t),null;case 10:return Ja(t.type._context),et(t),null;case 17:return at(t.type)&&Ys(),et(t),null;case 19:if(Ce(Re),i=t.memoizedState,i===null)return et(t),null;if(s=(t.flags&128)!==0,f=i.rendering,f===null)if(s)ss(i,!1);else{if(Oe!==0||e!==null&&(e.flags&128)!==0)for(e=t.child;e!==null;){if(f=al(e),f!==null){for(t.flags|=128,ss(i,!1),s=f.updateQueue,s!==null&&(t.updateQueue=s,t.flags|=4),t.subtreeFlags=0,s=n,n=t.child;n!==null;)i=n,e=s,i.flags&=14680066,f=i.alternate,f===null?(i.childLanes=0,i.lanes=e,i.child=null,i.subtreeFlags=0,i.memoizedProps=null,i.memoizedState=null,i.updateQueue=null,i.dependencies=null,i.stateNode=null):(i.childLanes=f.childLanes,i.lanes=f.lanes,i.child=f.child,i.subtreeFlags=0,i.deletions=null,i.memoizedProps=f.memoizedProps,i.memoizedState=f.memoizedState,i.updateQueue=f.updateQueue,i.type=f.type,e=f.dependencies,i.dependencies=e===null?null:{lanes:e.lanes,firstContext:e.firstContext}),n=n.sibling;return ke(Re,Re.current&1|2),t.child}e=e.sibling}i.tail!==null&&De()>xr&&(t.flags|=128,s=!0,ss(i,!1),t.lanes=4194304)}else{if(!s)if(e=al(f),e!==null){if(t.flags|=128,s=!0,n=e.updateQueue,n!==null&&(t.updateQueue=n,t.flags|=4),ss(i,!0),i.tail===null&&i.tailMode==="hidden"&&!f.alternate&&!Ee)return et(t),null}else 2*De()-i.renderingStartTime>xr&&n!==1073741824&&(t.flags|=128,s=!0,ss(i,!1),t.lanes=4194304);i.isBackwards?(f.sibling=t.child,t.child=f):(n=i.last,n!==null?n.sibling=f:t.child=f,i.last=f)}return i.tail!==null?(t=i.tail,i.rendering=t,i.tail=t.sibling,i.renderingStartTime=De(),t.sibling=null,n=Re.current,ke(Re,s?n&1|2:n&1),t):(et(t),null);case 22:case 23:return zo(),s=t.memoizedState!==null,e!==null&&e.memoizedState!==null!==s&&(t.flags|=8192),s&&(t.mode&1)!==0?(gt&1073741824)!==0&&(et(t),t.subtreeFlags&6&&(t.flags|=8192)):et(t),null;case 24:return null;case 25:return null}throw Error(o(156,t.tag))}function ch(e,t){switch(Wa(t),t.tag){case 1:return at(t.type)&&Ys(),e=t.flags,e&65536?(t.flags=e&-65537|128,t):null;case 3:return fr(),Ce(lt),Ce(qe),ro(),e=t.flags,(e&65536)!==0&&(e&128)===0?(t.flags=e&-65537|128,t):null;case 5:return to(t),null;case 13:if(Ce(Re),e=t.memoizedState,e!==null&&e.dehydrated!==null){if(t.alternate===null)throw Error(o(340));ir()}return e=t.flags,e&65536?(t.flags=e&-65537|128,t):null;case 19:return Ce(Re),null;case 4:return fr(),null;case 10:return Ja(t.type._context),null;case 22:case 23:return zo(),null;case 24:return null;default:return null}}var hl=!1,tt=!1,dh=typeof WeakSet=="function"?WeakSet:Set,Q=null;function pr(e,t){var n=e.ref;if(n!==null)if(typeof n=="function")try{n(null)}catch(s){Me(e,t,s)}else n.current=null}function ko(e,t,n){try{n()}catch(s){Me(e,t,s)}}var td=!1;function fh(e,t){if(Ia=Is,e=Lu(),Ea(e)){if("selectionStart"in e)var n={start:e.selectionStart,end:e.selectionEnd};else e:{n=(n=e.ownerDocument)&&n.defaultView||window;var s=n.getSelection&&n.getSelection();if(s&&s.rangeCount!==0){n=s.anchorNode;var a=s.anchorOffset,i=s.focusNode;s=s.focusOffset;try{n.nodeType,i.nodeType}catch{n=null;break e}var f=0,v=-1,w=-1,P=0,O=0,B=e,F=null;t:for(;;){for(var W;B!==n||a!==0&&B.nodeType!==3||(v=f+a),B!==i||s!==0&&B.nodeType!==3||(w=f+s),B.nodeType===3&&(f+=B.nodeValue.length),(W=B.firstChild)!==null;)F=B,B=W;for(;;){if(B===e)break t;if(F===n&&++P===a&&(v=f),F===i&&++O===s&&(w=f),(W=B.nextSibling)!==null)break;B=F,F=B.parentNode}B=W}n=v===-1||w===-1?null:{start:v,end:w}}else n=null}n=n||{start:0,end:0}}else n=null;for(za={focusedElem:e,selectionRange:n},Is=!1,Q=t;Q!==null;)if(t=Q,e=t.child,(t.subtreeFlags&1028)!==0&&e!==null)e.return=t,Q=e;else for(;Q!==null;){t=Q;try{var K=t.alternate;if((t.flags&1024)!==0)switch(t.tag){case 0:case 11:case 15:break;case 1:if(K!==null){var X=K.memoizedProps,Ie=K.memoizedState,C=t.stateNode,b=C.getSnapshotBeforeUpdate(t.elementType===t.type?X:Tt(t.type,X),Ie);C.__reactInternalSnapshotBeforeUpdate=b}break;case 3:var E=t.stateNode.containerInfo;E.nodeType===1?E.textContent="":E.nodeType===9&&E.documentElement&&E.removeChild(E.documentElement);break;case 5:case 6:case 4:case 17:break;default:throw Error(o(163))}}catch($){Me(t,t.return,$)}if(e=t.sibling,e!==null){e.return=t.return,Q=e;break}Q=t.return}return K=td,td=!1,K}function ls(e,t,n){var s=t.updateQueue;if(s=s!==null?s.lastEffect:null,s!==null){var a=s=s.next;do{if((a.tag&e)===e){var i=a.destroy;a.destroy=void 0,i!==void 0&&ko(t,n,i)}a=a.next}while(a!==s)}}function xl(e,t){if(t=t.updateQueue,t=t!==null?t.lastEffect:null,t!==null){var n=t=t.next;do{if((n.tag&e)===e){var s=n.create;n.destroy=s()}n=n.next}while(n!==t)}}function So(e){var t=e.ref;if(t!==null){var n=e.stateNode;switch(e.tag){case 5:e=n;break;default:e=n}typeof t=="function"?t(e):t.current=e}}function nd(e){var t=e.alternate;t!==null&&(e.alternate=null,nd(t)),e.child=null,e.deletions=null,e.sibling=null,e.tag===5&&(t=e.stateNode,t!==null&&(delete t[Ft],delete t[Kr],delete t[Ba],delete t[Kp],delete t[Yp])),e.stateNode=null,e.return=null,e.dependencies=null,e.memoizedProps=null,e.memoizedState=null,e.pendingProps=null,e.stateNode=null,e.updateQueue=null}function rd(e){return e.tag===5||e.tag===3||e.tag===4}function sd(e){e:for(;;){for(;e.sibling===null;){if(e.return===null||rd(e.return))return null;e=e.return}for(e.sibling.return=e.return,e=e.sibling;e.tag!==5&&e.tag!==6&&e.tag!==18;){if(e.flags&2||e.child===null||e.tag===4)continue e;e.child.return=e,e=e.child}if(!(e.flags&2))return e.stateNode}}function Co(e,t,n){var s=e.tag;if(s===5||s===6)e=e.stateNode,t?n.nodeType===8?n.parentNode.insertBefore(e,t):n.insertBefore(e,t):(n.nodeType===8?(t=n.parentNode,t.insertBefore(e,n)):(t=n,t.appendChild(e)),n=n._reactRootContainer,n!=null||t.onclick!==null||(t.onclick=Qs));else if(s!==4&&(e=e.child,e!==null))for(Co(e,t,n),e=e.sibling;e!==null;)Co(e,t,n),e=e.sibling}function Eo(e,t,n){var s=e.tag;if(s===5||s===6)e=e.stateNode,t?n.insertBefore(e,t):n.appendChild(e);else if(s!==4&&(e=e.child,e!==null))for(Eo(e,t,n),e=e.sibling;e!==null;)Eo(e,t,n),e=e.sibling}var Qe=null,Mt=!1;function wn(e,t,n){for(n=n.child;n!==null;)ld(e,t,n),n=n.sibling}function ld(e,t,n){if(At&&typeof At.onCommitFiberUnmount=="function")try{At.onCommitFiberUnmount(Rs,n)}catch{}switch(n.tag){case 5:tt||pr(n,t);case 6:var s=Qe,a=Mt;Qe=null,wn(e,t,n),Qe=s,Mt=a,Qe!==null&&(Mt?(e=Qe,n=n.stateNode,e.nodeType===8?e.parentNode.removeChild(n):e.removeChild(n)):Qe.removeChild(n.stateNode));break;case 18:Qe!==null&&(Mt?(e=Qe,n=n.stateNode,e.nodeType===8?Oa(e.parentNode,n):e.nodeType===1&&Oa(e,n),Ar(e)):Oa(Qe,n.stateNode));break;case 4:s=Qe,a=Mt,Qe=n.stateNode.containerInfo,Mt=!0,wn(e,t,n),Qe=s,Mt=a;break;case 0:case 11:case 14:case 15:if(!tt&&(s=n.updateQueue,s!==null&&(s=s.lastEffect,s!==null))){a=s=s.next;do{var i=a,f=i.destroy;i=i.tag,f!==void 0&&((i&2)!==0||(i&4)!==0)&&ko(n,t,f),a=a.next}while(a!==s)}wn(e,t,n);break;case 1:if(!tt&&(pr(n,t),s=n.stateNode,typeof s.componentWillUnmount=="function"))try{s.props=n.memoizedProps,s.state=n.memoizedState,s.componentWillUnmount()}catch(v){Me(n,t,v)}wn(e,t,n);break;case 21:wn(e,t,n);break;case 22:n.mode&1?(tt=(s=tt)||n.memoizedState!==null,wn(e,t,n),tt=s):wn(e,t,n);break;default:wn(e,t,n)}}function ad(e){var t=e.updateQueue;if(t!==null){e.updateQueue=null;var n=e.stateNode;n===null&&(n=e.stateNode=new dh),t.forEach(function(s){var a=bh.bind(null,e,s);n.has(s)||(n.add(s),s.then(a,a))})}}function Lt(e,t){var n=t.deletions;if(n!==null)for(var s=0;s<n.length;s++){var a=n[s];try{var i=e,f=t,v=f;e:for(;v!==null;){switch(v.tag){case 5:Qe=v.stateNode,Mt=!1;break e;case 3:Qe=v.stateNode.containerInfo,Mt=!0;break e;case 4:Qe=v.stateNode.containerInfo,Mt=!0;break e}v=v.return}if(Qe===null)throw Error(o(160));ld(i,f,a),Qe=null,Mt=!1;var w=a.alternate;w!==null&&(w.return=null),a.return=null}catch(P){Me(a,t,P)}}if(t.subtreeFlags&12854)for(t=t.child;t!==null;)od(t,e),t=t.sibling}function od(e,t){var n=e.alternate,s=e.flags;switch(e.tag){case 0:case 11:case 14:case 15:if(Lt(t,e),$t(e),s&4){try{ls(3,e,e.return),xl(3,e)}catch(X){Me(e,e.return,X)}try{ls(5,e,e.return)}catch(X){Me(e,e.return,X)}}break;case 1:Lt(t,e),$t(e),s&512&&n!==null&&pr(n,n.return);break;case 5:if(Lt(t,e),$t(e),s&512&&n!==null&&pr(n,n.return),e.flags&32){var a=e.stateNode;try{Cr(a,"")}catch(X){Me(e,e.return,X)}}if(s&4&&(a=e.stateNode,a!=null)){var i=e.memoizedProps,f=n!==null?n.memoizedProps:i,v=e.type,w=e.updateQueue;if(e.updateQueue=null,w!==null)try{v==="input"&&i.type==="radio"&&i.name!=null&&Ii(a,i),ra(v,f);var P=ra(v,i);for(f=0;f<w.length;f+=2){var O=w[f],B=w[f+1];O==="style"?Vi(a,B):O==="dangerouslySetInnerHTML"?$i(a,B):O==="children"?Cr(a,B):S(a,O,B,P)}switch(v){case"input":ql(a,i);break;case"textarea":Fi(a,i);break;case"select":var F=a._wrapperState.wasMultiple;a._wrapperState.wasMultiple=!!i.multiple;var W=i.value;W!=null?Qn(a,!!i.multiple,W,!1):F!==!!i.multiple&&(i.defaultValue!=null?Qn(a,!!i.multiple,i.defaultValue,!0):Qn(a,!!i.multiple,i.multiple?[]:"",!1))}a[Kr]=i}catch(X){Me(e,e.return,X)}}break;case 6:if(Lt(t,e),$t(e),s&4){if(e.stateNode===null)throw Error(o(162));a=e.stateNode,i=e.memoizedProps;try{a.nodeValue=i}catch(X){Me(e,e.return,X)}}break;case 3:if(Lt(t,e),$t(e),s&4&&n!==null&&n.memoizedState.isDehydrated)try{Ar(t.containerInfo)}catch(X){Me(e,e.return,X)}break;case 4:Lt(t,e),$t(e);break;case 13:Lt(t,e),$t(e),a=e.child,a.flags&8192&&(i=a.memoizedState!==null,a.stateNode.isHidden=i,!i||a.alternate!==null&&a.alternate.memoizedState!==null||(Po=De())),s&4&&ad(e);break;case 22:if(O=n!==null&&n.memoizedState!==null,e.mode&1?(tt=(P=tt)||O,Lt(t,e),tt=P):Lt(t,e),$t(e),s&8192){if(P=e.memoizedState!==null,(e.stateNode.isHidden=P)&&!O&&(e.mode&1)!==0)for(Q=e,O=e.child;O!==null;){for(B=Q=O;Q!==null;){switch(F=Q,W=F.child,F.tag){case 0:case 11:case 14:case 15:ls(4,F,F.return);break;case 1:pr(F,F.return);var K=F.stateNode;if(typeof K.componentWillUnmount=="function"){s=F,n=F.return;try{t=s,K.props=t.memoizedProps,K.state=t.memoizedState,K.componentWillUnmount()}catch(X){Me(s,n,X)}}break;case 5:pr(F,F.return);break;case 22:if(F.memoizedState!==null){cd(B);continue}}W!==null?(W.return=F,Q=W):cd(B)}O=O.sibling}e:for(O=null,B=e;;){if(B.tag===5){if(O===null){O=B;try{a=B.stateNode,P?(i=a.style,typeof i.setProperty=="function"?i.setProperty("display","none","important"):i.display="none"):(v=B.stateNode,w=B.memoizedProps.style,f=w!=null&&w.hasOwnProperty("display")?w.display:null,v.style.display=Ui("display",f))}catch(X){Me(e,e.return,X)}}}else if(B.tag===6){if(O===null)try{B.stateNode.nodeValue=P?"":B.memoizedProps}catch(X){Me(e,e.return,X)}}else if((B.tag!==22&&B.tag!==23||B.memoizedState===null||B===e)&&B.child!==null){B.child.return=B,B=B.child;continue}if(B===e)break e;for(;B.sibling===null;){if(B.return===null||B.return===e)break e;O===B&&(O=null),B=B.return}O===B&&(O=null),B.sibling.return=B.return,B=B.sibling}}break;case 19:Lt(t,e),$t(e),s&4&&ad(e);break;case 21:break;default:Lt(t,e),$t(e)}}function $t(e){var t=e.flags;if(t&2){try{e:{for(var n=e.return;n!==null;){if(rd(n)){var s=n;break e}n=n.return}throw Error(o(160))}switch(s.tag){case 5:var a=s.stateNode;s.flags&32&&(Cr(a,""),s.flags&=-33);var i=sd(e);Eo(e,i,a);break;case 3:case 4:var f=s.stateNode.containerInfo,v=sd(e);Co(e,v,f);break;default:throw Error(o(161))}}catch(w){Me(e,e.return,w)}e.flags&=-3}t&4096&&(e.flags&=-4097)}function mh(e,t,n){Q=e,id(e)}function id(e,t,n){for(var s=(e.mode&1)!==0;Q!==null;){var a=Q,i=a.child;if(a.tag===22&&s){var f=a.memoizedState!==null||hl;if(!f){var v=a.alternate,w=v!==null&&v.memoizedState!==null||tt;v=hl;var P=tt;if(hl=f,(tt=w)&&!P)for(Q=a;Q!==null;)f=Q,w=f.child,f.tag===22&&f.memoizedState!==null?dd(a):w!==null?(w.return=f,Q=w):dd(a);for(;i!==null;)Q=i,id(i),i=i.sibling;Q=a,hl=v,tt=P}ud(e)}else(a.subtreeFlags&8772)!==0&&i!==null?(i.return=a,Q=i):ud(e)}}function ud(e){for(;Q!==null;){var t=Q;if((t.flags&8772)!==0){var n=t.alternate;try{if((t.flags&8772)!==0)switch(t.tag){case 0:case 11:case 15:tt||xl(5,t);break;case 1:var s=t.stateNode;if(t.flags&4&&!tt)if(n===null)s.componentDidMount();else{var a=t.elementType===t.type?n.memoizedProps:Tt(t.type,n.memoizedProps);s.componentDidUpdate(a,n.memoizedState,s.__reactInternalSnapshotBeforeUpdate)}var i=t.updateQueue;i!==null&&cc(t,i,s);break;case 3:var f=t.updateQueue;if(f!==null){if(n=null,t.child!==null)switch(t.child.tag){case 5:n=t.child.stateNode;break;case 1:n=t.child.stateNode}cc(t,f,n)}break;case 5:var v=t.stateNode;if(n===null&&t.flags&4){n=v;var w=t.memoizedProps;switch(t.type){case"button":case"input":case"select":case"textarea":w.autoFocus&&n.focus();break;case"img":w.src&&(n.src=w.src)}}break;case 6:break;case 4:break;case 12:break;case 13:if(t.memoizedState===null){var P=t.alternate;if(P!==null){var O=P.memoizedState;if(O!==null){var B=O.dehydrated;B!==null&&Ar(B)}}}break;case 19:case 17:case 21:case 22:case 23:case 25:break;default:throw Error(o(163))}tt||t.flags&512&&So(t)}catch(F){Me(t,t.return,F)}}if(t===e){Q=null;break}if(n=t.sibling,n!==null){n.return=t.return,Q=n;break}Q=t.return}}function cd(e){for(;Q!==null;){var t=Q;if(t===e){Q=null;break}var n=t.sibling;if(n!==null){n.return=t.return,Q=n;break}Q=t.return}}function dd(e){for(;Q!==null;){var t=Q;try{switch(t.tag){case 0:case 11:case 15:var n=t.return;try{xl(4,t)}catch(w){Me(t,n,w)}break;case 1:var s=t.stateNode;if(typeof s.componentDidMount=="function"){var a=t.return;try{s.componentDidMount()}catch(w){Me(t,a,w)}}var i=t.return;try{So(t)}catch(w){Me(t,i,w)}break;case 5:var f=t.return;try{So(t)}catch(w){Me(t,f,w)}}}catch(w){Me(t,t.return,w)}if(t===e){Q=null;break}var v=t.sibling;if(v!==null){v.return=t.return,Q=v;break}Q=t.return}}var ph=Math.ceil,gl=H.ReactCurrentDispatcher,_o=H.ReactCurrentOwner,kt=H.ReactCurrentBatchConfig,me=0,We=null,ze=null,Ke=0,gt=0,hr=hn(0),Oe=0,as=null,On=0,vl=0,Ro=0,os=null,it=null,Po=0,xr=1/0,qt=null,yl=!1,To=null,bn=null,wl=!1,Nn=null,bl=0,is=0,Mo=null,Nl=-1,jl=0;function rt(){return(me&6)!==0?De():Nl!==-1?Nl:Nl=De()}function jn(e){return(e.mode&1)===0?1:(me&2)!==0&&Ke!==0?Ke&-Ke:Xp.transition!==null?(jl===0&&(jl=su()),jl):(e=Ne,e!==0||(e=window.event,e=e===void 0?16:mu(e.type)),e)}function Dt(e,t,n,s){if(50<is)throw is=0,Mo=null,Error(o(185));Mr(e,n,s),((me&2)===0||e!==We)&&(e===We&&((me&2)===0&&(vl|=n),Oe===4&&kn(e,Ke)),ut(e,s),n===1&&me===0&&(t.mode&1)===0&&(xr=De()+500,Xs&&gn()))}function ut(e,t){var n=e.callbackNode;Xm(e,t);var s=Ms(e,e===We?Ke:0);if(s===0)n!==null&&tu(n),e.callbackNode=null,e.callbackPriority=0;else if(t=s&-s,e.callbackPriority!==t){if(n!=null&&tu(n),t===1)e.tag===0?Jp(md.bind(null,e)):qu(md.bind(null,e)),Gp(function(){(me&6)===0&&gn()}),n=null;else{switch(lu(s)){case 1:n=ca;break;case 4:n=nu;break;case 16:n=_s;break;case 536870912:n=ru;break;default:n=_s}n=bd(n,fd.bind(null,e))}e.callbackPriority=t,e.callbackNode=n}}function fd(e,t){if(Nl=-1,jl=0,(me&6)!==0)throw Error(o(327));var n=e.callbackNode;if(gr()&&e.callbackNode!==n)return null;var s=Ms(e,e===We?Ke:0);if(s===0)return null;if((s&30)!==0||(s&e.expiredLanes)!==0||t)t=kl(e,s);else{t=s;var a=me;me|=2;var i=hd();(We!==e||Ke!==t)&&(qt=null,xr=De()+500,$n(e,t));do try{gh();break}catch(v){pd(e,v)}while(!0);Ya(),gl.current=i,me=a,ze!==null?t=0:(We=null,Ke=0,t=Oe)}if(t!==0){if(t===2&&(a=da(e),a!==0&&(s=a,t=Lo(e,a))),t===1)throw n=as,$n(e,0),kn(e,s),ut(e,De()),n;if(t===6)kn(e,s);else{if(a=e.current.alternate,(s&30)===0&&!hh(a)&&(t=kl(e,s),t===2&&(i=da(e),i!==0&&(s=i,t=Lo(e,i))),t===1))throw n=as,$n(e,0),kn(e,s),ut(e,De()),n;switch(e.finishedWork=a,e.finishedLanes=s,t){case 0:case 1:throw Error(o(345));case 2:Un(e,it,qt);break;case 3:if(kn(e,s),(s&130023424)===s&&(t=Po+500-De(),10<t)){if(Ms(e,0)!==0)break;if(a=e.suspendedLanes,(a&s)!==s){rt(),e.pingedLanes|=e.suspendedLanes&a;break}e.timeoutHandle=Fa(Un.bind(null,e,it,qt),t);break}Un(e,it,qt);break;case 4:if(kn(e,s),(s&4194240)===s)break;for(t=e.eventTimes,a=-1;0<s;){var f=31-_t(s);i=1<<f,f=t[f],f>a&&(a=f),s&=~i}if(s=a,s=De()-s,s=(120>s?120:480>s?480:1080>s?1080:1920>s?1920:3e3>s?3e3:4320>s?4320:1960*ph(s/1960))-s,10<s){e.timeoutHandle=Fa(Un.bind(null,e,it,qt),s);break}Un(e,it,qt);break;case 5:Un(e,it,qt);break;default:throw Error(o(329))}}}return ut(e,De()),e.callbackNode===n?fd.bind(null,e):null}function Lo(e,t){var n=os;return e.current.memoizedState.isDehydrated&&($n(e,t).flags|=256),e=kl(e,t),e!==2&&(t=it,it=n,t!==null&&Do(t)),e}function Do(e){it===null?it=e:it.push.apply(it,e)}function hh(e){for(var t=e;;){if(t.flags&16384){var n=t.updateQueue;if(n!==null&&(n=n.stores,n!==null))for(var s=0;s<n.length;s++){var a=n[s],i=a.getSnapshot;a=a.value;try{if(!Rt(i(),a))return!1}catch{return!1}}}if(n=t.child,t.subtreeFlags&16384&&n!==null)n.return=t,t=n;else{if(t===e)break;for(;t.sibling===null;){if(t.return===null||t.return===e)return!0;t=t.return}t.sibling.return=t.return,t=t.sibling}}return!0}function kn(e,t){for(t&=~Ro,t&=~vl,e.suspendedLanes|=t,e.pingedLanes&=~t,e=e.expirationTimes;0<t;){var n=31-_t(t),s=1<<n;e[n]=-1,t&=~s}}function md(e){if((me&6)!==0)throw Error(o(327));gr();var t=Ms(e,0);if((t&1)===0)return ut(e,De()),null;var n=kl(e,t);if(e.tag!==0&&n===2){var s=da(e);s!==0&&(t=s,n=Lo(e,s))}if(n===1)throw n=as,$n(e,0),kn(e,t),ut(e,De()),n;if(n===6)throw Error(o(345));return e.finishedWork=e.current.alternate,e.finishedLanes=t,Un(e,it,qt),ut(e,De()),null}function Io(e,t){var n=me;me|=1;try{return e(t)}finally{me=n,me===0&&(xr=De()+500,Xs&&gn())}}function Bn(e){Nn!==null&&Nn.tag===0&&(me&6)===0&&gr();var t=me;me|=1;var n=kt.transition,s=Ne;try{if(kt.transition=null,Ne=1,e)return e()}finally{Ne=s,kt.transition=n,me=t,(me&6)===0&&gn()}}function zo(){gt=hr.current,Ce(hr)}function $n(e,t){e.finishedWork=null,e.finishedLanes=0;var n=e.timeoutHandle;if(n!==-1&&(e.timeoutHandle=-1,Hp(n)),ze!==null)for(n=ze.return;n!==null;){var s=n;switch(Wa(s),s.tag){case 1:s=s.type.childContextTypes,s!=null&&Ys();break;case 3:fr(),Ce(lt),Ce(qe),ro();break;case 5:to(s);break;case 4:fr();break;case 13:Ce(Re);break;case 19:Ce(Re);break;case 10:Ja(s.type._context);break;case 22:case 23:zo()}n=n.return}if(We=e,ze=e=Sn(e.current,null),Ke=gt=t,Oe=0,as=null,Ro=vl=On=0,it=os=null,zn!==null){for(t=0;t<zn.length;t++)if(n=zn[t],s=n.interleaved,s!==null){n.interleaved=null;var a=s.next,i=n.pending;if(i!==null){var f=i.next;i.next=a,s.next=f}n.pending=s}zn=null}return e}function pd(e,t){do{var n=ze;try{if(Ya(),ol.current=dl,il){for(var s=Pe.memoizedState;s!==null;){var a=s.queue;a!==null&&(a.pending=null),s=s.next}il=!1}if(Fn=0,Ve=Fe=Pe=null,es=!1,ts=0,_o.current=null,n===null||n.return===null){Oe=1,as=t,ze=null;break}e:{var i=e,f=n.return,v=n,w=t;if(t=Ke,v.flags|=32768,w!==null&&typeof w=="object"&&typeof w.then=="function"){var P=w,O=v,B=O.tag;if((O.mode&1)===0&&(B===0||B===11||B===15)){var F=O.alternate;F?(O.updateQueue=F.updateQueue,O.memoizedState=F.memoizedState,O.lanes=F.lanes):(O.updateQueue=null,O.memoizedState=null)}var W=Oc(f);if(W!==null){W.flags&=-257,Bc(W,f,v,i,t),W.mode&1&&Fc(i,P,t),t=W,w=P;var K=t.updateQueue;if(K===null){var X=new Set;X.add(w),t.updateQueue=X}else K.add(w);break e}else{if((t&1)===0){Fc(i,P,t),Ao();break e}w=Error(o(426))}}else if(Ee&&v.mode&1){var Ie=Oc(f);if(Ie!==null){(Ie.flags&65536)===0&&(Ie.flags|=256),Bc(Ie,f,v,i,t),Qa(mr(w,v));break e}}i=w=mr(w,v),Oe!==4&&(Oe=2),os===null?os=[i]:os.push(i),i=f;do{switch(i.tag){case 3:i.flags|=65536,t&=-t,i.lanes|=t;var C=zc(i,w,t);uc(i,C);break e;case 1:v=w;var b=i.type,E=i.stateNode;if((i.flags&128)===0&&(typeof b.getDerivedStateFromError=="function"||E!==null&&typeof E.componentDidCatch=="function"&&(bn===null||!bn.has(E)))){i.flags|=65536,t&=-t,i.lanes|=t;var $=Ac(i,v,t);uc(i,$);break e}}i=i.return}while(i!==null)}gd(n)}catch(q){t=q,ze===n&&n!==null&&(ze=n=n.return);continue}break}while(!0)}function hd(){var e=gl.current;return gl.current=dl,e===null?dl:e}function Ao(){(Oe===0||Oe===3||Oe===2)&&(Oe=4),We===null||(On&268435455)===0&&(vl&268435455)===0||kn(We,Ke)}function kl(e,t){var n=me;me|=2;var s=hd();(We!==e||Ke!==t)&&(qt=null,$n(e,t));do try{xh();break}catch(a){pd(e,a)}while(!0);if(Ya(),me=n,gl.current=s,ze!==null)throw Error(o(261));return We=null,Ke=0,Oe}function xh(){for(;ze!==null;)xd(ze)}function gh(){for(;ze!==null&&!Um();)xd(ze)}function xd(e){var t=wd(e.alternate,e,gt);e.memoizedProps=e.pendingProps,t===null?gd(e):ze=t,_o.current=null}function gd(e){var t=e;do{var n=t.alternate;if(e=t.return,(t.flags&32768)===0){if(n=uh(n,t,gt),n!==null){ze=n;return}}else{if(n=ch(n,t),n!==null){n.flags&=32767,ze=n;return}if(e!==null)e.flags|=32768,e.subtreeFlags=0,e.deletions=null;else{Oe=6,ze=null;return}}if(t=t.sibling,t!==null){ze=t;return}ze=t=e}while(t!==null);Oe===0&&(Oe=5)}function Un(e,t,n){var s=Ne,a=kt.transition;try{kt.transition=null,Ne=1,vh(e,t,n,s)}finally{kt.transition=a,Ne=s}return null}function vh(e,t,n,s){do gr();while(Nn!==null);if((me&6)!==0)throw Error(o(327));n=e.finishedWork;var a=e.finishedLanes;if(n===null)return null;if(e.finishedWork=null,e.finishedLanes=0,n===e.current)throw Error(o(177));e.callbackNode=null,e.callbackPriority=0;var i=n.lanes|n.childLanes;if(qm(e,i),e===We&&(ze=We=null,Ke=0),(n.subtreeFlags&2064)===0&&(n.flags&2064)===0||wl||(wl=!0,bd(_s,function(){return gr(),null})),i=(n.flags&15990)!==0,(n.subtreeFlags&15990)!==0||i){i=kt.transition,kt.transition=null;var f=Ne;Ne=1;var v=me;me|=4,_o.current=null,fh(e,n),od(n,e),Fp(za),Is=!!Ia,za=Ia=null,e.current=n,mh(n),Vm(),me=v,Ne=f,kt.transition=i}else e.current=n;if(wl&&(wl=!1,Nn=e,bl=a),i=e.pendingLanes,i===0&&(bn=null),Gm(n.stateNode),ut(e,De()),t!==null)for(s=e.onRecoverableError,n=0;n<t.length;n++)a=t[n],s(a.value,{componentStack:a.stack,digest:a.digest});if(yl)throw yl=!1,e=To,To=null,e;return(bl&1)!==0&&e.tag!==0&&gr(),i=e.pendingLanes,(i&1)!==0?e===Mo?is++:(is=0,Mo=e):is=0,gn(),null}function gr(){if(Nn!==null){var e=lu(bl),t=kt.transition,n=Ne;try{if(kt.transition=null,Ne=16>e?16:e,Nn===null)var s=!1;else{if(e=Nn,Nn=null,bl=0,(me&6)!==0)throw Error(o(331));var a=me;for(me|=4,Q=e.current;Q!==null;){var i=Q,f=i.child;if((Q.flags&16)!==0){var v=i.deletions;if(v!==null){for(var w=0;w<v.length;w++){var P=v[w];for(Q=P;Q!==null;){var O=Q;switch(O.tag){case 0:case 11:case 15:ls(8,O,i)}var B=O.child;if(B!==null)B.return=O,Q=B;else for(;Q!==null;){O=Q;var F=O.sibling,W=O.return;if(nd(O),O===P){Q=null;break}if(F!==null){F.return=W,Q=F;break}Q=W}}}var K=i.alternate;if(K!==null){var X=K.child;if(X!==null){K.child=null;do{var Ie=X.sibling;X.sibling=null,X=Ie}while(X!==null)}}Q=i}}if((i.subtreeFlags&2064)!==0&&f!==null)f.return=i,Q=f;else e:for(;Q!==null;){if(i=Q,(i.flags&2048)!==0)switch(i.tag){case 0:case 11:case 15:ls(9,i,i.return)}var C=i.sibling;if(C!==null){C.return=i.return,Q=C;break e}Q=i.return}}var b=e.current;for(Q=b;Q!==null;){f=Q;var E=f.child;if((f.subtreeFlags&2064)!==0&&E!==null)E.return=f,Q=E;else e:for(f=b;Q!==null;){if(v=Q,(v.flags&2048)!==0)try{switch(v.tag){case 0:case 11:case 15:xl(9,v)}}catch(q){Me(v,v.return,q)}if(v===f){Q=null;break e}var $=v.sibling;if($!==null){$.return=v.return,Q=$;break e}Q=v.return}}if(me=a,gn(),At&&typeof At.onPostCommitFiberRoot=="function")try{At.onPostCommitFiberRoot(Rs,e)}catch{}s=!0}return s}finally{Ne=n,kt.transition=t}}return!1}function vd(e,t,n){t=mr(n,t),t=zc(e,t,1),e=yn(e,t,1),t=rt(),e!==null&&(Mr(e,1,t),ut(e,t))}function Me(e,t,n){if(e.tag===3)vd(e,e,n);else for(;t!==null;){if(t.tag===3){vd(t,e,n);break}else if(t.tag===1){var s=t.stateNode;if(typeof t.type.getDerivedStateFromError=="function"||typeof s.componentDidCatch=="function"&&(bn===null||!bn.has(s))){e=mr(n,e),e=Ac(t,e,1),t=yn(t,e,1),e=rt(),t!==null&&(Mr(t,1,e),ut(t,e));break}}t=t.return}}function yh(e,t,n){var s=e.pingCache;s!==null&&s.delete(t),t=rt(),e.pingedLanes|=e.suspendedLanes&n,We===e&&(Ke&n)===n&&(Oe===4||Oe===3&&(Ke&130023424)===Ke&&500>De()-Po?$n(e,0):Ro|=n),ut(e,t)}function yd(e,t){t===0&&((e.mode&1)===0?t=1:(t=Ts,Ts<<=1,(Ts&130023424)===0&&(Ts=4194304)));var n=rt();e=Yt(e,t),e!==null&&(Mr(e,t,n),ut(e,n))}function wh(e){var t=e.memoizedState,n=0;t!==null&&(n=t.retryLane),yd(e,n)}function bh(e,t){var n=0;switch(e.tag){case 13:var s=e.stateNode,a=e.memoizedState;a!==null&&(n=a.retryLane);break;case 19:s=e.stateNode;break;default:throw Error(o(314))}s!==null&&s.delete(t),yd(e,n)}var wd;wd=function(e,t,n){if(e!==null)if(e.memoizedProps!==t.pendingProps||lt.current)ot=!0;else{if((e.lanes&n)===0&&(t.flags&128)===0)return ot=!1,ih(e,t,n);ot=(e.flags&131072)!==0}else ot=!1,Ee&&(t.flags&1048576)!==0&&Zu(t,Zs,t.index);switch(t.lanes=0,t.tag){case 2:var s=t.type;pl(e,t),e=t.pendingProps;var a=lr(t,qe.current);dr(t,n),a=ao(null,t,s,e,a,n);var i=oo();return t.flags|=1,typeof a=="object"&&a!==null&&typeof a.render=="function"&&a.$$typeof===void 0?(t.tag=1,t.memoizedState=null,t.updateQueue=null,at(s)?(i=!0,Js(t)):i=!1,t.memoizedState=a.state!==null&&a.state!==void 0?a.state:null,Za(t),a.updater=fl,t.stateNode=a,a._reactInternals=t,po(t,s,e,n),t=vo(null,t,s,!0,i,n)):(t.tag=0,Ee&&i&&Va(t),nt(null,t,a,n),t=t.child),t;case 16:s=t.elementType;e:{switch(pl(e,t),e=t.pendingProps,a=s._init,s=a(s._payload),t.type=s,a=t.tag=jh(s),e=Tt(s,e),a){case 0:t=go(null,t,s,e,n);break e;case 1:t=Gc(null,t,s,e,n);break e;case 11:t=$c(null,t,s,e,n);break e;case 14:t=Uc(null,t,s,Tt(s.type,e),n);break e}throw Error(o(306,s,""))}return t;case 0:return s=t.type,a=t.pendingProps,a=t.elementType===s?a:Tt(s,a),go(e,t,s,a,n);case 1:return s=t.type,a=t.pendingProps,a=t.elementType===s?a:Tt(s,a),Gc(e,t,s,a,n);case 3:e:{if(Qc(t),e===null)throw Error(o(387));s=t.pendingProps,i=t.memoizedState,a=i.element,ic(e,t),ll(t,s,null,n);var f=t.memoizedState;if(s=f.element,i.isDehydrated)if(i={element:s,isDehydrated:!1,cache:f.cache,pendingSuspenseBoundaries:f.pendingSuspenseBoundaries,transitions:f.transitions},t.updateQueue.baseState=i,t.memoizedState=i,t.flags&256){a=mr(Error(o(423)),t),t=Kc(e,t,s,n,a);break e}else if(s!==a){a=mr(Error(o(424)),t),t=Kc(e,t,s,n,a);break e}else for(xt=pn(t.stateNode.containerInfo.firstChild),ht=t,Ee=!0,Pt=null,n=ac(t,null,s,n),t.child=n;n;)n.flags=n.flags&-3|4096,n=n.sibling;else{if(ir(),s===a){t=Xt(e,t,n);break e}nt(e,t,s,n)}t=t.child}return t;case 5:return dc(t),e===null&&Ga(t),s=t.type,a=t.pendingProps,i=e!==null?e.memoizedProps:null,f=a.children,Aa(s,a)?f=null:i!==null&&Aa(s,i)&&(t.flags|=32),Hc(e,t),nt(e,t,f,n),t.child;case 6:return e===null&&Ga(t),null;case 13:return Yc(e,t,n);case 4:return eo(t,t.stateNode.containerInfo),s=t.pendingProps,e===null?t.child=ur(t,null,s,n):nt(e,t,s,n),t.child;case 11:return s=t.type,a=t.pendingProps,a=t.elementType===s?a:Tt(s,a),$c(e,t,s,a,n);case 7:return nt(e,t,t.pendingProps,n),t.child;case 8:return nt(e,t,t.pendingProps.children,n),t.child;case 12:return nt(e,t,t.pendingProps.children,n),t.child;case 10:e:{if(s=t.type._context,a=t.pendingProps,i=t.memoizedProps,f=a.value,ke(nl,s._currentValue),s._currentValue=f,i!==null)if(Rt(i.value,f)){if(i.children===a.children&&!lt.current){t=Xt(e,t,n);break e}}else for(i=t.child,i!==null&&(i.return=t);i!==null;){var v=i.dependencies;if(v!==null){f=i.child;for(var w=v.firstContext;w!==null;){if(w.context===s){if(i.tag===1){w=Jt(-1,n&-n),w.tag=2;var P=i.updateQueue;if(P!==null){P=P.shared;var O=P.pending;O===null?w.next=w:(w.next=O.next,O.next=w),P.pending=w}}i.lanes|=n,w=i.alternate,w!==null&&(w.lanes|=n),Xa(i.return,n,t),v.lanes|=n;break}w=w.next}}else if(i.tag===10)f=i.type===t.type?null:i.child;else if(i.tag===18){if(f=i.return,f===null)throw Error(o(341));f.lanes|=n,v=f.alternate,v!==null&&(v.lanes|=n),Xa(f,n,t),f=i.sibling}else f=i.child;if(f!==null)f.return=i;else for(f=i;f!==null;){if(f===t){f=null;break}if(i=f.sibling,i!==null){i.return=f.return,f=i;break}f=f.return}i=f}nt(e,t,a.children,n),t=t.child}return t;case 9:return a=t.type,s=t.pendingProps.children,dr(t,n),a=Nt(a),s=s(a),t.flags|=1,nt(e,t,s,n),t.child;case 14:return s=t.type,a=Tt(s,t.pendingProps),a=Tt(s.type,a),Uc(e,t,s,a,n);case 15:return Vc(e,t,t.type,t.pendingProps,n);case 17:return s=t.type,a=t.pendingProps,a=t.elementType===s?a:Tt(s,a),pl(e,t),t.tag=1,at(s)?(e=!0,Js(t)):e=!1,dr(t,n),Dc(t,s,a),po(t,s,a,n),vo(null,t,s,!0,e,n);case 19:return Xc(e,t,n);case 22:return Wc(e,t,n)}throw Error(o(156,t.tag))};function bd(e,t){return eu(e,t)}function Nh(e,t,n,s){this.tag=e,this.key=n,this.sibling=this.child=this.return=this.stateNode=this.type=this.elementType=null,this.index=0,this.ref=null,this.pendingProps=t,this.dependencies=this.memoizedState=this.updateQueue=this.memoizedProps=null,this.mode=s,this.subtreeFlags=this.flags=0,this.deletions=null,this.childLanes=this.lanes=0,this.alternate=null}function St(e,t,n,s){return new Nh(e,t,n,s)}function Fo(e){return e=e.prototype,!(!e||!e.isReactComponent)}function jh(e){if(typeof e=="function")return Fo(e)?1:0;if(e!=null){if(e=e.$$typeof,e===Ge)return 11;if(e===Ae)return 14}return 2}function Sn(e,t){var n=e.alternate;return n===null?(n=St(e.tag,t,e.key,e.mode),n.elementType=e.elementType,n.type=e.type,n.stateNode=e.stateNode,n.alternate=e,e.alternate=n):(n.pendingProps=t,n.type=e.type,n.flags=0,n.subtreeFlags=0,n.deletions=null),n.flags=e.flags&14680064,n.childLanes=e.childLanes,n.lanes=e.lanes,n.child=e.child,n.memoizedProps=e.memoizedProps,n.memoizedState=e.memoizedState,n.updateQueue=e.updateQueue,t=e.dependencies,n.dependencies=t===null?null:{lanes:t.lanes,firstContext:t.firstContext},n.sibling=e.sibling,n.index=e.index,n.ref=e.ref,n}function Sl(e,t,n,s,a,i){var f=2;if(s=e,typeof e=="function")Fo(e)&&(f=1);else if(typeof e=="string")f=5;else e:switch(e){case ve:return Vn(n.children,a,i,t);case V:f=8,a|=8;break;case je:return e=St(12,n,t,a|2),e.elementType=je,e.lanes=i,e;case $e:return e=St(13,n,t,a),e.elementType=$e,e.lanes=i,e;case Xe:return e=St(19,n,t,a),e.elementType=Xe,e.lanes=i,e;case ye:return Cl(n,a,i,t);default:if(typeof e=="object"&&e!==null)switch(e.$$typeof){case Le:f=10;break e;case st:f=9;break e;case Ge:f=11;break e;case Ae:f=14;break e;case he:f=16,s=null;break e}throw Error(o(130,e==null?e:typeof e,""))}return t=St(f,n,t,a),t.elementType=e,t.type=s,t.lanes=i,t}function Vn(e,t,n,s){return e=St(7,e,s,t),e.lanes=n,e}function Cl(e,t,n,s){return e=St(22,e,s,t),e.elementType=ye,e.lanes=n,e.stateNode={isHidden:!1},e}function Oo(e,t,n){return e=St(6,e,null,t),e.lanes=n,e}function Bo(e,t,n){return t=St(4,e.children!==null?e.children:[],e.key,t),t.lanes=n,t.stateNode={containerInfo:e.containerInfo,pendingChildren:null,implementation:e.implementation},t}function kh(e,t,n,s,a){this.tag=t,this.containerInfo=e,this.finishedWork=this.pingCache=this.current=this.pendingChildren=null,this.timeoutHandle=-1,this.callbackNode=this.pendingContext=this.context=null,this.callbackPriority=0,this.eventTimes=fa(0),this.expirationTimes=fa(-1),this.entangledLanes=this.finishedLanes=this.mutableReadLanes=this.expiredLanes=this.pingedLanes=this.suspendedLanes=this.pendingLanes=0,this.entanglements=fa(0),this.identifierPrefix=s,this.onRecoverableError=a,this.mutableSourceEagerHydrationData=null}function $o(e,t,n,s,a,i,f,v,w){return e=new kh(e,t,n,v,w),t===1?(t=1,i===!0&&(t|=8)):t=0,i=St(3,null,null,t),e.current=i,i.stateNode=e,i.memoizedState={element:s,isDehydrated:n,cache:null,transitions:null,pendingSuspenseBoundaries:null},Za(i),e}function Sh(e,t,n){var s=3<arguments.length&&arguments[3]!==void 0?arguments[3]:null;return{$$typeof:ie,key:s==null?null:""+s,children:e,containerInfo:t,implementation:n}}function Nd(e){if(!e)return xn;e=e._reactInternals;e:{if(Tn(e)!==e||e.tag!==1)throw Error(o(170));var t=e;do{switch(t.tag){case 3:t=t.stateNode.context;break e;case 1:if(at(t.type)){t=t.stateNode.__reactInternalMemoizedMergedChildContext;break e}}t=t.return}while(t!==null);throw Error(o(171))}if(e.tag===1){var n=e.type;if(at(n))return Ju(e,n,t)}return t}function jd(e,t,n,s,a,i,f,v,w){return e=$o(n,s,!0,e,a,i,f,v,w),e.context=Nd(null),n=e.current,s=rt(),a=jn(n),i=Jt(s,a),i.callback=t??null,yn(n,i,a),e.current.lanes=a,Mr(e,a,s),ut(e,s),e}function El(e,t,n,s){var a=t.current,i=rt(),f=jn(a);return n=Nd(n),t.context===null?t.context=n:t.pendingContext=n,t=Jt(i,f),t.payload={element:e},s=s===void 0?null:s,s!==null&&(t.callback=s),e=yn(a,t,f),e!==null&&(Dt(e,a,f,i),sl(e,a,f)),f}function _l(e){if(e=e.current,!e.child)return null;switch(e.child.tag){case 5:return e.child.stateNode;default:return e.child.stateNode}}function kd(e,t){if(e=e.memoizedState,e!==null&&e.dehydrated!==null){var n=e.retryLane;e.retryLane=n!==0&&n<t?n:t}}function Uo(e,t){kd(e,t),(e=e.alternate)&&kd(e,t)}function Ch(){return null}var Sd=typeof reportError=="function"?reportError:function(e){console.error(e)};function Vo(e){this._internalRoot=e}Rl.prototype.render=Vo.prototype.render=function(e){var t=this._internalRoot;if(t===null)throw Error(o(409));El(e,t,null,null)},Rl.prototype.unmount=Vo.prototype.unmount=function(){var e=this._internalRoot;if(e!==null){this._internalRoot=null;var t=e.containerInfo;Bn(function(){El(null,e,null,null)}),t[Ht]=null}};function Rl(e){this._internalRoot=e}Rl.prototype.unstable_scheduleHydration=function(e){if(e){var t=iu();e={blockedOn:null,target:e,priority:t};for(var n=0;n<dn.length&&t!==0&&t<dn[n].priority;n++);dn.splice(n,0,e),n===0&&du(e)}};function Wo(e){return!(!e||e.nodeType!==1&&e.nodeType!==9&&e.nodeType!==11)}function Pl(e){return!(!e||e.nodeType!==1&&e.nodeType!==9&&e.nodeType!==11&&(e.nodeType!==8||e.nodeValue!==" react-mount-point-unstable "))}function Cd(){}function Eh(e,t,n,s,a){if(a){if(typeof s=="function"){var i=s;s=function(){var P=_l(f);i.call(P)}}var f=jd(t,s,e,0,null,!1,!1,"",Cd);return e._reactRootContainer=f,e[Ht]=f.current,Gr(e.nodeType===8?e.parentNode:e),Bn(),f}for(;a=e.lastChild;)e.removeChild(a);if(typeof s=="function"){var v=s;s=function(){var P=_l(w);v.call(P)}}var w=$o(e,0,!1,null,null,!1,!1,"",Cd);return e._reactRootContainer=w,e[Ht]=w.current,Gr(e.nodeType===8?e.parentNode:e),Bn(function(){El(t,w,n,s)}),w}function Tl(e,t,n,s,a){var i=n._reactRootContainer;if(i){var f=i;if(typeof a=="function"){var v=a;a=function(){var w=_l(f);v.call(w)}}El(t,f,e,a)}else f=Eh(n,t,e,a,s);return _l(f)}au=function(e){switch(e.tag){case 3:var t=e.stateNode;if(t.current.memoizedState.isDehydrated){var n=Tr(t.pendingLanes);n!==0&&(ma(t,n|1),ut(t,De()),(me&6)===0&&(xr=De()+500,gn()))}break;case 13:Bn(function(){var s=Yt(e,1);if(s!==null){var a=rt();Dt(s,e,1,a)}}),Uo(e,1)}},pa=function(e){if(e.tag===13){var t=Yt(e,134217728);if(t!==null){var n=rt();Dt(t,e,134217728,n)}Uo(e,134217728)}},ou=function(e){if(e.tag===13){var t=jn(e),n=Yt(e,t);if(n!==null){var s=rt();Dt(n,e,t,s)}Uo(e,t)}},iu=function(){return Ne},uu=function(e,t){var n=Ne;try{return Ne=e,t()}finally{Ne=n}},aa=function(e,t,n){switch(t){case"input":if(ql(e,n),t=n.name,n.type==="radio"&&t!=null){for(n=e;n.parentNode;)n=n.parentNode;for(n=n.querySelectorAll("input[name="+JSON.stringify(""+t)+'][type="radio"]'),t=0;t<n.length;t++){var s=n[t];if(s!==e&&s.form===e.form){var a=Ks(s);if(!a)throw Error(o(90));Pn(s),ql(s,a)}}}break;case"textarea":Fi(e,n);break;case"select":t=n.value,t!=null&&Qn(e,!!n.multiple,t,!1)}},Qi=Io,Ki=Bn;var _h={usingClientEntryPoint:!1,Events:[Yr,rr,Ks,Hi,Gi,Io]},us={findFiberByHostInstance:Mn,bundleType:0,version:"18.3.1",rendererPackageName:"react-dom"},Rh={bundleType:us.bundleType,version:us.version,rendererPackageName:us.rendererPackageName,rendererConfig:us.rendererConfig,overrideHookState:null,overrideHookStateDeletePath:null,overrideHookStateRenamePath:null,overrideProps:null,overridePropsDeletePath:null,overridePropsRenamePath:null,setErrorHandler:null,setSuspenseHandler:null,scheduleUpdate:null,currentDispatcherRef:H.ReactCurrentDispatcher,findHostInstanceByFiber:function(e){return e=qi(e),e===null?null:e.stateNode},findFiberByHostInstance:us.findFiberByHostInstance||Ch,findHostInstancesForRefresh:null,scheduleRefresh:null,scheduleRoot:null,setRefreshHandler:null,getCurrentFiber:null,reconcilerVersion:"18.3.1-next-f1338f8080-20240426"};if(typeof __REACT_DEVTOOLS_GLOBAL_HOOK__<"u"){var Ml=__REACT_DEVTOOLS_GLOBAL_HOOK__;if(!Ml.isDisabled&&Ml.supportsFiber)try{Rs=Ml.inject(Rh),At=Ml}catch{}}return ct.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED=_h,ct.createPortal=function(e,t){var n=2<arguments.length&&arguments[2]!==void 0?arguments[2]:null;if(!Wo(t))throw Error(o(200));return Sh(e,t,null,n)},ct.createRoot=function(e,t){if(!Wo(e))throw Error(o(299));var n=!1,s="",a=Sd;return t!=null&&(t.unstable_strictMode===!0&&(n=!0),t.identifierPrefix!==void 0&&(s=t.identifierPrefix),t.onRecoverableError!==void 0&&(a=t.onRecoverableError)),t=$o(e,1,!1,null,null,n,!1,s,a),e[Ht]=t.current,Gr(e.nodeType===8?e.parentNode:e),new Vo(t)},ct.findDOMNode=function(e){if(e==null)return null;if(e.nodeType===1)return e;var t=e._reactInternals;if(t===void 0)throw typeof e.render=="function"?Error(o(188)):(e=Object.keys(e).join(","),Error(o(268,e)));return e=qi(t),e=e===null?null:e.stateNode,e},ct.flushSync=function(e){return Bn(e)},ct.hydrate=function(e,t,n){if(!Pl(t))throw Error(o(200));return Tl(null,e,t,!0,n)},ct.hydrateRoot=function(e,t,n){if(!Wo(e))throw Error(o(405));var s=n!=null&&n.hydratedSources||null,a=!1,i="",f=Sd;if(n!=null&&(n.unstable_strictMode===!0&&(a=!0),n.identifierPrefix!==void 0&&(i=n.identifierPrefix),n.onRecoverableError!==void 0&&(f=n.onRecoverableError)),t=jd(t,null,e,1,n??null,a,!1,i,f),e[Ht]=t.current,Gr(e),s)for(e=0;e<s.length;e++)n=s[e],a=n._getVersion,a=a(n._source),t.mutableSourceEagerHydrationData==null?t.mutableSourceEagerHydrationData=[n,a]:t.mutableSourceEagerHydrationData.push(n,a);return new Rl(t)},ct.render=function(e,t,n){if(!Pl(t))throw Error(o(200));return Tl(null,e,t,!1,n)},ct.unmountComponentAtNode=function(e){if(!Pl(e))throw Error(o(40));return e._reactRootContainer?(Bn(function(){Tl(null,null,e,!1,function(){e._reactRootContainer=null,e[Ht]=null})}),!0):!1},ct.unstable_batchedUpdates=Io,ct.unstable_renderSubtreeIntoContainer=function(e,t,n,s){if(!Pl(n))throw Error(o(200));if(e==null||e._reactInternals===void 0)throw Error(o(38));return Tl(e,t,n,!1,s)},ct.version="18.3.1-next-f1338f8080-20240426",ct}var Dd;function uf(){if(Dd)return Qo.exports;Dd=1;function l(){if(!(typeof __REACT_DEVTOOLS_GLOBAL_HOOK__>"u"||typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE!="function"))try{__REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(l)}catch(u){console.error(u)}}return l(),Qo.exports=Oh(),Qo.exports}var Id;function Bh(){if(Id)return Ll;Id=1;var l=uf();return Ll.createRoot=l.createRoot,Ll.hydrateRoot=l.hydrateRoot,Ll}var $h=Bh();/**
- * react-router v7.13.0
- *
- * Copyright (c) Remix Software Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE.md file in the root directory of this source tree.
- *
- * @license MIT
- */var zd="popstate";function Uh(l={}){function u(d,m){let{pathname:p="/",search:g="",hash:h=""}=Hn(d.location.hash.substring(1));return!p.startsWith("/")&&!p.startsWith(".")&&(p="/"+p),si("",{pathname:p,search:g,hash:h},m.state&&m.state.usr||null,m.state&&m.state.key||"default")}function o(d,m){let p=d.document.querySelector("base"),g="";if(p&&p.getAttribute("href")){let h=d.location.href,y=h.indexOf("#");g=y===-1?h:h.slice(0,y)}return g+"#"+(typeof m=="string"?m:ps(m))}function c(d,m){Et(d.pathname.charAt(0)==="/",`relative pathnames are not supported in hash history.push(${JSON.stringify(m)})`)}return Wh(u,o,c,l)}function _e(l,u){if(l===!1||l===null||typeof l>"u")throw new Error(u)}function Et(l,u){if(!l){typeof console<"u"&&console.warn(u);try{throw new Error(u)}catch{}}}function Vh(){return Math.random().toString(36).substring(2,10)}function Ad(l,u){return{usr:l.state,key:l.key,idx:u}}function si(l,u,o=null,c){return{pathname:typeof l=="string"?l:l.pathname,search:"",hash:"",...typeof u=="string"?Hn(u):u,state:o,key:u&&u.key||c||Vh()}}function ps({pathname:l="/",search:u="",hash:o=""}){return u&&u!=="?"&&(l+=u.charAt(0)==="?"?u:"?"+u),o&&o!=="#"&&(l+=o.charAt(0)==="#"?o:"#"+o),l}function Hn(l){let u={};if(l){let o=l.indexOf("#");o>=0&&(u.hash=l.substring(o),l=l.substring(0,o));let c=l.indexOf("?");c>=0&&(u.search=l.substring(c),l=l.substring(0,c)),l&&(u.pathname=l)}return u}function Wh(l,u,o,c={}){let{window:d=document.defaultView,v5Compat:m=!1}=c,p=d.history,g="POP",h=null,y=N();y==null&&(y=0,p.replaceState({...p.state,idx:y},""));function N(){return(p.state||{idx:null}).idx}function j(){g="POP";let D=N(),_=D==null?null:D-y;y=D,h&&h({action:g,location:M.location,delta:_})}function T(D,_){g="PUSH";let R=si(M.location,D,_);o&&o(R,D),y=N()+1;let S=Ad(R,y),H=M.createHref(R);try{p.pushState(S,"",H)}catch(U){if(U instanceof DOMException&&U.name==="DataCloneError")throw U;d.location.assign(H)}m&&h&&h({action:g,location:M.location,delta:1})}function A(D,_){g="REPLACE";let R=si(M.location,D,_);o&&o(R,D),y=N();let S=Ad(R,y),H=M.createHref(R);p.replaceState(S,"",H),m&&h&&h({action:g,location:M.location,delta:0})}function I(D){return Hh(D)}let M={get action(){return g},get location(){return l(d,p)},listen(D){if(h)throw new Error("A history only accepts one active listener");return d.addEventListener(zd,j),h=D,()=>{d.removeEventListener(zd,j),h=null}},createHref(D){return u(d,D)},createURL:I,encodeLocation(D){let _=I(D);return{pathname:_.pathname,search:_.search,hash:_.hash}},push:T,replace:A,go(D){return p.go(D)}};return M}function Hh(l,u=!1){let o="http://localhost";typeof window<"u"&&(o=window.location.origin!=="null"?window.location.origin:window.location.href),_e(o,"No window.location.(origin|href) available to create URL");let c=typeof l=="string"?l:ps(l);return c=c.replace(/ $/,"%20"),!u&&c.startsWith("//")&&(c=o+c),new URL(c,o)}function cf(l,u,o="/"){return Gh(l,u,o,!1)}function Gh(l,u,o,c){let d=typeof u=="string"?Hn(u):u,m=sn(d.pathname||"/",o);if(m==null)return null;let p=df(l);Qh(p);let g=null;for(let h=0;g==null&&h<p.length;++h){let y=s0(m);g=n0(p[h],y,c)}return g}function df(l,u=[],o=[],c="",d=!1){let m=(p,g,h=d,y)=>{let N={relativePath:y===void 0?p.path||"":y,caseSensitive:p.caseSensitive===!0,childrenIndex:g,route:p};if(N.relativePath.startsWith("/")){if(!N.relativePath.startsWith(c)&&h)return;_e(N.relativePath.startsWith(c),`Absolute route path "${N.relativePath}" nested under path "${c}" is not valid. An absolute child route path must start with the combined path of all its parent routes.`),N.relativePath=N.relativePath.slice(c.length)}let j=tn([c,N.relativePath]),T=o.concat(N);p.children&&p.children.length>0&&(_e(p.index!==!0,`Index routes must not have child routes. Please remove all child routes from route path "${j}".`),df(p.children,u,T,j,h)),!(p.path==null&&!p.index)&&u.push({path:j,score:e0(j,p.index),routesMeta:T})};return l.forEach((p,g)=>{var h;if(p.path===""||!((h=p.path)!=null&&h.includes("?")))m(p,g);else for(let y of ff(p.path))m(p,g,!0,y)}),u}function ff(l){let u=l.split("/");if(u.length===0)return[];let[o,...c]=u,d=o.endsWith("?"),m=o.replace(/\?$/,"");if(c.length===0)return d?[m,""]:[m];let p=ff(c.join("/")),g=[];return g.push(...p.map(h=>h===""?m:[m,h].join("/"))),d&&g.push(...p),g.map(h=>l.startsWith("/")&&h===""?"/":h)}function Qh(l){l.sort((u,o)=>u.score!==o.score?o.score-u.score:t0(u.routesMeta.map(c=>c.childrenIndex),o.routesMeta.map(c=>c.childrenIndex)))}var Kh=/^:[\w-]+$/,Yh=3,Jh=2,Xh=1,qh=10,Zh=-2,Fd=l=>l==="*";function e0(l,u){let o=l.split("/"),c=o.length;return o.some(Fd)&&(c+=Zh),u&&(c+=Jh),o.filter(d=>!Fd(d)).reduce((d,m)=>d+(Kh.test(m)?Yh:m===""?Xh:qh),c)}function t0(l,u){return l.length===u.length&&l.slice(0,-1).every((c,d)=>c===u[d])?l[l.length-1]-u[u.length-1]:0}function n0(l,u,o=!1){let{routesMeta:c}=l,d={},m="/",p=[];for(let g=0;g<c.length;++g){let h=c[g],y=g===c.length-1,N=m==="/"?u:u.slice(m.length)||"/",j=Bl({path:h.relativePath,caseSensitive:h.caseSensitive,end:y},N),T=h.route;if(!j&&y&&o&&!c[c.length-1].route.index&&(j=Bl({path:h.relativePath,caseSensitive:h.caseSensitive,end:!1},N)),!j)return null;Object.assign(d,j.params),p.push({params:d,pathname:tn([m,j.pathname]),pathnameBase:i0(tn([m,j.pathnameBase])),route:T}),j.pathnameBase!=="/"&&(m=tn([m,j.pathnameBase]))}return p}function Bl(l,u){typeof l=="string"&&(l={path:l,caseSensitive:!1,end:!0});let[o,c]=r0(l.path,l.caseSensitive,l.end),d=u.match(o);if(!d)return null;let m=d[0],p=m.replace(/(.)\/+$/,"$1"),g=d.slice(1);return{params:c.reduce((y,{paramName:N,isOptional:j},T)=>{if(N==="*"){let I=g[T]||"";p=m.slice(0,m.length-I.length).replace(/(.)\/+$/,"$1")}const A=g[T];return j&&!A?y[N]=void 0:y[N]=(A||"").replace(/%2F/g,"/"),y},{}),pathname:m,pathnameBase:p,pattern:l}}function r0(l,u=!1,o=!0){Et(l==="*"||!l.endsWith("*")||l.endsWith("/*"),`Route path "${l}" will be treated as if it were "${l.replace(/\*$/,"/*")}" because the \`*\` character must always follow a \`/\` in the pattern. To get rid of this warning, please change the route path to "${l.replace(/\*$/,"/*")}".`);let c=[],d="^"+l.replace(/\/*\*?$/,"").replace(/^\/*/,"/").replace(/[\\.*+^${}|()[\]]/g,"\\$&").replace(/\/:([\w-]+)(\?)?/g,(p,g,h)=>(c.push({paramName:g,isOptional:h!=null}),h?"/?([^\\/]+)?":"/([^\\/]+)")).replace(/\/([\w-]+)\?(\/|$)/g,"(/$1)?$2");return l.endsWith("*")?(c.push({paramName:"*"}),d+=l==="*"||l==="/*"?"(.*)$":"(?:\\/(.+)|\\/*)$"):o?d+="\\/*$":l!==""&&l!=="/"&&(d+="(?:(?=\\/|$))"),[new RegExp(d,u?void 0:"i"),c]}function s0(l){try{return l.split("/").map(u=>decodeURIComponent(u).replace(/\//g,"%2F")).join("/")}catch(u){return Et(!1,`The URL path "${l}" could not be decoded because it is a malformed URL segment. This is probably due to a bad percent encoding (${u}).`),l}}function sn(l,u){if(u==="/")return l;if(!l.toLowerCase().startsWith(u.toLowerCase()))return null;let o=u.endsWith("/")?u.length-1:u.length,c=l.charAt(o);return c&&c!=="/"?null:l.slice(o)||"/"}var l0=/^(?:[a-z][a-z0-9+.-]*:|\/\/)/i;function a0(l,u="/"){let{pathname:o,search:c="",hash:d=""}=typeof l=="string"?Hn(l):l,m;return o?(o=o.replace(/\/\/+/g,"/"),o.startsWith("/")?m=Od(o.substring(1),"/"):m=Od(o,u)):m=u,{pathname:m,search:u0(c),hash:c0(d)}}function Od(l,u){let o=u.replace(/\/+$/,"").split("/");return l.split("/").forEach(d=>{d===".."?o.length>1&&o.pop():d!=="."&&o.push(d)}),o.length>1?o.join("/"):"/"}function Jo(l,u,o,c){return`Cannot include a '${l}' character in a manually specified \`to.${u}\` field [${JSON.stringify(c)}].  Please separate it out to the \`to.${o}\` field. Alternatively you may provide the full path as a string in <Link to="..."> and the router will parse it for you.`}function o0(l){return l.filter((u,o)=>o===0||u.route.path&&u.route.path.length>0)}function mi(l){let u=o0(l);return u.map((o,c)=>c===u.length-1?o.pathname:o.pathnameBase)}function pi(l,u,o,c=!1){let d;typeof l=="string"?d=Hn(l):(d={...l},_e(!d.pathname||!d.pathname.includes("?"),Jo("?","pathname","search",d)),_e(!d.pathname||!d.pathname.includes("#"),Jo("#","pathname","hash",d)),_e(!d.search||!d.search.includes("#"),Jo("#","search","hash",d)));let m=l===""||d.pathname==="",p=m?"/":d.pathname,g;if(p==null)g=o;else{let j=u.length-1;if(!c&&p.startsWith("..")){let T=p.split("/");for(;T[0]==="..";)T.shift(),j-=1;d.pathname=T.join("/")}g=j>=0?u[j]:"/"}let h=a0(d,g),y=p&&p!=="/"&&p.endsWith("/"),N=(m||p===".")&&o.endsWith("/");return!h.pathname.endsWith("/")&&(y||N)&&(h.pathname+="/"),h}var tn=l=>l.join("/").replace(/\/\/+/g,"/"),i0=l=>l.replace(/\/+$/,"").replace(/^\/*/,"/"),u0=l=>!l||l==="?"?"":l.startsWith("?")?l:"?"+l,c0=l=>!l||l==="#"?"":l.startsWith("#")?l:"#"+l,d0=class{constructor(l,u,o,c=!1){this.status=l,this.statusText=u||"",this.internal=c,o instanceof Error?(this.data=o.toString(),this.error=o):this.data=o}};function f0(l){return l!=null&&typeof l.status=="number"&&typeof l.statusText=="string"&&typeof l.internal=="boolean"&&"data"in l}function m0(l){return l.map(u=>u.route.path).filter(Boolean).join("/").replace(/\/\/*/g,"/")||"/"}var mf=typeof window<"u"&&typeof window.document<"u"&&typeof window.document.createElement<"u";function pf(l,u){let o=l;if(typeof o!="string"||!l0.test(o))return{absoluteURL:void 0,isExternal:!1,to:o};let c=o,d=!1;if(mf)try{let m=new URL(window.location.href),p=o.startsWith("//")?new URL(m.protocol+o):new URL(o),g=sn(p.pathname,u);p.origin===m.origin&&g!=null?o=g+p.search+p.hash:d=!0}catch{Et(!1,`<Link to="${o}"> contains an invalid URL which will probably break when clicked - please update to a valid URL path.`)}return{absoluteURL:c,isExternal:d,to:o}}Object.getOwnPropertyNames(Object.prototype).sort().join("\0");var hf=["POST","PUT","PATCH","DELETE"];new Set(hf);var p0=["GET",...hf];new Set(p0);var br=x.createContext(null);br.displayName="DataRouter";var Hl=x.createContext(null);Hl.displayName="DataRouterState";var h0=x.createContext(!1),xf=x.createContext({isTransitioning:!1});xf.displayName="ViewTransition";var x0=x.createContext(new Map);x0.displayName="Fetchers";var g0=x.createContext(null);g0.displayName="Await";var yt=x.createContext(null);yt.displayName="Navigation";var ys=x.createContext(null);ys.displayName="Location";var It=x.createContext({outlet:null,matches:[],isDataRoute:!1});It.displayName="Route";var hi=x.createContext(null);hi.displayName="RouteError";var gf="REACT_ROUTER_ERROR",v0="REDIRECT",y0="ROUTE_ERROR_RESPONSE";function w0(l){if(l.startsWith(`${gf}:${v0}:{`))try{let u=JSON.parse(l.slice(28));if(typeof u=="object"&&u&&typeof u.status=="number"&&typeof u.statusText=="string"&&typeof u.location=="string"&&typeof u.reloadDocument=="boolean"&&typeof u.replace=="boolean")return u}catch{}}function b0(l){if(l.startsWith(`${gf}:${y0}:{`))try{let u=JSON.parse(l.slice(40));if(typeof u=="object"&&u&&typeof u.status=="number"&&typeof u.statusText=="string")return new d0(u.status,u.statusText,u.data)}catch{}}function N0(l,{relative:u}={}){_e(Nr(),"useHref() may be used only in the context of a <Router> component.");let{basename:o,navigator:c}=x.useContext(yt),{hash:d,pathname:m,search:p}=bs(l,{relative:u}),g=m;return o!=="/"&&(g=m==="/"?o:tn([o,m])),c.createHref({pathname:g,search:p,hash:d})}function Nr(){return x.useContext(ys)!=null}function Wt(){return _e(Nr(),"useLocation() may be used only in the context of a <Router> component."),x.useContext(ys).location}var vf="You should call navigate() in a React.useEffect(), not when your component is first rendered.";function yf(l){x.useContext(yt).static||x.useLayoutEffect(l)}function ws(){let{isDataRoute:l}=x.useContext(It);return l?A0():j0()}function j0(){_e(Nr(),"useNavigate() may be used only in the context of a <Router> component.");let l=x.useContext(br),{basename:u,navigator:o}=x.useContext(yt),{matches:c}=x.useContext(It),{pathname:d}=Wt(),m=JSON.stringify(mi(c)),p=x.useRef(!1);return yf(()=>{p.current=!0}),x.useCallback((h,y={})=>{if(Et(p.current,vf),!p.current)return;if(typeof h=="number"){o.go(h);return}let N=pi(h,JSON.parse(m),d,y.relative==="path");l==null&&u!=="/"&&(N.pathname=N.pathname==="/"?u:tn([u,N.pathname])),(y.replace?o.replace:o.push)(N,y.state,y)},[u,o,m,d,l])}var k0=x.createContext(null);function S0(l){let u=x.useContext(It).outlet;return x.useMemo(()=>u&&x.createElement(k0.Provider,{value:l},u),[u,l])}function bs(l,{relative:u}={}){let{matches:o}=x.useContext(It),{pathname:c}=Wt(),d=JSON.stringify(mi(o));return x.useMemo(()=>pi(l,JSON.parse(d),c,u==="path"),[l,d,c,u])}function C0(l,u){return wf(l,u)}function wf(l,u,o,c,d){var R;_e(Nr(),"useRoutes() may be used only in the context of a <Router> component.");let{navigator:m}=x.useContext(yt),{matches:p}=x.useContext(It),g=p[p.length-1],h=g?g.params:{},y=g?g.pathname:"/",N=g?g.pathnameBase:"/",j=g&&g.route;{let S=j&&j.path||"";Nf(y,!j||S.endsWith("*")||S.endsWith("*?"),`You rendered descendant <Routes> (or called \`useRoutes()\`) at "${y}" (under <Route path="${S}">) but the parent route path has no trailing "*". This means if you navigate deeper, the parent won't match anymore and therefore the child routes will never render.
+ */
 
-Please change the parent <Route path="${S}"> to <Route path="${S==="/"?"*":`${S}/*`}">.`)}let T=Wt(),A;if(u){let S=typeof u=="string"?Hn(u):u;_e(N==="/"||((R=S.pathname)==null?void 0:R.startsWith(N)),`When overriding the location using \`<Routes location>\` or \`useRoutes(routes, location)\`, the location pathname must begin with the portion of the URL pathname that was matched by all parent routes. The current pathname base is "${N}" but pathname "${S.pathname}" was given in the \`location\` prop.`),A=S}else A=T;let I=A.pathname||"/",M=I;if(N!=="/"){let S=N.replace(/^\//,"").split("/");M="/"+I.replace(/^\//,"").split("/").slice(S.length).join("/")}let D=cf(l,{pathname:M});Et(j||D!=null,`No routes matched location "${A.pathname}${A.search}${A.hash}" `),Et(D==null||D[D.length-1].route.element!==void 0||D[D.length-1].route.Component!==void 0||D[D.length-1].route.lazy!==void 0,`Matched leaf route at location "${A.pathname}${A.search}${A.hash}" does not have an element or Component. This means it will render an <Outlet /> with a null value by default resulting in an "empty" page.`);let _=T0(D&&D.map(S=>Object.assign({},S,{params:Object.assign({},h,S.params),pathname:tn([N,m.encodeLocation?m.encodeLocation(S.pathname.replace(/\?/g,"%3F").replace(/#/g,"%23")).pathname:S.pathname]),pathnameBase:S.pathnameBase==="/"?N:tn([N,m.encodeLocation?m.encodeLocation(S.pathnameBase.replace(/\?/g,"%3F").replace(/#/g,"%23")).pathname:S.pathnameBase])})),p,o,c,d);return u&&_?x.createElement(ys.Provider,{value:{location:{pathname:"/",search:"",hash:"",state:null,key:"default",...A},navigationType:"POP"}},_):_}function E0(){let l=z0(),u=f0(l)?`${l.status} ${l.statusText}`:l instanceof Error?l.message:JSON.stringify(l),o=l instanceof Error?l.stack:null,c="rgba(200,200,200, 0.5)",d={padding:"0.5rem",backgroundColor:c},m={padding:"2px 4px",backgroundColor:c},p=null;return console.error("Error handled by React Router default ErrorBoundary:",l),p=x.createElement(x.Fragment,null,x.createElement("p",null,"💿 Hey developer 👋"),x.createElement("p",null,"You can provide a way better UX than this when your app throws errors by providing your own ",x.createElement("code",{style:m},"ErrorBoundary")," or"," ",x.createElement("code",{style:m},"errorElement")," prop on your route.")),x.createElement(x.Fragment,null,x.createElement("h2",null,"Unexpected Application Error!"),x.createElement("h3",{style:{fontStyle:"italic"}},u),o?x.createElement("pre",{style:d},o):null,p)}var _0=x.createElement(E0,null),bf=class extends x.Component{constructor(l){super(l),this.state={location:l.location,revalidation:l.revalidation,error:l.error}}static getDerivedStateFromError(l){return{error:l}}static getDerivedStateFromProps(l,u){return u.location!==l.location||u.revalidation!=="idle"&&l.revalidation==="idle"?{error:l.error,location:l.location,revalidation:l.revalidation}:{error:l.error!==void 0?l.error:u.error,location:u.location,revalidation:l.revalidation||u.revalidation}}componentDidCatch(l,u){this.props.onError?this.props.onError(l,u):console.error("React Router caught the following error during render",l)}render(){let l=this.state.error;if(this.context&&typeof l=="object"&&l&&"digest"in l&&typeof l.digest=="string"){const o=b0(l.digest);o&&(l=o)}let u=l!==void 0?x.createElement(It.Provider,{value:this.props.routeContext},x.createElement(hi.Provider,{value:l,children:this.props.component})):this.props.children;return this.context?x.createElement(R0,{error:l},u):u}};bf.contextType=h0;var Xo=new WeakMap;function R0({children:l,error:u}){let{basename:o}=x.useContext(yt);if(typeof u=="object"&&u&&"digest"in u&&typeof u.digest=="string"){let c=w0(u.digest);if(c){let d=Xo.get(u);if(d)throw d;let m=pf(c.location,o);if(mf&&!Xo.get(u))if(m.isExternal||c.reloadDocument)window.location.href=m.absoluteURL||m.to;else{const p=Promise.resolve().then(()=>window.__reactRouterDataRouter.navigate(m.to,{replace:c.replace}));throw Xo.set(u,p),p}return x.createElement("meta",{httpEquiv:"refresh",content:`0;url=${m.absoluteURL||m.to}`})}}return l}function P0({routeContext:l,match:u,children:o}){let c=x.useContext(br);return c&&c.static&&c.staticContext&&(u.route.errorElement||u.route.ErrorBoundary)&&(c.staticContext._deepestRenderedBoundaryId=u.route.id),x.createElement(It.Provider,{value:l},o)}function T0(l,u=[],o=null,c=null,d=null){if(l==null){if(!o)return null;if(o.errors)l=o.matches;else if(u.length===0&&!o.initialized&&o.matches.length>0)l=o.matches;else return null}let m=l,p=o==null?void 0:o.errors;if(p!=null){let N=m.findIndex(j=>j.route.id&&(p==null?void 0:p[j.route.id])!==void 0);_e(N>=0,`Could not find a matching route for errors on route IDs: ${Object.keys(p).join(",")}`),m=m.slice(0,Math.min(m.length,N+1))}let g=!1,h=-1;if(o)for(let N=0;N<m.length;N++){let j=m[N];if((j.route.HydrateFallback||j.route.hydrateFallbackElement)&&(h=N),j.route.id){let{loaderData:T,errors:A}=o,I=j.route.loader&&!T.hasOwnProperty(j.route.id)&&(!A||A[j.route.id]===void 0);if(j.route.lazy||I){g=!0,h>=0?m=m.slice(0,h+1):m=[m[0]];break}}}let y=o&&c?(N,j)=>{var T,A;c(N,{location:o.location,params:((A=(T=o.matches)==null?void 0:T[0])==null?void 0:A.params)??{},unstable_pattern:m0(o.matches),errorInfo:j})}:void 0;return m.reduceRight((N,j,T)=>{let A,I=!1,M=null,D=null;o&&(A=p&&j.route.id?p[j.route.id]:void 0,M=j.route.errorElement||_0,g&&(h<0&&T===0?(Nf("route-fallback",!1,"No `HydrateFallback` element provided to render during initial hydration"),I=!0,D=null):h===T&&(I=!0,D=j.route.hydrateFallbackElement||null)));let _=u.concat(m.slice(0,T+1)),R=()=>{let S;return A?S=M:I?S=D:j.route.Component?S=x.createElement(j.route.Component,null):j.route.element?S=j.route.element:S=N,x.createElement(P0,{match:j,routeContext:{outlet:N,matches:_,isDataRoute:o!=null},children:S})};return o&&(j.route.ErrorBoundary||j.route.errorElement||T===0)?x.createElement(bf,{location:o.location,revalidation:o.revalidation,component:M,error:A,children:R(),routeContext:{outlet:null,matches:_,isDataRoute:!0},onError:y}):R()},null)}function xi(l){return`${l} must be used within a data router.  See https://reactrouter.com/en/main/routers/picking-a-router.`}function M0(l){let u=x.useContext(br);return _e(u,xi(l)),u}function L0(l){let u=x.useContext(Hl);return _e(u,xi(l)),u}function D0(l){let u=x.useContext(It);return _e(u,xi(l)),u}function gi(l){let u=D0(l),o=u.matches[u.matches.length-1];return _e(o.route.id,`${l} can only be used on routes that contain a unique "id"`),o.route.id}function I0(){return gi("useRouteId")}function z0(){var c;let l=x.useContext(hi),u=L0("useRouteError"),o=gi("useRouteError");return l!==void 0?l:(c=u.errors)==null?void 0:c[o]}function A0(){let{router:l}=M0("useNavigate"),u=gi("useNavigate"),o=x.useRef(!1);return yf(()=>{o.current=!0}),x.useCallback(async(d,m={})=>{Et(o.current,vf),o.current&&(typeof d=="number"?await l.navigate(d):await l.navigate(d,{fromRouteId:u,...m}))},[l,u])}var Bd={};function Nf(l,u,o){!u&&!Bd[l]&&(Bd[l]=!0,Et(!1,o))}x.memo(F0);function F0({routes:l,future:u,state:o,onError:c}){return wf(l,void 0,o,c,u)}function O0({to:l,replace:u,state:o,relative:c}){_e(Nr(),"<Navigate> may be used only in the context of a <Router> component.");let{static:d}=x.useContext(yt);Et(!d,"<Navigate> must not be used on the initial render in a <StaticRouter>. This is a no-op, but you should modify your code so the <Navigate> is only ever rendered in response to some user interaction or state change.");let{matches:m}=x.useContext(It),{pathname:p}=Wt(),g=ws(),h=pi(l,mi(m),p,c==="path"),y=JSON.stringify(h);return x.useEffect(()=>{g(JSON.parse(y),{replace:u,state:o,relative:c})},[g,y,c,u,o]),null}function B0(l){return S0(l.context)}function dt(l){_e(!1,"A <Route> is only ever to be used as the child of <Routes> element, never rendered directly. Please wrap your <Route> in a <Routes>.")}function $0({basename:l="/",children:u=null,location:o,navigationType:c="POP",navigator:d,static:m=!1,unstable_useTransitions:p}){_e(!Nr(),"You cannot render a <Router> inside another <Router>. You should never have more than one in your app.");let g=l.replace(/^\/*/,"/"),h=x.useMemo(()=>({basename:g,navigator:d,static:m,unstable_useTransitions:p,future:{}}),[g,d,m,p]);typeof o=="string"&&(o=Hn(o));let{pathname:y="/",search:N="",hash:j="",state:T=null,key:A="default"}=o,I=x.useMemo(()=>{let M=sn(y,g);return M==null?null:{location:{pathname:M,search:N,hash:j,state:T,key:A},navigationType:c}},[g,y,N,j,T,A,c]);return Et(I!=null,`<Router basename="${g}"> is not able to match the URL "${y}${N}${j}" because it does not start with the basename, so the <Router> won't render anything.`),I==null?null:x.createElement(yt.Provider,{value:h},x.createElement(ys.Provider,{children:u,value:I}))}function U0({children:l,location:u}){return C0(li(l),u)}function li(l,u=[]){let o=[];return x.Children.forEach(l,(c,d)=>{if(!x.isValidElement(c))return;let m=[...u,d];if(c.type===x.Fragment){o.push.apply(o,li(c.props.children,m));return}_e(c.type===dt,`[${typeof c.type=="string"?c.type:c.type.name}] is not a <Route> component. All component children of <Routes> must be a <Route> or <React.Fragment>`),_e(!c.props.index||!c.props.children,"An index route cannot have child routes.");let p={id:c.props.id||m.join("-"),caseSensitive:c.props.caseSensitive,element:c.props.element,Component:c.props.Component,index:c.props.index,path:c.props.path,middleware:c.props.middleware,loader:c.props.loader,action:c.props.action,hydrateFallbackElement:c.props.hydrateFallbackElement,HydrateFallback:c.props.HydrateFallback,errorElement:c.props.errorElement,ErrorBoundary:c.props.ErrorBoundary,hasErrorBoundary:c.props.hasErrorBoundary===!0||c.props.ErrorBoundary!=null||c.props.errorElement!=null,shouldRevalidate:c.props.shouldRevalidate,handle:c.props.handle,lazy:c.props.lazy};c.props.children&&(p.children=li(c.props.children,m)),o.push(p)}),o}var Fl="get",Ol="application/x-www-form-urlencoded";function Gl(l){return typeof HTMLElement<"u"&&l instanceof HTMLElement}function V0(l){return Gl(l)&&l.tagName.toLowerCase()==="button"}function W0(l){return Gl(l)&&l.tagName.toLowerCase()==="form"}function H0(l){return Gl(l)&&l.tagName.toLowerCase()==="input"}function G0(l){return!!(l.metaKey||l.altKey||l.ctrlKey||l.shiftKey)}function Q0(l,u){return l.button===0&&(!u||u==="_self")&&!G0(l)}var Dl=null;function K0(){if(Dl===null)try{new FormData(document.createElement("form"),0),Dl=!1}catch{Dl=!0}return Dl}var Y0=new Set(["application/x-www-form-urlencoded","multipart/form-data","text/plain"]);function qo(l){return l!=null&&!Y0.has(l)?(Et(!1,`"${l}" is not a valid \`encType\` for \`<Form>\`/\`<fetcher.Form>\` and will default to "${Ol}"`),null):l}function J0(l,u){let o,c,d,m,p;if(W0(l)){let g=l.getAttribute("action");c=g?sn(g,u):null,o=l.getAttribute("method")||Fl,d=qo(l.getAttribute("enctype"))||Ol,m=new FormData(l)}else if(V0(l)||H0(l)&&(l.type==="submit"||l.type==="image")){let g=l.form;if(g==null)throw new Error('Cannot submit a <button> or <input type="submit"> without a <form>');let h=l.getAttribute("formaction")||g.getAttribute("action");if(c=h?sn(h,u):null,o=l.getAttribute("formmethod")||g.getAttribute("method")||Fl,d=qo(l.getAttribute("formenctype"))||qo(g.getAttribute("enctype"))||Ol,m=new FormData(g,l),!K0()){let{name:y,type:N,value:j}=l;if(N==="image"){let T=y?`${y}.`:"";m.append(`${T}x`,"0"),m.append(`${T}y`,"0")}else y&&m.append(y,j)}}else{if(Gl(l))throw new Error('Cannot submit element that is not <form>, <button>, or <input type="submit|image">');o=Fl,c=null,d=Ol,p=l}return m&&d==="text/plain"&&(p=m,m=void 0),{action:c,method:o.toLowerCase(),encType:d,formData:m,body:p}}Object.getOwnPropertyNames(Object.prototype).sort().join("\0");function vi(l,u){if(l===!1||l===null||typeof l>"u")throw new Error(u)}function X0(l,u,o,c){let d=typeof l=="string"?new URL(l,typeof window>"u"?"server://singlefetch/":window.location.origin):l;return o?d.pathname.endsWith("/")?d.pathname=`${d.pathname}_.${c}`:d.pathname=`${d.pathname}.${c}`:d.pathname==="/"?d.pathname=`_root.${c}`:u&&sn(d.pathname,u)==="/"?d.pathname=`${u.replace(/\/$/,"")}/_root.${c}`:d.pathname=`${d.pathname.replace(/\/$/,"")}.${c}`,d}async function q0(l,u){if(l.id in u)return u[l.id];try{let o=await import(l.module);return u[l.id]=o,o}catch(o){return console.error(`Error loading route module \`${l.module}\`, reloading page...`),console.error(o),window.__reactRouterContext&&window.__reactRouterContext.isSpaMode,window.location.reload(),new Promise(()=>{})}}function Z0(l){return l==null?!1:l.href==null?l.rel==="preload"&&typeof l.imageSrcSet=="string"&&typeof l.imageSizes=="string":typeof l.rel=="string"&&typeof l.href=="string"}async function ex(l,u,o){let c=await Promise.all(l.map(async d=>{let m=u.routes[d.route.id];if(m){let p=await q0(m,o);return p.links?p.links():[]}return[]}));return sx(c.flat(1).filter(Z0).filter(d=>d.rel==="stylesheet"||d.rel==="preload").map(d=>d.rel==="stylesheet"?{...d,rel:"prefetch",as:"style"}:{...d,rel:"prefetch"}))}function $d(l,u,o,c,d,m){let p=(h,y)=>o[y]?h.route.id!==o[y].route.id:!0,g=(h,y)=>{var N;return o[y].pathname!==h.pathname||((N=o[y].route.path)==null?void 0:N.endsWith("*"))&&o[y].params["*"]!==h.params["*"]};return m==="assets"?u.filter((h,y)=>p(h,y)||g(h,y)):m==="data"?u.filter((h,y)=>{var j;let N=c.routes[h.route.id];if(!N||!N.hasLoader)return!1;if(p(h,y)||g(h,y))return!0;if(h.route.shouldRevalidate){let T=h.route.shouldRevalidate({currentUrl:new URL(d.pathname+d.search+d.hash,window.origin),currentParams:((j=o[0])==null?void 0:j.params)||{},nextUrl:new URL(l,window.origin),nextParams:h.params,defaultShouldRevalidate:!0});if(typeof T=="boolean")return T}return!0}):[]}function tx(l,u,{includeHydrateFallback:o}={}){return nx(l.map(c=>{let d=u.routes[c.route.id];if(!d)return[];let m=[d.module];return d.clientActionModule&&(m=m.concat(d.clientActionModule)),d.clientLoaderModule&&(m=m.concat(d.clientLoaderModule)),o&&d.hydrateFallbackModule&&(m=m.concat(d.hydrateFallbackModule)),d.imports&&(m=m.concat(d.imports)),m}).flat(1))}function nx(l){return[...new Set(l)]}function rx(l){let u={},o=Object.keys(l).sort();for(let c of o)u[c]=l[c];return u}function sx(l,u){let o=new Set;return new Set(u),l.reduce((c,d)=>{let m=JSON.stringify(rx(d));return o.has(m)||(o.add(m),c.push({key:m,link:d})),c},[])}function jf(){let l=x.useContext(br);return vi(l,"You must render this element inside a <DataRouterContext.Provider> element"),l}function lx(){let l=x.useContext(Hl);return vi(l,"You must render this element inside a <DataRouterStateContext.Provider> element"),l}var yi=x.createContext(void 0);yi.displayName="FrameworkContext";function kf(){let l=x.useContext(yi);return vi(l,"You must render this element inside a <HydratedRouter> element"),l}function ax(l,u){let o=x.useContext(yi),[c,d]=x.useState(!1),[m,p]=x.useState(!1),{onFocus:g,onBlur:h,onMouseEnter:y,onMouseLeave:N,onTouchStart:j}=u,T=x.useRef(null);x.useEffect(()=>{if(l==="render"&&p(!0),l==="viewport"){let M=_=>{_.forEach(R=>{p(R.isIntersecting)})},D=new IntersectionObserver(M,{threshold:.5});return T.current&&D.observe(T.current),()=>{D.disconnect()}}},[l]),x.useEffect(()=>{if(c){let M=setTimeout(()=>{p(!0)},100);return()=>{clearTimeout(M)}}},[c]);let A=()=>{d(!0)},I=()=>{d(!1),p(!1)};return o?l!=="intent"?[m,T,{}]:[m,T,{onFocus:ds(g,A),onBlur:ds(h,I),onMouseEnter:ds(y,A),onMouseLeave:ds(N,I),onTouchStart:ds(j,A)}]:[!1,T,{}]}function ds(l,u){return o=>{l&&l(o),o.defaultPrevented||u(o)}}function ox({page:l,...u}){let{router:o}=jf(),c=x.useMemo(()=>cf(o.routes,l,o.basename),[o.routes,l,o.basename]);return c?x.createElement(ux,{page:l,matches:c,...u}):null}function ix(l){let{manifest:u,routeModules:o}=kf(),[c,d]=x.useState([]);return x.useEffect(()=>{let m=!1;return ex(l,u,o).then(p=>{m||d(p)}),()=>{m=!0}},[l,u,o]),c}function ux({page:l,matches:u,...o}){let c=Wt(),{future:d,manifest:m,routeModules:p}=kf(),{basename:g}=jf(),{loaderData:h,matches:y}=lx(),N=x.useMemo(()=>$d(l,u,y,m,c,"data"),[l,u,y,m,c]),j=x.useMemo(()=>$d(l,u,y,m,c,"assets"),[l,u,y,m,c]),T=x.useMemo(()=>{if(l===c.pathname+c.search+c.hash)return[];let M=new Set,D=!1;if(u.forEach(R=>{var H;let S=m.routes[R.route.id];!S||!S.hasLoader||(!N.some(U=>U.route.id===R.route.id)&&R.route.id in h&&((H=p[R.route.id])!=null&&H.shouldRevalidate)||S.hasClientLoader?D=!0:M.add(R.route.id))}),M.size===0)return[];let _=X0(l,g,d.unstable_trailingSlashAwareDataRequests,"data");return D&&M.size>0&&_.searchParams.set("_routes",u.filter(R=>M.has(R.route.id)).map(R=>R.route.id).join(",")),[_.pathname+_.search]},[g,d.unstable_trailingSlashAwareDataRequests,h,c,m,N,u,l,p]),A=x.useMemo(()=>tx(j,m),[j,m]),I=ix(j);return x.createElement(x.Fragment,null,T.map(M=>x.createElement("link",{key:M,rel:"prefetch",as:"fetch",href:M,...o})),A.map(M=>x.createElement("link",{key:M,rel:"modulepreload",href:M,...o})),I.map(({key:M,link:D})=>x.createElement("link",{key:M,nonce:o.nonce,...D,crossOrigin:D.crossOrigin??o.crossOrigin})))}function cx(...l){return u=>{l.forEach(o=>{typeof o=="function"?o(u):o!=null&&(o.current=u)})}}var dx=typeof window<"u"&&typeof window.document<"u"&&typeof window.document.createElement<"u";try{dx&&(window.__reactRouterVersion="7.13.0")}catch{}function fx({basename:l,children:u,unstable_useTransitions:o,window:c}){let d=x.useRef();d.current==null&&(d.current=Uh({window:c,v5Compat:!0}));let m=d.current,[p,g]=x.useState({action:m.action,location:m.location}),h=x.useCallback(y=>{o===!1?g(y):x.startTransition(()=>g(y))},[o]);return x.useLayoutEffect(()=>m.listen(h),[m,h]),x.createElement($0,{basename:l,children:u,location:p.location,navigationType:p.action,navigator:m,unstable_useTransitions:o})}var Sf=/^(?:[a-z][a-z0-9+.-]*:|\/\/)/i,Cf=x.forwardRef(function({onClick:u,discover:o="render",prefetch:c="none",relative:d,reloadDocument:m,replace:p,state:g,target:h,to:y,preventScrollReset:N,viewTransition:j,unstable_defaultShouldRevalidate:T,...A},I){let{basename:M,unstable_useTransitions:D}=x.useContext(yt),_=typeof y=="string"&&Sf.test(y),R=pf(y,M);y=R.to;let S=N0(y,{relative:d}),[H,U,ie]=ax(c,A),ve=xx(y,{replace:p,state:g,target:h,preventScrollReset:N,relative:d,viewTransition:j,unstable_defaultShouldRevalidate:T,unstable_useTransitions:D});function V(Le){u&&u(Le),Le.defaultPrevented||ve(Le)}let je=x.createElement("a",{...A,...ie,href:R.absoluteURL||S,onClick:R.isExternal||m?u:V,ref:cx(I,U),target:h,"data-discover":!_&&o==="render"?"true":void 0});return H&&!_?x.createElement(x.Fragment,null,je,x.createElement(ox,{page:S})):je});Cf.displayName="Link";var mx=x.forwardRef(function({"aria-current":u="page",caseSensitive:o=!1,className:c="",end:d=!1,style:m,to:p,viewTransition:g,children:h,...y},N){let j=bs(p,{relative:y.relative}),T=Wt(),A=x.useContext(Hl),{navigator:I,basename:M}=x.useContext(yt),D=A!=null&&bx(j)&&g===!0,_=I.encodeLocation?I.encodeLocation(j).pathname:j.pathname,R=T.pathname,S=A&&A.navigation&&A.navigation.location?A.navigation.location.pathname:null;o||(R=R.toLowerCase(),S=S?S.toLowerCase():null,_=_.toLowerCase()),S&&M&&(S=sn(S,M)||S);const H=_!=="/"&&_.endsWith("/")?_.length-1:_.length;let U=R===_||!d&&R.startsWith(_)&&R.charAt(H)==="/",ie=S!=null&&(S===_||!d&&S.startsWith(_)&&S.charAt(_.length)==="/"),ve={isActive:U,isPending:ie,isTransitioning:D},V=U?u:void 0,je;typeof c=="function"?je=c(ve):je=[c,U?"active":null,ie?"pending":null,D?"transitioning":null].filter(Boolean).join(" ");let Le=typeof m=="function"?m(ve):m;return x.createElement(Cf,{...y,"aria-current":V,className:je,ref:N,style:Le,to:p,viewTransition:g},typeof h=="function"?h(ve):h)});mx.displayName="NavLink";var px=x.forwardRef(({discover:l="render",fetcherKey:u,navigate:o,reloadDocument:c,replace:d,state:m,method:p=Fl,action:g,onSubmit:h,relative:y,preventScrollReset:N,viewTransition:j,unstable_defaultShouldRevalidate:T,...A},I)=>{let{unstable_useTransitions:M}=x.useContext(yt),D=yx(),_=wx(g,{relative:y}),R=p.toLowerCase()==="get"?"get":"post",S=typeof g=="string"&&Sf.test(g),H=U=>{if(h&&h(U),U.defaultPrevented)return;U.preventDefault();let ie=U.nativeEvent.submitter,ve=(ie==null?void 0:ie.getAttribute("formmethod"))||p,V=()=>D(ie||U.currentTarget,{fetcherKey:u,method:ve,navigate:o,replace:d,state:m,relative:y,preventScrollReset:N,viewTransition:j,unstable_defaultShouldRevalidate:T});M&&o!==!1?x.startTransition(()=>V()):V()};return x.createElement("form",{ref:I,method:R,action:_,onSubmit:c?h:H,...A,"data-discover":!S&&l==="render"?"true":void 0})});px.displayName="Form";function hx(l){return`${l} must be used within a data router.  See https://reactrouter.com/en/main/routers/picking-a-router.`}function Ef(l){let u=x.useContext(br);return _e(u,hx(l)),u}function xx(l,{target:u,replace:o,state:c,preventScrollReset:d,relative:m,viewTransition:p,unstable_defaultShouldRevalidate:g,unstable_useTransitions:h}={}){let y=ws(),N=Wt(),j=bs(l,{relative:m});return x.useCallback(T=>{if(Q0(T,u)){T.preventDefault();let A=o!==void 0?o:ps(N)===ps(j),I=()=>y(l,{replace:A,state:c,preventScrollReset:d,relative:m,viewTransition:p,unstable_defaultShouldRevalidate:g});h?x.startTransition(()=>I()):I()}},[N,y,j,o,c,u,l,d,m,p,g,h])}var gx=0,vx=()=>`__${String(++gx)}__`;function yx(){let{router:l}=Ef("useSubmit"),{basename:u}=x.useContext(yt),o=I0(),c=l.fetch,d=l.navigate;return x.useCallback(async(m,p={})=>{let{action:g,method:h,encType:y,formData:N,body:j}=J0(m,u);if(p.navigate===!1){let T=p.fetcherKey||vx();await c(T,o,p.action||g,{unstable_defaultShouldRevalidate:p.unstable_defaultShouldRevalidate,preventScrollReset:p.preventScrollReset,formData:N,body:j,formMethod:p.method||h,formEncType:p.encType||y,flushSync:p.flushSync})}else await d(p.action||g,{unstable_defaultShouldRevalidate:p.unstable_defaultShouldRevalidate,preventScrollReset:p.preventScrollReset,formData:N,body:j,formMethod:p.method||h,formEncType:p.encType||y,replace:p.replace,state:p.state,fromRouteId:o,flushSync:p.flushSync,viewTransition:p.viewTransition})},[c,d,u,o])}function wx(l,{relative:u}={}){let{basename:o}=x.useContext(yt),c=x.useContext(It);_e(c,"useFormAction must be used inside a RouteContext");let[d]=c.matches.slice(-1),m={...bs(l||".",{relative:u})},p=Wt();if(l==null){m.search=p.search;let g=new URLSearchParams(m.search),h=g.getAll("index");if(h.some(N=>N==="")){g.delete("index"),h.filter(j=>j).forEach(j=>g.append("index",j));let N=g.toString();m.search=N?`?${N}`:""}}return(!l||l===".")&&d.route.index&&(m.search=m.search?m.search.replace(/^\?/,"?index&"):"?index"),o!=="/"&&(m.pathname=m.pathname==="/"?o:tn([o,m.pathname])),ps(m)}function bx(l,{relative:u}={}){let o=x.useContext(xf);_e(o!=null,"`useViewTransitionState` must be used within `react-router-dom`'s `RouterProvider`.  Did you accidentally import `RouterProvider` from `react-router`?");let{basename:c}=Ef("useViewTransitionState"),d=bs(l,{relative:u});if(!o.isTransitioning)return!1;let m=sn(o.currentLocation.pathname,c)||o.currentLocation.pathname,p=sn(o.nextLocation.pathname,c)||o.nextLocation.pathname;return Bl(d.pathname,p)!=null||Bl(d.pathname,m)!=null}const Nx="/microfrontends/module-teacher/dist/num_logo.png";/**
+var hasRequiredReactJsxRuntime_production_min;
+
+function requireReactJsxRuntime_production_min () {
+	if (hasRequiredReactJsxRuntime_production_min) return reactJsxRuntime_production_min;
+	hasRequiredReactJsxRuntime_production_min = 1;
+var f=requireReact(),k=Symbol.for("react.element"),l=Symbol.for("react.fragment"),m=Object.prototype.hasOwnProperty,n=f.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner,p={key:true,ref:true,__self:true,__source:true};
+	function q(c,a,g){var b,d={},e=null,h=null;void 0!==g&&(e=""+g);void 0!==a.key&&(e=""+a.key);void 0!==a.ref&&(h=a.ref);for(b in a)m.call(a,b)&&!p.hasOwnProperty(b)&&(d[b]=a[b]);if(c&&c.defaultProps)for(b in a=c.defaultProps,a) void 0===d[b]&&(d[b]=a[b]);return {$$typeof:k,type:c,key:e,ref:h,props:d,_owner:n.current}}reactJsxRuntime_production_min.Fragment=l;reactJsxRuntime_production_min.jsx=q;reactJsxRuntime_production_min.jsxs=q;
+	return reactJsxRuntime_production_min;
+}
+
+var hasRequiredJsxRuntime;
+
+function requireJsxRuntime () {
+	if (hasRequiredJsxRuntime) return jsxRuntime.exports;
+	hasRequiredJsxRuntime = 1;
+	{
+	  jsxRuntime.exports = requireReactJsxRuntime_production_min();
+	}
+	return jsxRuntime.exports;
+}
+
+var jsxRuntimeExports = requireJsxRuntime();
+
+var client = {};
+
+var hasRequiredClient;
+
+function requireClient () {
+	if (hasRequiredClient) return client;
+	hasRequiredClient = 1;
+	var m = requireReactDom();
+	{
+	  client.createRoot = m.createRoot;
+	  client.hydrateRoot = m.hydrateRoot;
+	}
+	return client;
+}
+
+var clientExports = requireClient();
+
+var PopStateEventType = "popstate";
+function createHashHistory(options = {}) {
+  function createHashLocation(window2, globalHistory) {
+    let {
+      pathname = "/",
+      search = "",
+      hash = ""
+    } = parsePath(window2.location.hash.substring(1));
+    if (!pathname.startsWith("/") && !pathname.startsWith(".")) {
+      pathname = "/" + pathname;
+    }
+    return createLocation(
+      "",
+      { pathname, search, hash },
+      // state defaults to `null` because `window.history.state` does
+      globalHistory.state && globalHistory.state.usr || null,
+      globalHistory.state && globalHistory.state.key || "default"
+    );
+  }
+  function createHashHref(window2, to) {
+    let base = window2.document.querySelector("base");
+    let href = "";
+    if (base && base.getAttribute("href")) {
+      let url = window2.location.href;
+      let hashIndex = url.indexOf("#");
+      href = hashIndex === -1 ? url : url.slice(0, hashIndex);
+    }
+    return href + "#" + (typeof to === "string" ? to : createPath(to));
+  }
+  function validateHashLocation(location, to) {
+    warning(
+      location.pathname.charAt(0) === "/",
+      `relative pathnames are not supported in hash history.push(${JSON.stringify(
+        to
+      )})`
+    );
+  }
+  return getUrlBasedHistory(
+    createHashLocation,
+    createHashHref,
+    validateHashLocation,
+    options
+  );
+}
+function invariant(value, message) {
+  if (value === false || value === null || typeof value === "undefined") {
+    throw new Error(message);
+  }
+}
+function warning(cond, message) {
+  if (!cond) {
+    if (typeof console !== "undefined") console.warn(message);
+    try {
+      throw new Error(message);
+    } catch (e) {
+    }
+  }
+}
+function createKey() {
+  return Math.random().toString(36).substring(2, 10);
+}
+function getHistoryState(location, index) {
+  return {
+    usr: location.state,
+    key: location.key,
+    idx: index
+  };
+}
+function createLocation(current, to, state = null, key) {
+  let location = {
+    pathname: typeof current === "string" ? current : current.pathname,
+    search: "",
+    hash: "",
+    ...typeof to === "string" ? parsePath(to) : to,
+    state,
+    // TODO: This could be cleaned up.  push/replace should probably just take
+    // full Locations now and avoid the need to run through this flow at all
+    // But that's a pretty big refactor to the current test suite so going to
+    // keep as is for the time being and just let any incoming keys take precedence
+    key: to && to.key || key || createKey()
+  };
+  return location;
+}
+function createPath({
+  pathname = "/",
+  search = "",
+  hash = ""
+}) {
+  if (search && search !== "?")
+    pathname += search.charAt(0) === "?" ? search : "?" + search;
+  if (hash && hash !== "#")
+    pathname += hash.charAt(0) === "#" ? hash : "#" + hash;
+  return pathname;
+}
+function parsePath(path) {
+  let parsedPath = {};
+  if (path) {
+    let hashIndex = path.indexOf("#");
+    if (hashIndex >= 0) {
+      parsedPath.hash = path.substring(hashIndex);
+      path = path.substring(0, hashIndex);
+    }
+    let searchIndex = path.indexOf("?");
+    if (searchIndex >= 0) {
+      parsedPath.search = path.substring(searchIndex);
+      path = path.substring(0, searchIndex);
+    }
+    if (path) {
+      parsedPath.pathname = path;
+    }
+  }
+  return parsedPath;
+}
+function getUrlBasedHistory(getLocation, createHref2, validateLocation, options = {}) {
+  let { window: window2 = document.defaultView, v5Compat = false } = options;
+  let globalHistory = window2.history;
+  let action = "POP";
+  let listener = null;
+  let index = getIndex();
+  if (index == null) {
+    index = 0;
+    globalHistory.replaceState({ ...globalHistory.state, idx: index }, "");
+  }
+  function getIndex() {
+    let state = globalHistory.state || { idx: null };
+    return state.idx;
+  }
+  function handlePop() {
+    action = "POP";
+    let nextIndex = getIndex();
+    let delta = nextIndex == null ? null : nextIndex - index;
+    index = nextIndex;
+    if (listener) {
+      listener({ action, location: history.location, delta });
+    }
+  }
+  function push(to, state) {
+    action = "PUSH";
+    let location = createLocation(history.location, to, state);
+    if (validateLocation) validateLocation(location, to);
+    index = getIndex() + 1;
+    let historyState = getHistoryState(location, index);
+    let url = history.createHref(location);
+    try {
+      globalHistory.pushState(historyState, "", url);
+    } catch (error) {
+      if (error instanceof DOMException && error.name === "DataCloneError") {
+        throw error;
+      }
+      window2.location.assign(url);
+    }
+    if (v5Compat && listener) {
+      listener({ action, location: history.location, delta: 1 });
+    }
+  }
+  function replace2(to, state) {
+    action = "REPLACE";
+    let location = createLocation(history.location, to, state);
+    if (validateLocation) validateLocation(location, to);
+    index = getIndex();
+    let historyState = getHistoryState(location, index);
+    let url = history.createHref(location);
+    globalHistory.replaceState(historyState, "", url);
+    if (v5Compat && listener) {
+      listener({ action, location: history.location, delta: 0 });
+    }
+  }
+  function createURL(to) {
+    return createBrowserURLImpl(to);
+  }
+  let history = {
+    get action() {
+      return action;
+    },
+    get location() {
+      return getLocation(window2, globalHistory);
+    },
+    listen(fn) {
+      if (listener) {
+        throw new Error("A history only accepts one active listener");
+      }
+      window2.addEventListener(PopStateEventType, handlePop);
+      listener = fn;
+      return () => {
+        window2.removeEventListener(PopStateEventType, handlePop);
+        listener = null;
+      };
+    },
+    createHref(to) {
+      return createHref2(window2, to);
+    },
+    createURL,
+    encodeLocation(to) {
+      let url = createURL(to);
+      return {
+        pathname: url.pathname,
+        search: url.search,
+        hash: url.hash
+      };
+    },
+    push,
+    replace: replace2,
+    go(n) {
+      return globalHistory.go(n);
+    }
+  };
+  return history;
+}
+function createBrowserURLImpl(to, isAbsolute = false) {
+  let base = "http://localhost";
+  if (typeof window !== "undefined") {
+    base = window.location.origin !== "null" ? window.location.origin : window.location.href;
+  }
+  invariant(base, "No window.location.(origin|href) available to create URL");
+  let href = typeof to === "string" ? to : createPath(to);
+  href = href.replace(/ $/, "%20");
+  if (!isAbsolute && href.startsWith("//")) {
+    href = base + href;
+  }
+  return new URL(href, base);
+}
+function matchRoutes(routes, locationArg, basename = "/") {
+  return matchRoutesImpl(routes, locationArg, basename, false);
+}
+function matchRoutesImpl(routes, locationArg, basename, allowPartial) {
+  let location = typeof locationArg === "string" ? parsePath(locationArg) : locationArg;
+  let pathname = stripBasename(location.pathname || "/", basename);
+  if (pathname == null) {
+    return null;
+  }
+  let branches = flattenRoutes(routes);
+  rankRouteBranches(branches);
+  let matches = null;
+  for (let i = 0; matches == null && i < branches.length; ++i) {
+    let decoded = decodePath(pathname);
+    matches = matchRouteBranch(
+      branches[i],
+      decoded,
+      allowPartial
+    );
+  }
+  return matches;
+}
+function flattenRoutes(routes, branches = [], parentsMeta = [], parentPath = "", _hasParentOptionalSegments = false) {
+  let flattenRoute = (route, index, hasParentOptionalSegments = _hasParentOptionalSegments, relativePath) => {
+    let meta = {
+      relativePath: relativePath === void 0 ? route.path || "" : relativePath,
+      caseSensitive: route.caseSensitive === true,
+      childrenIndex: index,
+      route
+    };
+    if (meta.relativePath.startsWith("/")) {
+      if (!meta.relativePath.startsWith(parentPath) && hasParentOptionalSegments) {
+        return;
+      }
+      invariant(
+        meta.relativePath.startsWith(parentPath),
+        `Absolute route path "${meta.relativePath}" nested under path "${parentPath}" is not valid. An absolute child route path must start with the combined path of all its parent routes.`
+      );
+      meta.relativePath = meta.relativePath.slice(parentPath.length);
+    }
+    let path = joinPaths([parentPath, meta.relativePath]);
+    let routesMeta = parentsMeta.concat(meta);
+    if (route.children && route.children.length > 0) {
+      invariant(
+        // Our types know better, but runtime JS may not!
+        // @ts-expect-error
+        route.index !== true,
+        `Index routes must not have child routes. Please remove all child routes from route path "${path}".`
+      );
+      flattenRoutes(
+        route.children,
+        branches,
+        routesMeta,
+        path,
+        hasParentOptionalSegments
+      );
+    }
+    if (route.path == null && !route.index) {
+      return;
+    }
+    branches.push({
+      path,
+      score: computeScore(path, route.index),
+      routesMeta
+    });
+  };
+  routes.forEach((route, index) => {
+    if (route.path === "" || !route.path?.includes("?")) {
+      flattenRoute(route, index);
+    } else {
+      for (let exploded of explodeOptionalSegments(route.path)) {
+        flattenRoute(route, index, true, exploded);
+      }
+    }
+  });
+  return branches;
+}
+function explodeOptionalSegments(path) {
+  let segments = path.split("/");
+  if (segments.length === 0) return [];
+  let [first, ...rest] = segments;
+  let isOptional = first.endsWith("?");
+  let required = first.replace(/\?$/, "");
+  if (rest.length === 0) {
+    return isOptional ? [required, ""] : [required];
+  }
+  let restExploded = explodeOptionalSegments(rest.join("/"));
+  let result = [];
+  result.push(
+    ...restExploded.map(
+      (subpath) => subpath === "" ? required : [required, subpath].join("/")
+    )
+  );
+  if (isOptional) {
+    result.push(...restExploded);
+  }
+  return result.map(
+    (exploded) => path.startsWith("/") && exploded === "" ? "/" : exploded
+  );
+}
+function rankRouteBranches(branches) {
+  branches.sort(
+    (a, b) => a.score !== b.score ? b.score - a.score : compareIndexes(
+      a.routesMeta.map((meta) => meta.childrenIndex),
+      b.routesMeta.map((meta) => meta.childrenIndex)
+    )
+  );
+}
+var paramRe = /^:[\w-]+$/;
+var dynamicSegmentValue = 3;
+var indexRouteValue = 2;
+var emptySegmentValue = 1;
+var staticSegmentValue = 10;
+var splatPenalty = -2;
+var isSplat = (s) => s === "*";
+function computeScore(path, index) {
+  let segments = path.split("/");
+  let initialScore = segments.length;
+  if (segments.some(isSplat)) {
+    initialScore += splatPenalty;
+  }
+  if (index) {
+    initialScore += indexRouteValue;
+  }
+  return segments.filter((s) => !isSplat(s)).reduce(
+    (score, segment) => score + (paramRe.test(segment) ? dynamicSegmentValue : segment === "" ? emptySegmentValue : staticSegmentValue),
+    initialScore
+  );
+}
+function compareIndexes(a, b) {
+  let siblings = a.length === b.length && a.slice(0, -1).every((n, i) => n === b[i]);
+  return siblings ? (
+    // If two routes are siblings, we should try to match the earlier sibling
+    // first. This allows people to have fine-grained control over the matching
+    // behavior by simply putting routes with identical paths in the order they
+    // want them tried.
+    a[a.length - 1] - b[b.length - 1]
+  ) : (
+    // Otherwise, it doesn't really make sense to rank non-siblings by index,
+    // so they sort equally.
+    0
+  );
+}
+function matchRouteBranch(branch, pathname, allowPartial = false) {
+  let { routesMeta } = branch;
+  let matchedParams = {};
+  let matchedPathname = "/";
+  let matches = [];
+  for (let i = 0; i < routesMeta.length; ++i) {
+    let meta = routesMeta[i];
+    let end = i === routesMeta.length - 1;
+    let remainingPathname = matchedPathname === "/" ? pathname : pathname.slice(matchedPathname.length) || "/";
+    let match = matchPath(
+      { path: meta.relativePath, caseSensitive: meta.caseSensitive, end },
+      remainingPathname
+    );
+    let route = meta.route;
+    if (!match && end && allowPartial && !routesMeta[routesMeta.length - 1].route.index) {
+      match = matchPath(
+        {
+          path: meta.relativePath,
+          caseSensitive: meta.caseSensitive,
+          end: false
+        },
+        remainingPathname
+      );
+    }
+    if (!match) {
+      return null;
+    }
+    Object.assign(matchedParams, match.params);
+    matches.push({
+      // TODO: Can this as be avoided?
+      params: matchedParams,
+      pathname: joinPaths([matchedPathname, match.pathname]),
+      pathnameBase: normalizePathname(
+        joinPaths([matchedPathname, match.pathnameBase])
+      ),
+      route
+    });
+    if (match.pathnameBase !== "/") {
+      matchedPathname = joinPaths([matchedPathname, match.pathnameBase]);
+    }
+  }
+  return matches;
+}
+function matchPath(pattern, pathname) {
+  if (typeof pattern === "string") {
+    pattern = { path: pattern, caseSensitive: false, end: true };
+  }
+  let [matcher, compiledParams] = compilePath(
+    pattern.path,
+    pattern.caseSensitive,
+    pattern.end
+  );
+  let match = pathname.match(matcher);
+  if (!match) return null;
+  let matchedPathname = match[0];
+  let pathnameBase = matchedPathname.replace(/(.)\/+$/, "$1");
+  let captureGroups = match.slice(1);
+  let params = compiledParams.reduce(
+    (memo2, { paramName, isOptional }, index) => {
+      if (paramName === "*") {
+        let splatValue = captureGroups[index] || "";
+        pathnameBase = matchedPathname.slice(0, matchedPathname.length - splatValue.length).replace(/(.)\/+$/, "$1");
+      }
+      const value = captureGroups[index];
+      if (isOptional && !value) {
+        memo2[paramName] = void 0;
+      } else {
+        memo2[paramName] = (value || "").replace(/%2F/g, "/");
+      }
+      return memo2;
+    },
+    {}
+  );
+  return {
+    params,
+    pathname: matchedPathname,
+    pathnameBase,
+    pattern
+  };
+}
+function compilePath(path, caseSensitive = false, end = true) {
+  warning(
+    path === "*" || !path.endsWith("*") || path.endsWith("/*"),
+    `Route path "${path}" will be treated as if it were "${path.replace(/\*$/, "/*")}" because the \`*\` character must always follow a \`/\` in the pattern. To get rid of this warning, please change the route path to "${path.replace(/\*$/, "/*")}".`
+  );
+  let params = [];
+  let regexpSource = "^" + path.replace(/\/*\*?$/, "").replace(/^\/*/, "/").replace(/[\\.*+^${}|()[\]]/g, "\\$&").replace(
+    /\/:([\w-]+)(\?)?/g,
+    (_, paramName, isOptional) => {
+      params.push({ paramName, isOptional: isOptional != null });
+      return isOptional ? "/?([^\\/]+)?" : "/([^\\/]+)";
+    }
+  ).replace(/\/([\w-]+)\?(\/|$)/g, "(/$1)?$2");
+  if (path.endsWith("*")) {
+    params.push({ paramName: "*" });
+    regexpSource += path === "*" || path === "/*" ? "(.*)$" : "(?:\\/(.+)|\\/*)$";
+  } else if (end) {
+    regexpSource += "\\/*$";
+  } else if (path !== "" && path !== "/") {
+    regexpSource += "(?:(?=\\/|$))";
+  } else ;
+  let matcher = new RegExp(regexpSource, caseSensitive ? void 0 : "i");
+  return [matcher, params];
+}
+function decodePath(value) {
+  try {
+    return value.split("/").map((v) => decodeURIComponent(v).replace(/\//g, "%2F")).join("/");
+  } catch (error) {
+    warning(
+      false,
+      `The URL path "${value}" could not be decoded because it is a malformed URL segment. This is probably due to a bad percent encoding (${error}).`
+    );
+    return value;
+  }
+}
+function stripBasename(pathname, basename) {
+  if (basename === "/") return pathname;
+  if (!pathname.toLowerCase().startsWith(basename.toLowerCase())) {
+    return null;
+  }
+  let startIndex = basename.endsWith("/") ? basename.length - 1 : basename.length;
+  let nextChar = pathname.charAt(startIndex);
+  if (nextChar && nextChar !== "/") {
+    return null;
+  }
+  return pathname.slice(startIndex) || "/";
+}
+var ABSOLUTE_URL_REGEX = /^(?:[a-z][a-z0-9+.-]*:|\/\/)/i;
+function resolvePath(to, fromPathname = "/") {
+  let {
+    pathname: toPathname,
+    search = "",
+    hash = ""
+  } = typeof to === "string" ? parsePath(to) : to;
+  let pathname;
+  if (toPathname) {
+    toPathname = toPathname.replace(/\/\/+/g, "/");
+    if (toPathname.startsWith("/")) {
+      pathname = resolvePathname(toPathname.substring(1), "/");
+    } else {
+      pathname = resolvePathname(toPathname, fromPathname);
+    }
+  } else {
+    pathname = fromPathname;
+  }
+  return {
+    pathname,
+    search: normalizeSearch(search),
+    hash: normalizeHash(hash)
+  };
+}
+function resolvePathname(relativePath, fromPathname) {
+  let segments = fromPathname.replace(/\/+$/, "").split("/");
+  let relativeSegments = relativePath.split("/");
+  relativeSegments.forEach((segment) => {
+    if (segment === "..") {
+      if (segments.length > 1) segments.pop();
+    } else if (segment !== ".") {
+      segments.push(segment);
+    }
+  });
+  return segments.length > 1 ? segments.join("/") : "/";
+}
+function getInvalidPathError(char, field, dest, path) {
+  return `Cannot include a '${char}' character in a manually specified \`to.${field}\` field [${JSON.stringify(
+    path
+  )}].  Please separate it out to the \`to.${dest}\` field. Alternatively you may provide the full path as a string in <Link to="..."> and the router will parse it for you.`;
+}
+function getPathContributingMatches(matches) {
+  return matches.filter(
+    (match, index) => index === 0 || match.route.path && match.route.path.length > 0
+  );
+}
+function getResolveToMatches(matches) {
+  let pathMatches = getPathContributingMatches(matches);
+  return pathMatches.map(
+    (match, idx) => idx === pathMatches.length - 1 ? match.pathname : match.pathnameBase
+  );
+}
+function resolveTo(toArg, routePathnames, locationPathname, isPathRelative = false) {
+  let to;
+  if (typeof toArg === "string") {
+    to = parsePath(toArg);
+  } else {
+    to = { ...toArg };
+    invariant(
+      !to.pathname || !to.pathname.includes("?"),
+      getInvalidPathError("?", "pathname", "search", to)
+    );
+    invariant(
+      !to.pathname || !to.pathname.includes("#"),
+      getInvalidPathError("#", "pathname", "hash", to)
+    );
+    invariant(
+      !to.search || !to.search.includes("#"),
+      getInvalidPathError("#", "search", "hash", to)
+    );
+  }
+  let isEmptyPath = toArg === "" || to.pathname === "";
+  let toPathname = isEmptyPath ? "/" : to.pathname;
+  let from;
+  if (toPathname == null) {
+    from = locationPathname;
+  } else {
+    let routePathnameIndex = routePathnames.length - 1;
+    if (!isPathRelative && toPathname.startsWith("..")) {
+      let toSegments = toPathname.split("/");
+      while (toSegments[0] === "..") {
+        toSegments.shift();
+        routePathnameIndex -= 1;
+      }
+      to.pathname = toSegments.join("/");
+    }
+    from = routePathnameIndex >= 0 ? routePathnames[routePathnameIndex] : "/";
+  }
+  let path = resolvePath(to, from);
+  let hasExplicitTrailingSlash = toPathname && toPathname !== "/" && toPathname.endsWith("/");
+  let hasCurrentTrailingSlash = (isEmptyPath || toPathname === ".") && locationPathname.endsWith("/");
+  if (!path.pathname.endsWith("/") && (hasExplicitTrailingSlash || hasCurrentTrailingSlash)) {
+    path.pathname += "/";
+  }
+  return path;
+}
+var joinPaths = (paths) => paths.join("/").replace(/\/\/+/g, "/");
+var normalizePathname = (pathname) => pathname.replace(/\/+$/, "").replace(/^\/*/, "/");
+var normalizeSearch = (search) => !search || search === "?" ? "" : search.startsWith("?") ? search : "?" + search;
+var normalizeHash = (hash) => !hash || hash === "#" ? "" : hash.startsWith("#") ? hash : "#" + hash;
+var ErrorResponseImpl = class {
+  constructor(status, statusText, data2, internal = false) {
+    this.status = status;
+    this.statusText = statusText || "";
+    this.internal = internal;
+    if (data2 instanceof Error) {
+      this.data = data2.toString();
+      this.error = data2;
+    } else {
+      this.data = data2;
+    }
+  }
+};
+function isRouteErrorResponse(error) {
+  return error != null && typeof error.status === "number" && typeof error.statusText === "string" && typeof error.internal === "boolean" && "data" in error;
+}
+function getRoutePattern(matches) {
+  return matches.map((m) => m.route.path).filter(Boolean).join("/").replace(/\/\/*/g, "/") || "/";
+}
+var isBrowser = typeof window !== "undefined" && typeof window.document !== "undefined" && typeof window.document.createElement !== "undefined";
+function parseToInfo(_to, basename) {
+  let to = _to;
+  if (typeof to !== "string" || !ABSOLUTE_URL_REGEX.test(to)) {
+    return {
+      absoluteURL: void 0,
+      isExternal: false,
+      to
+    };
+  }
+  let absoluteURL = to;
+  let isExternal = false;
+  if (isBrowser) {
+    try {
+      let currentUrl = new URL(window.location.href);
+      let targetUrl = to.startsWith("//") ? new URL(currentUrl.protocol + to) : new URL(to);
+      let path = stripBasename(targetUrl.pathname, basename);
+      if (targetUrl.origin === currentUrl.origin && path != null) {
+        to = path + targetUrl.search + targetUrl.hash;
+      } else {
+        isExternal = true;
+      }
+    } catch (e) {
+      warning(
+        false,
+        `<Link to="${to}"> contains an invalid URL which will probably break when clicked - please update to a valid URL path.`
+      );
+    }
+  }
+  return {
+    absoluteURL,
+    isExternal,
+    to
+  };
+}
+Object.getOwnPropertyNames(Object.prototype).sort().join("\0");
+var validMutationMethodsArr = [
+  "POST",
+  "PUT",
+  "PATCH",
+  "DELETE"
+];
+new Set(
+  validMutationMethodsArr
+);
+var validRequestMethodsArr = [
+  "GET",
+  ...validMutationMethodsArr
+];
+new Set(validRequestMethodsArr);
+const React$n = await importShared('react');
+
+var DataRouterContext = React$n.createContext(null);
+DataRouterContext.displayName = "DataRouter";
+var DataRouterStateContext = React$n.createContext(null);
+DataRouterStateContext.displayName = "DataRouterState";
+var RSCRouterContext = React$n.createContext(false);
+function useIsRSCRouterContext() {
+  return React$n.useContext(RSCRouterContext);
+}
+var ViewTransitionContext = React$n.createContext({
+  isTransitioning: false
+});
+ViewTransitionContext.displayName = "ViewTransition";
+var FetchersContext = React$n.createContext(
+  /* @__PURE__ */ new Map()
+);
+FetchersContext.displayName = "Fetchers";
+var AwaitContext = React$n.createContext(null);
+AwaitContext.displayName = "Await";
+var NavigationContext = React$n.createContext(
+  null
+);
+NavigationContext.displayName = "Navigation";
+var LocationContext = React$n.createContext(
+  null
+);
+LocationContext.displayName = "Location";
+var RouteContext = React$n.createContext({
+  outlet: null,
+  matches: [],
+  isDataRoute: false
+});
+RouteContext.displayName = "Route";
+var RouteErrorContext = React$n.createContext(null);
+RouteErrorContext.displayName = "RouteError";
+const React2$1 = await importShared('react');
+
+var ERROR_DIGEST_BASE = "REACT_ROUTER_ERROR";
+var ERROR_DIGEST_REDIRECT = "REDIRECT";
+var ERROR_DIGEST_ROUTE_ERROR_RESPONSE = "ROUTE_ERROR_RESPONSE";
+function decodeRedirectErrorDigest(digest) {
+  if (digest.startsWith(`${ERROR_DIGEST_BASE}:${ERROR_DIGEST_REDIRECT}:{`)) {
+    try {
+      let parsed = JSON.parse(digest.slice(28));
+      if (typeof parsed === "object" && parsed && typeof parsed.status === "number" && typeof parsed.statusText === "string" && typeof parsed.location === "string" && typeof parsed.reloadDocument === "boolean" && typeof parsed.replace === "boolean") {
+        return parsed;
+      }
+    } catch {
+    }
+  }
+}
+function decodeRouteErrorResponseDigest(digest) {
+  if (digest.startsWith(
+    `${ERROR_DIGEST_BASE}:${ERROR_DIGEST_ROUTE_ERROR_RESPONSE}:{`
+  )) {
+    try {
+      let parsed = JSON.parse(digest.slice(40));
+      if (typeof parsed === "object" && parsed && typeof parsed.status === "number" && typeof parsed.statusText === "string") {
+        return new ErrorResponseImpl(
+          parsed.status,
+          parsed.statusText,
+          parsed.data
+        );
+      }
+    } catch {
+    }
+  }
+}
+function useHref(to, { relative } = {}) {
+  invariant(
+    useInRouterContext(),
+    // TODO: This error is probably because they somehow have 2 versions of the
+    // router loaded. We can help them understand how to avoid that.
+    `useHref() may be used only in the context of a <Router> component.`
+  );
+  let { basename, navigator } = React2$1.useContext(NavigationContext);
+  let { hash, pathname, search } = useResolvedPath(to, { relative });
+  let joinedPathname = pathname;
+  if (basename !== "/") {
+    joinedPathname = pathname === "/" ? basename : joinPaths([basename, pathname]);
+  }
+  return navigator.createHref({ pathname: joinedPathname, search, hash });
+}
+function useInRouterContext() {
+  return React2$1.useContext(LocationContext) != null;
+}
+function useLocation() {
+  invariant(
+    useInRouterContext(),
+    // TODO: This error is probably because they somehow have 2 versions of the
+    // router loaded. We can help them understand how to avoid that.
+    `useLocation() may be used only in the context of a <Router> component.`
+  );
+  return React2$1.useContext(LocationContext).location;
+}
+var navigateEffectWarning = `You should call navigate() in a React.useEffect(), not when your component is first rendered.`;
+function useIsomorphicLayoutEffect(cb) {
+  let isStatic = React2$1.useContext(NavigationContext).static;
+  if (!isStatic) {
+    React2$1.useLayoutEffect(cb);
+  }
+}
+function useNavigate() {
+  let { isDataRoute } = React2$1.useContext(RouteContext);
+  return isDataRoute ? useNavigateStable() : useNavigateUnstable();
+}
+function useNavigateUnstable() {
+  invariant(
+    useInRouterContext(),
+    // TODO: This error is probably because they somehow have 2 versions of the
+    // router loaded. We can help them understand how to avoid that.
+    `useNavigate() may be used only in the context of a <Router> component.`
+  );
+  let dataRouterContext = React2$1.useContext(DataRouterContext);
+  let { basename, navigator } = React2$1.useContext(NavigationContext);
+  let { matches } = React2$1.useContext(RouteContext);
+  let { pathname: locationPathname } = useLocation();
+  let routePathnamesJson = JSON.stringify(getResolveToMatches(matches));
+  let activeRef = React2$1.useRef(false);
+  useIsomorphicLayoutEffect(() => {
+    activeRef.current = true;
+  });
+  let navigate = React2$1.useCallback(
+    (to, options = {}) => {
+      warning(activeRef.current, navigateEffectWarning);
+      if (!activeRef.current) return;
+      if (typeof to === "number") {
+        navigator.go(to);
+        return;
+      }
+      let path = resolveTo(
+        to,
+        JSON.parse(routePathnamesJson),
+        locationPathname,
+        options.relative === "path"
+      );
+      if (dataRouterContext == null && basename !== "/") {
+        path.pathname = path.pathname === "/" ? basename : joinPaths([basename, path.pathname]);
+      }
+      (!!options.replace ? navigator.replace : navigator.push)(
+        path,
+        options.state,
+        options
+      );
+    },
+    [
+      basename,
+      navigator,
+      routePathnamesJson,
+      locationPathname,
+      dataRouterContext
+    ]
+  );
+  return navigate;
+}
+var OutletContext = React2$1.createContext(null);
+function useOutlet(context) {
+  let outlet = React2$1.useContext(RouteContext).outlet;
+  return React2$1.useMemo(
+    () => outlet && /* @__PURE__ */ React2$1.createElement(OutletContext.Provider, { value: context }, outlet),
+    [outlet, context]
+  );
+}
+function useResolvedPath(to, { relative } = {}) {
+  let { matches } = React2$1.useContext(RouteContext);
+  let { pathname: locationPathname } = useLocation();
+  let routePathnamesJson = JSON.stringify(getResolveToMatches(matches));
+  return React2$1.useMemo(
+    () => resolveTo(
+      to,
+      JSON.parse(routePathnamesJson),
+      locationPathname,
+      relative === "path"
+    ),
+    [to, routePathnamesJson, locationPathname, relative]
+  );
+}
+function useRoutes(routes, locationArg) {
+  return useRoutesImpl(routes, locationArg);
+}
+function useRoutesImpl(routes, locationArg, dataRouterState, onError, future) {
+  invariant(
+    useInRouterContext(),
+    // TODO: This error is probably because they somehow have 2 versions of the
+    // router loaded. We can help them understand how to avoid that.
+    `useRoutes() may be used only in the context of a <Router> component.`
+  );
+  let { navigator } = React2$1.useContext(NavigationContext);
+  let { matches: parentMatches } = React2$1.useContext(RouteContext);
+  let routeMatch = parentMatches[parentMatches.length - 1];
+  let parentParams = routeMatch ? routeMatch.params : {};
+  let parentPathname = routeMatch ? routeMatch.pathname : "/";
+  let parentPathnameBase = routeMatch ? routeMatch.pathnameBase : "/";
+  let parentRoute = routeMatch && routeMatch.route;
+  {
+    let parentPath = parentRoute && parentRoute.path || "";
+    warningOnce(
+      parentPathname,
+      !parentRoute || parentPath.endsWith("*") || parentPath.endsWith("*?"),
+      `You rendered descendant <Routes> (or called \`useRoutes()\`) at "${parentPathname}" (under <Route path="${parentPath}">) but the parent route path has no trailing "*". This means if you navigate deeper, the parent won't match anymore and therefore the child routes will never render.
+
+Please change the parent <Route path="${parentPath}"> to <Route path="${parentPath === "/" ? "*" : `${parentPath}/*`}">.`
+    );
+  }
+  let locationFromContext = useLocation();
+  let location;
+  if (locationArg) {
+    let parsedLocationArg = typeof locationArg === "string" ? parsePath(locationArg) : locationArg;
+    invariant(
+      parentPathnameBase === "/" || parsedLocationArg.pathname?.startsWith(parentPathnameBase),
+      `When overriding the location using \`<Routes location>\` or \`useRoutes(routes, location)\`, the location pathname must begin with the portion of the URL pathname that was matched by all parent routes. The current pathname base is "${parentPathnameBase}" but pathname "${parsedLocationArg.pathname}" was given in the \`location\` prop.`
+    );
+    location = parsedLocationArg;
+  } else {
+    location = locationFromContext;
+  }
+  let pathname = location.pathname || "/";
+  let remainingPathname = pathname;
+  if (parentPathnameBase !== "/") {
+    let parentSegments = parentPathnameBase.replace(/^\//, "").split("/");
+    let segments = pathname.replace(/^\//, "").split("/");
+    remainingPathname = "/" + segments.slice(parentSegments.length).join("/");
+  }
+  let matches = matchRoutes(routes, { pathname: remainingPathname });
+  {
+    warning(
+      parentRoute || matches != null,
+      `No routes matched location "${location.pathname}${location.search}${location.hash}" `
+    );
+    warning(
+      matches == null || matches[matches.length - 1].route.element !== void 0 || matches[matches.length - 1].route.Component !== void 0 || matches[matches.length - 1].route.lazy !== void 0,
+      `Matched leaf route at location "${location.pathname}${location.search}${location.hash}" does not have an element or Component. This means it will render an <Outlet /> with a null value by default resulting in an "empty" page.`
+    );
+  }
+  let renderedMatches = _renderMatches(
+    matches && matches.map(
+      (match) => Object.assign({}, match, {
+        params: Object.assign({}, parentParams, match.params),
+        pathname: joinPaths([
+          parentPathnameBase,
+          // Re-encode pathnames that were decoded inside matchRoutes.
+          // Pre-encode `?` and `#` ahead of `encodeLocation` because it uses
+          // `new URL()` internally and we need to prevent it from treating
+          // them as separators
+          navigator.encodeLocation ? navigator.encodeLocation(
+            match.pathname.replace(/\?/g, "%3F").replace(/#/g, "%23")
+          ).pathname : match.pathname
+        ]),
+        pathnameBase: match.pathnameBase === "/" ? parentPathnameBase : joinPaths([
+          parentPathnameBase,
+          // Re-encode pathnames that were decoded inside matchRoutes
+          // Pre-encode `?` and `#` ahead of `encodeLocation` because it uses
+          // `new URL()` internally and we need to prevent it from treating
+          // them as separators
+          navigator.encodeLocation ? navigator.encodeLocation(
+            match.pathnameBase.replace(/\?/g, "%3F").replace(/#/g, "%23")
+          ).pathname : match.pathnameBase
+        ])
+      })
+    ),
+    parentMatches,
+    dataRouterState,
+    onError,
+    future
+  );
+  if (locationArg && renderedMatches) {
+    return /* @__PURE__ */ React2$1.createElement(
+      LocationContext.Provider,
+      {
+        value: {
+          location: {
+            pathname: "/",
+            search: "",
+            hash: "",
+            state: null,
+            key: "default",
+            ...location
+          },
+          navigationType: "POP"
+          /* Pop */
+        }
+      },
+      renderedMatches
+    );
+  }
+  return renderedMatches;
+}
+function DefaultErrorComponent() {
+  let error = useRouteError();
+  let message = isRouteErrorResponse(error) ? `${error.status} ${error.statusText}` : error instanceof Error ? error.message : JSON.stringify(error);
+  let stack = error instanceof Error ? error.stack : null;
+  let lightgrey = "rgba(200,200,200, 0.5)";
+  let preStyles = { padding: "0.5rem", backgroundColor: lightgrey };
+  let codeStyles = { padding: "2px 4px", backgroundColor: lightgrey };
+  let devInfo = null;
+  {
+    console.error(
+      "Error handled by React Router default ErrorBoundary:",
+      error
+    );
+    devInfo = /* @__PURE__ */ React2$1.createElement(React2$1.Fragment, null, /* @__PURE__ */ React2$1.createElement("p", null, "💿 Hey developer 👋"), /* @__PURE__ */ React2$1.createElement("p", null, "You can provide a way better UX than this when your app throws errors by providing your own ", /* @__PURE__ */ React2$1.createElement("code", { style: codeStyles }, "ErrorBoundary"), " or", " ", /* @__PURE__ */ React2$1.createElement("code", { style: codeStyles }, "errorElement"), " prop on your route."));
+  }
+  return /* @__PURE__ */ React2$1.createElement(React2$1.Fragment, null, /* @__PURE__ */ React2$1.createElement("h2", null, "Unexpected Application Error!"), /* @__PURE__ */ React2$1.createElement("h3", { style: { fontStyle: "italic" } }, message), stack ? /* @__PURE__ */ React2$1.createElement("pre", { style: preStyles }, stack) : null, devInfo);
+}
+var defaultErrorElement = /* @__PURE__ */ React2$1.createElement(DefaultErrorComponent, null);
+var RenderErrorBoundary = class extends React2$1.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      location: props.location,
+      revalidation: props.revalidation,
+      error: props.error
+    };
+  }
+  static getDerivedStateFromError(error) {
+    return { error };
+  }
+  static getDerivedStateFromProps(props, state) {
+    if (state.location !== props.location || state.revalidation !== "idle" && props.revalidation === "idle") {
+      return {
+        error: props.error,
+        location: props.location,
+        revalidation: props.revalidation
+      };
+    }
+    return {
+      error: props.error !== void 0 ? props.error : state.error,
+      location: state.location,
+      revalidation: props.revalidation || state.revalidation
+    };
+  }
+  componentDidCatch(error, errorInfo) {
+    if (this.props.onError) {
+      this.props.onError(error, errorInfo);
+    } else {
+      console.error(
+        "React Router caught the following error during render",
+        error
+      );
+    }
+  }
+  render() {
+    let error = this.state.error;
+    if (this.context && typeof error === "object" && error && "digest" in error && typeof error.digest === "string") {
+      const decoded = decodeRouteErrorResponseDigest(error.digest);
+      if (decoded) error = decoded;
+    }
+    let result = error !== void 0 ? /* @__PURE__ */ React2$1.createElement(RouteContext.Provider, { value: this.props.routeContext }, /* @__PURE__ */ React2$1.createElement(
+      RouteErrorContext.Provider,
+      {
+        value: error,
+        children: this.props.component
+      }
+    )) : this.props.children;
+    if (this.context) {
+      return /* @__PURE__ */ React2$1.createElement(RSCErrorHandler, { error }, result);
+    }
+    return result;
+  }
+};
+RenderErrorBoundary.contextType = RSCRouterContext;
+var errorRedirectHandledMap = /* @__PURE__ */ new WeakMap();
+function RSCErrorHandler({
+  children,
+  error
+}) {
+  let { basename } = React2$1.useContext(NavigationContext);
+  if (typeof error === "object" && error && "digest" in error && typeof error.digest === "string") {
+    let redirect2 = decodeRedirectErrorDigest(error.digest);
+    if (redirect2) {
+      let existingRedirect = errorRedirectHandledMap.get(error);
+      if (existingRedirect) throw existingRedirect;
+      let parsed = parseToInfo(redirect2.location, basename);
+      if (isBrowser && !errorRedirectHandledMap.get(error)) {
+        if (parsed.isExternal || redirect2.reloadDocument) {
+          window.location.href = parsed.absoluteURL || parsed.to;
+        } else {
+          const redirectPromise = Promise.resolve().then(
+            () => window.__reactRouterDataRouter.navigate(parsed.to, {
+              replace: redirect2.replace
+            })
+          );
+          errorRedirectHandledMap.set(error, redirectPromise);
+          throw redirectPromise;
+        }
+      }
+      return /* @__PURE__ */ React2$1.createElement(
+        "meta",
+        {
+          httpEquiv: "refresh",
+          content: `0;url=${parsed.absoluteURL || parsed.to}`
+        }
+      );
+    }
+  }
+  return children;
+}
+function RenderedRoute({ routeContext, match, children }) {
+  let dataRouterContext = React2$1.useContext(DataRouterContext);
+  if (dataRouterContext && dataRouterContext.static && dataRouterContext.staticContext && (match.route.errorElement || match.route.ErrorBoundary)) {
+    dataRouterContext.staticContext._deepestRenderedBoundaryId = match.route.id;
+  }
+  return /* @__PURE__ */ React2$1.createElement(RouteContext.Provider, { value: routeContext }, children);
+}
+function _renderMatches(matches, parentMatches = [], dataRouterState = null, onErrorHandler = null, future = null) {
+  if (matches == null) {
+    if (!dataRouterState) {
+      return null;
+    }
+    if (dataRouterState.errors) {
+      matches = dataRouterState.matches;
+    } else if (parentMatches.length === 0 && !dataRouterState.initialized && dataRouterState.matches.length > 0) {
+      matches = dataRouterState.matches;
+    } else {
+      return null;
+    }
+  }
+  let renderedMatches = matches;
+  let errors = dataRouterState?.errors;
+  if (errors != null) {
+    let errorIndex = renderedMatches.findIndex(
+      (m) => m.route.id && errors?.[m.route.id] !== void 0
+    );
+    invariant(
+      errorIndex >= 0,
+      `Could not find a matching route for errors on route IDs: ${Object.keys(
+        errors
+      ).join(",")}`
+    );
+    renderedMatches = renderedMatches.slice(
+      0,
+      Math.min(renderedMatches.length, errorIndex + 1)
+    );
+  }
+  let renderFallback = false;
+  let fallbackIndex = -1;
+  if (dataRouterState) {
+    for (let i = 0; i < renderedMatches.length; i++) {
+      let match = renderedMatches[i];
+      if (match.route.HydrateFallback || match.route.hydrateFallbackElement) {
+        fallbackIndex = i;
+      }
+      if (match.route.id) {
+        let { loaderData, errors: errors2 } = dataRouterState;
+        let needsToRunLoader = match.route.loader && !loaderData.hasOwnProperty(match.route.id) && (!errors2 || errors2[match.route.id] === void 0);
+        if (match.route.lazy || needsToRunLoader) {
+          renderFallback = true;
+          if (fallbackIndex >= 0) {
+            renderedMatches = renderedMatches.slice(0, fallbackIndex + 1);
+          } else {
+            renderedMatches = [renderedMatches[0]];
+          }
+          break;
+        }
+      }
+    }
+  }
+  let onError = dataRouterState && onErrorHandler ? (error, errorInfo) => {
+    onErrorHandler(error, {
+      location: dataRouterState.location,
+      params: dataRouterState.matches?.[0]?.params ?? {},
+      unstable_pattern: getRoutePattern(dataRouterState.matches),
+      errorInfo
+    });
+  } : void 0;
+  return renderedMatches.reduceRight(
+    (outlet, match, index) => {
+      let error;
+      let shouldRenderHydrateFallback = false;
+      let errorElement = null;
+      let hydrateFallbackElement = null;
+      if (dataRouterState) {
+        error = errors && match.route.id ? errors[match.route.id] : void 0;
+        errorElement = match.route.errorElement || defaultErrorElement;
+        if (renderFallback) {
+          if (fallbackIndex < 0 && index === 0) {
+            warningOnce(
+              "route-fallback",
+              false,
+              "No `HydrateFallback` element provided to render during initial hydration"
+            );
+            shouldRenderHydrateFallback = true;
+            hydrateFallbackElement = null;
+          } else if (fallbackIndex === index) {
+            shouldRenderHydrateFallback = true;
+            hydrateFallbackElement = match.route.hydrateFallbackElement || null;
+          }
+        }
+      }
+      let matches2 = parentMatches.concat(renderedMatches.slice(0, index + 1));
+      let getChildren = () => {
+        let children;
+        if (error) {
+          children = errorElement;
+        } else if (shouldRenderHydrateFallback) {
+          children = hydrateFallbackElement;
+        } else if (match.route.Component) {
+          children = /* @__PURE__ */ React2$1.createElement(match.route.Component, null);
+        } else if (match.route.element) {
+          children = match.route.element;
+        } else {
+          children = outlet;
+        }
+        return /* @__PURE__ */ React2$1.createElement(
+          RenderedRoute,
+          {
+            match,
+            routeContext: {
+              outlet,
+              matches: matches2,
+              isDataRoute: dataRouterState != null
+            },
+            children
+          }
+        );
+      };
+      return dataRouterState && (match.route.ErrorBoundary || match.route.errorElement || index === 0) ? /* @__PURE__ */ React2$1.createElement(
+        RenderErrorBoundary,
+        {
+          location: dataRouterState.location,
+          revalidation: dataRouterState.revalidation,
+          component: errorElement,
+          error,
+          children: getChildren(),
+          routeContext: { outlet: null, matches: matches2, isDataRoute: true },
+          onError
+        }
+      ) : getChildren();
+    },
+    null
+  );
+}
+function getDataRouterConsoleError(hookName) {
+  return `${hookName} must be used within a data router.  See https://reactrouter.com/en/main/routers/picking-a-router.`;
+}
+function useDataRouterContext(hookName) {
+  let ctx = React2$1.useContext(DataRouterContext);
+  invariant(ctx, getDataRouterConsoleError(hookName));
+  return ctx;
+}
+function useDataRouterState(hookName) {
+  let state = React2$1.useContext(DataRouterStateContext);
+  invariant(state, getDataRouterConsoleError(hookName));
+  return state;
+}
+function useRouteContext(hookName) {
+  let route = React2$1.useContext(RouteContext);
+  invariant(route, getDataRouterConsoleError(hookName));
+  return route;
+}
+function useCurrentRouteId(hookName) {
+  let route = useRouteContext(hookName);
+  let thisRoute = route.matches[route.matches.length - 1];
+  invariant(
+    thisRoute.route.id,
+    `${hookName} can only be used on routes that contain a unique "id"`
+  );
+  return thisRoute.route.id;
+}
+function useRouteId() {
+  return useCurrentRouteId(
+    "useRouteId"
+    /* UseRouteId */
+  );
+}
+function useRouteError() {
+  let error = React2$1.useContext(RouteErrorContext);
+  let state = useDataRouterState(
+    "useRouteError"
+    /* UseRouteError */
+  );
+  let routeId = useCurrentRouteId(
+    "useRouteError"
+    /* UseRouteError */
+  );
+  if (error !== void 0) {
+    return error;
+  }
+  return state.errors?.[routeId];
+}
+function useNavigateStable() {
+  let { router } = useDataRouterContext(
+    "useNavigate"
+    /* UseNavigateStable */
+  );
+  let id = useCurrentRouteId(
+    "useNavigate"
+    /* UseNavigateStable */
+  );
+  let activeRef = React2$1.useRef(false);
+  useIsomorphicLayoutEffect(() => {
+    activeRef.current = true;
+  });
+  let navigate = React2$1.useCallback(
+    async (to, options = {}) => {
+      warning(activeRef.current, navigateEffectWarning);
+      if (!activeRef.current) return;
+      if (typeof to === "number") {
+        await router.navigate(to);
+      } else {
+        await router.navigate(to, { fromRouteId: id, ...options });
+      }
+    },
+    [router, id]
+  );
+  return navigate;
+}
+var alreadyWarned = {};
+function warningOnce(key, cond, message) {
+  if (!cond && !alreadyWarned[key]) {
+    alreadyWarned[key] = true;
+    warning(false, message);
+  }
+}
+const React3 = await importShared('react');
+
+var alreadyWarned2 = {};
+function warnOnce(condition, message) {
+  if (!condition && !alreadyWarned2[message]) {
+    alreadyWarned2[message] = true;
+    console.warn(message);
+  }
+}
+var USE_OPTIMISTIC = "useOptimistic";
+React3[USE_OPTIMISTIC];
+React3.memo(DataRoutes);
+function DataRoutes({
+  routes,
+  future,
+  state,
+  onError
+}) {
+  return useRoutesImpl(routes, void 0, state, onError, future);
+}
+function Navigate({
+  to,
+  replace: replace2,
+  state,
+  relative
+}) {
+  invariant(
+    useInRouterContext(),
+    // TODO: This error is probably because they somehow have 2 versions of
+    // the router loaded. We can help them understand how to avoid that.
+    `<Navigate> may be used only in the context of a <Router> component.`
+  );
+  let { static: isStatic } = React3.useContext(NavigationContext);
+  warning(
+    !isStatic,
+    `<Navigate> must not be used on the initial render in a <StaticRouter>. This is a no-op, but you should modify your code so the <Navigate> is only ever rendered in response to some user interaction or state change.`
+  );
+  let { matches } = React3.useContext(RouteContext);
+  let { pathname: locationPathname } = useLocation();
+  let navigate = useNavigate();
+  let path = resolveTo(
+    to,
+    getResolveToMatches(matches),
+    locationPathname,
+    relative === "path"
+  );
+  let jsonPath = JSON.stringify(path);
+  React3.useEffect(() => {
+    navigate(JSON.parse(jsonPath), { replace: replace2, state, relative });
+  }, [navigate, jsonPath, relative, replace2, state]);
+  return null;
+}
+function Outlet(props) {
+  return useOutlet(props.context);
+}
+function Route(props) {
+  invariant(
+    false,
+    `A <Route> is only ever to be used as the child of <Routes> element, never rendered directly. Please wrap your <Route> in a <Routes>.`
+  );
+}
+function Router({
+  basename: basenameProp = "/",
+  children = null,
+  location: locationProp,
+  navigationType = "POP",
+  navigator,
+  static: staticProp = false,
+  unstable_useTransitions
+}) {
+  invariant(
+    !useInRouterContext(),
+    `You cannot render a <Router> inside another <Router>. You should never have more than one in your app.`
+  );
+  let basename = basenameProp.replace(/^\/*/, "/");
+  let navigationContext = React3.useMemo(
+    () => ({
+      basename,
+      navigator,
+      static: staticProp,
+      unstable_useTransitions,
+      future: {}
+    }),
+    [basename, navigator, staticProp, unstable_useTransitions]
+  );
+  if (typeof locationProp === "string") {
+    locationProp = parsePath(locationProp);
+  }
+  let {
+    pathname = "/",
+    search = "",
+    hash = "",
+    state = null,
+    key = "default"
+  } = locationProp;
+  let locationContext = React3.useMemo(() => {
+    let trailingPathname = stripBasename(pathname, basename);
+    if (trailingPathname == null) {
+      return null;
+    }
+    return {
+      location: {
+        pathname: trailingPathname,
+        search,
+        hash,
+        state,
+        key
+      },
+      navigationType
+    };
+  }, [basename, pathname, search, hash, state, key, navigationType]);
+  warning(
+    locationContext != null,
+    `<Router basename="${basename}"> is not able to match the URL "${pathname}${search}${hash}" because it does not start with the basename, so the <Router> won't render anything.`
+  );
+  if (locationContext == null) {
+    return null;
+  }
+  return /* @__PURE__ */ React3.createElement(NavigationContext.Provider, { value: navigationContext }, /* @__PURE__ */ React3.createElement(LocationContext.Provider, { children, value: locationContext }));
+}
+function Routes({
+  children,
+  location
+}) {
+  return useRoutes(createRoutesFromChildren(children), location);
+}
+(class extends React3.Component {
+  constructor(props) {
+    super(props);
+    this.state = { error: null };
+  }
+  static getDerivedStateFromError(error) {
+    return { error };
+  }
+  componentDidCatch(error, errorInfo) {
+    if (this.props.onError) {
+      this.props.onError(error, errorInfo);
+    } else {
+      console.error(
+        "<Await> caught the following error during render",
+        error,
+        errorInfo
+      );
+    }
+  }
+  render() {
+    let { children, errorElement, resolve } = this.props;
+    let promise = null;
+    let status = 0;
+    if (!(resolve instanceof Promise)) {
+      status = 1;
+      promise = Promise.resolve();
+      Object.defineProperty(promise, "_tracked", { get: () => true });
+      Object.defineProperty(promise, "_data", { get: () => resolve });
+    } else if (this.state.error) {
+      status = 2;
+      let renderError = this.state.error;
+      promise = Promise.reject().catch(() => {
+      });
+      Object.defineProperty(promise, "_tracked", { get: () => true });
+      Object.defineProperty(promise, "_error", { get: () => renderError });
+    } else if (resolve._tracked) {
+      promise = resolve;
+      status = "_error" in promise ? 2 : "_data" in promise ? 1 : 0;
+    } else {
+      status = 0;
+      Object.defineProperty(resolve, "_tracked", { get: () => true });
+      promise = resolve.then(
+        (data2) => Object.defineProperty(resolve, "_data", { get: () => data2 }),
+        (error) => {
+          this.props.onError?.(error);
+          Object.defineProperty(resolve, "_error", { get: () => error });
+        }
+      );
+    }
+    if (status === 2 && !errorElement) {
+      throw promise._error;
+    }
+    if (status === 2) {
+      return /* @__PURE__ */ React3.createElement(AwaitContext.Provider, { value: promise, children: errorElement });
+    }
+    if (status === 1) {
+      return /* @__PURE__ */ React3.createElement(AwaitContext.Provider, { value: promise, children });
+    }
+    throw promise;
+  }
+});
+function createRoutesFromChildren(children, parentPath = []) {
+  let routes = [];
+  React3.Children.forEach(children, (element, index) => {
+    if (!React3.isValidElement(element)) {
+      return;
+    }
+    let treePath = [...parentPath, index];
+    if (element.type === React3.Fragment) {
+      routes.push.apply(
+        routes,
+        createRoutesFromChildren(element.props.children, treePath)
+      );
+      return;
+    }
+    invariant(
+      element.type === Route,
+      `[${typeof element.type === "string" ? element.type : element.type.name}] is not a <Route> component. All component children of <Routes> must be a <Route> or <React.Fragment>`
+    );
+    invariant(
+      !element.props.index || !element.props.children,
+      "An index route cannot have child routes."
+    );
+    let route = {
+      id: element.props.id || treePath.join("-"),
+      caseSensitive: element.props.caseSensitive,
+      element: element.props.element,
+      Component: element.props.Component,
+      index: element.props.index,
+      path: element.props.path,
+      middleware: element.props.middleware,
+      loader: element.props.loader,
+      action: element.props.action,
+      hydrateFallbackElement: element.props.hydrateFallbackElement,
+      HydrateFallback: element.props.HydrateFallback,
+      errorElement: element.props.errorElement,
+      ErrorBoundary: element.props.ErrorBoundary,
+      hasErrorBoundary: element.props.hasErrorBoundary === true || element.props.ErrorBoundary != null || element.props.errorElement != null,
+      shouldRevalidate: element.props.shouldRevalidate,
+      handle: element.props.handle,
+      lazy: element.props.lazy
+    };
+    if (element.props.children) {
+      route.children = createRoutesFromChildren(
+        element.props.children,
+        treePath
+      );
+    }
+    routes.push(route);
+  });
+  return routes;
+}
+var defaultMethod = "get";
+var defaultEncType = "application/x-www-form-urlencoded";
+function isHtmlElement(object) {
+  return typeof HTMLElement !== "undefined" && object instanceof HTMLElement;
+}
+function isButtonElement(object) {
+  return isHtmlElement(object) && object.tagName.toLowerCase() === "button";
+}
+function isFormElement(object) {
+  return isHtmlElement(object) && object.tagName.toLowerCase() === "form";
+}
+function isInputElement(object) {
+  return isHtmlElement(object) && object.tagName.toLowerCase() === "input";
+}
+function isModifiedEvent(event) {
+  return !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
+}
+function shouldProcessLinkClick(event, target) {
+  return event.button === 0 && // Ignore everything but left clicks
+  (!target || target === "_self") && // Let browser handle "target=_blank" etc.
+  !isModifiedEvent(event);
+}
+var _formDataSupportsSubmitter = null;
+function isFormDataSubmitterSupported() {
+  if (_formDataSupportsSubmitter === null) {
+    try {
+      new FormData(
+        document.createElement("form"),
+        // @ts-expect-error if FormData supports the submitter parameter, this will throw
+        0
+      );
+      _formDataSupportsSubmitter = false;
+    } catch (e) {
+      _formDataSupportsSubmitter = true;
+    }
+  }
+  return _formDataSupportsSubmitter;
+}
+var supportedFormEncTypes = /* @__PURE__ */ new Set([
+  "application/x-www-form-urlencoded",
+  "multipart/form-data",
+  "text/plain"
+]);
+function getFormEncType(encType) {
+  if (encType != null && !supportedFormEncTypes.has(encType)) {
+    warning(
+      false,
+      `"${encType}" is not a valid \`encType\` for \`<Form>\`/\`<fetcher.Form>\` and will default to "${defaultEncType}"`
+    );
+    return null;
+  }
+  return encType;
+}
+function getFormSubmissionInfo(target, basename) {
+  let method;
+  let action;
+  let encType;
+  let formData;
+  let body;
+  if (isFormElement(target)) {
+    let attr = target.getAttribute("action");
+    action = attr ? stripBasename(attr, basename) : null;
+    method = target.getAttribute("method") || defaultMethod;
+    encType = getFormEncType(target.getAttribute("enctype")) || defaultEncType;
+    formData = new FormData(target);
+  } else if (isButtonElement(target) || isInputElement(target) && (target.type === "submit" || target.type === "image")) {
+    let form = target.form;
+    if (form == null) {
+      throw new Error(
+        `Cannot submit a <button> or <input type="submit"> without a <form>`
+      );
+    }
+    let attr = target.getAttribute("formaction") || form.getAttribute("action");
+    action = attr ? stripBasename(attr, basename) : null;
+    method = target.getAttribute("formmethod") || form.getAttribute("method") || defaultMethod;
+    encType = getFormEncType(target.getAttribute("formenctype")) || getFormEncType(form.getAttribute("enctype")) || defaultEncType;
+    formData = new FormData(form, target);
+    if (!isFormDataSubmitterSupported()) {
+      let { name, type, value } = target;
+      if (type === "image") {
+        let prefix = name ? `${name}.` : "";
+        formData.append(`${prefix}x`, "0");
+        formData.append(`${prefix}y`, "0");
+      } else if (name) {
+        formData.append(name, value);
+      }
+    }
+  } else if (isHtmlElement(target)) {
+    throw new Error(
+      `Cannot submit element that is not <form>, <button>, or <input type="submit|image">`
+    );
+  } else {
+    method = defaultMethod;
+    action = null;
+    encType = defaultEncType;
+    body = target;
+  }
+  if (formData && encType === "text/plain") {
+    body = formData;
+    formData = void 0;
+  }
+  return { action, method: method.toLowerCase(), encType, formData, body };
+}
+await importShared('react');
+Object.getOwnPropertyNames(Object.prototype).sort().join("\0");
+function invariant2(value, message) {
+  if (value === false || value === null || typeof value === "undefined") {
+    throw new Error(message);
+  }
+}
+function singleFetchUrl(reqUrl, basename, trailingSlashAware, extension) {
+  let url = typeof reqUrl === "string" ? new URL(
+    reqUrl,
+    // This can be called during the SSR flow via PrefetchPageLinksImpl so
+    // don't assume window is available
+    typeof window === "undefined" ? "server://singlefetch/" : window.location.origin
+  ) : reqUrl;
+  if (trailingSlashAware) {
+    if (url.pathname.endsWith("/")) {
+      url.pathname = `${url.pathname}_.${extension}`;
+    } else {
+      url.pathname = `${url.pathname}.${extension}`;
+    }
+  } else {
+    if (url.pathname === "/") {
+      url.pathname = `_root.${extension}`;
+    } else if (basename && stripBasename(url.pathname, basename) === "/") {
+      url.pathname = `${basename.replace(/\/$/, "")}/_root.${extension}`;
+    } else {
+      url.pathname = `${url.pathname.replace(/\/$/, "")}.${extension}`;
+    }
+  }
+  return url;
+}
+const React9 = await importShared('react');
+
+const React8 = await importShared('react');
+
+async function loadRouteModule(route, routeModulesCache) {
+  if (route.id in routeModulesCache) {
+    return routeModulesCache[route.id];
+  }
+  try {
+    let routeModule = await import(
+      /* @vite-ignore */
+      /* webpackIgnore: true */
+      route.module
+    );
+    routeModulesCache[route.id] = routeModule;
+    return routeModule;
+  } catch (error) {
+    console.error(
+      `Error loading route module \`${route.module}\`, reloading page...`
+    );
+    console.error(error);
+    if (window.__reactRouterContext && window.__reactRouterContext.isSpaMode && // @ts-expect-error
+    void 0) ;
+    window.location.reload();
+    return new Promise(() => {
+    });
+  }
+}
+function isHtmlLinkDescriptor(object) {
+  if (object == null) {
+    return false;
+  }
+  if (object.href == null) {
+    return object.rel === "preload" && typeof object.imageSrcSet === "string" && typeof object.imageSizes === "string";
+  }
+  return typeof object.rel === "string" && typeof object.href === "string";
+}
+async function getKeyedPrefetchLinks(matches, manifest, routeModules) {
+  let links = await Promise.all(
+    matches.map(async (match) => {
+      let route = manifest.routes[match.route.id];
+      if (route) {
+        let mod = await loadRouteModule(route, routeModules);
+        return mod.links ? mod.links() : [];
+      }
+      return [];
+    })
+  );
+  return dedupeLinkDescriptors(
+    links.flat(1).filter(isHtmlLinkDescriptor).filter((link) => link.rel === "stylesheet" || link.rel === "preload").map(
+      (link) => link.rel === "stylesheet" ? { ...link, rel: "prefetch", as: "style" } : { ...link, rel: "prefetch" }
+    )
+  );
+}
+function getNewMatchesForLinks(page, nextMatches, currentMatches, manifest, location, mode) {
+  let isNew = (match, index) => {
+    if (!currentMatches[index]) return true;
+    return match.route.id !== currentMatches[index].route.id;
+  };
+  let matchPathChanged = (match, index) => {
+    return (
+      // param change, /users/123 -> /users/456
+      currentMatches[index].pathname !== match.pathname || // splat param changed, which is not present in match.path
+      // e.g. /files/images/avatar.jpg -> files/finances.xls
+      currentMatches[index].route.path?.endsWith("*") && currentMatches[index].params["*"] !== match.params["*"]
+    );
+  };
+  if (mode === "assets") {
+    return nextMatches.filter(
+      (match, index) => isNew(match, index) || matchPathChanged(match, index)
+    );
+  }
+  if (mode === "data") {
+    return nextMatches.filter((match, index) => {
+      let manifestRoute = manifest.routes[match.route.id];
+      if (!manifestRoute || !manifestRoute.hasLoader) {
+        return false;
+      }
+      if (isNew(match, index) || matchPathChanged(match, index)) {
+        return true;
+      }
+      if (match.route.shouldRevalidate) {
+        let routeChoice = match.route.shouldRevalidate({
+          currentUrl: new URL(
+            location.pathname + location.search + location.hash,
+            window.origin
+          ),
+          currentParams: currentMatches[0]?.params || {},
+          nextUrl: new URL(page, window.origin),
+          nextParams: match.params,
+          defaultShouldRevalidate: true
+        });
+        if (typeof routeChoice === "boolean") {
+          return routeChoice;
+        }
+      }
+      return true;
+    });
+  }
+  return [];
+}
+function getModuleLinkHrefs(matches, manifest, { includeHydrateFallback } = {}) {
+  return dedupeHrefs(
+    matches.map((match) => {
+      let route = manifest.routes[match.route.id];
+      if (!route) return [];
+      let hrefs = [route.module];
+      if (route.clientActionModule) {
+        hrefs = hrefs.concat(route.clientActionModule);
+      }
+      if (route.clientLoaderModule) {
+        hrefs = hrefs.concat(route.clientLoaderModule);
+      }
+      if (includeHydrateFallback && route.hydrateFallbackModule) {
+        hrefs = hrefs.concat(route.hydrateFallbackModule);
+      }
+      if (route.imports) {
+        hrefs = hrefs.concat(route.imports);
+      }
+      return hrefs;
+    }).flat(1)
+  );
+}
+function dedupeHrefs(hrefs) {
+  return [...new Set(hrefs)];
+}
+function sortKeys(obj) {
+  let sorted = {};
+  let keys = Object.keys(obj).sort();
+  for (let key of keys) {
+    sorted[key] = obj[key];
+  }
+  return sorted;
+}
+function dedupeLinkDescriptors(descriptors, preloads) {
+  let set = /* @__PURE__ */ new Set();
+  new Set(preloads);
+  return descriptors.reduce((deduped, descriptor) => {
+    let key = JSON.stringify(sortKeys(descriptor));
+    if (!set.has(key)) {
+      set.add(key);
+      deduped.push({ key, link: descriptor });
+    }
+    return deduped;
+  }, []);
+}
+await importShared('react');
+
+await importShared('react');
+
+await importShared('react');
+function isFogOfWarEnabled(routeDiscovery, ssr) {
+  return routeDiscovery.mode === "lazy" && ssr === true;
+}
+function getPartialManifest({ sri, ...manifest }, router) {
+  let routeIds = new Set(router.state.matches.map((m) => m.route.id));
+  let segments = router.state.location.pathname.split("/").filter(Boolean);
+  let paths = ["/"];
+  segments.pop();
+  while (segments.length > 0) {
+    paths.push(`/${segments.join("/")}`);
+    segments.pop();
+  }
+  paths.forEach((path) => {
+    let matches = matchRoutes(router.routes, path, router.basename);
+    if (matches) {
+      matches.forEach((m) => routeIds.add(m.route.id));
+    }
+  });
+  let initialRoutes = [...routeIds].reduce(
+    (acc, id) => Object.assign(acc, { [id]: manifest.routes[id] }),
+    {}
+  );
+  return {
+    ...manifest,
+    routes: initialRoutes,
+    sri: sri ? true : void 0
+  };
+}
+function useDataRouterContext2() {
+  let context = React8.useContext(DataRouterContext);
+  invariant2(
+    context,
+    "You must render this element inside a <DataRouterContext.Provider> element"
+  );
+  return context;
+}
+function useDataRouterStateContext() {
+  let context = React8.useContext(DataRouterStateContext);
+  invariant2(
+    context,
+    "You must render this element inside a <DataRouterStateContext.Provider> element"
+  );
+  return context;
+}
+var FrameworkContext = React8.createContext(void 0);
+FrameworkContext.displayName = "FrameworkContext";
+function useFrameworkContext() {
+  let context = React8.useContext(FrameworkContext);
+  invariant2(
+    context,
+    "You must render this element inside a <HydratedRouter> element"
+  );
+  return context;
+}
+function usePrefetchBehavior(prefetch, theirElementProps) {
+  let frameworkContext = React8.useContext(FrameworkContext);
+  let [maybePrefetch, setMaybePrefetch] = React8.useState(false);
+  let [shouldPrefetch, setShouldPrefetch] = React8.useState(false);
+  let { onFocus, onBlur, onMouseEnter, onMouseLeave, onTouchStart } = theirElementProps;
+  let ref = React8.useRef(null);
+  React8.useEffect(() => {
+    if (prefetch === "render") {
+      setShouldPrefetch(true);
+    }
+    if (prefetch === "viewport") {
+      let callback = (entries) => {
+        entries.forEach((entry) => {
+          setShouldPrefetch(entry.isIntersecting);
+        });
+      };
+      let observer = new IntersectionObserver(callback, { threshold: 0.5 });
+      if (ref.current) observer.observe(ref.current);
+      return () => {
+        observer.disconnect();
+      };
+    }
+  }, [prefetch]);
+  React8.useEffect(() => {
+    if (maybePrefetch) {
+      let id = setTimeout(() => {
+        setShouldPrefetch(true);
+      }, 100);
+      return () => {
+        clearTimeout(id);
+      };
+    }
+  }, [maybePrefetch]);
+  let setIntent = () => {
+    setMaybePrefetch(true);
+  };
+  let cancelIntent = () => {
+    setMaybePrefetch(false);
+    setShouldPrefetch(false);
+  };
+  if (!frameworkContext) {
+    return [false, ref, {}];
+  }
+  if (prefetch !== "intent") {
+    return [shouldPrefetch, ref, {}];
+  }
+  return [
+    shouldPrefetch,
+    ref,
+    {
+      onFocus: composeEventHandlers$1(onFocus, setIntent),
+      onBlur: composeEventHandlers$1(onBlur, cancelIntent),
+      onMouseEnter: composeEventHandlers$1(onMouseEnter, setIntent),
+      onMouseLeave: composeEventHandlers$1(onMouseLeave, cancelIntent),
+      onTouchStart: composeEventHandlers$1(onTouchStart, setIntent)
+    }
+  ];
+}
+function composeEventHandlers$1(theirHandler, ourHandler) {
+  return (event) => {
+    theirHandler && theirHandler(event);
+    if (!event.defaultPrevented) {
+      ourHandler(event);
+    }
+  };
+}
+function getActiveMatches(matches, errors, isSpaMode) {
+  if (isSpaMode && !isHydrated) {
+    return [matches[0]];
+  }
+  return matches;
+}
+function PrefetchPageLinks({ page, ...linkProps }) {
+  let { router } = useDataRouterContext2();
+  let matches = React8.useMemo(
+    () => matchRoutes(router.routes, page, router.basename),
+    [router.routes, page, router.basename]
+  );
+  if (!matches) {
+    return null;
+  }
+  return /* @__PURE__ */ React8.createElement(PrefetchPageLinksImpl, { page, matches, ...linkProps });
+}
+function useKeyedPrefetchLinks(matches) {
+  let { manifest, routeModules } = useFrameworkContext();
+  let [keyedPrefetchLinks, setKeyedPrefetchLinks] = React8.useState([]);
+  React8.useEffect(() => {
+    let interrupted = false;
+    void getKeyedPrefetchLinks(matches, manifest, routeModules).then(
+      (links) => {
+        if (!interrupted) {
+          setKeyedPrefetchLinks(links);
+        }
+      }
+    );
+    return () => {
+      interrupted = true;
+    };
+  }, [matches, manifest, routeModules]);
+  return keyedPrefetchLinks;
+}
+function PrefetchPageLinksImpl({
+  page,
+  matches: nextMatches,
+  ...linkProps
+}) {
+  let location = useLocation();
+  let { future, manifest, routeModules } = useFrameworkContext();
+  let { basename } = useDataRouterContext2();
+  let { loaderData, matches } = useDataRouterStateContext();
+  let newMatchesForData = React8.useMemo(
+    () => getNewMatchesForLinks(
+      page,
+      nextMatches,
+      matches,
+      manifest,
+      location,
+      "data"
+    ),
+    [page, nextMatches, matches, manifest, location]
+  );
+  let newMatchesForAssets = React8.useMemo(
+    () => getNewMatchesForLinks(
+      page,
+      nextMatches,
+      matches,
+      manifest,
+      location,
+      "assets"
+    ),
+    [page, nextMatches, matches, manifest, location]
+  );
+  let dataHrefs = React8.useMemo(() => {
+    if (page === location.pathname + location.search + location.hash) {
+      return [];
+    }
+    let routesParams = /* @__PURE__ */ new Set();
+    let foundOptOutRoute = false;
+    nextMatches.forEach((m) => {
+      let manifestRoute = manifest.routes[m.route.id];
+      if (!manifestRoute || !manifestRoute.hasLoader) {
+        return;
+      }
+      if (!newMatchesForData.some((m2) => m2.route.id === m.route.id) && m.route.id in loaderData && routeModules[m.route.id]?.shouldRevalidate) {
+        foundOptOutRoute = true;
+      } else if (manifestRoute.hasClientLoader) {
+        foundOptOutRoute = true;
+      } else {
+        routesParams.add(m.route.id);
+      }
+    });
+    if (routesParams.size === 0) {
+      return [];
+    }
+    let url = singleFetchUrl(
+      page,
+      basename,
+      future.unstable_trailingSlashAwareDataRequests,
+      "data"
+    );
+    if (foundOptOutRoute && routesParams.size > 0) {
+      url.searchParams.set(
+        "_routes",
+        nextMatches.filter((m) => routesParams.has(m.route.id)).map((m) => m.route.id).join(",")
+      );
+    }
+    return [url.pathname + url.search];
+  }, [
+    basename,
+    future.unstable_trailingSlashAwareDataRequests,
+    loaderData,
+    location,
+    manifest,
+    newMatchesForData,
+    nextMatches,
+    page,
+    routeModules
+  ]);
+  let moduleHrefs = React8.useMemo(
+    () => getModuleLinkHrefs(newMatchesForAssets, manifest),
+    [newMatchesForAssets, manifest]
+  );
+  let keyedPrefetchLinks = useKeyedPrefetchLinks(newMatchesForAssets);
+  return /* @__PURE__ */ React8.createElement(React8.Fragment, null, dataHrefs.map((href) => /* @__PURE__ */ React8.createElement("link", { key: href, rel: "prefetch", as: "fetch", href, ...linkProps })), moduleHrefs.map((href) => /* @__PURE__ */ React8.createElement("link", { key: href, rel: "modulepreload", href, ...linkProps })), keyedPrefetchLinks.map(({ key, link }) => (
+    // these don't spread `linkProps` because they are full link descriptors
+    // already with their own props
+    /* @__PURE__ */ React8.createElement(
+      "link",
+      {
+        key,
+        nonce: linkProps.nonce,
+        ...link,
+        crossOrigin: link.crossOrigin ?? linkProps.crossOrigin
+      }
+    )
+  )));
+}
+var isHydrated = false;
+function setIsHydrated() {
+  isHydrated = true;
+}
+function Scripts(scriptProps) {
+  let {
+    manifest,
+    serverHandoffString,
+    isSpaMode,
+    renderMeta,
+    routeDiscovery,
+    ssr
+  } = useFrameworkContext();
+  let { router, static: isStatic, staticContext } = useDataRouterContext2();
+  let { matches: routerMatches } = useDataRouterStateContext();
+  let isRSCRouterContext = useIsRSCRouterContext();
+  let enableFogOfWar = isFogOfWarEnabled(routeDiscovery, ssr);
+  if (renderMeta) {
+    renderMeta.didRenderScripts = true;
+  }
+  let matches = getActiveMatches(routerMatches, null, isSpaMode);
+  React8.useEffect(() => {
+    setIsHydrated();
+  }, []);
+  let initialScripts = React8.useMemo(() => {
+    if (isRSCRouterContext) {
+      return null;
+    }
+    let streamScript = "window.__reactRouterContext.stream = new ReadableStream({start(controller){window.__reactRouterContext.streamController = controller;}}).pipeThrough(new TextEncoderStream());";
+    let contextScript = staticContext ? `window.__reactRouterContext = ${serverHandoffString};${streamScript}` : " ";
+    let routeModulesScript = !isStatic ? " " : `${manifest.hmr?.runtime ? `import ${JSON.stringify(manifest.hmr.runtime)};` : ""}${!enableFogOfWar ? `import ${JSON.stringify(manifest.url)}` : ""};
+${matches.map((match, routeIndex) => {
+      let routeVarName = `route${routeIndex}`;
+      let manifestEntry = manifest.routes[match.route.id];
+      invariant2(manifestEntry, `Route ${match.route.id} not found in manifest`);
+      let {
+        clientActionModule,
+        clientLoaderModule,
+        clientMiddlewareModule,
+        hydrateFallbackModule,
+        module
+      } = manifestEntry;
+      let chunks = [
+        ...clientActionModule ? [
+          {
+            module: clientActionModule,
+            varName: `${routeVarName}_clientAction`
+          }
+        ] : [],
+        ...clientLoaderModule ? [
+          {
+            module: clientLoaderModule,
+            varName: `${routeVarName}_clientLoader`
+          }
+        ] : [],
+        ...clientMiddlewareModule ? [
+          {
+            module: clientMiddlewareModule,
+            varName: `${routeVarName}_clientMiddleware`
+          }
+        ] : [],
+        ...hydrateFallbackModule ? [
+          {
+            module: hydrateFallbackModule,
+            varName: `${routeVarName}_HydrateFallback`
+          }
+        ] : [],
+        { module, varName: `${routeVarName}_main` }
+      ];
+      if (chunks.length === 1) {
+        return `import * as ${routeVarName} from ${JSON.stringify(module)};`;
+      }
+      let chunkImportsSnippet = chunks.map((chunk) => `import * as ${chunk.varName} from "${chunk.module}";`).join("\n");
+      let mergedChunksSnippet = `const ${routeVarName} = {${chunks.map((chunk) => `...${chunk.varName}`).join(",")}};`;
+      return [chunkImportsSnippet, mergedChunksSnippet].join("\n");
+    }).join("\n")}
+  ${enableFogOfWar ? (
+      // Inline a minimal manifest with the SSR matches
+      `window.__reactRouterManifest = ${JSON.stringify(
+        getPartialManifest(manifest, router),
+        null,
+        2
+      )};`
+    ) : ""}
+  window.__reactRouterRouteModules = {${matches.map((match, index) => `${JSON.stringify(match.route.id)}:route${index}`).join(",")}};
+
+import(${JSON.stringify(manifest.entry.module)});`;
+    return /* @__PURE__ */ React8.createElement(React8.Fragment, null, /* @__PURE__ */ React8.createElement(
+      "script",
+      {
+        ...scriptProps,
+        suppressHydrationWarning: true,
+        dangerouslySetInnerHTML: { __html: contextScript },
+        type: void 0
+      }
+    ), /* @__PURE__ */ React8.createElement(
+      "script",
+      {
+        ...scriptProps,
+        suppressHydrationWarning: true,
+        dangerouslySetInnerHTML: { __html: routeModulesScript },
+        type: "module",
+        async: true
+      }
+    ));
+  }, []);
+  let preloads = isHydrated || isRSCRouterContext ? [] : dedupe(
+    manifest.entry.imports.concat(
+      getModuleLinkHrefs(matches, manifest, {
+        includeHydrateFallback: true
+      })
+    )
+  );
+  let sri = typeof manifest.sri === "object" ? manifest.sri : {};
+  warnOnce(
+    !isRSCRouterContext,
+    "The <Scripts /> element is a no-op when using RSC and can be safely removed."
+  );
+  return isHydrated || isRSCRouterContext ? null : /* @__PURE__ */ React8.createElement(React8.Fragment, null, typeof manifest.sri === "object" ? /* @__PURE__ */ React8.createElement(
+    "script",
+    {
+      ...scriptProps,
+      "rr-importmap": "",
+      type: "importmap",
+      suppressHydrationWarning: true,
+      dangerouslySetInnerHTML: {
+        __html: JSON.stringify({
+          integrity: sri
+        })
+      }
+    }
+  ) : null, !enableFogOfWar ? /* @__PURE__ */ React8.createElement(
+    "link",
+    {
+      rel: "modulepreload",
+      href: manifest.url,
+      crossOrigin: scriptProps.crossOrigin,
+      integrity: sri[manifest.url],
+      suppressHydrationWarning: true
+    }
+  ) : null, /* @__PURE__ */ React8.createElement(
+    "link",
+    {
+      rel: "modulepreload",
+      href: manifest.entry.module,
+      crossOrigin: scriptProps.crossOrigin,
+      integrity: sri[manifest.entry.module],
+      suppressHydrationWarning: true
+    }
+  ), preloads.map((path) => /* @__PURE__ */ React8.createElement(
+    "link",
+    {
+      key: path,
+      rel: "modulepreload",
+      href: path,
+      crossOrigin: scriptProps.crossOrigin,
+      integrity: sri[path],
+      suppressHydrationWarning: true
+    }
+  )), initialScripts);
+}
+function dedupe(array) {
+  return [...new Set(array)];
+}
+function mergeRefs(...refs) {
+  return (value) => {
+    refs.forEach((ref) => {
+      if (typeof ref === "function") {
+        ref(value);
+      } else if (ref != null) {
+        ref.current = value;
+      }
+    });
+  };
+}
+(class extends React9.Component {
+  constructor(props) {
+    super(props);
+    this.state = { error: props.error || null, location: props.location };
+  }
+  static getDerivedStateFromError(error) {
+    return { error };
+  }
+  static getDerivedStateFromProps(props, state) {
+    if (state.location !== props.location) {
+      return { error: props.error || null, location: props.location };
+    }
+    return { error: props.error || state.error, location: state.location };
+  }
+  render() {
+    if (this.state.error) {
+      return /* @__PURE__ */ React9.createElement(
+        RemixRootDefaultErrorBoundary,
+        {
+          error: this.state.error,
+          isOutsideRemixApp: true
+        }
+      );
+    } else {
+      return this.props.children;
+    }
+  }
+});
+function RemixRootDefaultErrorBoundary({
+  error,
+  isOutsideRemixApp
+}) {
+  console.error(error);
+  let heyDeveloper = /* @__PURE__ */ React9.createElement(
+    "script",
+    {
+      dangerouslySetInnerHTML: {
+        __html: `
+        console.log(
+          "💿 Hey developer 👋. You can provide a way better UX than this when your app throws errors. Check out https://reactrouter.com/how-to/error-boundary for more information."
+        );
+      `
+      }
+    }
+  );
+  if (isRouteErrorResponse(error)) {
+    return /* @__PURE__ */ React9.createElement(BoundaryShell, { title: "Unhandled Thrown Response!" }, /* @__PURE__ */ React9.createElement("h1", { style: { fontSize: "24px" } }, error.status, " ", error.statusText), heyDeveloper );
+  }
+  let errorInstance;
+  if (error instanceof Error) {
+    errorInstance = error;
+  } else {
+    let errorString = error == null ? "Unknown Error" : typeof error === "object" && "toString" in error ? error.toString() : JSON.stringify(error);
+    errorInstance = new Error(errorString);
+  }
+  return /* @__PURE__ */ React9.createElement(
+    BoundaryShell,
+    {
+      title: "Application Error!",
+      isOutsideRemixApp
+    },
+    /* @__PURE__ */ React9.createElement("h1", { style: { fontSize: "24px" } }, "Application Error"),
+    /* @__PURE__ */ React9.createElement(
+      "pre",
+      {
+        style: {
+          padding: "2rem",
+          background: "hsla(10, 50%, 50%, 0.1)",
+          color: "red",
+          overflow: "auto"
+        }
+      },
+      errorInstance.stack
+    ),
+    heyDeveloper
+  );
+}
+function BoundaryShell({
+  title,
+  renderScripts,
+  isOutsideRemixApp,
+  children
+}) {
+  let { routeModules } = useFrameworkContext();
+  if (routeModules.root?.Layout && !isOutsideRemixApp) {
+    return children;
+  }
+  return /* @__PURE__ */ React9.createElement("html", { lang: "en" }, /* @__PURE__ */ React9.createElement("head", null, /* @__PURE__ */ React9.createElement("meta", { charSet: "utf-8" }), /* @__PURE__ */ React9.createElement(
+    "meta",
+    {
+      name: "viewport",
+      content: "width=device-width,initial-scale=1,viewport-fit=cover"
+    }
+  ), /* @__PURE__ */ React9.createElement("title", null, title)), /* @__PURE__ */ React9.createElement("body", null, /* @__PURE__ */ React9.createElement("main", { style: { fontFamily: "system-ui, sans-serif", padding: "2rem" } }, children, renderScripts ? /* @__PURE__ */ React9.createElement(Scripts, null) : null)));
+}
+const React10 = await importShared('react');
+
+var isBrowser2 = typeof window !== "undefined" && typeof window.document !== "undefined" && typeof window.document.createElement !== "undefined";
+try {
+  if (isBrowser2) {
+    window.__reactRouterVersion = // @ts-expect-error
+    "7.13.0";
+  }
+} catch (e) {
+}
+function HashRouter({
+  basename,
+  children,
+  unstable_useTransitions,
+  window: window2
+}) {
+  let historyRef = React10.useRef();
+  if (historyRef.current == null) {
+    historyRef.current = createHashHistory({ window: window2, v5Compat: true });
+  }
+  let history = historyRef.current;
+  let [state, setStateImpl] = React10.useState({
+    action: history.action,
+    location: history.location
+  });
+  let setState = React10.useCallback(
+    (newState) => {
+      if (unstable_useTransitions === false) {
+        setStateImpl(newState);
+      } else {
+        React10.startTransition(() => setStateImpl(newState));
+      }
+    },
+    [unstable_useTransitions]
+  );
+  React10.useLayoutEffect(() => history.listen(setState), [history, setState]);
+  return /* @__PURE__ */ React10.createElement(
+    Router,
+    {
+      basename,
+      children,
+      location: state.location,
+      navigationType: state.action,
+      navigator: history,
+      unstable_useTransitions
+    }
+  );
+}
+var ABSOLUTE_URL_REGEX2 = /^(?:[a-z][a-z0-9+.-]*:|\/\/)/i;
+var Link = React10.forwardRef(
+  function LinkWithRef({
+    onClick,
+    discover = "render",
+    prefetch = "none",
+    relative,
+    reloadDocument,
+    replace: replace2,
+    state,
+    target,
+    to,
+    preventScrollReset,
+    viewTransition,
+    unstable_defaultShouldRevalidate,
+    ...rest
+  }, forwardedRef) {
+    let { basename, unstable_useTransitions } = React10.useContext(NavigationContext);
+    let isAbsolute = typeof to === "string" && ABSOLUTE_URL_REGEX2.test(to);
+    let parsed = parseToInfo(to, basename);
+    to = parsed.to;
+    let href = useHref(to, { relative });
+    let [shouldPrefetch, prefetchRef, prefetchHandlers] = usePrefetchBehavior(
+      prefetch,
+      rest
+    );
+    let internalOnClick = useLinkClickHandler(to, {
+      replace: replace2,
+      state,
+      target,
+      preventScrollReset,
+      relative,
+      viewTransition,
+      unstable_defaultShouldRevalidate,
+      unstable_useTransitions
+    });
+    function handleClick(event) {
+      if (onClick) onClick(event);
+      if (!event.defaultPrevented) {
+        internalOnClick(event);
+      }
+    }
+    let link = (
+      // eslint-disable-next-line jsx-a11y/anchor-has-content
+      /* @__PURE__ */ React10.createElement(
+        "a",
+        {
+          ...rest,
+          ...prefetchHandlers,
+          href: parsed.absoluteURL || href,
+          onClick: parsed.isExternal || reloadDocument ? onClick : handleClick,
+          ref: mergeRefs(forwardedRef, prefetchRef),
+          target,
+          "data-discover": !isAbsolute && discover === "render" ? "true" : void 0
+        }
+      )
+    );
+    return shouldPrefetch && !isAbsolute ? /* @__PURE__ */ React10.createElement(React10.Fragment, null, link, /* @__PURE__ */ React10.createElement(PrefetchPageLinks, { page: href })) : link;
+  }
+);
+Link.displayName = "Link";
+var NavLink = React10.forwardRef(
+  function NavLinkWithRef({
+    "aria-current": ariaCurrentProp = "page",
+    caseSensitive = false,
+    className: classNameProp = "",
+    end = false,
+    style: styleProp,
+    to,
+    viewTransition,
+    children,
+    ...rest
+  }, ref) {
+    let path = useResolvedPath(to, { relative: rest.relative });
+    let location = useLocation();
+    let routerState = React10.useContext(DataRouterStateContext);
+    let { navigator, basename } = React10.useContext(NavigationContext);
+    let isTransitioning = routerState != null && // Conditional usage is OK here because the usage of a data router is static
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    useViewTransitionState(path) && viewTransition === true;
+    let toPathname = navigator.encodeLocation ? navigator.encodeLocation(path).pathname : path.pathname;
+    let locationPathname = location.pathname;
+    let nextLocationPathname = routerState && routerState.navigation && routerState.navigation.location ? routerState.navigation.location.pathname : null;
+    if (!caseSensitive) {
+      locationPathname = locationPathname.toLowerCase();
+      nextLocationPathname = nextLocationPathname ? nextLocationPathname.toLowerCase() : null;
+      toPathname = toPathname.toLowerCase();
+    }
+    if (nextLocationPathname && basename) {
+      nextLocationPathname = stripBasename(nextLocationPathname, basename) || nextLocationPathname;
+    }
+    const endSlashPosition = toPathname !== "/" && toPathname.endsWith("/") ? toPathname.length - 1 : toPathname.length;
+    let isActive = locationPathname === toPathname || !end && locationPathname.startsWith(toPathname) && locationPathname.charAt(endSlashPosition) === "/";
+    let isPending = nextLocationPathname != null && (nextLocationPathname === toPathname || !end && nextLocationPathname.startsWith(toPathname) && nextLocationPathname.charAt(toPathname.length) === "/");
+    let renderProps = {
+      isActive,
+      isPending,
+      isTransitioning
+    };
+    let ariaCurrent = isActive ? ariaCurrentProp : void 0;
+    let className;
+    if (typeof classNameProp === "function") {
+      className = classNameProp(renderProps);
+    } else {
+      className = [
+        classNameProp,
+        isActive ? "active" : null,
+        isPending ? "pending" : null,
+        isTransitioning ? "transitioning" : null
+      ].filter(Boolean).join(" ");
+    }
+    let style = typeof styleProp === "function" ? styleProp(renderProps) : styleProp;
+    return /* @__PURE__ */ React10.createElement(
+      Link,
+      {
+        ...rest,
+        "aria-current": ariaCurrent,
+        className,
+        ref,
+        style,
+        to,
+        viewTransition
+      },
+      typeof children === "function" ? children(renderProps) : children
+    );
+  }
+);
+NavLink.displayName = "NavLink";
+var Form = React10.forwardRef(
+  ({
+    discover = "render",
+    fetcherKey,
+    navigate,
+    reloadDocument,
+    replace: replace2,
+    state,
+    method = defaultMethod,
+    action,
+    onSubmit,
+    relative,
+    preventScrollReset,
+    viewTransition,
+    unstable_defaultShouldRevalidate,
+    ...props
+  }, forwardedRef) => {
+    let { unstable_useTransitions } = React10.useContext(NavigationContext);
+    let submit = useSubmit();
+    let formAction = useFormAction(action, { relative });
+    let formMethod = method.toLowerCase() === "get" ? "get" : "post";
+    let isAbsolute = typeof action === "string" && ABSOLUTE_URL_REGEX2.test(action);
+    let submitHandler = (event) => {
+      onSubmit && onSubmit(event);
+      if (event.defaultPrevented) return;
+      event.preventDefault();
+      let submitter = event.nativeEvent.submitter;
+      let submitMethod = submitter?.getAttribute("formmethod") || method;
+      let doSubmit = () => submit(submitter || event.currentTarget, {
+        fetcherKey,
+        method: submitMethod,
+        navigate,
+        replace: replace2,
+        state,
+        relative,
+        preventScrollReset,
+        viewTransition,
+        unstable_defaultShouldRevalidate
+      });
+      if (unstable_useTransitions && navigate !== false) {
+        React10.startTransition(() => doSubmit());
+      } else {
+        doSubmit();
+      }
+    };
+    return /* @__PURE__ */ React10.createElement(
+      "form",
+      {
+        ref: forwardedRef,
+        method: formMethod,
+        action: formAction,
+        onSubmit: reloadDocument ? onSubmit : submitHandler,
+        ...props,
+        "data-discover": !isAbsolute && discover === "render" ? "true" : void 0
+      }
+    );
+  }
+);
+Form.displayName = "Form";
+function getDataRouterConsoleError2(hookName) {
+  return `${hookName} must be used within a data router.  See https://reactrouter.com/en/main/routers/picking-a-router.`;
+}
+function useDataRouterContext3(hookName) {
+  let ctx = React10.useContext(DataRouterContext);
+  invariant(ctx, getDataRouterConsoleError2(hookName));
+  return ctx;
+}
+function useLinkClickHandler(to, {
+  target,
+  replace: replaceProp,
+  state,
+  preventScrollReset,
+  relative,
+  viewTransition,
+  unstable_defaultShouldRevalidate,
+  unstable_useTransitions
+} = {}) {
+  let navigate = useNavigate();
+  let location = useLocation();
+  let path = useResolvedPath(to, { relative });
+  return React10.useCallback(
+    (event) => {
+      if (shouldProcessLinkClick(event, target)) {
+        event.preventDefault();
+        let replace2 = replaceProp !== void 0 ? replaceProp : createPath(location) === createPath(path);
+        let doNavigate = () => navigate(to, {
+          replace: replace2,
+          state,
+          preventScrollReset,
+          relative,
+          viewTransition,
+          unstable_defaultShouldRevalidate
+        });
+        if (unstable_useTransitions) {
+          React10.startTransition(() => doNavigate());
+        } else {
+          doNavigate();
+        }
+      }
+    },
+    [
+      location,
+      navigate,
+      path,
+      replaceProp,
+      state,
+      target,
+      to,
+      preventScrollReset,
+      relative,
+      viewTransition,
+      unstable_defaultShouldRevalidate,
+      unstable_useTransitions
+    ]
+  );
+}
+var fetcherId = 0;
+var getUniqueFetcherId = () => `__${String(++fetcherId)}__`;
+function useSubmit() {
+  let { router } = useDataRouterContext3(
+    "useSubmit"
+    /* UseSubmit */
+  );
+  let { basename } = React10.useContext(NavigationContext);
+  let currentRouteId = useRouteId();
+  let routerFetch = router.fetch;
+  let routerNavigate = router.navigate;
+  return React10.useCallback(
+    async (target, options = {}) => {
+      let { action, method, encType, formData, body } = getFormSubmissionInfo(
+        target,
+        basename
+      );
+      if (options.navigate === false) {
+        let key = options.fetcherKey || getUniqueFetcherId();
+        await routerFetch(key, currentRouteId, options.action || action, {
+          unstable_defaultShouldRevalidate: options.unstable_defaultShouldRevalidate,
+          preventScrollReset: options.preventScrollReset,
+          formData,
+          body,
+          formMethod: options.method || method,
+          formEncType: options.encType || encType,
+          flushSync: options.flushSync
+        });
+      } else {
+        await routerNavigate(options.action || action, {
+          unstable_defaultShouldRevalidate: options.unstable_defaultShouldRevalidate,
+          preventScrollReset: options.preventScrollReset,
+          formData,
+          body,
+          formMethod: options.method || method,
+          formEncType: options.encType || encType,
+          replace: options.replace,
+          state: options.state,
+          fromRouteId: currentRouteId,
+          flushSync: options.flushSync,
+          viewTransition: options.viewTransition
+        });
+      }
+    },
+    [routerFetch, routerNavigate, basename, currentRouteId]
+  );
+}
+function useFormAction(action, { relative } = {}) {
+  let { basename } = React10.useContext(NavigationContext);
+  let routeContext = React10.useContext(RouteContext);
+  invariant(routeContext, "useFormAction must be used inside a RouteContext");
+  let [match] = routeContext.matches.slice(-1);
+  let path = { ...useResolvedPath(action ? action : ".", { relative }) };
+  let location = useLocation();
+  if (action == null) {
+    path.search = location.search;
+    let params = new URLSearchParams(path.search);
+    let indexValues = params.getAll("index");
+    let hasNakedIndexParam = indexValues.some((v) => v === "");
+    if (hasNakedIndexParam) {
+      params.delete("index");
+      indexValues.filter((v) => v).forEach((v) => params.append("index", v));
+      let qs = params.toString();
+      path.search = qs ? `?${qs}` : "";
+    }
+  }
+  if ((!action || action === ".") && match.route.index) {
+    path.search = path.search ? path.search.replace(/^\?/, "?index&") : "?index";
+  }
+  if (basename !== "/") {
+    path.pathname = path.pathname === "/" ? basename : joinPaths([basename, path.pathname]);
+  }
+  return createPath(path);
+}
+function useViewTransitionState(to, { relative } = {}) {
+  let vtContext = React10.useContext(ViewTransitionContext);
+  invariant(
+    vtContext != null,
+    "`useViewTransitionState` must be used within `react-router-dom`'s `RouterProvider`.  Did you accidentally import `RouterProvider` from `react-router`?"
+  );
+  let { basename } = useDataRouterContext3(
+    "useViewTransitionState"
+    /* useViewTransitionState */
+  );
+  let path = useResolvedPath(to, { relative });
+  if (!vtContext.isTransitioning) {
+    return false;
+  }
+  let currentPath = stripBasename(vtContext.currentLocation.pathname, basename) || vtContext.currentLocation.pathname;
+  let nextPath = stripBasename(vtContext.nextLocation.pathname, basename) || vtContext.nextLocation.pathname;
+  return matchPath(path.pathname, nextPath) != null || matchPath(path.pathname, currentPath) != null;
+}
+await importShared('react');
+
+const numLogo = "/microfrontends/module-teacher/dist/num_logo.png";
+
+/**
  * @license lucide-react v0.487.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const jx=l=>l.replace(/([a-z0-9])([A-Z])/g,"$1-$2").toLowerCase(),kx=l=>l.replace(/^([A-Z])|[\s-_]+(\w)/g,(u,o,c)=>c?c.toUpperCase():o.toLowerCase()),Ud=l=>{const u=kx(l);return u.charAt(0).toUpperCase()+u.slice(1)},_f=(...l)=>l.filter((u,o,c)=>!!u&&u.trim()!==""&&c.indexOf(u)===o).join(" ").trim();/**
+ */
+
+const toKebabCase = (string) => string.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase();
+const toCamelCase = (string) => string.replace(
+  /^([A-Z])|[\s-_]+(\w)/g,
+  (match, p1, p2) => p2 ? p2.toUpperCase() : p1.toLowerCase()
+);
+const toPascalCase = (string) => {
+  const camelCase = toCamelCase(string);
+  return camelCase.charAt(0).toUpperCase() + camelCase.slice(1);
+};
+const mergeClasses = (...classes) => classes.filter((className, index, array) => {
+  return Boolean(className) && className.trim() !== "" && array.indexOf(className) === index;
+}).join(" ").trim();
+
+/**
  * @license lucide-react v0.487.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */var Sx={xmlns:"http://www.w3.org/2000/svg",width:24,height:24,viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:2,strokeLinecap:"round",strokeLinejoin:"round"};/**
+ */
+
+var defaultAttributes = {
+  xmlns: "http://www.w3.org/2000/svg",
+  width: 24,
+  height: 24,
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: 2,
+  strokeLinecap: "round",
+  strokeLinejoin: "round"
+};
+
+/**
  * @license lucide-react v0.487.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const Cx=x.forwardRef(({color:l="currentColor",size:u=24,strokeWidth:o=2,absoluteStrokeWidth:c,className:d="",children:m,iconNode:p,...g},h)=>x.createElement("svg",{ref:h,...Sx,width:u,height:u,stroke:l,strokeWidth:c?Number(o)*24/Number(u):o,className:_f("lucide",d),...g},[...p.map(([y,N])=>x.createElement(y,N)),...Array.isArray(m)?m:[m]]));/**
+ */
+
+const {forwardRef: forwardRef$1,createElement: createElement$1} = await importShared('react');
+
+const Icon = forwardRef$1(
+  ({
+    color = "currentColor",
+    size = 24,
+    strokeWidth = 2,
+    absoluteStrokeWidth,
+    className = "",
+    children,
+    iconNode,
+    ...rest
+  }, ref) => {
+    return createElement$1(
+      "svg",
+      {
+        ref,
+        ...defaultAttributes,
+        width: size,
+        height: size,
+        stroke: color,
+        strokeWidth: absoluteStrokeWidth ? Number(strokeWidth) * 24 / Number(size) : strokeWidth,
+        className: mergeClasses("lucide", className),
+        ...rest
+      },
+      [
+        ...iconNode.map(([tag, attrs]) => createElement$1(tag, attrs)),
+        ...Array.isArray(children) ? children : [children]
+      ]
+    );
+  }
+);
+
+/**
  * @license lucide-react v0.487.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const oe=(l,u)=>{const o=x.forwardRef(({className:c,...d},m)=>x.createElement(Cx,{ref:m,iconNode:u,className:_f(`lucide-${jx(Ud(l))}`,`lucide-${l}`,c),...d}));return o.displayName=Ud(l),o};/**
+ */
+
+const {forwardRef,createElement} = await importShared('react');
+
+const createLucideIcon = (iconName, iconNode) => {
+  const Component = forwardRef(
+    ({ className, ...props }, ref) => createElement(Icon, {
+      ref,
+      iconNode,
+      className: mergeClasses(
+        `lucide-${toKebabCase(toPascalCase(iconName))}`,
+        `lucide-${iconName}`,
+        className
+      ),
+      ...props
+    })
+  );
+  Component.displayName = toPascalCase(iconName);
+  return Component;
+};
+
+/**
  * @license lucide-react v0.487.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const Ex=[["path",{d:"M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2",key:"169zse"}]],_x=oe("activity",Ex);/**
+ */
+
+
+const __iconNode$z = [
+  [
+    "path",
+    {
+      d: "M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2",
+      key: "169zse"
+    }
+  ]
+];
+const Activity = createLucideIcon("activity", __iconNode$z);
+
+/**
  * @license lucide-react v0.487.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const Rx=[["path",{d:"m12 19-7-7 7-7",key:"1l729n"}],["path",{d:"M19 12H5",key:"x3x0zl"}]],Px=oe("arrow-left",Rx);/**
+ */
+
+
+const __iconNode$y = [
+  ["path", { d: "m12 19-7-7 7-7", key: "1l729n" }],
+  ["path", { d: "M19 12H5", key: "x3x0zl" }]
+];
+const ArrowLeft = createLucideIcon("arrow-left", __iconNode$y);
+
+/**
  * @license lucide-react v0.487.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const Tx=[["path",{d:"M5 12h14",key:"1ays0h"}],["path",{d:"m12 5 7 7-7 7",key:"xquz4c"}]],Mx=oe("arrow-right",Tx);/**
+ */
+
+
+const __iconNode$x = [
+  ["path", { d: "M5 12h14", key: "1ays0h" }],
+  ["path", { d: "m12 5 7 7-7 7", key: "xquz4c" }]
+];
+const ArrowRight = createLucideIcon("arrow-right", __iconNode$x);
+
+/**
  * @license lucide-react v0.487.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const Lx=[["path",{d:"m21 16-4 4-4-4",key:"f6ql7i"}],["path",{d:"M17 20V4",key:"1ejh1v"}],["path",{d:"m3 8 4-4 4 4",key:"11wl7u"}],["path",{d:"M7 4v16",key:"1glfcx"}]],Dx=oe("arrow-up-down",Lx);/**
+ */
+
+
+const __iconNode$w = [
+  ["path", { d: "m21 16-4 4-4-4", key: "f6ql7i" }],
+  ["path", { d: "M17 20V4", key: "1ejh1v" }],
+  ["path", { d: "m3 8 4-4 4 4", key: "11wl7u" }],
+  ["path", { d: "M7 4v16", key: "1glfcx" }]
+];
+const ArrowUpDown = createLucideIcon("arrow-up-down", __iconNode$w);
+
+/**
  * @license lucide-react v0.487.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const Ix=[["path",{d:"m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526",key:"1yiouv"}],["circle",{cx:"12",cy:"8",r:"6",key:"1vp47v"}]],Vd=oe("award",Ix);/**
+ */
+
+
+const __iconNode$v = [
+  [
+    "path",
+    {
+      d: "m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526",
+      key: "1yiouv"
+    }
+  ],
+  ["circle", { cx: "12", cy: "8", r: "6", key: "1vp47v" }]
+];
+const Award = createLucideIcon("award", __iconNode$v);
+
+/**
  * @license lucide-react v0.487.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const zx=[["path",{d:"M10.268 21a2 2 0 0 0 3.464 0",key:"vwvbt9"}],["path",{d:"M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326",key:"11g9vi"}]],Rf=oe("bell",zx);/**
+ */
+
+
+const __iconNode$u = [
+  ["path", { d: "M10.268 21a2 2 0 0 0 3.464 0", key: "vwvbt9" }],
+  [
+    "path",
+    {
+      d: "M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326",
+      key: "11g9vi"
+    }
+  ]
+];
+const Bell = createLucideIcon("bell", __iconNode$u);
+
+/**
  * @license lucide-react v0.487.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const Ax=[["path",{d:"M12 7v14",key:"1akyts"}],["path",{d:"M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z",key:"ruj8y"}]],hs=oe("book-open",Ax);/**
+ */
+
+
+const __iconNode$t = [
+  ["path", { d: "M8 2v4", key: "1cmpym" }],
+  ["path", { d: "M16 2v4", key: "4m81vk" }],
+  ["rect", { width: "18", height: "18", x: "3", y: "4", rx: "2", key: "1hopcy" }],
+  ["path", { d: "M3 10h18", key: "8toen8" }]
+];
+const Calendar = createLucideIcon("calendar", __iconNode$t);
+
+/**
  * @license lucide-react v0.487.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const Fx=[["path",{d:"m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z",key:"1fy3hk"}]],Pf=oe("bookmark",Fx);/**
+ */
+
+
+const __iconNode$s = [
+  ["path", { d: "M3 3v16a2 2 0 0 0 2 2h16", key: "c24i48" }],
+  ["path", { d: "M18 17V9", key: "2bz60n" }],
+  ["path", { d: "M13 17V5", key: "1frdt8" }],
+  ["path", { d: "M8 17v-3", key: "17ska0" }]
+];
+const ChartColumn = createLucideIcon("chart-column", __iconNode$s);
+
+/**
  * @license lucide-react v0.487.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const Ox=[["path",{d:"M8 2v4",key:"1cmpym"}],["path",{d:"M16 2v4",key:"4m81vk"}],["rect",{width:"18",height:"18",x:"3",y:"4",rx:"2",key:"1hopcy"}],["path",{d:"M3 10h18",key:"8toen8"}]],ln=oe("calendar",Ox);/**
+ */
+
+
+const __iconNode$r = [["path", { d: "m6 9 6 6 6-6", key: "qrunsl" }]];
+const ChevronDown = createLucideIcon("chevron-down", __iconNode$r);
+
+/**
  * @license lucide-react v0.487.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const Bx=[["path",{d:"M3 3v16a2 2 0 0 0 2 2h16",key:"c24i48"}],["path",{d:"M18 17V9",key:"2bz60n"}],["path",{d:"M13 17V5",key:"1frdt8"}],["path",{d:"M8 17v-3",key:"17ska0"}]],$x=oe("chart-column",Bx);/**
+ */
+
+
+const __iconNode$q = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
+const ChevronRight = createLucideIcon("chevron-right", __iconNode$q);
+
+/**
  * @license lucide-react v0.487.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const Ux=[["path",{d:"m6 9 6 6 6-6",key:"qrunsl"}]],Tf=oe("chevron-down",Ux);/**
+ */
+
+
+const __iconNode$p = [["path", { d: "m18 15-6-6-6 6", key: "153udz" }]];
+const ChevronUp = createLucideIcon("chevron-up", __iconNode$p);
+
+/**
  * @license lucide-react v0.487.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const Vx=[["path",{d:"m9 18 6-6-6-6",key:"mthhwq"}]],ai=oe("chevron-right",Vx);/**
+ */
+
+
+const __iconNode$o = [
+  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
+  ["line", { x1: "12", x2: "12", y1: "8", y2: "12", key: "1pkeuh" }],
+  ["line", { x1: "12", x2: "12.01", y1: "16", y2: "16", key: "4dfq90" }]
+];
+const CircleAlert = createLucideIcon("circle-alert", __iconNode$o);
+
+/**
  * @license lucide-react v0.487.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const Wx=[["path",{d:"m18 15-6-6-6 6",key:"153udz"}]],Hx=oe("chevron-up",Wx);/**
+ */
+
+
+const __iconNode$n = [
+  ["path", { d: "M21.801 10A10 10 0 1 1 17 3.335", key: "yps3ct" }],
+  ["path", { d: "m9 11 3 3L22 4", key: "1pflzl" }]
+];
+const CircleCheckBig = createLucideIcon("circle-check-big", __iconNode$n);
+
+/**
  * @license lucide-react v0.487.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const Gx=[["circle",{cx:"12",cy:"12",r:"10",key:"1mglay"}],["line",{x1:"12",x2:"12",y1:"8",y2:"12",key:"1pkeuh"}],["line",{x1:"12",x2:"12.01",y1:"16",y2:"16",key:"4dfq90"}]],Ct=oe("circle-alert",Gx);/**
+ */
+
+
+const __iconNode$m = [
+  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
+  ["path", { d: "m9 12 2 2 4-4", key: "dzmm74" }]
+];
+const CircleCheck = createLucideIcon("circle-check", __iconNode$m);
+
+/**
  * @license lucide-react v0.487.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const Qx=[["path",{d:"M21.801 10A10 10 0 1 1 17 3.335",key:"yps3ct"}],["path",{d:"m9 11 3 3L22 4",key:"1pflzl"}]],Ut=oe("circle-check-big",Qx);/**
+ */
+
+
+const __iconNode$l = [
+  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
+  ["polyline", { points: "12 6 12 12 16 14", key: "68esgv" }]
+];
+const Clock = createLucideIcon("clock", __iconNode$l);
+
+/**
  * @license lucide-react v0.487.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const Kx=[["circle",{cx:"12",cy:"12",r:"10",key:"1mglay"}],["path",{d:"m9 12 2 2 4-4",key:"dzmm74"}]],Rn=oe("circle-check",Kx);/**
+ */
+
+
+const __iconNode$k = [
+  ["rect", { x: "2", y: "6", width: "20", height: "8", rx: "1", key: "1estib" }],
+  ["path", { d: "M17 14v7", key: "7m2elx" }],
+  ["path", { d: "M7 14v7", key: "1cm7wv" }],
+  ["path", { d: "M17 3v3", key: "1v4jwn" }],
+  ["path", { d: "M7 3v3", key: "7o6guu" }],
+  ["path", { d: "M10 14 2.3 6.3", key: "1023jk" }],
+  ["path", { d: "m14 6 7.7 7.7", key: "1s8pl2" }],
+  ["path", { d: "m8 6 8 8", key: "hl96qh" }]
+];
+const Construction = createLucideIcon("construction", __iconNode$k);
+
+/**
  * @license lucide-react v0.487.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const Yx=[["circle",{cx:"12",cy:"12",r:"10",key:"1mglay"}],["path",{d:"m15 9-6 6",key:"1uzhvr"}],["path",{d:"m9 9 6 6",key:"z0biqf"}]],wi=oe("circle-x",Yx);/**
+ */
+
+
+const __iconNode$j = [
+  ["circle", { cx: "12", cy: "12", r: "1", key: "41hilf" }],
+  ["circle", { cx: "12", cy: "5", r: "1", key: "gxeob9" }],
+  ["circle", { cx: "12", cy: "19", r: "1", key: "lyex9k" }]
+];
+const EllipsisVertical = createLucideIcon("ellipsis-vertical", __iconNode$j);
+
+/**
  * @license lucide-react v0.487.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const Jx=[["circle",{cx:"12",cy:"12",r:"10",key:"1mglay"}],["polyline",{points:"12 6 12 12 16 14",key:"68esgv"}]],Ns=oe("clock",Jx);/**
+ */
+
+
+const __iconNode$i = [
+  [
+    "path",
+    {
+      d: "M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0",
+      key: "1nclc0"
+    }
+  ],
+  ["circle", { cx: "12", cy: "12", r: "3", key: "1v7zrd" }]
+];
+const Eye = createLucideIcon("eye", __iconNode$i);
+
+/**
  * @license lucide-react v0.487.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const Xx=[["rect",{x:"2",y:"6",width:"20",height:"8",rx:"1",key:"1estib"}],["path",{d:"M17 14v7",key:"7m2elx"}],["path",{d:"M7 14v7",key:"1cm7wv"}],["path",{d:"M17 3v3",key:"1v4jwn"}],["path",{d:"M7 3v3",key:"7o6guu"}],["path",{d:"M10 14 2.3 6.3",key:"1023jk"}],["path",{d:"m14 6 7.7 7.7",key:"1s8pl2"}],["path",{d:"m8 6 8 8",key:"hl96qh"}]],qx=oe("construction",Xx);/**
+ */
+
+
+const __iconNode$h = [
+  ["path", { d: "M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z", key: "1rqfz7" }],
+  ["path", { d: "M14 2v4a2 2 0 0 0 2 2h4", key: "tnqrlb" }],
+  ["path", { d: "m9 15 2 2 4-4", key: "1grp1n" }]
+];
+const FileCheck = createLucideIcon("file-check", __iconNode$h);
+
+/**
  * @license lucide-react v0.487.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const Zx=[["circle",{cx:"12",cy:"12",r:"1",key:"41hilf"}],["circle",{cx:"12",cy:"5",r:"1",key:"gxeob9"}],["circle",{cx:"12",cy:"19",r:"1",key:"lyex9k"}]],eg=oe("ellipsis-vertical",Zx);/**
+ */
+
+
+const __iconNode$g = [
+  ["path", { d: "M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z", key: "1rqfz7" }],
+  ["path", { d: "M14 2v4a2 2 0 0 0 2 2h4", key: "tnqrlb" }],
+  ["path", { d: "M12 18v-6", key: "17g6i2" }],
+  ["path", { d: "m9 15 3 3 3-3", key: "1npd3o" }]
+];
+const FileDown = createLucideIcon("file-down", __iconNode$g);
+
+/**
  * @license lucide-react v0.487.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const tg=[["path",{d:"M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0",key:"1nclc0"}],["circle",{cx:"12",cy:"12",r:"3",key:"1v7zrd"}]],Mf=oe("eye",tg);/**
+ */
+
+
+const __iconNode$f = [
+  ["path", { d: "M14 2v4a2 2 0 0 0 2 2h4", key: "tnqrlb" }],
+  [
+    "path",
+    { d: "M4.268 21a2 2 0 0 0 1.727 1H18a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v3", key: "ms7g94" }
+  ],
+  ["path", { d: "m9 18-1.5-1.5", key: "1j6qii" }],
+  ["circle", { cx: "5", cy: "14", r: "3", key: "ufru5t" }]
+];
+const FileSearch = createLucideIcon("file-search", __iconNode$f);
+
+/**
  * @license lucide-react v0.487.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const ng=[["path",{d:"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z",key:"1rqfz7"}],["path",{d:"M14 2v4a2 2 0 0 0 2 2h4",key:"tnqrlb"}],["path",{d:"m9 15 2 2 4-4",key:"1grp1n"}]],rg=oe("file-check",ng);/**
+ */
+
+
+const __iconNode$e = [
+  ["path", { d: "M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z", key: "1rqfz7" }],
+  ["path", { d: "M14 2v4a2 2 0 0 0 2 2h4", key: "tnqrlb" }],
+  ["path", { d: "M10 9H8", key: "b1mrlr" }],
+  ["path", { d: "M16 13H8", key: "t4e002" }],
+  ["path", { d: "M16 17H8", key: "z1uh3a" }]
+];
+const FileText = createLucideIcon("file-text", __iconNode$e);
+
+/**
  * @license lucide-react v0.487.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const sg=[["path",{d:"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z",key:"1rqfz7"}],["path",{d:"M14 2v4a2 2 0 0 0 2 2h4",key:"tnqrlb"}],["path",{d:"M12 18v-6",key:"17g6i2"}],["path",{d:"m9 15 3 3 3-3",key:"1npd3o"}]],lg=oe("file-down",sg);/**
+ */
+
+
+const __iconNode$d = [
+  [
+    "path",
+    {
+      d: "M10 20a1 1 0 0 0 .553.895l2 1A1 1 0 0 0 14 21v-7a2 2 0 0 1 .517-1.341L21.74 4.67A1 1 0 0 0 21 3H3a1 1 0 0 0-.742 1.67l7.225 7.989A2 2 0 0 1 10 14z",
+      key: "sc7q7i"
+    }
+  ]
+];
+const Funnel = createLucideIcon("funnel", __iconNode$d);
+
+/**
  * @license lucide-react v0.487.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const ag=[["path",{d:"M14 2v4a2 2 0 0 0 2 2h4",key:"tnqrlb"}],["path",{d:"M4.268 21a2 2 0 0 0 1.727 1H18a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v3",key:"ms7g94"}],["path",{d:"m9 18-1.5-1.5",key:"1j6qii"}],["circle",{cx:"5",cy:"14",r:"3",key:"ufru5t"}]],og=oe("file-search",ag);/**
+ */
+
+
+const __iconNode$c = [
+  ["path", { d: "M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8", key: "5wwlr5" }],
+  [
+    "path",
+    {
+      d: "M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z",
+      key: "1d0kgt"
+    }
+  ]
+];
+const House = createLucideIcon("house", __iconNode$c);
+
+/**
  * @license lucide-react v0.487.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const ig=[["path",{d:"M21 7h-3a2 2 0 0 1-2-2V2",key:"9rb54x"}],["path",{d:"M21 6v6.5c0 .8-.7 1.5-1.5 1.5h-7c-.8 0-1.5-.7-1.5-1.5v-9c0-.8.7-1.5 1.5-1.5H17Z",key:"1059l0"}],["path",{d:"M7 8v8.8c0 .3.2.6.4.8.2.2.5.4.8.4H15",key:"16874u"}],["path",{d:"M3 12v8.8c0 .3.2.6.4.8.2.2.5.4.8.4H11",key:"k2ox98"}]],ug=oe("file-stack",ig);/**
+ */
+
+
+const __iconNode$b = [
+  ["path", { d: "M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z", key: "1lielz" }]
+];
+const MessageSquare = createLucideIcon("message-square", __iconNode$b);
+
+/**
  * @license lucide-react v0.487.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const cg=[["path",{d:"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z",key:"1rqfz7"}],["path",{d:"M14 2v4a2 2 0 0 0 2 2h4",key:"tnqrlb"}],["path",{d:"M10 9H8",key:"b1mrlr"}],["path",{d:"M16 13H8",key:"t4e002"}],["path",{d:"M16 17H8",key:"z1uh3a"}]],nn=oe("file-text",cg);/**
+ */
+
+
+const __iconNode$a = [
+  ["path", { d: "M13.234 20.252 21 12.3", key: "1cbrk9" }],
+  [
+    "path",
+    {
+      d: "m16 6-8.414 8.586a2 2 0 0 0 0 2.828 2 2 0 0 0 2.828 0l8.414-8.586a4 4 0 0 0 0-5.656 4 4 0 0 0-5.656 0l-8.415 8.585a6 6 0 1 0 8.486 8.486",
+      key: "1pkts6"
+    }
+  ]
+];
+const Paperclip = createLucideIcon("paperclip", __iconNode$a);
+
+/**
  * @license lucide-react v0.487.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const dg=[["path",{d:"M10 20a1 1 0 0 0 .553.895l2 1A1 1 0 0 0 14 21v-7a2 2 0 0 1 .517-1.341L21.74 4.67A1 1 0 0 0 21 3H3a1 1 0 0 0-.742 1.67l7.225 7.989A2 2 0 0 1 10 14z",key:"sc7q7i"}]],Lf=oe("funnel",dg);/**
+ */
+
+
+const __iconNode$9 = [
+  ["circle", { cx: "11", cy: "11", r: "8", key: "4ej97u" }],
+  ["path", { d: "m21 21-4.3-4.3", key: "1qie3q" }]
+];
+const Search = createLucideIcon("search", __iconNode$9);
+
+/**
  * @license lucide-react v0.487.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const fg=[["path",{d:"M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8",key:"5wwlr5"}],["path",{d:"M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z",key:"1d0kgt"}]],mg=oe("house",fg);/**
+ */
+
+
+const __iconNode$8 = [
+  [
+    "path",
+    {
+      d: "M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z",
+      key: "1ffxy3"
+    }
+  ],
+  ["path", { d: "m21.854 2.147-10.94 10.939", key: "12cjpa" }]
+];
+const Send = createLucideIcon("send", __iconNode$8);
+
+/**
  * @license lucide-react v0.487.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const pg=[["rect",{width:"20",height:"16",x:"2",y:"4",rx:"2",key:"18n3k1"}],["path",{d:"m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7",key:"1ocrg3"}]],Df=oe("mail",pg);/**
+ */
+
+
+const __iconNode$7 = [
+  [
+    "path",
+    {
+      d: "M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z",
+      key: "oel41y"
+    }
+  ],
+  ["path", { d: "M12 8v4", key: "1got3b" }],
+  ["path", { d: "M12 16h.01", key: "1drbdi" }]
+];
+const ShieldAlert = createLucideIcon("shield-alert", __iconNode$7);
+
+/**
  * @license lucide-react v0.487.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const hg=[["path",{d:"M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0",key:"1r0f0z"}],["circle",{cx:"12",cy:"10",r:"3",key:"ilqhr7"}]],If=oe("map-pin",hg);/**
+ */
+
+
+const __iconNode$6 = [
+  [
+    "path",
+    {
+      d: "M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z",
+      key: "4pj2yx"
+    }
+  ],
+  ["path", { d: "M20 3v4", key: "1olli1" }],
+  ["path", { d: "M22 5h-4", key: "1gvqau" }],
+  ["path", { d: "M4 17v2", key: "vumght" }],
+  ["path", { d: "M5 18H3", key: "zchphs" }]
+];
+const Sparkles = createLucideIcon("sparkles", __iconNode$6);
+
+/**
  * @license lucide-react v0.487.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const xg=[["path",{d:"M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z",key:"1lielz"}]],xs=oe("message-square",xg);/**
+ */
+
+
+const __iconNode$5 = [
+  [
+    "path",
+    {
+      d: "M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z",
+      key: "r04s7s"
+    }
+  ]
+];
+const Star = createLucideIcon("star", __iconNode$5);
+
+/**
  * @license lucide-react v0.487.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const gg=[["path",{d:"M13.234 20.252 21 12.3",key:"1cbrk9"}],["path",{d:"m16 6-8.414 8.586a2 2 0 0 0 0 2.828 2 2 0 0 0 2.828 0l8.414-8.586a4 4 0 0 0 0-5.656 4 4 0 0 0-5.656 0l-8.415 8.585a6 6 0 1 0 8.486 8.486",key:"1pkts6"}]],vg=oe("paperclip",gg);/**
+ */
+
+
+const __iconNode$4 = [
+  ["polyline", { points: "22 7 13.5 15.5 8.5 10.5 2 17", key: "126l90" }],
+  ["polyline", { points: "16 7 22 7 22 13", key: "kwv8wd" }]
+];
+const TrendingUp = createLucideIcon("trending-up", __iconNode$4);
+
+/**
  * @license lucide-react v0.487.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const yg=[["path",{d:"M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z",key:"1a8usu"}]],wg=oe("pen",yg);/**
+ */
+
+
+const __iconNode$3 = [
+  [
+    "path",
+    {
+      d: "m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3",
+      key: "wmoenq"
+    }
+  ],
+  ["path", { d: "M12 9v4", key: "juzpu7" }],
+  ["path", { d: "M12 17h.01", key: "p32p05" }]
+];
+const TriangleAlert = createLucideIcon("triangle-alert", __iconNode$3);
+
+/**
  * @license lucide-react v0.487.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const bg=[["path",{d:"M5 12h14",key:"1ays0h"}],["path",{d:"M12 5v14",key:"s699le"}]],Ng=oe("plus",bg);/**
+ */
+
+
+const __iconNode$2 = [
+  ["path", { d: "M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4", key: "ih7n3h" }],
+  ["polyline", { points: "17 8 12 3 7 8", key: "t8dd8p" }],
+  ["line", { x1: "12", x2: "12", y1: "3", y2: "15", key: "widbto" }]
+];
+const Upload = createLucideIcon("upload", __iconNode$2);
+
+/**
  * @license lucide-react v0.487.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const jg=[["circle",{cx:"11",cy:"11",r:"8",key:"4ej97u"}],["path",{d:"m21 21-4.3-4.3",key:"1qie3q"}]],Ql=oe("search",jg);/**
+ */
+
+
+const __iconNode$1 = [
+  ["path", { d: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2", key: "1yyitq" }],
+  ["circle", { cx: "9", cy: "7", r: "4", key: "nufk8" }],
+  ["path", { d: "M22 21v-2a4 4 0 0 0-3-3.87", key: "kshegd" }],
+  ["path", { d: "M16 3.13a4 4 0 0 1 0 7.75", key: "1da9ce" }]
+];
+const Users = createLucideIcon("users", __iconNode$1);
+
+/**
  * @license lucide-react v0.487.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const kg=[["path",{d:"M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z",key:"1ffxy3"}],["path",{d:"m21.854 2.147-10.94 10.939",key:"12cjpa"}]],zf=oe("send",kg);/**
- * @license lucide-react v0.487.0 - ISC
+ */
+
+
+const __iconNode = [
+  ["path", { d: "M18 6 6 18", key: "1bl5f8" }],
+  ["path", { d: "m6 6 12 12", key: "d8bk6v" }]
+];
+const X = createLucideIcon("x", __iconNode);
+
+const menuItems = [
+  { icon: House, label: "Хянах самбар", path: "/teacher" },
+  { icon: FileSearch, label: "Судалгааны удирдлага", path: "/teacher/thesis" },
+  { icon: Users, label: "Оюутнууд", path: "/teacher/students" },
+  { icon: TrendingUp, label: "Явцын хяналт", path: "/teacher/progress" },
+  { icon: CircleCheckBig, label: "Комисс", path: "/teacher/committee" }
+];
+function TeacherSidebar({ collapsed, onToggle }) {
+  const navigate = useNavigate();
+  const location = useLocation();
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+    "div",
+    {
+      className: `bg-white border-r border-slate-200 transition-all duration-300 flex flex-col ${collapsed ? "w-20" : "w-64"}`,
+      children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3 px-4 py-2.5 border-b border-slate-200", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "img",
+            {
+              src: numLogo,
+              alt: "logo",
+              width: 32,
+              height: 32
+            }
+          ),
+          !collapsed && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "font-bold text-lg text-[#1455BD]", children: "МУИС" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-[10px] text-slate-600", children: "Дипломын ажил удирдах систем" })
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("nav", { className: "flex-1 p-3 space-y-1 overflow-y-auto", children: [
+          !collapsed && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-slate-500 px-3 mb-2", children: "ҮНДСЭН ЦЭС" }),
+          menuItems.map((item) => {
+            const Icon = item.icon;
+            const isActive = location.pathname === item.path;
+            return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+              "button",
+              {
+                onClick: () => navigate(item.path),
+                className: `w-full flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors ${isActive ? "bg-blue-50 text-[#1455BD] font-medium" : "text-slate-700 hover:bg-slate-100"} ${collapsed ? "justify-center" : ""}`,
+                children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { className: `h-5 w-5 ${isActive ? "text-[#1455BD]" : "text-slate-500"}` }),
+                  !collapsed && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm", children: item.label })
+                ]
+              },
+              item.path
+            );
+          })
+        ] })
+      ]
+    }
+  );
+}
+
+const notifications = [
+  {
+    id: 1,
+    type: "thesis",
+    message: "Ц. Оч submitted thesis for review",
+    time: "2 hours ago",
+    read: false,
+    avatar: "MG"
+  },
+  {
+    id: 2,
+    type: "student",
+    message: "New student Б.Сувдаа registered",
+    time: "5 hours ago",
+    read: false,
+    avatar: "AJ"
+  },
+  {
+    id: 3,
+    type: "approval",
+    message: "Н.Энхжин thesis approved",
+    time: "1 day ago",
+    read: true,
+    avatar: "SW"
+  },
+  {
+    id: 4,
+    type: "deadline",
+    message: "Thesis submission deadline in 3 days",
+    time: "1 day ago",
+    read: true,
+    avatar: "!"
+  },
+  {
+    id: 5,
+    type: "message",
+    message: "Dr. Mitchell sent you a message",
+    time: "2 days ago",
+    read: true,
+    avatar: "SM"
+  }
+];
+
+const {useState: useState$5} = await importShared('react');
+function TopHeader({
+  title,
+  subtitle,
+  userName,
+  userRole,
+  userInitials,
+  avatarColor = "from-blue-500 to-blue-700",
+  onLogout
+}) {
+  const [showNotifications, setShowNotifications] = useState$5(false);
+  const [showProfile, setShowProfile] = useState$5(false);
+  const unreadCount = notifications.filter((n) => !n.read).length;
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("header", { className: "bg-white border-b border-slate-200 px-6 py-0 flex items-center justify-between h-16 shrink-0 relative z-20", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-slate-800", children: title }),
+      subtitle && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-slate-400 mt-0.5", children: subtitle })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "hidden md:flex flex-1 max-w-2xl items-center gap-2 bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 focus-within:border-[#1455BD] focus-within:bg-white transition-all", children: [
+      "        ",
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Search, { className: "w-4 h-4 text-slate-400" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "input",
+        {
+          type: "text",
+          placeholder: "Судалгааны ажил, оюутан, багш хайх...",
+          className: "bg-transparent border-none outline-none text-sm text-slate-600 placeholder-slate-400 w-full"
+        }
+      )
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "button",
+          {
+            onClick: () => {
+              setShowNotifications(!showNotifications);
+              setShowProfile(false);
+            },
+            className: "relative w-9 h-9 rounded-xl flex items-center justify-center text-slate-500 hover:bg-slate-100 transition-colors",
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(Bell, { className: "w-5 h-5" }),
+              unreadCount > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full border-2 border-white" })
+            ]
+          }
+        ),
+        showNotifications && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute right-0 top-12 w-80 bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between px-4 py-3 border-b border-slate-100", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-sm text-slate-800", children: "Мэдэгдэл" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => setShowNotifications(false), children: /* @__PURE__ */ jsxRuntimeExports.jsx(X, { className: "w-4 h-4 text-slate-400 hover:text-slate-600" }) })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "max-h-72 overflow-y-auto", children: notifications.map((notif) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            "div",
+            {
+              className: `flex items-start gap-3 px-4 py-3 hover:bg-slate-50 cursor-pointer border-b border-slate-50 ${!notif.read ? "bg-blue-50/50" : ""}`,
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold shrink-0 ${!notif.read ? "bg-[#1455BD] text-white" : "bg-slate-200 text-slate-600"}`, children: notif.avatar }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1 min-w-0", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-slate-700 leading-tight", children: notif.message }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-slate-400 mt-0.5", children: notif.time })
+                ] }),
+                !notif.read && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-2 h-2 bg-[#1455BD] rounded-full shrink-0 mt-1" })
+              ]
+            },
+            notif.id
+          )) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "px-4 py-2 border-t border-slate-100", children: /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "text-xs text-[#1455BD] hover:text-[#0d3a8a] font-medium", children: "Бүх мэдэгдлийг харах" }) })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-px h-6 bg-slate-200 mx-1" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "button",
+          {
+            onClick: () => {
+              setShowProfile(!showProfile);
+              setShowNotifications(false);
+            },
+            className: "flex items-center gap-2 rounded-xl px-2 py-1.5 hover:bg-slate-100 transition-colors",
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `w-8 h-8 bg-gradient-to-br ${avatarColor} rounded-lg flex items-center justify-center text-white text-xs font-bold shrink-0`, children: userInitials }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "hidden md:block text-left", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-slate-800 font-medium leading-tight", children: userName }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-slate-400", children: userRole })
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronDown, { className: "w-3.5 h-3.5 text-slate-400 hidden md:block" })
+            ]
+          }
+        ),
+        showProfile && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute right-0 top-12 w-48 bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "px-4 py-3 border-b border-slate-100", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-slate-800 font-medium", children: userName }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-slate-400", children: userRole })
+          ] }),
+          ["Тохиргоо", "Сонголтууд", "Тусламж & Дэмжлэг"].map((item) => /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: "w-full text-left px-4 py-2.5 text-sm text-slate-600 hover:bg-slate-50 transition-colors", children: item }, item)),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "border-t border-slate-100", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            "button",
+            {
+              onClick: onLogout,
+              className: "w-full text-left px-4 py-2.5 text-sm text-red-600 hover:bg-red-50 transition-colors font-medium flex items-center gap-2",
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("svg", { xmlns: "http://www.w3.org/2000/svg", width: "14", height: "14", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("path", { d: "M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("polyline", { points: "16 17 21 12 16 7" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("line", { x1: "21", y1: "12", x2: "9", y2: "12" })
+                ] }),
+                "Гарах"
+              ]
+            }
+          ) })
+        ] })
+      ] })
+    ] })
+  ] });
+}
+
+function FloatingMessageButton({ unreadCount = 0, onMessageClick }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+    "button",
+    {
+      onClick: onMessageClick,
+      className: "fixed bottom-6 right-6 p-4 bg-[#1455BD] text-white rounded-full shadow-lg hover:bg-blue-700 transition-all hover:scale-105 z-50 group flex items-center justify-center",
+      "aria-label": "Messages",
+      children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(MessageSquare, { className: "w-6 h-6" }),
+          unreadCount > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full border-2 border-white", children: unreadCount > 99 ? "99+" : unreadCount })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute right-full mr-4 bg-slate-800 text-white text-xs px-2.5 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none", children: "Open Messages" })
+      ]
+    }
+  );
+}
+
+const STORAGE_KEY = "mauth_current_user";
+function getStoredUser() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY) || sessionStorage.getItem(STORAGE_KEY);
+    if (!raw) return null;
+    return JSON.parse(raw);
+  } catch {
+    return null;
+  }
+}
+function guardRoute(requiredRole) {
+  const user = getStoredUser();
+  if (!user) {
+    window.location.replace("/login.xhtml");
+    return null;
+  }
+  if (user.role !== requiredRole) {
+    const redirectMap = {
+      admin: "/admin.xhtml",
+      teacher: "/teacher.xhtml",
+      student: "/student.xhtml"
+    };
+    window.location.replace(redirectMap[user.role]);
+    return null;
+  }
+  return user;
+}
+function logout() {
+  localStorage.removeItem(STORAGE_KEY);
+  sessionStorage.removeItem(STORAGE_KEY);
+  window.location.replace("/login.xhtml");
+}
+
+const {useState: useState$4} = await importShared('react');
+const pageTitles = {
+  "/teacher": { title: "Хянах самбар", subtitle: "Тавтай морилно уу, Багш" },
+  "/teacher/students": { title: "Оюутнууд", subtitle: "Харьцлаж буй оюутнуудынгоо харах, удирдах" },
+  "/teacher/progress": { title: "Явцын хяналт", subtitle: "Бүх оюутны дэвшил, шат, эцсийн хугацааг хянах" },
+  "/teacher/committee": { title: "Комисс", subtitle: "Комиссийн үнэлгээний даалгавраа удирдах" },
+  "/teacher/evaluations": { title: "Комисс", subtitle: "Комиссийн үнэлгээний даалгавраа удирдах" },
+  "/teacher/settings": { title: "Тохиргоо", subtitle: "Профайл, тохиргоо удирдах" }
+};
+function TeacherLayout({ user }) {
+  const [collapsed, setCollapsed] = useState$4(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const pageInfo = pageTitles[location.pathname] || pageTitles["/teacher"];
+  const initials = user.displayName.split(" ").map((w) => w[0]).join("").slice(0, 2).toUpperCase();
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex h-screen bg-slate-50 overflow-hidden", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(TeacherSidebar, { collapsed, onToggle: () => setCollapsed(!collapsed) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col flex-1 min-w-0", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        TopHeader,
+        {
+          title: pageInfo.title,
+          subtitle: pageInfo.subtitle,
+          userName: user.displayName,
+          userRole: "Багш",
+          userInitials: initials,
+          avatarColor: "from-green-500 to-green-700",
+          onLogout: logout
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("main", { className: "flex-1 overflow-y-auto p-6", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {}) })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      FloatingMessageButton,
+      {
+        unreadCount: 5,
+        onMessageClick: () => navigate("/teacher/messages")
+      }
+    )
+  ] });
+}
+
+function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else if("object"==typeof e)if(Array.isArray(e)){var o=e.length;for(t=0;t<o;t++)e[t]&&(f=r(e[t]))&&(n&&(n+=" "),n+=f);}else for(f in e)e[f]&&(n&&(n+=" "),n+=f);return n}function clsx(){for(var e,t,f=0,n="",o=arguments.length;f<o;f++)(e=arguments[f])&&(t=r(e))&&(n&&(n+=" "),n+=t);return n}
+
+const CLASS_PART_SEPARATOR = '-';
+const createClassGroupUtils = config => {
+  const classMap = createClassMap(config);
+  const {
+    conflictingClassGroups,
+    conflictingClassGroupModifiers
+  } = config;
+  const getClassGroupId = className => {
+    const classParts = className.split(CLASS_PART_SEPARATOR);
+    // Classes like `-inset-1` produce an empty string as first classPart. We assume that classes for negative values are used correctly and remove it from classParts.
+    if (classParts[0] === '' && classParts.length !== 1) {
+      classParts.shift();
+    }
+    return getGroupRecursive(classParts, classMap) || getGroupIdForArbitraryProperty(className);
+  };
+  const getConflictingClassGroupIds = (classGroupId, hasPostfixModifier) => {
+    const conflicts = conflictingClassGroups[classGroupId] || [];
+    if (hasPostfixModifier && conflictingClassGroupModifiers[classGroupId]) {
+      return [...conflicts, ...conflictingClassGroupModifiers[classGroupId]];
+    }
+    return conflicts;
+  };
+  return {
+    getClassGroupId,
+    getConflictingClassGroupIds
+  };
+};
+const getGroupRecursive = (classParts, classPartObject) => {
+  if (classParts.length === 0) {
+    return classPartObject.classGroupId;
+  }
+  const currentClassPart = classParts[0];
+  const nextClassPartObject = classPartObject.nextPart.get(currentClassPart);
+  const classGroupFromNextClassPart = nextClassPartObject ? getGroupRecursive(classParts.slice(1), nextClassPartObject) : undefined;
+  if (classGroupFromNextClassPart) {
+    return classGroupFromNextClassPart;
+  }
+  if (classPartObject.validators.length === 0) {
+    return undefined;
+  }
+  const classRest = classParts.join(CLASS_PART_SEPARATOR);
+  return classPartObject.validators.find(({
+    validator
+  }) => validator(classRest))?.classGroupId;
+};
+const arbitraryPropertyRegex = /^\[(.+)\]$/;
+const getGroupIdForArbitraryProperty = className => {
+  if (arbitraryPropertyRegex.test(className)) {
+    const arbitraryPropertyClassName = arbitraryPropertyRegex.exec(className)[1];
+    const property = arbitraryPropertyClassName?.substring(0, arbitraryPropertyClassName.indexOf(':'));
+    if (property) {
+      // I use two dots here because one dot is used as prefix for class groups in plugins
+      return 'arbitrary..' + property;
+    }
+  }
+};
+/**
+ * Exported for testing only
+ */
+const createClassMap = config => {
+  const {
+    theme,
+    classGroups
+  } = config;
+  const classMap = {
+    nextPart: new Map(),
+    validators: []
+  };
+  for (const classGroupId in classGroups) {
+    processClassesRecursively(classGroups[classGroupId], classMap, classGroupId, theme);
+  }
+  return classMap;
+};
+const processClassesRecursively = (classGroup, classPartObject, classGroupId, theme) => {
+  classGroup.forEach(classDefinition => {
+    if (typeof classDefinition === 'string') {
+      const classPartObjectToEdit = classDefinition === '' ? classPartObject : getPart(classPartObject, classDefinition);
+      classPartObjectToEdit.classGroupId = classGroupId;
+      return;
+    }
+    if (typeof classDefinition === 'function') {
+      if (isThemeGetter(classDefinition)) {
+        processClassesRecursively(classDefinition(theme), classPartObject, classGroupId, theme);
+        return;
+      }
+      classPartObject.validators.push({
+        validator: classDefinition,
+        classGroupId
+      });
+      return;
+    }
+    Object.entries(classDefinition).forEach(([key, classGroup]) => {
+      processClassesRecursively(classGroup, getPart(classPartObject, key), classGroupId, theme);
+    });
+  });
+};
+const getPart = (classPartObject, path) => {
+  let currentClassPartObject = classPartObject;
+  path.split(CLASS_PART_SEPARATOR).forEach(pathPart => {
+    if (!currentClassPartObject.nextPart.has(pathPart)) {
+      currentClassPartObject.nextPart.set(pathPart, {
+        nextPart: new Map(),
+        validators: []
+      });
+    }
+    currentClassPartObject = currentClassPartObject.nextPart.get(pathPart);
+  });
+  return currentClassPartObject;
+};
+const isThemeGetter = func => func.isThemeGetter;
+
+// LRU cache inspired from hashlru (https://github.com/dominictarr/hashlru/blob/v1.0.4/index.js) but object replaced with Map to improve performance
+const createLruCache = maxCacheSize => {
+  if (maxCacheSize < 1) {
+    return {
+      get: () => undefined,
+      set: () => {}
+    };
+  }
+  let cacheSize = 0;
+  let cache = new Map();
+  let previousCache = new Map();
+  const update = (key, value) => {
+    cache.set(key, value);
+    cacheSize++;
+    if (cacheSize > maxCacheSize) {
+      cacheSize = 0;
+      previousCache = cache;
+      cache = new Map();
+    }
+  };
+  return {
+    get(key) {
+      let value = cache.get(key);
+      if (value !== undefined) {
+        return value;
+      }
+      if ((value = previousCache.get(key)) !== undefined) {
+        update(key, value);
+        return value;
+      }
+    },
+    set(key, value) {
+      if (cache.has(key)) {
+        cache.set(key, value);
+      } else {
+        update(key, value);
+      }
+    }
+  };
+};
+const IMPORTANT_MODIFIER = '!';
+const MODIFIER_SEPARATOR = ':';
+const MODIFIER_SEPARATOR_LENGTH = MODIFIER_SEPARATOR.length;
+const createParseClassName = config => {
+  const {
+    prefix,
+    experimentalParseClassName
+  } = config;
+  /**
+   * Parse class name into parts.
+   *
+   * Inspired by `splitAtTopLevelOnly` used in Tailwind CSS
+   * @see https://github.com/tailwindlabs/tailwindcss/blob/v3.2.2/src/util/splitAtTopLevelOnly.js
+   */
+  let parseClassName = className => {
+    const modifiers = [];
+    let bracketDepth = 0;
+    let parenDepth = 0;
+    let modifierStart = 0;
+    let postfixModifierPosition;
+    for (let index = 0; index < className.length; index++) {
+      let currentCharacter = className[index];
+      if (bracketDepth === 0 && parenDepth === 0) {
+        if (currentCharacter === MODIFIER_SEPARATOR) {
+          modifiers.push(className.slice(modifierStart, index));
+          modifierStart = index + MODIFIER_SEPARATOR_LENGTH;
+          continue;
+        }
+        if (currentCharacter === '/') {
+          postfixModifierPosition = index;
+          continue;
+        }
+      }
+      if (currentCharacter === '[') {
+        bracketDepth++;
+      } else if (currentCharacter === ']') {
+        bracketDepth--;
+      } else if (currentCharacter === '(') {
+        parenDepth++;
+      } else if (currentCharacter === ')') {
+        parenDepth--;
+      }
+    }
+    const baseClassNameWithImportantModifier = modifiers.length === 0 ? className : className.substring(modifierStart);
+    const baseClassName = stripImportantModifier(baseClassNameWithImportantModifier);
+    const hasImportantModifier = baseClassName !== baseClassNameWithImportantModifier;
+    const maybePostfixModifierPosition = postfixModifierPosition && postfixModifierPosition > modifierStart ? postfixModifierPosition - modifierStart : undefined;
+    return {
+      modifiers,
+      hasImportantModifier,
+      baseClassName,
+      maybePostfixModifierPosition
+    };
+  };
+  if (prefix) {
+    const fullPrefix = prefix + MODIFIER_SEPARATOR;
+    const parseClassNameOriginal = parseClassName;
+    parseClassName = className => className.startsWith(fullPrefix) ? parseClassNameOriginal(className.substring(fullPrefix.length)) : {
+      isExternal: true,
+      modifiers: [],
+      hasImportantModifier: false,
+      baseClassName: className,
+      maybePostfixModifierPosition: undefined
+    };
+  }
+  if (experimentalParseClassName) {
+    const parseClassNameOriginal = parseClassName;
+    parseClassName = className => experimentalParseClassName({
+      className,
+      parseClassName: parseClassNameOriginal
+    });
+  }
+  return parseClassName;
+};
+const stripImportantModifier = baseClassName => {
+  if (baseClassName.endsWith(IMPORTANT_MODIFIER)) {
+    return baseClassName.substring(0, baseClassName.length - 1);
+  }
+  /**
+   * In Tailwind CSS v3 the important modifier was at the start of the base class name. This is still supported for legacy reasons.
+   * @see https://github.com/dcastil/tailwind-merge/issues/513#issuecomment-2614029864
+   */
+  if (baseClassName.startsWith(IMPORTANT_MODIFIER)) {
+    return baseClassName.substring(1);
+  }
+  return baseClassName;
+};
+
+/**
+ * Sorts modifiers according to following schema:
+ * - Predefined modifiers are sorted alphabetically
+ * - When an arbitrary variant appears, it must be preserved which modifiers are before and after it
+ */
+const createSortModifiers = config => {
+  const orderSensitiveModifiers = Object.fromEntries(config.orderSensitiveModifiers.map(modifier => [modifier, true]));
+  const sortModifiers = modifiers => {
+    if (modifiers.length <= 1) {
+      return modifiers;
+    }
+    const sortedModifiers = [];
+    let unsortedModifiers = [];
+    modifiers.forEach(modifier => {
+      const isPositionSensitive = modifier[0] === '[' || orderSensitiveModifiers[modifier];
+      if (isPositionSensitive) {
+        sortedModifiers.push(...unsortedModifiers.sort(), modifier);
+        unsortedModifiers = [];
+      } else {
+        unsortedModifiers.push(modifier);
+      }
+    });
+    sortedModifiers.push(...unsortedModifiers.sort());
+    return sortedModifiers;
+  };
+  return sortModifiers;
+};
+const createConfigUtils = config => ({
+  cache: createLruCache(config.cacheSize),
+  parseClassName: createParseClassName(config),
+  sortModifiers: createSortModifiers(config),
+  ...createClassGroupUtils(config)
+});
+const SPLIT_CLASSES_REGEX = /\s+/;
+const mergeClassList = (classList, configUtils) => {
+  const {
+    parseClassName,
+    getClassGroupId,
+    getConflictingClassGroupIds,
+    sortModifiers
+  } = configUtils;
+  /**
+   * Set of classGroupIds in following format:
+   * `{importantModifier}{variantModifiers}{classGroupId}`
+   * @example 'float'
+   * @example 'hover:focus:bg-color'
+   * @example 'md:!pr'
+   */
+  const classGroupsInConflict = [];
+  const classNames = classList.trim().split(SPLIT_CLASSES_REGEX);
+  let result = '';
+  for (let index = classNames.length - 1; index >= 0; index -= 1) {
+    const originalClassName = classNames[index];
+    const {
+      isExternal,
+      modifiers,
+      hasImportantModifier,
+      baseClassName,
+      maybePostfixModifierPosition
+    } = parseClassName(originalClassName);
+    if (isExternal) {
+      result = originalClassName + (result.length > 0 ? ' ' + result : result);
+      continue;
+    }
+    let hasPostfixModifier = !!maybePostfixModifierPosition;
+    let classGroupId = getClassGroupId(hasPostfixModifier ? baseClassName.substring(0, maybePostfixModifierPosition) : baseClassName);
+    if (!classGroupId) {
+      if (!hasPostfixModifier) {
+        // Not a Tailwind class
+        result = originalClassName + (result.length > 0 ? ' ' + result : result);
+        continue;
+      }
+      classGroupId = getClassGroupId(baseClassName);
+      if (!classGroupId) {
+        // Not a Tailwind class
+        result = originalClassName + (result.length > 0 ? ' ' + result : result);
+        continue;
+      }
+      hasPostfixModifier = false;
+    }
+    const variantModifier = sortModifiers(modifiers).join(':');
+    const modifierId = hasImportantModifier ? variantModifier + IMPORTANT_MODIFIER : variantModifier;
+    const classId = modifierId + classGroupId;
+    if (classGroupsInConflict.includes(classId)) {
+      // Tailwind class omitted due to conflict
+      continue;
+    }
+    classGroupsInConflict.push(classId);
+    const conflictGroups = getConflictingClassGroupIds(classGroupId, hasPostfixModifier);
+    for (let i = 0; i < conflictGroups.length; ++i) {
+      const group = conflictGroups[i];
+      classGroupsInConflict.push(modifierId + group);
+    }
+    // Tailwind class not in conflict
+    result = originalClassName + (result.length > 0 ? ' ' + result : result);
+  }
+  return result;
+};
+
+/**
+ * The code in this file is copied from https://github.com/lukeed/clsx and modified to suit the needs of tailwind-merge better.
  *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */const Sg=[["path",{d:"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z",key:"oel41y"}],["path",{d:"M12 8v4",key:"1got3b"}],["path",{d:"M12 16h.01",key:"1drbdi"}]],Cg=oe("shield-alert",Sg);/**
- * @license lucide-react v0.487.0 - ISC
+ * Specifically:
+ * - Runtime code from https://github.com/lukeed/clsx/blob/v1.2.1/src/index.js
+ * - TypeScript types from https://github.com/lukeed/clsx/blob/v1.2.1/clsx.d.ts
  *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */const Eg=[["path",{d:"M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z",key:"4pj2yx"}],["path",{d:"M20 3v4",key:"1olli1"}],["path",{d:"M22 5h-4",key:"1gvqau"}],["path",{d:"M4 17v2",key:"vumght"}],["path",{d:"M5 18H3",key:"zchphs"}]],_g=oe("sparkles",Eg);/**
- * @license lucide-react v0.487.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */const Rg=[["path",{d:"M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z",key:"r04s7s"}]],Pg=oe("star",Rg);/**
- * @license lucide-react v0.487.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */const Tg=[["path",{d:"M3 6h18",key:"d0wm0j"}],["path",{d:"M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6",key:"4alrt4"}],["path",{d:"M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2",key:"v07s0e"}],["line",{x1:"10",x2:"10",y1:"11",y2:"17",key:"1uufr5"}],["line",{x1:"14",x2:"14",y1:"11",y2:"17",key:"xtxkd"}]],Mg=oe("trash-2",Tg);/**
- * @license lucide-react v0.487.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */const Lg=[["polyline",{points:"22 7 13.5 15.5 8.5 10.5 2 17",key:"126l90"}],["polyline",{points:"16 7 22 7 22 13",key:"kwv8wd"}]],bi=oe("trending-up",Lg);/**
- * @license lucide-react v0.487.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */const Dg=[["path",{d:"m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3",key:"wmoenq"}],["path",{d:"M12 9v4",key:"juzpu7"}],["path",{d:"M12 17h.01",key:"p32p05"}]],Af=oe("triangle-alert",Dg);/**
- * @license lucide-react v0.487.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */const Ig=[["path",{d:"M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4",key:"ih7n3h"}],["polyline",{points:"17 8 12 3 7 8",key:"t8dd8p"}],["line",{x1:"12",x2:"12",y1:"3",y2:"15",key:"widbto"}]],zg=oe("upload",Ig);/**
- * @license lucide-react v0.487.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */const Ag=[["path",{d:"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2",key:"1yyitq"}],["circle",{cx:"9",cy:"7",r:"4",key:"nufk8"}],["path",{d:"M22 21v-2a4 4 0 0 0-3-3.87",key:"kshegd"}],["path",{d:"M16 3.13a4 4 0 0 1 0 7.75",key:"1da9ce"}]],Gn=oe("users",Ag);/**
- * @license lucide-react v0.487.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */const Fg=[["path",{d:"M18 6 6 18",key:"1bl5f8"}],["path",{d:"m6 6 12 12",key:"d8bk6v"}]],wr=oe("x",Fg),Og=[{icon:mg,label:"Хянах самбар",path:"/teacher"},{icon:og,label:"Судалгааны удирдлага",path:"/teacher/thesis"},{icon:Gn,label:"Оюутнууд",path:"/teacher/students"},{icon:bi,label:"Явцын хяналт",path:"/teacher/progress"},{icon:Ut,label:"Комисс",path:"/teacher/committee"}];function Bg({collapsed:l,onToggle:u}){const o=ws(),c=Wt();return r.jsxs("div",{className:`bg-white border-r border-slate-200 transition-all duration-300 flex flex-col ${l?"w-20":"w-64"}`,children:[r.jsxs("div",{className:"flex items-center gap-3 px-4 py-2.5 border-b border-slate-200",children:[r.jsx("img",{src:Nx,alt:"logo",width:32,height:32}),!l&&r.jsxs("div",{children:[r.jsx("h1",{className:"font-bold text-lg text-[#1455BD]",children:"МУИС"}),r.jsx("p",{className:"text-[10px] text-slate-600",children:"Дипломын ажил удирдах систем"})]})]}),r.jsxs("nav",{className:"flex-1 p-3 space-y-1 overflow-y-auto",children:[!l&&r.jsx("p",{className:"text-xs text-slate-500 px-3 mb-2",children:"ҮНДСЭН ЦЭС"}),Og.map(d=>{const m=d.icon,p=c.pathname===d.path;return r.jsxs("button",{onClick:()=>o(d.path),className:`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors ${p?"bg-blue-50 text-[#1455BD] font-medium":"text-slate-700 hover:bg-slate-100"} ${l?"justify-center":""}`,children:[r.jsx(m,{className:`h-5 w-5 ${p?"text-[#1455BD]":"text-slate-500"}`}),!l&&r.jsx("span",{className:"text-sm",children:d.label})]},d.path)})]})]})}const Wd=[{id:1,type:"thesis",message:"Ц. Оч submitted thesis for review",time:"2 hours ago",read:!1,avatar:"MG"},{id:2,type:"student",message:"New student Б.Сувдаа registered",time:"5 hours ago",read:!1,avatar:"AJ"},{id:3,type:"approval",message:"Н.Энхжин thesis approved",time:"1 day ago",read:!0,avatar:"SW"},{id:4,type:"deadline",message:"Thesis submission deadline in 3 days",time:"1 day ago",read:!0,avatar:"!"},{id:5,type:"message",message:"Dr. Mitchell sent you a message",time:"2 days ago",read:!0,avatar:"SM"}];function $g({title:l,subtitle:u,userName:o,userRole:c,userInitials:d,avatarColor:m="from-blue-500 to-blue-700",onLogout:p}){const[g,h]=x.useState(!1),[y,N]=x.useState(!1),j=Wd.filter(T=>!T.read).length;return r.jsxs("header",{className:"bg-white border-b border-slate-200 px-6 py-0 flex items-center justify-between h-16 shrink-0 relative z-20",children:[r.jsxs("div",{children:[r.jsx("h1",{className:"text-slate-800",children:l}),u&&r.jsx("p",{className:"text-xs text-slate-400 mt-0.5",children:u})]}),r.jsxs("div",{className:"hidden md:flex flex-1 max-w-2xl items-center gap-2 bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 focus-within:border-[#1455BD] focus-within:bg-white transition-all",children:["        ",r.jsx(Ql,{className:"w-4 h-4 text-slate-400"}),r.jsx("input",{type:"text",placeholder:"Судалгааны ажил, оюутан, багш хайх...",className:"bg-transparent border-none outline-none text-sm text-slate-600 placeholder-slate-400 w-full"})]}),r.jsxs("div",{className:"flex items-center gap-2",children:[r.jsxs("div",{className:"relative",children:[r.jsxs("button",{onClick:()=>{h(!g),N(!1)},className:"relative w-9 h-9 rounded-xl flex items-center justify-center text-slate-500 hover:bg-slate-100 transition-colors",children:[r.jsx(Rf,{className:"w-5 h-5"}),j>0&&r.jsx("span",{className:"absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full border-2 border-white"})]}),g&&r.jsxs("div",{className:"absolute right-0 top-12 w-80 bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden",children:[r.jsxs("div",{className:"flex items-center justify-between px-4 py-3 border-b border-slate-100",children:[r.jsx("h3",{className:"text-sm text-slate-800",children:"Мэдэгдэл"}),r.jsx("button",{onClick:()=>h(!1),children:r.jsx(wr,{className:"w-4 h-4 text-slate-400 hover:text-slate-600"})})]}),r.jsx("div",{className:"max-h-72 overflow-y-auto",children:Wd.map(T=>r.jsxs("div",{className:`flex items-start gap-3 px-4 py-3 hover:bg-slate-50 cursor-pointer border-b border-slate-50 ${T.read?"":"bg-blue-50/50"}`,children:[r.jsx("div",{className:`w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold shrink-0 ${T.read?"bg-slate-200 text-slate-600":"bg-[#1455BD] text-white"}`,children:T.avatar}),r.jsxs("div",{className:"flex-1 min-w-0",children:[r.jsx("p",{className:"text-sm text-slate-700 leading-tight",children:T.message}),r.jsx("p",{className:"text-xs text-slate-400 mt-0.5",children:T.time})]}),!T.read&&r.jsx("div",{className:"w-2 h-2 bg-[#1455BD] rounded-full shrink-0 mt-1"})]},T.id))}),r.jsx("div",{className:"px-4 py-2 border-t border-slate-100",children:r.jsx("button",{className:"text-xs text-[#1455BD] hover:text-[#0d3a8a] font-medium",children:"Бүх мэдэгдлийг харах"})})]})]}),r.jsx("div",{className:"w-px h-6 bg-slate-200 mx-1"}),r.jsxs("div",{className:"relative",children:[r.jsxs("button",{onClick:()=>{N(!y),h(!1)},className:"flex items-center gap-2 rounded-xl px-2 py-1.5 hover:bg-slate-100 transition-colors",children:[r.jsx("div",{className:`w-8 h-8 bg-gradient-to-br ${m} rounded-lg flex items-center justify-center text-white text-xs font-bold shrink-0`,children:d}),r.jsxs("div",{className:"hidden md:block text-left",children:[r.jsx("p",{className:"text-sm text-slate-800 font-medium leading-tight",children:o}),r.jsx("p",{className:"text-xs text-slate-400",children:c})]}),r.jsx(Tf,{className:"w-3.5 h-3.5 text-slate-400 hidden md:block"})]}),y&&r.jsxs("div",{className:"absolute right-0 top-12 w-48 bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden",children:[r.jsxs("div",{className:"px-4 py-3 border-b border-slate-100",children:[r.jsx("p",{className:"text-sm text-slate-800 font-medium",children:o}),r.jsx("p",{className:"text-xs text-slate-400",children:c})]}),["Тохиргоо","Сонголтууд","Тусламж & Дэмжлэг"].map(T=>r.jsx("button",{className:"w-full text-left px-4 py-2.5 text-sm text-slate-600 hover:bg-slate-50 transition-colors",children:T},T)),r.jsx("div",{className:"border-t border-slate-100",children:r.jsxs("button",{onClick:p,className:"w-full text-left px-4 py-2.5 text-sm text-red-600 hover:bg-red-50 transition-colors font-medium flex items-center gap-2",children:[r.jsxs("svg",{xmlns:"http://www.w3.org/2000/svg",width:"14",height:"14",viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:"2",strokeLinecap:"round",strokeLinejoin:"round",children:[r.jsx("path",{d:"M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"}),r.jsx("polyline",{points:"16 17 21 12 16 7"}),r.jsx("line",{x1:"21",y1:"12",x2:"9",y2:"12"})]}),"Гарах"]})})]})]})]})]})}function Ug({unreadCount:l=0,onMessageClick:u}){return r.jsxs("button",{onClick:u,className:"fixed bottom-6 right-6 p-4 bg-[#1455BD] text-white rounded-full shadow-lg hover:bg-blue-700 transition-all hover:scale-105 z-50 group flex items-center justify-center","aria-label":"Messages",children:[r.jsxs("div",{className:"relative",children:[r.jsx(xs,{className:"w-6 h-6"}),l>0&&r.jsx("span",{className:"absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full border-2 border-white",children:l>99?"99+":l})]}),r.jsx("span",{className:"absolute right-full mr-4 bg-slate-800 text-white text-xs px-2.5 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none",children:"Open Messages"})]})}const $l="mauth_current_user";function Vg(){try{const l=localStorage.getItem($l)||sessionStorage.getItem($l);return l?JSON.parse(l):null}catch{return null}}function Wg(l){const u=Vg();if(!u)return window.location.replace("/login.xhtml"),null;if(u.role!==l){const o={admin:"/admin.xhtml",teacher:"/teacher.xhtml",student:"/student.xhtml"};return window.location.replace(o[u.role]),null}return u}function Hg(){localStorage.removeItem($l),sessionStorage.removeItem($l),window.location.replace("/login.xhtml")}const Hd={"/teacher":{title:"Хянах самбар",subtitle:"Тавтай морилно уу, Багш"},"/teacher/students":{title:"Оюутнууд",subtitle:"Харьцлаж буй оюутнуудынгоо харах, удирдах"},"/teacher/progress":{title:"Явцын хяналт",subtitle:"Бүх оюутны дэвшил, шат, эцсийн хугацааг хянах"},"/teacher/committee":{title:"Комисс",subtitle:"Комиссийн үнэлгээний даалгавраа удирдах"},"/teacher/evaluations":{title:"Комисс",subtitle:"Комиссийн үнэлгээний даалгавраа удирдах"},"/teacher/settings":{title:"Тохиргоо",subtitle:"Профайл, тохиргоо удирдах"}};function Gg({user:l}){const[u,o]=x.useState(!1),c=Wt(),d=ws(),m=Hd[c.pathname]||Hd["/teacher"],p=l.displayName.split(" ").map(g=>g[0]).join("").slice(0,2).toUpperCase();return r.jsxs("div",{className:"flex h-screen bg-slate-50 overflow-hidden",children:[r.jsx(Bg,{collapsed:u,onToggle:()=>o(!u)}),r.jsxs("div",{className:"flex flex-col flex-1 min-w-0",children:[r.jsx($g,{title:m.title,subtitle:m.subtitle,userName:l.displayName,userRole:"Багш",userInitials:p,avatarColor:"from-green-500 to-green-700",onLogout:Hg}),r.jsx("main",{className:"flex-1 overflow-y-auto p-6",children:r.jsx(B0,{})})]}),r.jsx(Ug,{unreadCount:5,onMessageClick:()=>d("/teacher/messages")})]})}function Ff(l){var u,o,c="";if(typeof l=="string"||typeof l=="number")c+=l;else if(typeof l=="object")if(Array.isArray(l)){var d=l.length;for(u=0;u<d;u++)l[u]&&(o=Ff(l[u]))&&(c&&(c+=" "),c+=o)}else for(o in l)l[o]&&(c&&(c+=" "),c+=o);return c}function Of(){for(var l,u,o=0,c="",d=arguments.length;o<d;o++)(l=arguments[o])&&(u=Ff(l))&&(c&&(c+=" "),c+=u);return c}const Ni="-",Qg=l=>{const u=Yg(l),{conflictingClassGroups:o,conflictingClassGroupModifiers:c}=l;return{getClassGroupId:p=>{const g=p.split(Ni);return g[0]===""&&g.length!==1&&g.shift(),Bf(g,u)||Kg(p)},getConflictingClassGroupIds:(p,g)=>{const h=o[p]||[];return g&&c[p]?[...h,...c[p]]:h}}},Bf=(l,u)=>{var p;if(l.length===0)return u.classGroupId;const o=l[0],c=u.nextPart.get(o),d=c?Bf(l.slice(1),c):void 0;if(d)return d;if(u.validators.length===0)return;const m=l.join(Ni);return(p=u.validators.find(({validator:g})=>g(m)))==null?void 0:p.classGroupId},Gd=/^\[(.+)\]$/,Kg=l=>{if(Gd.test(l)){const u=Gd.exec(l)[1],o=u==null?void 0:u.substring(0,u.indexOf(":"));if(o)return"arbitrary.."+o}},Yg=l=>{const{theme:u,classGroups:o}=l,c={nextPart:new Map,validators:[]};for(const d in o)oi(o[d],c,d,u);return c},oi=(l,u,o,c)=>{l.forEach(d=>{if(typeof d=="string"){const m=d===""?u:Qd(u,d);m.classGroupId=o;return}if(typeof d=="function"){if(Jg(d)){oi(d(c),u,o,c);return}u.validators.push({validator:d,classGroupId:o});return}Object.entries(d).forEach(([m,p])=>{oi(p,Qd(u,m),o,c)})})},Qd=(l,u)=>{let o=l;return u.split(Ni).forEach(c=>{o.nextPart.has(c)||o.nextPart.set(c,{nextPart:new Map,validators:[]}),o=o.nextPart.get(c)}),o},Jg=l=>l.isThemeGetter,Xg=l=>{if(l<1)return{get:()=>{},set:()=>{}};let u=0,o=new Map,c=new Map;const d=(m,p)=>{o.set(m,p),u++,u>l&&(u=0,c=o,o=new Map)};return{get(m){let p=o.get(m);if(p!==void 0)return p;if((p=c.get(m))!==void 0)return d(m,p),p},set(m,p){o.has(m)?o.set(m,p):d(m,p)}}},ii="!",ui=":",qg=ui.length,Zg=l=>{const{prefix:u,experimentalParseClassName:o}=l;let c=d=>{const m=[];let p=0,g=0,h=0,y;for(let I=0;I<d.length;I++){let M=d[I];if(p===0&&g===0){if(M===ui){m.push(d.slice(h,I)),h=I+qg;continue}if(M==="/"){y=I;continue}}M==="["?p++:M==="]"?p--:M==="("?g++:M===")"&&g--}const N=m.length===0?d:d.substring(h),j=ev(N),T=j!==N,A=y&&y>h?y-h:void 0;return{modifiers:m,hasImportantModifier:T,baseClassName:j,maybePostfixModifierPosition:A}};if(u){const d=u+ui,m=c;c=p=>p.startsWith(d)?m(p.substring(d.length)):{isExternal:!0,modifiers:[],hasImportantModifier:!1,baseClassName:p,maybePostfixModifierPosition:void 0}}if(o){const d=c;c=m=>o({className:m,parseClassName:d})}return c},ev=l=>l.endsWith(ii)?l.substring(0,l.length-1):l.startsWith(ii)?l.substring(1):l,tv=l=>{const u=Object.fromEntries(l.orderSensitiveModifiers.map(c=>[c,!0]));return c=>{if(c.length<=1)return c;const d=[];let m=[];return c.forEach(p=>{p[0]==="["||u[p]?(d.push(...m.sort(),p),m=[]):m.push(p)}),d.push(...m.sort()),d}},nv=l=>({cache:Xg(l.cacheSize),parseClassName:Zg(l),sortModifiers:tv(l),...Qg(l)}),rv=/\s+/,sv=(l,u)=>{const{parseClassName:o,getClassGroupId:c,getConflictingClassGroupIds:d,sortModifiers:m}=u,p=[],g=l.trim().split(rv);let h="";for(let y=g.length-1;y>=0;y-=1){const N=g[y],{isExternal:j,modifiers:T,hasImportantModifier:A,baseClassName:I,maybePostfixModifierPosition:M}=o(N);if(j){h=N+(h.length>0?" "+h:h);continue}let D=!!M,_=c(D?I.substring(0,M):I);if(!_){if(!D){h=N+(h.length>0?" "+h:h);continue}if(_=c(I),!_){h=N+(h.length>0?" "+h:h);continue}D=!1}const R=m(T).join(":"),S=A?R+ii:R,H=S+_;if(p.includes(H))continue;p.push(H);const U=d(_,D);for(let ie=0;ie<U.length;++ie){const ve=U[ie];p.push(S+ve)}h=N+(h.length>0?" "+h:h)}return h};function lv(){let l=0,u,o,c="";for(;l<arguments.length;)(u=arguments[l++])&&(o=$f(u))&&(c&&(c+=" "),c+=o);return c}const $f=l=>{if(typeof l=="string")return l;let u,o="";for(let c=0;c<l.length;c++)l[c]&&(u=$f(l[c]))&&(o&&(o+=" "),o+=u);return o};function av(l,...u){let o,c,d,m=p;function p(h){const y=u.reduce((N,j)=>j(N),l());return o=nv(y),c=o.cache.get,d=o.cache.set,m=g,g(h)}function g(h){const y=c(h);if(y)return y;const N=sv(h,o);return d(h,N),N}return function(){return m(lv.apply(null,arguments))}}const Be=l=>{const u=o=>o[l]||[];return u.isThemeGetter=!0,u},Uf=/^\[(?:(\w[\w-]*):)?(.+)\]$/i,Vf=/^\((?:(\w[\w-]*):)?(.+)\)$/i,ov=/^\d+\/\d+$/,iv=/^(\d+(\.\d+)?)?(xs|sm|md|lg|xl)$/,uv=/\d+(%|px|r?em|[sdl]?v([hwib]|min|max)|pt|pc|in|cm|mm|cap|ch|ex|r?lh|cq(w|h|i|b|min|max))|\b(calc|min|max|clamp)\(.+\)|^0$/,cv=/^(rgba?|hsla?|hwb|(ok)?(lab|lch))\(.+\)$/,dv=/^(inset_)?-?((\d+)?\.?(\d+)[a-z]+|0)_-?((\d+)?\.?(\d+)[a-z]+|0)/,fv=/^(url|image|image-set|cross-fade|element|(repeating-)?(linear|radial|conic)-gradient)\(.+\)$/,vr=l=>ov.test(l),ue=l=>!!l&&!Number.isNaN(Number(l)),En=l=>!!l&&Number.isInteger(Number(l)),Zo=l=>l.endsWith("%")&&ue(l.slice(0,-1)),Zt=l=>iv.test(l),mv=()=>!0,pv=l=>uv.test(l)&&!cv.test(l),Wf=()=>!1,hv=l=>dv.test(l),xv=l=>fv.test(l),gv=l=>!Y(l)&&!J(l),vv=l=>jr(l,Qf,Wf),Y=l=>Uf.test(l),Wn=l=>jr(l,Kf,pv),ei=l=>jr(l,jv,ue),Kd=l=>jr(l,Hf,Wf),yv=l=>jr(l,Gf,xv),Il=l=>jr(l,Yf,hv),J=l=>Vf.test(l),fs=l=>kr(l,Kf),wv=l=>kr(l,kv),Yd=l=>kr(l,Hf),bv=l=>kr(l,Qf),Nv=l=>kr(l,Gf),zl=l=>kr(l,Yf,!0),jr=(l,u,o)=>{const c=Uf.exec(l);return c?c[1]?u(c[1]):o(c[2]):!1},kr=(l,u,o=!1)=>{const c=Vf.exec(l);return c?c[1]?u(c[1]):o:!1},Hf=l=>l==="position"||l==="percentage",Gf=l=>l==="image"||l==="url",Qf=l=>l==="length"||l==="size"||l==="bg-size",Kf=l=>l==="length",jv=l=>l==="number",kv=l=>l==="family-name",Yf=l=>l==="shadow",Sv=()=>{const l=Be("color"),u=Be("font"),o=Be("text"),c=Be("font-weight"),d=Be("tracking"),m=Be("leading"),p=Be("breakpoint"),g=Be("container"),h=Be("spacing"),y=Be("radius"),N=Be("shadow"),j=Be("inset-shadow"),T=Be("text-shadow"),A=Be("drop-shadow"),I=Be("blur"),M=Be("perspective"),D=Be("aspect"),_=Be("ease"),R=Be("animate"),S=()=>["auto","avoid","all","avoid-page","page","left","right","column"],H=()=>["center","top","bottom","left","right","top-left","left-top","top-right","right-top","bottom-right","right-bottom","bottom-left","left-bottom"],U=()=>[...H(),J,Y],ie=()=>["auto","hidden","clip","visible","scroll"],ve=()=>["auto","contain","none"],V=()=>[J,Y,h],je=()=>[vr,"full","auto",...V()],Le=()=>[En,"none","subgrid",J,Y],st=()=>["auto",{span:["full",En,J,Y]},En,J,Y],Ge=()=>[En,"auto",J,Y],$e=()=>["auto","min","max","fr",J,Y],Xe=()=>["start","end","center","between","around","evenly","stretch","baseline","center-safe","end-safe"],Ae=()=>["start","end","center","stretch","center-safe","end-safe"],he=()=>["auto",...V()],ye=()=>[vr,"auto","full","dvw","dvh","lvw","lvh","svw","svh","min","max","fit",...V()],L=()=>[l,J,Y],ee=()=>[...H(),Yd,Kd,{position:[J,Y]}],G=()=>["no-repeat",{repeat:["","x","y","space","round"]}],k=()=>["auto","cover","contain",bv,vv,{size:[J,Y]}],z=()=>[Zo,fs,Wn],Z=()=>["","none","full",y,J,Y],re=()=>["",ue,fs,Wn],de=()=>["solid","dashed","dotted","double"],fe=()=>["normal","multiply","screen","overlay","darken","lighten","color-dodge","color-burn","hard-light","soft-light","difference","exclusion","hue","saturation","color","luminosity"],ae=()=>[ue,Zo,Yd,Kd],xe=()=>["","none",I,J,Y],be=()=>["none",ue,J,Y],Ue=()=>["none",ue,J,Y],an=()=>[ue,J,Y],Pn=()=>[vr,"full",...V()];return{cacheSize:500,theme:{animate:["spin","ping","pulse","bounce"],aspect:["video"],blur:[Zt],breakpoint:[Zt],color:[mv],container:[Zt],"drop-shadow":[Zt],ease:["in","out","in-out"],font:[gv],"font-weight":["thin","extralight","light","normal","medium","semibold","bold","extrabold","black"],"inset-shadow":[Zt],leading:["none","tight","snug","normal","relaxed","loose"],perspective:["dramatic","near","normal","midrange","distant","none"],radius:[Zt],shadow:[Zt],spacing:["px",ue],text:[Zt],"text-shadow":[Zt],tracking:["tighter","tight","normal","wide","wider","widest"]},classGroups:{aspect:[{aspect:["auto","square",vr,Y,J,D]}],container:["container"],columns:[{columns:[ue,Y,J,g]}],"break-after":[{"break-after":S()}],"break-before":[{"break-before":S()}],"break-inside":[{"break-inside":["auto","avoid","avoid-page","avoid-column"]}],"box-decoration":[{"box-decoration":["slice","clone"]}],box:[{box:["border","content"]}],display:["block","inline-block","inline","flex","inline-flex","table","inline-table","table-caption","table-cell","table-column","table-column-group","table-footer-group","table-header-group","table-row-group","table-row","flow-root","grid","inline-grid","contents","list-item","hidden"],sr:["sr-only","not-sr-only"],float:[{float:["right","left","none","start","end"]}],clear:[{clear:["left","right","both","none","start","end"]}],isolation:["isolate","isolation-auto"],"object-fit":[{object:["contain","cover","fill","none","scale-down"]}],"object-position":[{object:U()}],overflow:[{overflow:ie()}],"overflow-x":[{"overflow-x":ie()}],"overflow-y":[{"overflow-y":ie()}],overscroll:[{overscroll:ve()}],"overscroll-x":[{"overscroll-x":ve()}],"overscroll-y":[{"overscroll-y":ve()}],position:["static","fixed","absolute","relative","sticky"],inset:[{inset:je()}],"inset-x":[{"inset-x":je()}],"inset-y":[{"inset-y":je()}],start:[{start:je()}],end:[{end:je()}],top:[{top:je()}],right:[{right:je()}],bottom:[{bottom:je()}],left:[{left:je()}],visibility:["visible","invisible","collapse"],z:[{z:[En,"auto",J,Y]}],basis:[{basis:[vr,"full","auto",g,...V()]}],"flex-direction":[{flex:["row","row-reverse","col","col-reverse"]}],"flex-wrap":[{flex:["nowrap","wrap","wrap-reverse"]}],flex:[{flex:[ue,vr,"auto","initial","none",Y]}],grow:[{grow:["",ue,J,Y]}],shrink:[{shrink:["",ue,J,Y]}],order:[{order:[En,"first","last","none",J,Y]}],"grid-cols":[{"grid-cols":Le()}],"col-start-end":[{col:st()}],"col-start":[{"col-start":Ge()}],"col-end":[{"col-end":Ge()}],"grid-rows":[{"grid-rows":Le()}],"row-start-end":[{row:st()}],"row-start":[{"row-start":Ge()}],"row-end":[{"row-end":Ge()}],"grid-flow":[{"grid-flow":["row","col","dense","row-dense","col-dense"]}],"auto-cols":[{"auto-cols":$e()}],"auto-rows":[{"auto-rows":$e()}],gap:[{gap:V()}],"gap-x":[{"gap-x":V()}],"gap-y":[{"gap-y":V()}],"justify-content":[{justify:[...Xe(),"normal"]}],"justify-items":[{"justify-items":[...Ae(),"normal"]}],"justify-self":[{"justify-self":["auto",...Ae()]}],"align-content":[{content:["normal",...Xe()]}],"align-items":[{items:[...Ae(),{baseline:["","last"]}]}],"align-self":[{self:["auto",...Ae(),{baseline:["","last"]}]}],"place-content":[{"place-content":Xe()}],"place-items":[{"place-items":[...Ae(),"baseline"]}],"place-self":[{"place-self":["auto",...Ae()]}],p:[{p:V()}],px:[{px:V()}],py:[{py:V()}],ps:[{ps:V()}],pe:[{pe:V()}],pt:[{pt:V()}],pr:[{pr:V()}],pb:[{pb:V()}],pl:[{pl:V()}],m:[{m:he()}],mx:[{mx:he()}],my:[{my:he()}],ms:[{ms:he()}],me:[{me:he()}],mt:[{mt:he()}],mr:[{mr:he()}],mb:[{mb:he()}],ml:[{ml:he()}],"space-x":[{"space-x":V()}],"space-x-reverse":["space-x-reverse"],"space-y":[{"space-y":V()}],"space-y-reverse":["space-y-reverse"],size:[{size:ye()}],w:[{w:[g,"screen",...ye()]}],"min-w":[{"min-w":[g,"screen","none",...ye()]}],"max-w":[{"max-w":[g,"screen","none","prose",{screen:[p]},...ye()]}],h:[{h:["screen",...ye()]}],"min-h":[{"min-h":["screen","none",...ye()]}],"max-h":[{"max-h":["screen",...ye()]}],"font-size":[{text:["base",o,fs,Wn]}],"font-smoothing":["antialiased","subpixel-antialiased"],"font-style":["italic","not-italic"],"font-weight":[{font:[c,J,ei]}],"font-stretch":[{"font-stretch":["ultra-condensed","extra-condensed","condensed","semi-condensed","normal","semi-expanded","expanded","extra-expanded","ultra-expanded",Zo,Y]}],"font-family":[{font:[wv,Y,u]}],"fvn-normal":["normal-nums"],"fvn-ordinal":["ordinal"],"fvn-slashed-zero":["slashed-zero"],"fvn-figure":["lining-nums","oldstyle-nums"],"fvn-spacing":["proportional-nums","tabular-nums"],"fvn-fraction":["diagonal-fractions","stacked-fractions"],tracking:[{tracking:[d,J,Y]}],"line-clamp":[{"line-clamp":[ue,"none",J,ei]}],leading:[{leading:[m,...V()]}],"list-image":[{"list-image":["none",J,Y]}],"list-style-position":[{list:["inside","outside"]}],"list-style-type":[{list:["disc","decimal","none",J,Y]}],"text-alignment":[{text:["left","center","right","justify","start","end"]}],"placeholder-color":[{placeholder:L()}],"text-color":[{text:L()}],"text-decoration":["underline","overline","line-through","no-underline"],"text-decoration-style":[{decoration:[...de(),"wavy"]}],"text-decoration-thickness":[{decoration:[ue,"from-font","auto",J,Wn]}],"text-decoration-color":[{decoration:L()}],"underline-offset":[{"underline-offset":[ue,"auto",J,Y]}],"text-transform":["uppercase","lowercase","capitalize","normal-case"],"text-overflow":["truncate","text-ellipsis","text-clip"],"text-wrap":[{text:["wrap","nowrap","balance","pretty"]}],indent:[{indent:V()}],"vertical-align":[{align:["baseline","top","middle","bottom","text-top","text-bottom","sub","super",J,Y]}],whitespace:[{whitespace:["normal","nowrap","pre","pre-line","pre-wrap","break-spaces"]}],break:[{break:["normal","words","all","keep"]}],wrap:[{wrap:["break-word","anywhere","normal"]}],hyphens:[{hyphens:["none","manual","auto"]}],content:[{content:["none",J,Y]}],"bg-attachment":[{bg:["fixed","local","scroll"]}],"bg-clip":[{"bg-clip":["border","padding","content","text"]}],"bg-origin":[{"bg-origin":["border","padding","content"]}],"bg-position":[{bg:ee()}],"bg-repeat":[{bg:G()}],"bg-size":[{bg:k()}],"bg-image":[{bg:["none",{linear:[{to:["t","tr","r","br","b","bl","l","tl"]},En,J,Y],radial:["",J,Y],conic:[En,J,Y]},Nv,yv]}],"bg-color":[{bg:L()}],"gradient-from-pos":[{from:z()}],"gradient-via-pos":[{via:z()}],"gradient-to-pos":[{to:z()}],"gradient-from":[{from:L()}],"gradient-via":[{via:L()}],"gradient-to":[{to:L()}],rounded:[{rounded:Z()}],"rounded-s":[{"rounded-s":Z()}],"rounded-e":[{"rounded-e":Z()}],"rounded-t":[{"rounded-t":Z()}],"rounded-r":[{"rounded-r":Z()}],"rounded-b":[{"rounded-b":Z()}],"rounded-l":[{"rounded-l":Z()}],"rounded-ss":[{"rounded-ss":Z()}],"rounded-se":[{"rounded-se":Z()}],"rounded-ee":[{"rounded-ee":Z()}],"rounded-es":[{"rounded-es":Z()}],"rounded-tl":[{"rounded-tl":Z()}],"rounded-tr":[{"rounded-tr":Z()}],"rounded-br":[{"rounded-br":Z()}],"rounded-bl":[{"rounded-bl":Z()}],"border-w":[{border:re()}],"border-w-x":[{"border-x":re()}],"border-w-y":[{"border-y":re()}],"border-w-s":[{"border-s":re()}],"border-w-e":[{"border-e":re()}],"border-w-t":[{"border-t":re()}],"border-w-r":[{"border-r":re()}],"border-w-b":[{"border-b":re()}],"border-w-l":[{"border-l":re()}],"divide-x":[{"divide-x":re()}],"divide-x-reverse":["divide-x-reverse"],"divide-y":[{"divide-y":re()}],"divide-y-reverse":["divide-y-reverse"],"border-style":[{border:[...de(),"hidden","none"]}],"divide-style":[{divide:[...de(),"hidden","none"]}],"border-color":[{border:L()}],"border-color-x":[{"border-x":L()}],"border-color-y":[{"border-y":L()}],"border-color-s":[{"border-s":L()}],"border-color-e":[{"border-e":L()}],"border-color-t":[{"border-t":L()}],"border-color-r":[{"border-r":L()}],"border-color-b":[{"border-b":L()}],"border-color-l":[{"border-l":L()}],"divide-color":[{divide:L()}],"outline-style":[{outline:[...de(),"none","hidden"]}],"outline-offset":[{"outline-offset":[ue,J,Y]}],"outline-w":[{outline:["",ue,fs,Wn]}],"outline-color":[{outline:L()}],shadow:[{shadow:["","none",N,zl,Il]}],"shadow-color":[{shadow:L()}],"inset-shadow":[{"inset-shadow":["none",j,zl,Il]}],"inset-shadow-color":[{"inset-shadow":L()}],"ring-w":[{ring:re()}],"ring-w-inset":["ring-inset"],"ring-color":[{ring:L()}],"ring-offset-w":[{"ring-offset":[ue,Wn]}],"ring-offset-color":[{"ring-offset":L()}],"inset-ring-w":[{"inset-ring":re()}],"inset-ring-color":[{"inset-ring":L()}],"text-shadow":[{"text-shadow":["none",T,zl,Il]}],"text-shadow-color":[{"text-shadow":L()}],opacity:[{opacity:[ue,J,Y]}],"mix-blend":[{"mix-blend":[...fe(),"plus-darker","plus-lighter"]}],"bg-blend":[{"bg-blend":fe()}],"mask-clip":[{"mask-clip":["border","padding","content","fill","stroke","view"]},"mask-no-clip"],"mask-composite":[{mask:["add","subtract","intersect","exclude"]}],"mask-image-linear-pos":[{"mask-linear":[ue]}],"mask-image-linear-from-pos":[{"mask-linear-from":ae()}],"mask-image-linear-to-pos":[{"mask-linear-to":ae()}],"mask-image-linear-from-color":[{"mask-linear-from":L()}],"mask-image-linear-to-color":[{"mask-linear-to":L()}],"mask-image-t-from-pos":[{"mask-t-from":ae()}],"mask-image-t-to-pos":[{"mask-t-to":ae()}],"mask-image-t-from-color":[{"mask-t-from":L()}],"mask-image-t-to-color":[{"mask-t-to":L()}],"mask-image-r-from-pos":[{"mask-r-from":ae()}],"mask-image-r-to-pos":[{"mask-r-to":ae()}],"mask-image-r-from-color":[{"mask-r-from":L()}],"mask-image-r-to-color":[{"mask-r-to":L()}],"mask-image-b-from-pos":[{"mask-b-from":ae()}],"mask-image-b-to-pos":[{"mask-b-to":ae()}],"mask-image-b-from-color":[{"mask-b-from":L()}],"mask-image-b-to-color":[{"mask-b-to":L()}],"mask-image-l-from-pos":[{"mask-l-from":ae()}],"mask-image-l-to-pos":[{"mask-l-to":ae()}],"mask-image-l-from-color":[{"mask-l-from":L()}],"mask-image-l-to-color":[{"mask-l-to":L()}],"mask-image-x-from-pos":[{"mask-x-from":ae()}],"mask-image-x-to-pos":[{"mask-x-to":ae()}],"mask-image-x-from-color":[{"mask-x-from":L()}],"mask-image-x-to-color":[{"mask-x-to":L()}],"mask-image-y-from-pos":[{"mask-y-from":ae()}],"mask-image-y-to-pos":[{"mask-y-to":ae()}],"mask-image-y-from-color":[{"mask-y-from":L()}],"mask-image-y-to-color":[{"mask-y-to":L()}],"mask-image-radial":[{"mask-radial":[J,Y]}],"mask-image-radial-from-pos":[{"mask-radial-from":ae()}],"mask-image-radial-to-pos":[{"mask-radial-to":ae()}],"mask-image-radial-from-color":[{"mask-radial-from":L()}],"mask-image-radial-to-color":[{"mask-radial-to":L()}],"mask-image-radial-shape":[{"mask-radial":["circle","ellipse"]}],"mask-image-radial-size":[{"mask-radial":[{closest:["side","corner"],farthest:["side","corner"]}]}],"mask-image-radial-pos":[{"mask-radial-at":H()}],"mask-image-conic-pos":[{"mask-conic":[ue]}],"mask-image-conic-from-pos":[{"mask-conic-from":ae()}],"mask-image-conic-to-pos":[{"mask-conic-to":ae()}],"mask-image-conic-from-color":[{"mask-conic-from":L()}],"mask-image-conic-to-color":[{"mask-conic-to":L()}],"mask-mode":[{mask:["alpha","luminance","match"]}],"mask-origin":[{"mask-origin":["border","padding","content","fill","stroke","view"]}],"mask-position":[{mask:ee()}],"mask-repeat":[{mask:G()}],"mask-size":[{mask:k()}],"mask-type":[{"mask-type":["alpha","luminance"]}],"mask-image":[{mask:["none",J,Y]}],filter:[{filter:["","none",J,Y]}],blur:[{blur:xe()}],brightness:[{brightness:[ue,J,Y]}],contrast:[{contrast:[ue,J,Y]}],"drop-shadow":[{"drop-shadow":["","none",A,zl,Il]}],"drop-shadow-color":[{"drop-shadow":L()}],grayscale:[{grayscale:["",ue,J,Y]}],"hue-rotate":[{"hue-rotate":[ue,J,Y]}],invert:[{invert:["",ue,J,Y]}],saturate:[{saturate:[ue,J,Y]}],sepia:[{sepia:["",ue,J,Y]}],"backdrop-filter":[{"backdrop-filter":["","none",J,Y]}],"backdrop-blur":[{"backdrop-blur":xe()}],"backdrop-brightness":[{"backdrop-brightness":[ue,J,Y]}],"backdrop-contrast":[{"backdrop-contrast":[ue,J,Y]}],"backdrop-grayscale":[{"backdrop-grayscale":["",ue,J,Y]}],"backdrop-hue-rotate":[{"backdrop-hue-rotate":[ue,J,Y]}],"backdrop-invert":[{"backdrop-invert":["",ue,J,Y]}],"backdrop-opacity":[{"backdrop-opacity":[ue,J,Y]}],"backdrop-saturate":[{"backdrop-saturate":[ue,J,Y]}],"backdrop-sepia":[{"backdrop-sepia":["",ue,J,Y]}],"border-collapse":[{border:["collapse","separate"]}],"border-spacing":[{"border-spacing":V()}],"border-spacing-x":[{"border-spacing-x":V()}],"border-spacing-y":[{"border-spacing-y":V()}],"table-layout":[{table:["auto","fixed"]}],caption:[{caption:["top","bottom"]}],transition:[{transition:["","all","colors","opacity","shadow","transform","none",J,Y]}],"transition-behavior":[{transition:["normal","discrete"]}],duration:[{duration:[ue,"initial",J,Y]}],ease:[{ease:["linear","initial",_,J,Y]}],delay:[{delay:[ue,J,Y]}],animate:[{animate:["none",R,J,Y]}],backface:[{backface:["hidden","visible"]}],perspective:[{perspective:[M,J,Y]}],"perspective-origin":[{"perspective-origin":U()}],rotate:[{rotate:be()}],"rotate-x":[{"rotate-x":be()}],"rotate-y":[{"rotate-y":be()}],"rotate-z":[{"rotate-z":be()}],scale:[{scale:Ue()}],"scale-x":[{"scale-x":Ue()}],"scale-y":[{"scale-y":Ue()}],"scale-z":[{"scale-z":Ue()}],"scale-3d":["scale-3d"],skew:[{skew:an()}],"skew-x":[{"skew-x":an()}],"skew-y":[{"skew-y":an()}],transform:[{transform:[J,Y,"","none","gpu","cpu"]}],"transform-origin":[{origin:U()}],"transform-style":[{transform:["3d","flat"]}],translate:[{translate:Pn()}],"translate-x":[{"translate-x":Pn()}],"translate-y":[{"translate-y":Pn()}],"translate-z":[{"translate-z":Pn()}],"translate-none":["translate-none"],accent:[{accent:L()}],appearance:[{appearance:["none","auto"]}],"caret-color":[{caret:L()}],"color-scheme":[{scheme:["normal","dark","light","light-dark","only-dark","only-light"]}],cursor:[{cursor:["auto","default","pointer","wait","text","move","help","not-allowed","none","context-menu","progress","cell","crosshair","vertical-text","alias","copy","no-drop","grab","grabbing","all-scroll","col-resize","row-resize","n-resize","e-resize","s-resize","w-resize","ne-resize","nw-resize","se-resize","sw-resize","ew-resize","ns-resize","nesw-resize","nwse-resize","zoom-in","zoom-out",J,Y]}],"field-sizing":[{"field-sizing":["fixed","content"]}],"pointer-events":[{"pointer-events":["auto","none"]}],resize:[{resize:["none","","y","x"]}],"scroll-behavior":[{scroll:["auto","smooth"]}],"scroll-m":[{"scroll-m":V()}],"scroll-mx":[{"scroll-mx":V()}],"scroll-my":[{"scroll-my":V()}],"scroll-ms":[{"scroll-ms":V()}],"scroll-me":[{"scroll-me":V()}],"scroll-mt":[{"scroll-mt":V()}],"scroll-mr":[{"scroll-mr":V()}],"scroll-mb":[{"scroll-mb":V()}],"scroll-ml":[{"scroll-ml":V()}],"scroll-p":[{"scroll-p":V()}],"scroll-px":[{"scroll-px":V()}],"scroll-py":[{"scroll-py":V()}],"scroll-ps":[{"scroll-ps":V()}],"scroll-pe":[{"scroll-pe":V()}],"scroll-pt":[{"scroll-pt":V()}],"scroll-pr":[{"scroll-pr":V()}],"scroll-pb":[{"scroll-pb":V()}],"scroll-pl":[{"scroll-pl":V()}],"snap-align":[{snap:["start","end","center","align-none"]}],"snap-stop":[{snap:["normal","always"]}],"snap-type":[{snap:["none","x","y","both"]}],"snap-strictness":[{snap:["mandatory","proximity"]}],touch:[{touch:["auto","none","manipulation"]}],"touch-x":[{"touch-pan":["x","left","right"]}],"touch-y":[{"touch-pan":["y","up","down"]}],"touch-pz":["touch-pinch-zoom"],select:[{select:["none","text","all","auto"]}],"will-change":[{"will-change":["auto","scroll","contents","transform",J,Y]}],fill:[{fill:["none",...L()]}],"stroke-w":[{stroke:[ue,fs,Wn,ei]}],stroke:[{stroke:["none",...L()]}],"forced-color-adjust":[{"forced-color-adjust":["auto","none"]}]},conflictingClassGroups:{overflow:["overflow-x","overflow-y"],overscroll:["overscroll-x","overscroll-y"],inset:["inset-x","inset-y","start","end","top","right","bottom","left"],"inset-x":["right","left"],"inset-y":["top","bottom"],flex:["basis","grow","shrink"],gap:["gap-x","gap-y"],p:["px","py","ps","pe","pt","pr","pb","pl"],px:["pr","pl"],py:["pt","pb"],m:["mx","my","ms","me","mt","mr","mb","ml"],mx:["mr","ml"],my:["mt","mb"],size:["w","h"],"font-size":["leading"],"fvn-normal":["fvn-ordinal","fvn-slashed-zero","fvn-figure","fvn-spacing","fvn-fraction"],"fvn-ordinal":["fvn-normal"],"fvn-slashed-zero":["fvn-normal"],"fvn-figure":["fvn-normal"],"fvn-spacing":["fvn-normal"],"fvn-fraction":["fvn-normal"],"line-clamp":["display","overflow"],rounded:["rounded-s","rounded-e","rounded-t","rounded-r","rounded-b","rounded-l","rounded-ss","rounded-se","rounded-ee","rounded-es","rounded-tl","rounded-tr","rounded-br","rounded-bl"],"rounded-s":["rounded-ss","rounded-es"],"rounded-e":["rounded-se","rounded-ee"],"rounded-t":["rounded-tl","rounded-tr"],"rounded-r":["rounded-tr","rounded-br"],"rounded-b":["rounded-br","rounded-bl"],"rounded-l":["rounded-tl","rounded-bl"],"border-spacing":["border-spacing-x","border-spacing-y"],"border-w":["border-w-x","border-w-y","border-w-s","border-w-e","border-w-t","border-w-r","border-w-b","border-w-l"],"border-w-x":["border-w-r","border-w-l"],"border-w-y":["border-w-t","border-w-b"],"border-color":["border-color-x","border-color-y","border-color-s","border-color-e","border-color-t","border-color-r","border-color-b","border-color-l"],"border-color-x":["border-color-r","border-color-l"],"border-color-y":["border-color-t","border-color-b"],translate:["translate-x","translate-y","translate-none"],"translate-none":["translate","translate-x","translate-y","translate-z"],"scroll-m":["scroll-mx","scroll-my","scroll-ms","scroll-me","scroll-mt","scroll-mr","scroll-mb","scroll-ml"],"scroll-mx":["scroll-mr","scroll-ml"],"scroll-my":["scroll-mt","scroll-mb"],"scroll-p":["scroll-px","scroll-py","scroll-ps","scroll-pe","scroll-pt","scroll-pr","scroll-pb","scroll-pl"],"scroll-px":["scroll-pr","scroll-pl"],"scroll-py":["scroll-pt","scroll-pb"],touch:["touch-x","touch-y","touch-pz"],"touch-x":["touch"],"touch-y":["touch"],"touch-pz":["touch"]},conflictingClassGroupModifiers:{"font-size":["leading"]},orderSensitiveModifiers:["*","**","after","backdrop","before","details-content","file","first-letter","first-line","marker","placeholder","selection"]}},Cv=av(Sv);function Je(...l){return Cv(Of(l))}const we=x.forwardRef(({className:l,...u},o)=>r.jsx("div",{ref:o,className:Je("rounded-xl border bg-card text-card-foreground shadow",l),...u}));we.displayName="Card";const Ye=x.forwardRef(({className:l,...u},o)=>r.jsx("div",{ref:o,className:Je("flex flex-col space-y-1.5 p-6",l),...u}));Ye.displayName="CardHeader";const vt=x.forwardRef(({className:l,...u},o)=>r.jsx("h3",{ref:o,className:Je("font-semibold leading-none tracking-tight",l),...u}));vt.displayName="CardTitle";const ji=x.forwardRef(({className:l,...u},o)=>r.jsx("p",{ref:o,className:Je("text-sm text-muted-foreground",l),...u}));ji.displayName="CardDescription";const Te=x.forwardRef(({className:l,...u},o)=>r.jsx("div",{ref:o,className:Je("p-6 pt-0",l),...u}));Te.displayName="CardContent";const Ev=x.forwardRef(({className:l,...u},o)=>r.jsx("div",{ref:o,className:Je("flex items-center p-6 pt-0",l),...u}));Ev.displayName="CardFooter";const Jd=l=>typeof l=="boolean"?`${l}`:l===0?"0":l,Xd=Of,Jf=(l,u)=>o=>{var c;if((u==null?void 0:u.variants)==null)return Xd(l,o==null?void 0:o.class,o==null?void 0:o.className);const{variants:d,defaultVariants:m}=u,p=Object.keys(d).map(y=>{const N=o==null?void 0:o[y],j=m==null?void 0:m[y];if(N===null)return null;const T=Jd(N)||Jd(j);return d[y][T]}),g=o&&Object.entries(o).reduce((y,N)=>{let[j,T]=N;return T===void 0||(y[j]=T),y},{}),h=u==null||(c=u.compoundVariants)===null||c===void 0?void 0:c.reduce((y,N)=>{let{class:j,className:T,...A}=N;return Object.entries(A).every(I=>{let[M,D]=I;return Array.isArray(D)?D.includes({...m,...g}[M]):{...m,...g}[M]===D})?[...y,j,T]:y},[]);return Xd(l,p,h,o==null?void 0:o.class,o==null?void 0:o.className)},_v=Jf("inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",{variants:{variant:{default:"border-transparent bg-primary text-primary-foreground shadow hover:bg-primary/80",secondary:"border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",destructive:"border-transparent bg-destructive text-destructive-foreground shadow hover:bg-destructive/80",outline:"text-foreground"}},defaultVariants:{variant:"default"}});function pe({className:l,variant:u,...o}){return r.jsx("div",{className:Je(_v({variant:u}),l),...o})}function qd(l,u){if(typeof l=="function")return l(u);l!=null&&(l.current=u)}function Xf(...l){return u=>{let o=!1;const c=l.map(d=>{const m=qd(d,u);return!o&&typeof m=="function"&&(o=!0),m});if(o)return()=>{for(let d=0;d<c.length;d++){const m=c[d];typeof m=="function"?m():qd(l[d],null)}}}}function Ul(...l){return x.useCallback(Xf(...l),l)}var gs=x.forwardRef((l,u)=>{const{children:o,...c}=l,d=x.Children.toArray(o),m=d.find(Pv);if(m){const p=m.props.children,g=d.map(h=>h===m?x.Children.count(p)>1?x.Children.only(null):x.isValidElement(p)?p.props.children:null:h);return r.jsx(ci,{...c,ref:u,children:x.isValidElement(p)?x.cloneElement(p,void 0,g):null})}return r.jsx(ci,{...c,ref:u,children:o})});gs.displayName="Slot";var ci=x.forwardRef((l,u)=>{const{children:o,...c}=l;if(x.isValidElement(o)){const d=Mv(o),m=Tv(c,o.props);return o.type!==x.Fragment&&(m.ref=u?Xf(u,d):d),x.cloneElement(o,m)}return x.Children.count(o)>1?x.Children.only(null):null});ci.displayName="SlotClone";var Rv=({children:l})=>r.jsx(r.Fragment,{children:l});function Pv(l){return x.isValidElement(l)&&l.type===Rv}function Tv(l,u){const o={...u};for(const c in u){const d=l[c],m=u[c];/^on[A-Z]/.test(c)?d&&m?o[c]=(...g)=>{m(...g),d(...g)}:d&&(o[c]=d):c==="style"?o[c]={...d,...m}:c==="className"&&(o[c]=[d,m].filter(Boolean).join(" "))}return{...l,...o}}function Mv(l){var c,d;let u=(c=Object.getOwnPropertyDescriptor(l.props,"ref"))==null?void 0:c.get,o=u&&"isReactWarning"in u&&u.isReactWarning;return o?l.ref:(u=(d=Object.getOwnPropertyDescriptor(l,"ref"))==null?void 0:d.get,o=u&&"isReactWarning"in u&&u.isReactWarning,o?l.props.ref:l.props.ref||l.ref)}const Lv=Jf("inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",{variants:{variant:{default:"bg-primary text-primary-foreground hover:bg-primary/90",destructive:"bg-destructive text-destructive-foreground hover:bg-destructive/90",outline:"border border-input bg-background hover:bg-accent hover:text-accent-foreground",secondary:"bg-secondary text-secondary-foreground hover:bg-secondary/80",ghost:"hover:bg-accent hover:text-accent-foreground",link:"text-primary underline-offset-4 hover:underline"},size:{default:"h-10 px-4 py-2",sm:"h-9 rounded-md px-3",lg:"h-11 rounded-md px-8",icon:"h-10 w-10"}},defaultVariants:{variant:"default",size:"default"}}),le=x.forwardRef(({className:l,variant:u,size:o,asChild:c=!1,...d},m)=>{const p=c?gs:"button";return r.jsx(p,{className:Je(Lv({variant:u,size:o,className:l})),ref:m,...d})});le.displayName="Button";function js(l,u=[]){let o=[];function c(m,p){const g=x.createContext(p),h=o.length;o=[...o,p];const y=j=>{var _;const{scope:T,children:A,...I}=j,M=((_=T==null?void 0:T[l])==null?void 0:_[h])||g,D=x.useMemo(()=>I,Object.values(I));return r.jsx(M.Provider,{value:D,children:A})};y.displayName=m+"Provider";function N(j,T){var M;const A=((M=T==null?void 0:T[l])==null?void 0:M[h])||g,I=x.useContext(A);if(I)return I;if(p!==void 0)return p;throw new Error(`\`${j}\` must be used within \`${m}\``)}return[y,N]}const d=()=>{const m=o.map(p=>x.createContext(p));return function(g){const h=(g==null?void 0:g[l])||m;return x.useMemo(()=>({[`__scope${l}`]:{...g,[l]:h}}),[g,h])}};return d.scopeName=l,[c,Dv(d,...u)]}function Dv(...l){const u=l[0];if(l.length===1)return u;const o=()=>{const c=l.map(d=>({useScope:d(),scopeName:d.scopeName}));return function(m){const p=c.reduce((g,{useScope:h,scopeName:y})=>{const j=h(m)[`__scope${y}`];return{...g,...j}},{});return x.useMemo(()=>({[`__scope${u.scopeName}`]:p}),[p])}};return o.scopeName=u.scopeName,o}function Kl(l){const u=x.useRef(l);return x.useEffect(()=>{u.current=l}),x.useMemo(()=>(...o)=>{var c;return(c=u.current)==null?void 0:c.call(u,...o)},[])}var vs=globalThis!=null&&globalThis.document?x.useLayoutEffect:()=>{};uf();var Iv=["a","button","div","form","h2","h3","img","input","label","li","nav","ol","p","span","svg","ul"],zt=Iv.reduce((l,u)=>{const o=x.forwardRef((c,d)=>{const{asChild:m,...p}=c,g=m?gs:u;return typeof window<"u"&&(window[Symbol.for("radix-ui")]=!0),r.jsx(g,{...p,ref:d})});return o.displayName=`Primitive.${u}`,{...l,[u]:o}},{}),ki="Avatar",[zv]=js(ki),[Av,qf]=zv(ki),Zf=x.forwardRef((l,u)=>{const{__scopeAvatar:o,...c}=l,[d,m]=x.useState("idle");return r.jsx(Av,{scope:o,imageLoadingStatus:d,onImageLoadingStatusChange:m,children:r.jsx(zt.span,{...c,ref:u})})});Zf.displayName=ki;var em="AvatarImage",tm=x.forwardRef((l,u)=>{const{__scopeAvatar:o,src:c,onLoadingStatusChange:d=()=>{},...m}=l,p=qf(em,o),g=Fv(c,m.referrerPolicy),h=Kl(y=>{d(y),p.onImageLoadingStatusChange(y)});return vs(()=>{g!=="idle"&&h(g)},[g,h]),g==="loaded"?r.jsx(zt.img,{...m,ref:u,src:c}):null});tm.displayName=em;var nm="AvatarFallback",rm=x.forwardRef((l,u)=>{const{__scopeAvatar:o,delayMs:c,...d}=l,m=qf(nm,o),[p,g]=x.useState(c===void 0);return x.useEffect(()=>{if(c!==void 0){const h=window.setTimeout(()=>g(!0),c);return()=>window.clearTimeout(h)}},[c]),p&&m.imageLoadingStatus!=="loaded"?r.jsx(zt.span,{...d,ref:u}):null});rm.displayName=nm;function Fv(l,u){const[o,c]=x.useState("idle");return vs(()=>{if(!l){c("error");return}let d=!0;const m=new window.Image,p=g=>()=>{d&&c(g)};return c("loading"),m.onload=p("loaded"),m.onerror=p("error"),m.src=l,u&&(m.referrerPolicy=u),()=>{d=!1}},[l,u]),o}var sm=Zf,lm=tm,am=rm;const ft=x.forwardRef(({className:l,...u},o)=>r.jsx(sm,{ref:o,className:Je("relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full",l),...u}));ft.displayName=sm.displayName;const Ov=x.forwardRef(({className:l,...u},o)=>r.jsx(lm,{ref:o,className:Je("aspect-square h-full w-full",l),...u}));Ov.displayName=lm.displayName;const mt=x.forwardRef(({className:l,...u},o)=>r.jsx(am,{ref:o,className:Je("flex h-full w-full items-center justify-center rounded-full bg-muted",l),...u}));mt.displayName=am.displayName;const Bv=[{label:"Хуваарилагдсан оюутнууд",value:12,icon:Gn,color:"text-[#1455BD]",bg:"bg-blue-50"},{label:"Хүлээгдэж буй тайлан",value:5,icon:nn,color:"text-orange-600",bg:"bg-orange-50",urgent:!0},{label:"Удахгүй болох үнэлгээ",value:3,icon:ln,color:"text-purple-600",bg:"bg-purple-50"},{label:"Дууссан хяналт",value:28,icon:Ut,color:"text-emerald-600",bg:"bg-emerald-50"}],$v=[{id:1,student:"Д.Оч",type:"Явц 2-ын тайлан",date:"2 өдрийн өмнө илгээсэн",urgency:"high"},{id:2,student:"Б.Батбаяр",type:"Урьдчилсан хамгаалалтын ноорог",date:"3 өдрийн өмнө илгээсэн",urgency:"high"},{id:3,student:"С.Мөнхбаяр",type:"Явц 1-ийн тайлан",date:"Өнөөдөр илгээсэн",urgency:"normal"}],Uv=[{id:1,type:"Урьдчилсан хамгаалалтын хяналтын хороо",student:"Д.Оч",date:"2026-03-25T10:00:00",daysLeft:6},{id:2,type:"Эцсийн хамгаалалт",student:"Б.Батбаяр",date:"2026-04-10T14:00:00",daysLeft:22}],Vv=[{id:1,text:"Д.Оч-ны судалгааны төлөвлөгөөг зөвшөөрлөо.",time:"2 цагийн өмнө",icon:Ut,color:"text-emerald-500"},{id:2,text:"Б.Батбаяр урьдчилсан хамгаалалтын шинэ ноорог оруулав.",time:"5 цагийн өмнө",icon:zg,color:"text-blue-500"},{id:3,text:"С.Мөнхбаяр-ны эцсийн хамгаалалтад комисс томилогдлоо.",time:"1 өдрийн өмнө",icon:Gn,color:"text-purple-500"},{id:4,text:"Т.Түвшинбаяр-ны 2-р бүлэгт тайлбар нэмлээ.",time:"2 өдрийн өмнө",icon:xs,color:"text-slate-500"}];function Wv(){return r.jsxs("div",{className:"space-y-6 max-w-7xl mx-auto pb-10",children:[r.jsxs("div",{className:"flex flex-col md:flex-row justify-between items-start md:items-center gap-4",children:[r.jsxs("div",{children:[r.jsx("h1",{className:"text-2xl font-bold text-slate-900",children:"Хянах самбар"}),r.jsx("p",{className:"text-slate-600 mt-1",children:"Өнөөдөр оюутнуудтай холбоотой тойм мэдээлэл."})]}),r.jsxs(le,{className:"bg-[#1455BD] hover:bg-[#0d3a8a] text-white shadow-sm transition-all rounded-lg",children:[r.jsx(nn,{className:"w-4 h-4 mr-2"}),"Бүх хүлээгдэж буйг хянах"]})]}),r.jsx("div",{className:"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4",children:Bv.map((l,u)=>{const o=l.icon;return r.jsxs(we,{className:"border-slate-200 shadow-sm hover:shadow-md transition-shadow group cursor-pointer relative overflow-hidden",children:[l.urgent&&r.jsx("div",{className:"absolute top-0 right-0 w-12 h-12 overflow-hidden",children:r.jsx("div",{className:"absolute top-[8px] -right-[14px] bg-rose-500 text-white text-[8px] font-bold uppercase tracking-widest py-0.5 px-4 rotate-45 shadow-sm",children:"Action"})}),r.jsxs(Te,{className:"p-5 flex items-center justify-between",children:[r.jsxs("div",{children:[r.jsx("p",{className:"text-sm font-medium text-slate-500 mb-1",children:l.label}),r.jsx("h3",{className:"text-3xl font-bold text-slate-900",children:l.value})]}),r.jsx("div",{className:`w-12 h-12 rounded-xl flex items-center justify-center transition-colors group-hover:scale-110 duration-300 ${l.bg}`,children:r.jsx(o,{className:`w-6 h-6 ${l.color}`})})]})]},u)})}),r.jsxs("div",{className:"grid grid-cols-1 lg:grid-cols-3 gap-6",children:[r.jsxs("div",{className:"lg:col-span-2 space-y-6",children:[r.jsxs(we,{className:"border-slate-200 shadow-sm",children:[r.jsxs(Ye,{className:"pb-3 border-b border-slate-100 flex flex-row items-center justify-between bg-slate-50/50",children:[r.jsxs(vt,{className:"text-lg font-semibold flex items-center text-slate-800",children:[r.jsx(nn,{className:"w-5 h-5 mr-2 text-orange-600"}),"Хянах шаардлагатай тайлан"]}),r.jsx(le,{variant:"ghost",size:"sm",className:"text-slate-500 hover:text-[#1455BD] text-xs h-8",children:"Дараалал харах"})]}),r.jsx(Te,{className:"p-0",children:r.jsx("div",{className:"divide-y divide-slate-100",children:$v.map(l=>r.jsxs("div",{className:"p-4 hover:bg-slate-50 transition-colors flex flex-col sm:flex-row justify-between sm:items-center gap-4 group cursor-pointer",children:[r.jsxs("div",{className:"flex items-center gap-3",children:[r.jsx(ft,{className:"h-9 w-9 border border-slate-200",children:r.jsx(mt,{className:"bg-blue-50 text-[#1455BD] text-xs font-bold",children:l.student.split(" ").map(u=>u[0]).join("")})}),r.jsxs("div",{children:[r.jsxs("div",{className:"flex items-center gap-2",children:[r.jsx("p",{className:"font-semibold text-sm text-slate-900",children:l.student}),l.urgency==="high"&&r.jsx(pe,{className:"bg-rose-100 text-rose-700 hover:bg-rose-200 border-0 text-[10px] px-1.5 py-0 rounded",children:"Яаралтай"})]}),r.jsxs("p",{className:"text-xs text-slate-500 mt-0.5",children:[l.type," • ",l.date]})]})]}),r.jsx(le,{variant:"outline",size:"sm",className:"border-slate-200 bg-white hover:bg-slate-50 hover:text-[#1455BD] shadow-sm shrink-0",children:"Одоо хянах"})]},l.id))})})]}),r.jsxs(we,{className:"border-slate-200 shadow-sm",children:[r.jsx(Ye,{className:"pb-3 border-b border-slate-100",children:r.jsxs(vt,{className:"text-lg font-semibold flex items-center text-slate-800",children:[r.jsx(_x,{className:"w-5 h-5 mr-2 text-[#1455BD]"}),"Сүүлийн үйл ажиллагаа"]})}),r.jsxs(Te,{className:"p-6",children:[r.jsx("div",{className:"relative border-l-2 border-slate-100 space-y-6 ml-2",children:Vv.map((l,u)=>{const o=l.icon;return r.jsxs("div",{className:"relative pl-6",children:[r.jsx("div",{className:"absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-white border-2 border-slate-200 flex items-center justify-center",children:r.jsx("div",{className:"w-1.5 h-1.5 rounded-full bg-slate-300"})}),r.jsxs("div",{className:"flex flex-col sm:flex-row justify-between sm:items-center gap-1",children:[r.jsxs("p",{className:"text-sm text-slate-700",children:[r.jsx("span",{className:"font-medium mr-1.5 inline-flex items-center",children:r.jsx(o,{className:`w-4 h-4 mr-1 ${l.color}`})}),l.text]}),r.jsx("span",{className:"text-xs text-slate-400 whitespace-nowrap",children:l.time})]})]},l.id)})}),r.jsx(le,{variant:"ghost",size:"sm",className:"w-full text-xs text-[#1455BD] mt-4 hover:bg-blue-50/50",children:"Дэлгэрэнгүй харах"})]})]})]}),r.jsxs("div",{className:"space-y-6",children:[r.jsxs(we,{className:"border-slate-200 shadow-sm",children:[r.jsx(Ye,{className:"pb-3 border-b border-slate-100 bg-[#1455BD]/5",children:r.jsxs(vt,{className:"text-lg font-semibold flex items-center text-slate-800",children:[r.jsx(ln,{className:"w-5 h-5 mr-2 text-[#1455BD]"}),"Удахгүй болох үнэлгээ"]})}),r.jsxs(Te,{className:"p-4 space-y-4 bg-slate-50/30",children:[Uv.map(l=>r.jsxs("div",{className:"p-4 rounded-xl border border-slate-200 bg-white hover:border-[#1455BD]/30 hover:shadow-sm transition-all group cursor-pointer relative overflow-hidden",children:[r.jsx("div",{className:"absolute left-0 top-0 bottom-0 w-1 bg-[#1455BD]/20 group-hover:bg-[#1455BD] transition-colors"}),r.jsxs("div",{className:"flex justify-between items-start mb-2 pl-2",children:[r.jsxs(pe,{variant:"outline",className:"bg-blue-50/50 text-[#1455BD] border-blue-100 font-medium",children:[r.jsx(Ns,{className:"w-3 h-3 mr-1"}),l.daysLeft," хоногийн дараа"]}),r.jsx(Mx,{className:"w-4 h-4 text-slate-300 group-hover:text-[#1455BD] transition-colors"})]}),r.jsxs("div",{className:"pl-2",children:[r.jsx("h4",{className:"font-semibold text-sm text-slate-900 leading-snug",children:l.type}),r.jsxs("p",{className:"text-xs text-slate-600 mt-1",children:["Оюутан: ",r.jsx("span",{className:"font-medium",children:l.student})]}),r.jsxs("p",{className:"text-xs font-medium text-slate-400 mt-2 flex items-center",children:[r.jsx(ln,{className:"w-3 h-3 mr-1"}),new Date(l.date).toLocaleDateString("en-US",{month:"short",day:"numeric",hour:"2-digit",minute:"2-digit"})]})]})]},l.id)),r.jsx(le,{variant:"outline",className:"w-full text-xs font-semibold text-slate-600 border-slate-200 mt-2 hover:bg-slate-50 hover:text-[#1455BD] shadow-sm",children:"Бүтэн хуваарь харах"})]})]}),r.jsx(we,{className:"border-slate-200 shadow-sm border-t-4 border-t-emerald-500",children:r.jsxs(Te,{className:"p-5",children:[r.jsxs("h3",{className:"text-sm font-bold text-slate-700 uppercase tracking-widest mb-4 flex items-center gap-2",children:[r.jsx(bi,{className:"w-4 h-4 text-emerald-500"}),"Улирлын явц"]}),r.jsxs("div",{className:"space-y-4",children:[r.jsxs("div",{children:[r.jsxs("div",{className:"flex justify-between text-xs mb-1",children:[r.jsx("span",{className:"font-medium text-slate-600",children:"Хэвийн явцтай оюутнууд"}),r.jsx("span",{className:"font-bold text-slate-900",children:"10/12"})]}),r.jsx("div",{className:"h-1.5 w-full bg-slate-100 rounded-full overflow-hidden",children:r.jsx("div",{className:"h-full bg-emerald-500",style:{width:"83%"}})})]}),r.jsxs("div",{children:[r.jsxs("div",{className:"flex justify-between text-xs mb-1",children:[r.jsx("span",{className:"font-medium text-slate-600",children:"Комиссын даалгавар дууссан"}),r.jsx("span",{className:"font-bold text-slate-900",children:"8/15"})]}),r.jsx("div",{className:"h-1.5 w-full bg-slate-100 rounded-full overflow-hidden",children:r.jsx("div",{className:"h-full bg-[#1455BD]",style:{width:"53%"}})})]})]})]})})]})]})]})}function rn(l,u,{checkForDefaultPrevented:o=!0}={}){return function(d){if(l==null||l(d),o===!1||!d.defaultPrevented)return u==null?void 0:u(d)}}function Hv(l){const u=l+"CollectionProvider",[o,c]=js(u),[d,m]=o(u,{collectionRef:{current:null},itemMap:new Map}),p=A=>{const{scope:I,children:M}=A,D=en.useRef(null),_=en.useRef(new Map).current;return r.jsx(d,{scope:I,itemMap:_,collectionRef:D,children:M})};p.displayName=u;const g=l+"CollectionSlot",h=en.forwardRef((A,I)=>{const{scope:M,children:D}=A,_=m(g,M),R=Ul(I,_.collectionRef);return r.jsx(gs,{ref:R,children:D})});h.displayName=g;const y=l+"CollectionItemSlot",N="data-radix-collection-item",j=en.forwardRef((A,I)=>{const{scope:M,children:D,..._}=A,R=en.useRef(null),S=Ul(I,R),H=m(y,M);return en.useEffect(()=>(H.itemMap.set(R,{ref:R,..._}),()=>void H.itemMap.delete(R))),r.jsx(gs,{[N]:"",ref:S,children:D})});j.displayName=y;function T(A){const I=m(l+"CollectionConsumer",A);return en.useCallback(()=>{const D=I.collectionRef.current;if(!D)return[];const _=Array.from(D.querySelectorAll(`[${N}]`));return Array.from(I.itemMap.values()).sort((H,U)=>_.indexOf(H.ref.current)-_.indexOf(U.ref.current))},[I.collectionRef,I.itemMap])}return[{Provider:p,Slot:h,ItemSlot:j},T,c]}var Gv=zh.useId||(()=>{}),Qv=0;function om(l){const[u,o]=x.useState(Gv());return vs(()=>{o(c=>c??String(Qv++))},[l]),u?`radix-${u}`:""}function im({prop:l,defaultProp:u,onChange:o=()=>{}}){const[c,d]=Kv({defaultProp:u,onChange:o}),m=l!==void 0,p=m?l:c,g=Kl(o),h=x.useCallback(y=>{if(m){const j=typeof y=="function"?y(l):y;j!==l&&g(j)}else d(y)},[m,l,d,g]);return[p,h]}function Kv({defaultProp:l,onChange:u}){const o=x.useState(l),[c]=o,d=x.useRef(c),m=Kl(u);return x.useEffect(()=>{d.current!==c&&(m(c),d.current=c)},[c,d,m]),o}var Yv=x.createContext(void 0);function um(l){const u=x.useContext(Yv);return l||u||"ltr"}var ti="rovingFocusGroup.onEntryFocus",Jv={bubbles:!1,cancelable:!0},Yl="RovingFocusGroup",[di,cm,Xv]=Hv(Yl),[qv,dm]=js(Yl,[Xv]),[Zv,ey]=qv(Yl),fm=x.forwardRef((l,u)=>r.jsx(di.Provider,{scope:l.__scopeRovingFocusGroup,children:r.jsx(di.Slot,{scope:l.__scopeRovingFocusGroup,children:r.jsx(ty,{...l,ref:u})})}));fm.displayName=Yl;var ty=x.forwardRef((l,u)=>{const{__scopeRovingFocusGroup:o,orientation:c,loop:d=!1,dir:m,currentTabStopId:p,defaultCurrentTabStopId:g,onCurrentTabStopIdChange:h,onEntryFocus:y,preventScrollOnEntryFocus:N=!1,...j}=l,T=x.useRef(null),A=Ul(u,T),I=um(m),[M=null,D]=im({prop:p,defaultProp:g,onChange:h}),[_,R]=x.useState(!1),S=Kl(y),H=cm(o),U=x.useRef(!1),[ie,ve]=x.useState(0);return x.useEffect(()=>{const V=T.current;if(V)return V.addEventListener(ti,S),()=>V.removeEventListener(ti,S)},[S]),r.jsx(Zv,{scope:o,orientation:c,dir:I,loop:d,currentTabStopId:M,onItemFocus:x.useCallback(V=>D(V),[D]),onItemShiftTab:x.useCallback(()=>R(!0),[]),onFocusableItemAdd:x.useCallback(()=>ve(V=>V+1),[]),onFocusableItemRemove:x.useCallback(()=>ve(V=>V-1),[]),children:r.jsx(zt.div,{tabIndex:_||ie===0?-1:0,"data-orientation":c,...j,ref:A,style:{outline:"none",...l.style},onMouseDown:rn(l.onMouseDown,()=>{U.current=!0}),onFocus:rn(l.onFocus,V=>{const je=!U.current;if(V.target===V.currentTarget&&je&&!_){const Le=new CustomEvent(ti,Jv);if(V.currentTarget.dispatchEvent(Le),!Le.defaultPrevented){const st=H().filter(he=>he.focusable),Ge=st.find(he=>he.active),$e=st.find(he=>he.id===M),Ae=[Ge,$e,...st].filter(Boolean).map(he=>he.ref.current);hm(Ae,N)}}U.current=!1}),onBlur:rn(l.onBlur,()=>R(!1))})})}),mm="RovingFocusGroupItem",pm=x.forwardRef((l,u)=>{const{__scopeRovingFocusGroup:o,focusable:c=!0,active:d=!1,tabStopId:m,...p}=l,g=om(),h=m||g,y=ey(mm,o),N=y.currentTabStopId===h,j=cm(o),{onFocusableItemAdd:T,onFocusableItemRemove:A}=y;return x.useEffect(()=>{if(c)return T(),()=>A()},[c,T,A]),r.jsx(di.ItemSlot,{scope:o,id:h,focusable:c,active:d,children:r.jsx(zt.span,{tabIndex:N?0:-1,"data-orientation":y.orientation,...p,ref:u,onMouseDown:rn(l.onMouseDown,I=>{c?y.onItemFocus(h):I.preventDefault()}),onFocus:rn(l.onFocus,()=>y.onItemFocus(h)),onKeyDown:rn(l.onKeyDown,I=>{if(I.key==="Tab"&&I.shiftKey){y.onItemShiftTab();return}if(I.target!==I.currentTarget)return;const M=sy(I,y.orientation,y.dir);if(M!==void 0){if(I.metaKey||I.ctrlKey||I.altKey||I.shiftKey)return;I.preventDefault();let _=j().filter(R=>R.focusable).map(R=>R.ref.current);if(M==="last")_.reverse();else if(M==="prev"||M==="next"){M==="prev"&&_.reverse();const R=_.indexOf(I.currentTarget);_=y.loop?ly(_,R+1):_.slice(R+1)}setTimeout(()=>hm(_))}})})})});pm.displayName=mm;var ny={ArrowLeft:"prev",ArrowUp:"prev",ArrowRight:"next",ArrowDown:"next",PageUp:"first",Home:"first",PageDown:"last",End:"last"};function ry(l,u){return u!=="rtl"?l:l==="ArrowLeft"?"ArrowRight":l==="ArrowRight"?"ArrowLeft":l}function sy(l,u,o){const c=ry(l.key,o);if(!(u==="vertical"&&["ArrowLeft","ArrowRight"].includes(c))&&!(u==="horizontal"&&["ArrowUp","ArrowDown"].includes(c)))return ny[c]}function hm(l,u=!1){const o=document.activeElement;for(const c of l)if(c===o||(c.focus({preventScroll:u}),document.activeElement!==o))return}function ly(l,u){return l.map((o,c)=>l[(u+c)%l.length])}var ay=fm,oy=pm;function iy(l,u){return x.useReducer((o,c)=>u[o][c]??o,l)}var xm=l=>{const{present:u,children:o}=l,c=uy(u),d=typeof o=="function"?o({present:c.isPresent}):x.Children.only(o),m=Ul(c.ref,cy(d));return typeof o=="function"||c.isPresent?x.cloneElement(d,{ref:m}):null};xm.displayName="Presence";function uy(l){const[u,o]=x.useState(),c=x.useRef({}),d=x.useRef(l),m=x.useRef("none"),p=l?"mounted":"unmounted",[g,h]=iy(p,{mounted:{UNMOUNT:"unmounted",ANIMATION_OUT:"unmountSuspended"},unmountSuspended:{MOUNT:"mounted",ANIMATION_END:"unmounted"},unmounted:{MOUNT:"mounted"}});return x.useEffect(()=>{const y=Al(c.current);m.current=g==="mounted"?y:"none"},[g]),vs(()=>{const y=c.current,N=d.current;if(N!==l){const T=m.current,A=Al(y);l?h("MOUNT"):A==="none"||(y==null?void 0:y.display)==="none"?h("UNMOUNT"):h(N&&T!==A?"ANIMATION_OUT":"UNMOUNT"),d.current=l}},[l,h]),vs(()=>{if(u){let y;const N=u.ownerDocument.defaultView??window,j=A=>{const M=Al(c.current).includes(A.animationName);if(A.target===u&&M&&(h("ANIMATION_END"),!d.current)){const D=u.style.animationFillMode;u.style.animationFillMode="forwards",y=N.setTimeout(()=>{u.style.animationFillMode==="forwards"&&(u.style.animationFillMode=D)})}},T=A=>{A.target===u&&(m.current=Al(c.current))};return u.addEventListener("animationstart",T),u.addEventListener("animationcancel",j),u.addEventListener("animationend",j),()=>{N.clearTimeout(y),u.removeEventListener("animationstart",T),u.removeEventListener("animationcancel",j),u.removeEventListener("animationend",j)}}else h("ANIMATION_END")},[u,h]),{isPresent:["mounted","unmountSuspended"].includes(g),ref:x.useCallback(y=>{y&&(c.current=getComputedStyle(y)),o(y)},[])}}function Al(l){return(l==null?void 0:l.animationName)||"none"}function cy(l){var c,d;let u=(c=Object.getOwnPropertyDescriptor(l.props,"ref"))==null?void 0:c.get,o=u&&"isReactWarning"in u&&u.isReactWarning;return o?l.ref:(u=(d=Object.getOwnPropertyDescriptor(l,"ref"))==null?void 0:d.get,o=u&&"isReactWarning"in u&&u.isReactWarning,o?l.props.ref:l.props.ref||l.ref)}var Si="Tabs",[dy]=js(Si,[dm]),gm=dm(),[fy,Ci]=dy(Si),vm=x.forwardRef((l,u)=>{const{__scopeTabs:o,value:c,onValueChange:d,defaultValue:m,orientation:p="horizontal",dir:g,activationMode:h="automatic",...y}=l,N=um(g),[j,T]=im({prop:c,onChange:d,defaultProp:m});return r.jsx(fy,{scope:o,baseId:om(),value:j,onValueChange:T,orientation:p,dir:N,activationMode:h,children:r.jsx(zt.div,{dir:N,"data-orientation":p,...y,ref:u})})});vm.displayName=Si;var ym="TabsList",wm=x.forwardRef((l,u)=>{const{__scopeTabs:o,loop:c=!0,...d}=l,m=Ci(ym,o),p=gm(o);return r.jsx(ay,{asChild:!0,...p,orientation:m.orientation,dir:m.dir,loop:c,children:r.jsx(zt.div,{role:"tablist","aria-orientation":m.orientation,...d,ref:u})})});wm.displayName=ym;var bm="TabsTrigger",Nm=x.forwardRef((l,u)=>{const{__scopeTabs:o,value:c,disabled:d=!1,...m}=l,p=Ci(bm,o),g=gm(o),h=Sm(p.baseId,c),y=Cm(p.baseId,c),N=c===p.value;return r.jsx(oy,{asChild:!0,...g,focusable:!d,active:N,children:r.jsx(zt.button,{type:"button",role:"tab","aria-selected":N,"aria-controls":y,"data-state":N?"active":"inactive","data-disabled":d?"":void 0,disabled:d,id:h,...m,ref:u,onMouseDown:rn(l.onMouseDown,j=>{!d&&j.button===0&&j.ctrlKey===!1?p.onValueChange(c):j.preventDefault()}),onKeyDown:rn(l.onKeyDown,j=>{[" ","Enter"].includes(j.key)&&p.onValueChange(c)}),onFocus:rn(l.onFocus,()=>{const j=p.activationMode!=="manual";!N&&!d&&j&&p.onValueChange(c)})})})});Nm.displayName=bm;var jm="TabsContent",km=x.forwardRef((l,u)=>{const{__scopeTabs:o,value:c,forceMount:d,children:m,...p}=l,g=Ci(jm,o),h=Sm(g.baseId,c),y=Cm(g.baseId,c),N=c===g.value,j=x.useRef(N);return x.useEffect(()=>{const T=requestAnimationFrame(()=>j.current=!1);return()=>cancelAnimationFrame(T)},[]),r.jsx(xm,{present:d||N,children:({present:T})=>r.jsx(zt.div,{"data-state":N?"active":"inactive","data-orientation":g.orientation,role:"tabpanel","aria-labelledby":h,hidden:!T,id:y,tabIndex:0,...p,ref:u,style:{...l.style,animationDuration:j.current?"0s":void 0},children:T&&m})})});km.displayName=jm;function Sm(l,u){return`${l}-trigger-${u}`}function Cm(l,u){return`${l}-content-${u}`}var my=vm,Em=wm,_m=Nm,Rm=km;const Ei=my,Jl=x.forwardRef(({className:l,...u},o)=>r.jsx(Em,{ref:o,className:Je("inline-flex h-10 items-center justify-center rounded-md bg-muted p-1 text-muted-foreground",l),...u}));Jl.displayName=Em.displayName;const _n=x.forwardRef(({className:l,...u},o)=>r.jsx(_m,{ref:o,className:Je("inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm",l),...u}));_n.displayName=_m.displayName;const Vt=x.forwardRef(({className:l,...u},o)=>r.jsx(Rm,{ref:o,className:Je("mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",l),...u}));Vt.displayName=Rm.displayName;const Zd=[{id:1,name:"Alex Johnson",thesis:"Эмнэлгийн зургийн оношлогоонд гүн суралцахуй",stage:"Урьдчилсан хамгаалалт",status:"In Progress",progress:75,avatar:"AJ"},{id:2,name:"Maria Garcia",thesis:"Нийлүүлэлтийн сүлжээний тогтвортой байдал дахь блокчейн",stage:"Явцын тайлан 1",status:"Review",progress:30,avatar:"MG"},{id:3,name:"James Smith",thesis:"Квантум шифрлэлтийн протоколууд",stage:"Явцын тайлан 2",status:"Draft",progress:50,avatar:"JS"},{id:4,name:"Sarah Williams",thesis:"IoT төхөөрөмжид зориулсан захын тооцоолол",stage:"Эцсийн хамгаалалт",status:"Submitted",progress:95,avatar:"SW"}],py=[{id:1,studentId:2,student:"Maria Garcia",type:"Явцын тайлан 1",file:"Progress1_Garcia.pdf",date:"2 цагийн өмнө",status:"Хянах шаардлагатай",urgency:"high"},{id:2,studentId:4,student:"Sarah Williams",type:"Эцсийн дипломын ноорог",file:"Final_Draft_SW.pdf",date:"1 өдрийн өмнө",status:"Хянах шаардлагатай",urgency:"normal"},{id:3,studentId:1,student:"Alex Johnson",type:"Урьдчилсан хамгаалалтын слайд",file:"Slides_v2.pptx",date:"3 өдрийн өмнө",status:"Хянасан",urgency:"low"}],hy=[{id:1,name:"Уран зохиолын тойм",max:20},{id:2,name:"Аргачлалын загвар",max:30},{id:3,name:"Урьдчилсан үр дүнгүүд",max:30},{id:4,name:"Форматлалт & Тод байдал",max:20}];function xy(){var H;const[l,u]=x.useState(""),[o,c]=x.useState("roster"),[d,m]=x.useState(null),[p,g]=x.useState(""),[h,y]=x.useState("idle"),[N,j]=x.useState(null),[T,A]=x.useState({}),[I,M]=x.useState("idle"),D=Object.values(T).reduce((U,ie)=>U+(ie||0),0),_=U=>{y("success"),setTimeout(()=>{y("idle"),m(null)},2e3)},R=()=>{M("loading"),setTimeout(()=>{M("success"),setTimeout(()=>{M("idle"),j(null),A({})},2e3)},1500)},S=U=>{switch(U){case"In Progress":return r.jsx(pe,{className:"bg-blue-50 text-[#1455BD] border-blue-100",children:"Хийгдэж байна"});case"Review":return r.jsx(pe,{className:"bg-orange-50 text-orange-600 border-orange-100",children:"Хянагдаж байна"});case"Draft":return r.jsx(pe,{className:"bg-slate-50 text-slate-600 border-slate-200",children:"Ноорог"});case"Submitted":return r.jsx(pe,{className:"bg-purple-50 text-purple-600 border-purple-100",children:"Илгээсэн"});default:return r.jsx(pe,{variant:"outline",children:U})}};return r.jsxs("div",{className:"space-y-6 max-w-7xl mx-auto pb-10",children:[r.jsxs("div",{className:"flex flex-col md:flex-row md:items-center justify-between gap-4",children:[r.jsxs("div",{children:[r.jsxs("h1",{className:"text-2xl font-bold text-slate-900 flex items-center gap-2",children:[r.jsx(Gn,{className:"w-6 h-6 text-[#1455BD]"}),"Хуваарилагдсан оюутнууд"]}),r.jsx("p",{className:"text-slate-600 mt-1",children:"Суралцагчдаа удирдах, тайланг хянах, үнэлгээ илгаах."})]}),r.jsxs("div",{className:"flex items-center gap-3",children:[r.jsxs("div",{className:"relative",children:[r.jsx(Ql,{className:"w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"}),r.jsx("input",{type:"text",placeholder:"Оюутан хайх...",className:"pl-9 pr-4 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:border-[#1455BD] focus:ring-1 focus:ring-[#1455BD] w-64 bg-white",value:l,onChange:U=>u(U.target.value)})]}),r.jsxs(le,{variant:"outline",className:"border-slate-200 bg-white",children:[r.jsx(Lf,{className:"w-4 h-4 mr-2"}),"Шүүх"]})]})]}),r.jsxs(Ei,{value:o,onValueChange:c,className:"w-full",children:[r.jsxs(Jl,{className:"w-full justify-start border-b border-slate-200 rounded-none bg-transparent h-auto p-0 space-x-6",children:[r.jsx(_n,{value:"roster",className:"data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-[#1455BD] data-[state=active]:text-[#1455BD] rounded-none py-3 px-1",children:"Оюутны жагсаалт"}),r.jsx(_n,{value:"reports",className:"data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-[#1455BD] data-[state=active]:text-[#1455BD] rounded-none py-3 px-1",children:r.jsxs("span",{className:"flex items-center gap-2",children:["Илгээсэн тайлангууд",r.jsx(pe,{className:"bg-orange-100 text-orange-700 hover:bg-orange-200 border-0 text-[10px] px-1.5 py-0 h-4",children:"2"})]})}),r.jsx(_n,{value:"evaluations",className:"data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-[#1455BD] data-[state=active]:text-[#1455BD] rounded-none py-3 px-1",children:"Үнэлгээний маягт"})]}),r.jsx(Vt,{value:"roster",className:"mt-6",children:r.jsx("div",{className:"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4",children:Zd.map(U=>r.jsxs(we,{className:"border-slate-200 shadow-sm hover:shadow-md hover:border-blue-200 transition-all group overflow-hidden",children:[r.jsx("div",{className:"h-1.5 w-full bg-slate-100",children:r.jsx("div",{className:"h-full bg-[#1455BD]",style:{width:`${U.progress}%`}})}),r.jsx(Te,{className:"p-5",children:r.jsxs("div",{className:"flex items-start gap-4",children:[r.jsx(ft,{className:"h-12 w-12 border border-slate-200",children:r.jsx(mt,{className:"bg-blue-50 text-[#1455BD] font-bold",children:U.avatar})}),r.jsxs("div",{className:"flex-1 min-w-0",children:[r.jsxs("div",{className:"flex justify-between items-start mb-1",children:[r.jsx("h3",{className:"font-bold text-slate-900 truncate",children:U.name}),S(U.status)]}),r.jsx("p",{className:"text-sm text-slate-600 line-clamp-2 mb-3 h-10",children:U.thesis}),r.jsxs("div",{className:"flex items-center justify-between text-xs text-slate-500 mb-4 bg-slate-50 p-2 rounded-md border border-slate-100",children:[r.jsxs("span",{className:"font-semibold text-slate-700",children:["Шат: ",U.stage]}),r.jsxs("span",{children:[U.progress,"% дууссан"]})]}),r.jsxs("div",{className:"flex gap-2",children:[r.jsxs(le,{variant:"outline",size:"sm",className:"flex-1 text-xs border-slate-200 hover:bg-slate-50 hover:text-[#1455BD]",children:[r.jsx(Mf,{className:"w-3.5 h-3.5 mr-1.5"})," Харах"]}),r.jsxs(le,{variant:"outline",size:"sm",className:"flex-1 text-xs border-slate-200 hover:bg-slate-50 hover:text-[#1455BD]",onClick:()=>c("reports"),children:[r.jsx(nn,{className:"w-3.5 h-3.5 mr-1.5"})," Хянах"]}),r.jsxs(le,{size:"sm",className:"flex-1 text-xs bg-white text-[#1455BD] border border-blue-200 hover:bg-blue-50 shadow-sm",onClick:()=>{c("evaluations"),j(U.id)},children:[r.jsx(Vd,{className:"w-3.5 h-3.5 mr-1.5"})," Үнэлэх"]})]})]})]})})]},U.id))})}),r.jsx(Vt,{value:"reports",className:"mt-6",children:d===null?r.jsxs(we,{className:"border-slate-200 shadow-sm",children:[r.jsx(Ye,{className:"border-b border-slate-100 bg-slate-50/50 pb-4",children:r.jsx("div",{className:"flex justify-between items-center",children:r.jsx(vt,{className:"text-lg text-slate-800",children:"Тайлан хянах дараалал"})})}),r.jsx(Te,{className:"p-0",children:r.jsx("div",{className:"divide-y divide-slate-100",children:py.map(U=>r.jsxs("div",{className:"p-4 sm:p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:bg-slate-50 transition-colors",children:[r.jsxs("div",{className:"flex items-start gap-3",children:[r.jsx("div",{className:`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 border ${U.status==="Хянах шаардлагатай"?"bg-orange-50 border-orange-100 text-orange-600":"bg-slate-100 border-slate-200 text-slate-500"}`,children:r.jsx(nn,{className:"w-5 h-5"})}),r.jsxs("div",{children:[r.jsxs("div",{className:"flex items-center gap-2 mb-1",children:[r.jsx("span",{className:"font-bold text-slate-900",children:U.student}),r.jsx(pe,{variant:"outline",className:"text-[10px] text-slate-500 bg-white border-slate-200 uppercase tracking-wide px-1.5 py-0",children:U.type})]}),r.jsxs("p",{className:"text-sm text-slate-600 flex items-center gap-2",children:[r.jsx(lg,{className:"w-3.5 h-3.5"})," ",U.file]}),r.jsxs("p",{className:"text-xs text-slate-400 mt-1 flex items-center",children:[r.jsx(Ns,{className:"w-3 h-3 mr-1"})," Илгээсэн: ",U.date]})]})]}),r.jsxs("div",{className:"flex items-center justify-between md:justify-end gap-4 w-full md:w-auto",children:[U.status==="Хянах шаардлагатай"?r.jsx(pe,{className:"bg-orange-100 text-orange-700 hover:bg-orange-200 border-0",children:"Хянах шаардлагатай"}):r.jsxs(pe,{className:"bg-slate-100 text-slate-700 border-0",children:[r.jsx(Ut,{className:"w-3 h-3 mr-1"})," Хянасан"]}),r.jsxs(le,{size:"sm",className:"bg-[#1455BD] hover:bg-[#0d3a8a] text-white",onClick:()=>m(U.id),children:["Хянах нээх",r.jsx(ai,{className:"w-4 h-4 ml-1"})]})]})]},U.id))})})]}):r.jsxs("div",{className:"grid grid-cols-1 lg:grid-cols-3 gap-6 h-[800px] bg-slate-50 p-4 rounded-xl border border-slate-200",children:[r.jsxs("div",{className:"lg:col-span-2 bg-white rounded-lg border border-slate-300 shadow-sm overflow-hidden flex flex-col",children:[r.jsxs("div",{className:"h-12 border-b border-slate-200 bg-slate-100/50 flex items-center justify-between px-4",children:[r.jsxs("div",{className:"flex items-center gap-2 text-sm font-medium text-slate-700",children:[r.jsx(nn,{className:"w-4 h-4 text-[#1455BD]"}),"Progress1_Garcia.pdf"]}),r.jsxs("div",{className:"flex gap-2",children:[r.jsx(le,{variant:"ghost",size:"sm",className:"h-8 text-slate-500",children:"Томруулах"}),r.jsx(le,{variant:"ghost",size:"sm",className:"h-8 text-slate-500",children:"Татах"})]})]}),r.jsx("div",{className:"flex-1 bg-slate-200/50 p-8 flex justify-center overflow-y-auto",children:r.jsxs("div",{className:"w-full max-w-lg bg-white shadow-md p-10 h-[1000px]",children:[r.jsx("h1",{className:"text-2xl font-bold mb-6 text-center",children:"1-р бүлэг: Оршил"}),r.jsxs("div",{className:"space-y-4 text-slate-300",children:[r.jsx("div",{className:"h-4 bg-slate-200 rounded w-full"}),r.jsx("div",{className:"h-4 bg-slate-200 rounded w-[90%]"}),r.jsx("div",{className:"h-4 bg-slate-200 rounded w-[95%]"}),r.jsx("div",{className:"h-4 bg-slate-200 rounded w-[80%]"}),r.jsx("br",{}),r.jsx("div",{className:"h-4 bg-slate-200 rounded w-full"}),r.jsx("div",{className:"h-4 bg-slate-200 rounded w-[85%]"}),r.jsx("div",{className:"h-4 bg-slate-200 rounded w-[90%]"})]})]})})]}),r.jsxs("div",{className:"bg-white rounded-lg border border-slate-200 shadow-sm flex flex-col",children:[r.jsxs("div",{className:"p-4 border-b border-slate-100",children:[r.jsxs(le,{variant:"ghost",size:"sm",className:"mb-4 -ml-2 text-slate-500 hover:text-[#1455BD]",onClick:()=>m(null),children:[r.jsx(ai,{className:"w-4 h-4 mr-1 rotate-180"})," Дараалал руу буцах"]}),r.jsx("h3",{className:"font-bold text-lg text-slate-900",children:"Maria Garcia"}),r.jsx("p",{className:"text-sm text-slate-500 mb-2",children:"Явцын тайлан 1 • v1"}),r.jsx(pe,{className:"bg-orange-50 text-orange-600 border-orange-100",children:"Хянах шаардлагатай"})]}),r.jsxs("div",{className:"flex-1 p-4 overflow-y-auto space-y-4 bg-slate-50/50",children:[r.jsxs("div",{className:"bg-white border border-slate-200 p-3 rounded-lg shadow-sm text-sm",children:[r.jsx("p",{className:"font-semibold text-slate-800 mb-1",children:"Maria Garcia"}),r.jsx("p",{className:"text-slate-600",children:"Уран зохиолын хяналтын хэсэгт анхаарлаа хандуулсан Явцын тайлан 1-ийг хавсаргав."})]}),h==="success"&&r.jsxs("div",{className:"bg-green-50 border border-green-200 p-3 rounded-lg flex items-center gap-2 text-green-700 text-sm animate-in fade-in duration-300",children:[r.jsx(Ut,{className:"w-4 h-4"})," Үйлдэл амжилттай бүртгэгдлээ!"]})]}),r.jsxs("div",{className:"p-4 border-t border-slate-100 space-y-4",children:[r.jsx("textarea",{className:"w-full text-sm border border-slate-300 rounded-lg p-3 outline-none focus:border-[#1455BD] focus:ring-1 focus:ring-[#1455BD] resize-none h-24",placeholder:"Санал хүсэлтээ бичнэ үү...",value:p,onChange:U=>g(U.target.value)}),r.jsxs("div",{className:"grid grid-cols-2 gap-2",children:[r.jsxs(le,{variant:"outline",className:"border-orange-200 text-orange-700 hover:bg-orange-50 text-xs h-9",onClick:()=>_(),disabled:h!=="idle",children:[r.jsx(Cg,{className:"w-3.5 h-3.5 mr-1.5"})," Засвар хүсэх"]}),r.jsxs(le,{className:"bg-green-600 hover:bg-green-700 text-white text-xs h-9",onClick:()=>_(),disabled:h!=="idle",children:[r.jsx(rg,{className:"w-3.5 h-3.5 mr-1.5"})," Зөвшөөрөх"]})]})]})]})]})}),r.jsx(Vt,{value:"evaluations",className:"mt-6",children:N===null?r.jsxs("div",{className:"text-center py-12 bg-slate-50 border border-slate-200 rounded-xl",children:[r.jsx(Vd,{className:"w-12 h-12 text-slate-300 mx-auto mb-4"}),r.jsx("h3",{className:"text-lg font-semibold text-slate-700",children:"Үнэлэх оюутан сонгоно уу"}),r.jsx("p",{className:"text-sm text-slate-500 mt-1 max-w-sm mx-auto",children:'Оюутны жагсаалт руу очоод "Үнэлэх" дарна уу.'})]}):r.jsxs(we,{className:"border-slate-200 shadow-sm max-w-3xl mx-auto",children:[r.jsxs(Ye,{className:"bg-slate-50/50 border-b border-slate-100",children:[r.jsxs("div",{className:"flex justify-between items-center mb-1",children:[r.jsx(vt,{className:"text-lg text-slate-900",children:"Явцын тайлан 1-ийн үнэлгээний маягт"}),r.jsx(le,{variant:"ghost",size:"sm",className:"text-slate-500",onClick:()=>j(null),children:"Хаах"})]}),r.jsxs(ji,{children:["Үнэлж байгаа: ",r.jsx("strong",{children:(H=Zd.find(U=>U.id===N))==null?void 0:H.name})]})]}),r.jsx(Te,{className:"p-0",children:r.jsxs("div",{className:"divide-y divide-slate-100",children:[r.jsxs("div",{className:"grid grid-cols-12 gap-4 p-4 bg-slate-50/80 text-xs font-bold text-slate-500 uppercase tracking-widest",children:[r.jsx("div",{className:"col-span-6",children:"Үнэлгээний шалгуур"}),r.jsx("div",{className:"col-span-3 text-center",children:"Оноо"}),r.jsx("div",{className:"col-span-3 text-center",children:"Дээд"})]}),hy.map(U=>r.jsxs("div",{className:"grid grid-cols-12 gap-4 p-4 items-center hover:bg-slate-50 transition-colors",children:[r.jsx("div",{className:"col-span-6",children:r.jsx("p",{className:"font-medium text-slate-800 text-sm",children:U.name})}),r.jsx("div",{className:"col-span-3 flex justify-center",children:r.jsx("input",{type:"number",min:0,max:U.max,className:"w-16 border border-slate-300 rounded-md py-1 px-2 text-center text-sm focus:outline-none focus:border-[#1455BD]",value:T[U.id]||"",onChange:ie=>A({...T,[U.id]:parseInt(ie.target.value)||0})})}),r.jsxs("div",{className:"col-span-3 text-center text-slate-500 font-medium text-sm",children:["/ ",U.max]})]},U.id)),r.jsxs("div",{className:"p-6 bg-slate-50 border-t-2 border-slate-200",children:[r.jsxs("div",{className:"flex justify-between items-center mb-6",children:[r.jsx("h4",{className:"text-lg font-bold text-slate-800",children:"Нийт оноо"}),r.jsxs("div",{className:"flex items-baseline gap-1",children:[r.jsx("span",{className:"text-3xl font-extrabold text-[#1455BD]",children:D}),r.jsx("span",{className:"text-slate-500 font-medium",children:"/ 100"})]})]}),I==="success"?r.jsxs("div",{className:"bg-green-50 border border-green-200 text-green-700 p-4 rounded-lg flex items-center justify-center gap-2 font-medium animate-in fade-in zoom-in duration-300",children:[r.jsx(Ut,{className:"w-5 h-5"})," Үнэлгээ амжилттай хадгалагдлаа!"]}):r.jsx(le,{className:"w-full bg-[#1455BD] hover:bg-[#0d3a8a] text-white shadow-sm",size:"lg",onClick:R,disabled:I==="loading",children:I==="loading"?"Илгааж байна...":"Үнэлгээ илгаах"})]})]})})]})})]})]})}const yr=x.forwardRef(({className:l,type:u,...o},c)=>r.jsx("input",{type:u,className:Je("flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",l),ref:c,...o}));yr.displayName="Input";const ms=x.forwardRef(({className:l,...u},o)=>r.jsx("textarea",{className:Je("flex min-h-[60px] w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",l),ref:o,...u}));ms.displayName="Textarea";function _i({open:l,onClose:u,children:o,maxWidth:c="max-w-md",scrollable:d=!1,closeOnOverlayClick:m=!0}){return x.useEffect(()=>{if(!l)return;const p=g=>{g.key==="Escape"&&u()};return document.addEventListener("keydown",p),()=>document.removeEventListener("keydown",p)},[l,u]),x.useEffect(()=>(l?document.body.style.overflow="hidden":document.body.style.overflow="",()=>{document.body.style.overflow=""}),[l]),l?r.jsx("div",{className:"fixed inset-0 z-50 flex items-center justify-center p-4",style:{backgroundColor:"rgba(0,0,0,0.22)"},onClick:m?u:void 0,children:r.jsx("div",{className:`relative w-full ${c} bg-white border border-slate-200 rounded-2xl shadow-xl ${d?"max-h-[90vh] overflow-hidden flex flex-col":""}`,onClick:p=>p.stopPropagation(),children:o})}):null}function Ri({title:l,icon:u,onClose:o}){return r.jsxs("div",{className:"flex items-center justify-between px-6 py-4 border-b border-slate-100 shrink-0",children:[r.jsxs("div",{className:"flex items-center gap-2.5",children:[u&&r.jsx("span",{className:"text-[#1455BD]",children:u}),r.jsx("h2",{className:"text-lg font-bold text-slate-900",children:l})]}),r.jsx("button",{onClick:o,className:"text-slate-400 hover:text-slate-700 hover:bg-slate-100 rounded-lg p-1.5 transition-colors","aria-label":"Хаах",children:r.jsx(wr,{className:"w-4 h-4"})})]})}function Pi({children:l,className:u=""}){return r.jsx("div",{className:`px-6 py-5 ${u}`,children:l})}function Ti({children:l}){return r.jsx("div",{className:"flex gap-3 px-6 py-4 border-t border-slate-100 shrink-0",children:l})}const gy=[{id:1,title:"Гүн суралцахуйн аргаар эмнэлгийн зургийн оношлогоо",description:"Конволюцын нейрон сүлжээг ашиглан...",field:"Хиймэл оюун ухаан",status:"published",capacity:2,taken:1},{id:2,title:"Тэжээвэр амьтдын өвчнийг таних аппликейшн",description:"Computer vision ашиглан...",field:"Хиймэл оюун ухаан",status:"draft",capacity:1,taken:0},{id:3,title:"Рендеринг хурдасгах шинэ алгоритм",description:"WebGL ашиглан...",field:"Компьютер график",status:"dept_review",capacity:1,taken:0}],vy=[{id:1,name:"Б.Батбаяр",title:"Эмнэлгийн зургийн оношлогоонд гүн суралцахуй",status:"revision_submitted",lastUpdated:"2026-03-22",planData:[{week:1,task:"Уран зохиолын тойм",status:"completed",fb:""},{week:2,task:"Судалгааны арга зүй",status:"completed",fb:"Сайн байна. Үргэлжлүүлээрэй."},{week:3,task:"Өгөгдлийн цуглуулга",status:"in_progress",fb:"",revisionReply:"Өгөгдлийн хэмжээг 50,000 зураг байхаар засав."}]},{id:2,name:"А.Анар",title:"Цахим худалдааны зөвлөх систем",status:"submitted",lastUpdated:"2026-03-20",planData:[{week:1,task:"Шаардлага тодорхойлох",status:"completed",fb:""},{week:2,task:"Архитектур гаргах",status:"pending",fb:""}]}];function yy(){const[l,u]=x.useState("topics"),[o,c]=x.useState(gy),[d,m]=x.useState(!1),[p,g]=x.useState(null),[h,y]=x.useState({title:"",description:"",field:"",capacity:1}),[N,j]=x.useState(null),[T,A]=x.useState({}),[I,M]=x.useState(null),D=R=>{c(p?o.map(S=>S.id===p?{...S,...h,status:R}:S):[...o,{id:Date.now(),...h,status:R,taken:0}]),m(!1),g(null),y({title:"",description:"",field:"",capacity:1})},_=R=>{y({title:R.title,description:R.description,field:R.field,capacity:R.capacity}),g(R.id),m(!0)};return r.jsxs("div",{className:"space-y-6",children:[r.jsxs("div",{className:"flex bg-slate-100 p-1 rounded-lg w-fit",children:[r.jsx("button",{onClick:()=>u("topics"),className:`px-4 py-2 text-sm font-medium rounded-md transition-all ${l==="topics"?"bg-white text-[#1455BD] shadow-sm":"text-slate-600 hover:text-slate-900"}`,children:"Миний дэвшүүлсэн сэдвүүд"}),r.jsxs("button",{onClick:()=>u("plans"),className:`px-4 py-2 text-sm font-medium rounded-md transition-all ${l==="plans"?"bg-white text-[#1455BD] shadow-sm flex items-center gap-2":"text-slate-600 hover:text-slate-900 flex items-center gap-2"}`,children:["Оюутны төлөвлөгөө хянах",r.jsx(pe,{className:"bg-rose-100 text-rose-700 hover:bg-rose-200 px-1.5 py-0",children:"2"})]})]}),l==="topics"&&r.jsxs("div",{className:"space-y-6 animate-in fade-in",children:[d?r.jsxs(we,{className:"border-slate-200 shadow-sm ring-1 ring-[#1455BD]/20 mb-6 bg-white",children:[r.jsx(Ye,{className:"border-b border-slate-100 pb-4",children:r.jsxs("div",{className:"flex justify-between items-center",children:[r.jsxs(vt,{className:"text-lg flex items-center gap-2",children:[r.jsx(hs,{className:"w-5 h-5 text-[#1455BD]"}),p?"Сэдэв засварлах":"Шинэ сэдэв дэвшүүлэх"]}),r.jsx("button",{onClick:()=>{m(!1),g(null)},className:"text-slate-400 hover:text-slate-600 p-1.5",children:r.jsx(wr,{className:"w-4 h-4"})})]})}),r.jsxs(Te,{className:"p-6 space-y-4",children:[r.jsxs("div",{className:"grid grid-cols-1 md:grid-cols-2 gap-4",children:[r.jsxs("div",{className:"md:col-span-2",children:[r.jsx("label",{className:"text-sm font-medium text-slate-700 mb-1 block",children:"Сэдвийн нэр"}),r.jsx(yr,{value:h.title,onChange:R=>y({...h,title:R.target.value}),placeholder:"Сэдвийн нэр..."})]}),r.jsxs("div",{children:[r.jsx("label",{className:"text-sm font-medium text-slate-700 mb-1 block",children:"Чиглэл"}),r.jsx(yr,{value:h.field,onChange:R=>y({...h,field:R.target.value}),placeholder:"AI, Blockchain, Web..."})]}),r.jsxs("div",{children:[r.jsx("label",{className:"text-sm font-medium text-slate-700 mb-1 block",children:"Оюутны тоо (Багтаамж)"}),r.jsx(yr,{type:"number",min:"1",value:h.capacity,onChange:R=>y({...h,capacity:parseInt(R.target.value)||1})})]}),r.jsxs("div",{className:"md:col-span-2",children:[r.jsx("label",{className:"text-sm font-medium text-slate-700 mb-1 block",children:"Тайлбар"}),r.jsx(ms,{value:h.description,onChange:R=>y({...h,description:R.target.value}),placeholder:"Сэдвийн тухай дэлгэрэнгүй...",rows:3})]})]}),r.jsxs("div",{className:"flex gap-3 justify-end pt-4 border-t border-slate-100",children:[r.jsx(le,{variant:"outline",onClick:()=>D("draft"),children:"Ноорог хадгалах"}),r.jsx(le,{className:"bg-[#1455BD] text-white",onClick:()=>D("dept_review"),children:"Тэнхим рүү илгээх"})]})]})]}):r.jsxs("div",{className:"flex justify-between items-center bg-white p-4 rounded-xl border border-slate-200 shadow-sm",children:[r.jsxs("div",{children:[r.jsx("h3",{className:"font-semibold text-slate-800",children:"Сэдвийн сан удирдлага"}),r.jsx("p",{className:"text-sm text-slate-500",children:"Оюутнуудад санал болгох сэдвүүдээ энд оруулна уу."})]}),r.jsxs(le,{className:"bg-[#1455BD] hover:bg-[#0d3a8a] text-white",onClick:()=>m(!0),children:[r.jsx(Ng,{className:"w-4 h-4 mr-2"})," Шинэ сэдэв нэмэх"]})]}),r.jsx("div",{className:"grid grid-cols-1 md:grid-cols-2 gap-6",children:o.map(R=>r.jsxs(we,{className:"border-slate-200 shadow-sm bg-white flex flex-col hover:border-blue-200 transition-colors",children:[r.jsxs(Ye,{className:"pb-3 flex-1",children:[r.jsxs("div",{className:"flex justify-between items-start mb-2",children:[r.jsx(pe,{variant:"outline",className:R.status==="published"?"bg-emerald-50 text-emerald-700 border-emerald-200":R.status==="dept_review"?"bg-amber-50 text-amber-700 border-amber-200":"bg-slate-100 text-slate-600",children:R.status==="published"?"Батлагдсан":R.status==="dept_review"?"Тэнхим батлах хүлээгдэж байна":"Ноорог"}),r.jsxs(pe,{variant:"outline",className:"bg-blue-50/50 text-[#1455BD] border-blue-100",children:[R.taken,"/",R.capacity," хүн"]})]}),r.jsx(vt,{className:"text-lg leading-tight mb-2",children:R.title}),r.jsx(ji,{className:"line-clamp-2",children:R.description})]}),r.jsxs("div",{className:"p-4 border-t border-slate-100 bg-slate-50 flex justify-end gap-2 text-sm mt-auto",children:[r.jsxs(le,{variant:"ghost",size:"sm",className:"h-8 text-slate-600 hover:text-[#1455BD]",onClick:()=>_(R),children:[r.jsx(wg,{className:"w-4 h-4 mr-1.5"})," Засах"]}),r.jsxs(le,{variant:"ghost",size:"sm",className:"h-8 text-rose-600 hover:bg-rose-50",onClick:()=>c(o.filter(S=>S.id!==R.id)),children:[r.jsx(Mg,{className:"w-4 h-4 mr-1.5"})," Устгах"]})]})]},R.id))})]}),l==="plans"&&r.jsxs("div",{className:"grid grid-cols-1 lg:grid-cols-3 gap-6 animate-in fade-in",children:[r.jsxs(we,{className:"lg:col-span-1 border-slate-200 shadow-sm h-fit",children:[r.jsx(Ye,{className:"pb-4 border-b border-slate-100 bg-slate-50/50",children:r.jsxs(vt,{className:"text-base flex items-center gap-2",children:[r.jsx(Gn,{className:"w-4 h-4 text-[#1455BD]"})," Төлөвлөгөө илгээсэн оюутнууд"]})}),r.jsx("div",{className:"p-2 space-y-1",children:vy.map(R=>r.jsxs("button",{onClick:()=>j(R),className:`w-full text-left p-3 rounded-lg transition-all ${(N==null?void 0:N.id)===R.id?"bg-blue-50 border border-blue-200 shadow-sm":"hover:bg-slate-50 border border-transparent"}`,children:[r.jsxs("div",{className:"flex items-center gap-3",children:[r.jsx(ft,{className:"h-8 w-8 border border-white shadow-sm",children:r.jsx(mt,{className:"bg-[#1455BD] text-white text-xs",children:R.name[0]})}),r.jsxs("div",{className:"flex-1 min-w-0",children:[r.jsx("p",{className:`font-semibold text-sm truncate ${(N==null?void 0:N.id)===R.id?"text-[#1455BD]":"text-slate-900"}`,children:R.name}),r.jsx("p",{className:"text-xs text-slate-500 truncate",children:R.title})]})]}),r.jsxs("div",{className:"mt-2 flex justify-between items-center",children:[r.jsx(pe,{variant:"outline",className:`text-[10px] px-1.5 py-0 flex items-center gap-1 ${R.status==="revision_submitted"?"bg-amber-50 text-amber-700 border-amber-200":"bg-blue-50 text-blue-700 border-blue-200"}`,children:R.status==="revision_submitted"?"Засвар ирсэн":"Шинэ төлөвлөгөө"}),r.jsx("span",{className:"text-[10px] text-slate-400",children:R.lastUpdated})]})]},R.id))})]}),r.jsx("div",{className:"lg:col-span-2",children:N?r.jsxs(we,{className:"border-slate-200 shadow-sm bg-white overflow-hidden animate-in fade-in",children:[r.jsx(Ye,{className:"bg-slate-50/80 border-b border-slate-100 pb-4",children:r.jsxs("div",{className:"flex justify-between items-start gap-4",children:[r.jsxs("div",{children:[r.jsx("h3",{className:"font-bold text-lg text-slate-900 mb-1 uppercase tracking-tight",children:N.name}),r.jsx("p",{className:"text-slate-600 text-sm",children:N.title})]}),r.jsxs("div",{className:"flex gap-2 shrink-0",children:[r.jsxs(le,{variant:"outline",className:"border-rose-200 text-rose-700 hover:bg-rose-50",onClick:()=>M("reject"),children:[r.jsx(wi,{className:"w-4 h-4 mr-2"})," Засварт буцаах"]}),r.jsxs(le,{className:"bg-[#1455BD] hover:bg-[#0d3a8a] text-white",onClick:()=>M("approve"),children:[r.jsx(Rn,{className:"w-4 h-4 mr-2"})," Батлах"]})]})]})}),r.jsx(Te,{className:"p-0",children:r.jsxs("div",{className:"p-4 space-y-4",children:[r.jsxs("div",{className:"flex items-center gap-2 mb-2 text-sm text-slate-500",children:[r.jsx(Ct,{className:"w-4 h-4 text-blue-500"}),"Төлөвлөгөөг хэсэгчлэн биш, бүтнээр нь батлах эсвэл няцаах горимтой."]}),r.jsx("div",{className:"space-y-3",children:N.planData.map(R=>r.jsx("div",{className:"border border-slate-200 rounded-xl bg-white shadow-sm overflow-hidden group",children:r.jsxs("div",{className:"p-4 flex gap-4",children:[r.jsxs("div",{className:"flex flex-col items-center justify-center w-12 h-12 rounded-lg bg-slate-50 border border-slate-100 shrink-0",children:[r.jsx("span",{className:"text-[10px] font-semibold text-slate-500 uppercase",children:"Долоо"}),r.jsx("span",{className:"text-lg font-bold text-slate-800 leading-none",children:R.week})]}),r.jsxs("div",{className:"flex-1",children:[r.jsx("h4",{className:"font-semibold text-slate-800 mb-1",children:R.task}),r.jsx("p",{className:"text-sm text-slate-600 line-clamp-2",children:"Энэ долоо хоногт хийгдэх ажлын дэлгэрэнгүй тайлбар энд харагдана..."}),R.revisionReply&&r.jsxs("div",{className:"mt-3 bg-amber-50/50 border border-amber-100 p-3 rounded-lg text-sm text-amber-900",children:[r.jsxs("strong",{className:"font-semibold flex items-center gap-1.5 mb-1",children:[r.jsx(Ct,{className:"w-3.5 h-3.5"})," Оюутны засварын тайлбар:"]}),R.revisionReply]}),r.jsxs("div",{className:"mt-4 pt-3 border-t border-slate-100",children:[r.jsx("label",{className:"text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2 block",children:"Энэ долоо хоногт өгөх санал хүсэлт"}),r.jsx(ms,{placeholder:"Жишээ: Арга зүйг илүү тодорхой болгоно уу...",className:"text-sm min-h-[60px] resize-none border-slate-200 focus:border-[#1455BD]",value:T[R.week]||"",onChange:S=>A({...T,[R.week]:S.target.value})})]})]})]})},R.week))})]})})]}):r.jsxs(we,{className:"border-slate-200 border-dashed h-96 flex flex-col items-center justify-center bg-white",children:[r.jsx("div",{className:"w-16 h-16 bg-slate-50 rounded-full flex items-center justify-center mb-4",children:r.jsx(nn,{className:"w-8 h-8 text-slate-300"})}),r.jsx("p",{className:"text-slate-500",children:"Зүүн талаас оюутан сонгож төлөвлөгөөг хянах боломжтой"})]})})]}),r.jsxs(_i,{open:!!I,onClose:()=>M(null),children:[r.jsx(Ri,{title:I==="approve"?"Төлөвлөгөө батлах":"Засварт буцаах",icon:I==="approve"?r.jsx(Rn,{className:"w-5 h-5 text-[#1455BD]"}):r.jsx(Ct,{className:"w-5 h-5 text-rose-600"}),onClose:()=>M(null)}),r.jsx(Pi,{children:I==="approve"?r.jsxs("p",{className:"text-slate-600",children:["Та ",r.jsx("strong",{children:N==null?void 0:N.name})," оюутны 15 долоо хоногийн төлөвлөгөөг батлах гэж байна. Баталсны дараа тэнхимийн эрхлэгч рүү баталгаажуулалтад шилжих болно."]}):r.jsxs("div",{className:"space-y-4",children:[r.jsxs("p",{className:"text-slate-600",children:["Та ",r.jsx("strong",{children:N==null?void 0:N.name})," оюутны төлөвлөгөөг буцаах гэж байна. Оюутанд очих ерөнхий санал хүсэлтээ доор бичнэ үү. (Мөн долоо хоног тус бүр дээр бичсэн тайлбарууд хавсрагдана)."]}),r.jsx(ms,{placeholder:"Ерөнхий санал хүсэлт...",rows:3,className:"text-sm"})]})}),r.jsxs(Ti,{children:[r.jsx(le,{variant:"outline",onClick:()=>M(null),children:"Цуцлах"}),r.jsx(le,{className:I==="approve"?"bg-[#1455BD] hover:bg-[#0d3a8a] text-white":"bg-rose-600 hover:bg-rose-700 text-white",onClick:()=>{j(null),M(null)},children:I==="approve"?"Батлах":"Буцаах"})]})]})]})}const wy=[{id:1,student:"А.Анар",studentId:"20B1NUM0001",email:"anar@num.edu.mn",department:"Мэдээллийн технологи",topicTitle:"Тэжээвэр амьтдын өвчнийг таних аппликейшн",topicField:"Хиймэл оюун ухаан",status:"pending",requestedDate:"2026-03-22 10:30",motivation:"Би өмнө нь computer vision чиглэлээр бие даалт хийж байсан бөгөөд энэ сэдэв миний сонирхлыг маш их татаж байна.",gpa:3.4},{id:2,student:"Б.Болор",studentId:"21B1NUM0102",email:"bolor@num.edu.mn",department:"Компьютерын ухаан",topicTitle:"Гүн суралцахуйн аргаар эмнэлгийн зургийн оношлогоо",topicField:"Хиймэл оюун ухаан",status:"pending",requestedDate:"2026-03-21 15:45",motivation:"Эмнэлгийн өгөгдөл дээр ажиллах хүсэлтэй бөгөөд өмнөх улиралд Deep Learning хичээл дээр энэ чиглэлээр судалгаа хийсэн.",gpa:3.8}];function by(){const[l,u]=x.useState(wy),[o,c]=x.useState(null),[d,m]=x.useState(null),p=()=>{o&&d&&(u(l.filter(g=>g.id!==o.id)),m(null),c(null))};return r.jsxs("div",{className:"space-y-6",children:[r.jsxs("div",{className:"grid grid-cols-1 lg:grid-cols-3 gap-6 animate-in fade-in",children:[r.jsxs(we,{className:"lg:col-span-1 border-slate-200 shadow-sm h-fit",children:[r.jsx(Ye,{className:"pb-4 border-b border-slate-100 bg-slate-50/50",children:r.jsxs(vt,{className:"text-base flex items-center gap-2",children:[r.jsx(Pf,{className:"w-4 h-4 text-amber-600"})," Ирсэн хүсэлтүүд (",l.length,")"]})}),r.jsx("div",{className:"p-2 space-y-1",children:l.length===0?r.jsx("div",{className:"text-center p-6 text-slate-500 text-sm",children:"Шинэ хүсэлт байхгүй байна."}):l.map(g=>r.jsxs("button",{onClick:()=>c(g),className:`w-full text-left p-3 rounded-lg transition-all ${(o==null?void 0:o.id)===g.id?"bg-amber-50 border border-amber-200 shadow-sm":"hover:bg-slate-50 border border-transparent"}`,children:[r.jsxs("div",{className:"flex items-center gap-3",children:[r.jsx(ft,{className:"h-10 w-10 border border-white shadow-sm ring-2 ring-amber-50",children:r.jsx(mt,{className:"bg-amber-100 text-amber-700 font-bold",children:g.student[0]})}),r.jsxs("div",{className:"flex-1 min-w-0",children:[r.jsx("p",{className:`font-semibold text-sm truncate ${(o==null?void 0:o.id)===g.id?"text-amber-900":"text-slate-900"}`,children:g.student}),r.jsx("p",{className:"text-xs text-slate-500 truncate mt-0.5",children:g.topicTitle})]})]}),r.jsxs("div",{className:"mt-3 flex justify-between items-center bg-white/50 px-2 py-1 rounded-md text-[10px] text-slate-500",children:[r.jsxs("span",{className:"flex items-center gap-1",children:[r.jsx(ln,{className:"w-3 h-3"})," ",g.requestedDate.split(" ")[0]]}),r.jsxs("span",{children:["Үнэлгээ: ",r.jsx("strong",{className:"text-amber-600",children:g.gpa})]})]})]},g.id))})]}),r.jsx("div",{className:"lg:col-span-2",children:o?r.jsxs(we,{className:"border-slate-200 shadow-sm bg-white overflow-hidden animate-in fade-in",children:[r.jsx(Ye,{className:"bg-slate-50/80 border-b border-slate-100 pb-5",children:r.jsxs("div",{className:"flex justify-between items-start gap-4 flex-wrap",children:[r.jsxs("div",{className:"flex items-center gap-4",children:[r.jsx(ft,{className:"h-14 w-14 border border-white shadow-md ring-2 ring-slate-100",children:r.jsx(mt,{className:"bg-slate-200 text-slate-700 text-xl font-bold",children:o.student[0]})}),r.jsxs("div",{children:[r.jsx("h3",{className:"font-bold text-xl text-slate-900 mb-1",children:o.student}),r.jsxs("div",{className:"flex items-center gap-3 text-sm text-slate-500",children:[r.jsxs("span",{className:"flex items-center gap-1",children:[r.jsx(If,{className:"w-3.5 h-3.5"})," ",o.studentId]}),r.jsxs("span",{className:"flex items-center gap-1",children:[r.jsx(Df,{className:"w-3.5 h-3.5"})," ",o.email]})]})]})]}),r.jsxs("div",{className:"flex gap-2 shrink-0",children:[r.jsxs(le,{variant:"outline",className:"border-rose-200 text-rose-700 hover:bg-rose-50 hover:text-rose-800",onClick:()=>m("reject"),children:[r.jsx(wi,{className:"w-4 h-4 mr-2"})," Татгалзах"]}),r.jsxs(le,{className:"bg-[#1455BD] hover:bg-[#0d3a8a] text-white",onClick:()=>m("approve"),children:[r.jsx(Rn,{className:"w-4 h-4 mr-2"})," Батлах"]})]})]})}),r.jsx(Te,{className:"p-0",children:r.jsxs("div",{className:"p-6 space-y-6",children:[r.jsxs("div",{className:"bg-amber-50/50 border border-amber-100/50 rounded-xl p-5",children:[r.jsx("p",{className:"text-xs font-semibold text-amber-800 uppercase tracking-wider mb-2",children:"Хүсэлт гаргасан сэдэв"}),r.jsx("h4",{className:"text-lg font-bold text-slate-900 mb-2",children:o.topicTitle}),r.jsx(pe,{variant:"outline",className:"bg-white text-amber-700 border-amber-200",children:o.topicField})]}),r.jsxs("div",{className:"grid grid-cols-2 gap-6",children:[r.jsxs("div",{children:[r.jsx("h5",{className:"text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2",children:"Оюутны голч дүн (GPA)"}),r.jsx("span",{className:"text-2xl font-bold text-[#1455BD]",children:o.gpa})]}),r.jsxs("div",{children:[r.jsx("h5",{className:"text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2",children:"Суралцаж буй хөтөлбөр"}),r.jsx("span",{className:"text-sm font-medium text-slate-800",children:o.department})]})]}),r.jsxs("div",{children:[r.jsx("h5",{className:"text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3",children:"Сэдвийг сонгох шалтгаан (Motivation)"}),r.jsxs("div",{className:"bg-slate-50 rounded-xl p-5 border border-slate-100 text-slate-700 leading-relaxed text-sm",children:['"',o.motivation,'"']})]})]})})]}):r.jsxs(we,{className:"border-slate-200 border-dashed h-96 flex flex-col items-center justify-center bg-white",children:[r.jsx("div",{className:"w-16 h-16 bg-slate-50 rounded-full flex items-center justify-center mb-4",children:r.jsx(hs,{className:"w-8 h-8 text-slate-300"})}),r.jsx("p",{className:"text-slate-500 text-sm",children:"Зүүн талаас хүсэлт сонгож дэлгэрэнгүй мэдээллийг харна уу."})]})})]}),r.jsxs(_i,{open:!!d,onClose:()=>m(null),children:[r.jsx(Ri,{title:d==="approve"?"Хүсэлтийг батлах":"Хүсэлтээс татгалзах",icon:d==="approve"?r.jsx(Rn,{className:"w-5 h-5 text-[#1455BD]"}):r.jsx(Ct,{className:"w-5 h-5 text-rose-600"}),onClose:()=>m(null)}),r.jsx(Pi,{children:d==="approve"?r.jsxs("p",{className:"text-slate-600",children:["Та оюутан ",r.jsx("strong",{children:o==null?void 0:o.student}),"-ийн сонгосон хүсэлтийг батлахдаа итгэлтэй байна уу? Баталсны дараа уг оюутан үечилсэн төлөвлөгөө гаргаж эхлэх бөгөөд таны удирдсан оюутнуудын жагсаалт руу орох болно."]}):r.jsxs("p",{className:"text-slate-600",children:["Та оюутан ",r.jsx("strong",{children:o==null?void 0:o.student}),"-ийн хүсэлтээс татгалзах гэж байна. Оюутанд санал болгох өөр сэдэв сонгох боломж олгогдоно."]})}),r.jsxs(Ti,{children:[r.jsx(le,{variant:"outline",onClick:()=>m(null),children:"Цуцлах"}),r.jsx(le,{className:d==="approve"?"bg-[#1455BD] hover:bg-[#0d3a8a] text-white":"bg-rose-600 hover:bg-rose-700 text-white",onClick:p,children:d==="approve"?"Баталгаажуулах":"Татгалзах"})]})]})]})}const Ny=[{id:1,student:"Г.Гантулга",studentId:"20B1NUM0203",email:"gantulga@num.edu.mn",department:"Мэдээллийн технологи",title:"Монгол хэлний дуу таних систем",description:"Монгол хэлний ярианы мэдрэх, таних тогтолцоо боловсруулах.",goal:"Монгол хэлний ярианы таних нарийвчлалыг дэвшилтэт ML аргаар сайжруулах.",keywords:["Speech Recognition","NLP","Mongolian"],status:"pending",submittedDate:"2026-03-20 14:15"}];function jy(){const[l,u]=x.useState(Ny),[o,c]=x.useState(null),[d,m]=x.useState(null),[p,g]=x.useState(""),h=()=>{o&&d&&(d==="approve"?(u(l.map(y=>y.id===o.id?{...y,status:"dept_review"}:y)),c(null)):d==="reject"?(u(l.map(y=>y.id===o.id?{...y,status:"rejected"}:y)),c(null)):d==="feedback"&&(u(l.map(y=>y.id===o.id?{...y,status:"feedback"}:y)),c(null)),m(null),g(""))};return r.jsxs("div",{className:"space-y-6",children:[r.jsxs("div",{className:"grid grid-cols-1 lg:grid-cols-3 gap-6 animate-in fade-in",children:[r.jsxs(we,{className:"lg:col-span-1 border-slate-200 shadow-sm h-fit",children:[r.jsx(Ye,{className:"pb-4 border-b border-slate-100 bg-slate-50/50",children:r.jsxs(vt,{className:"text-base flex items-center gap-2",children:[r.jsx(Pf,{className:"w-4 h-4 text-[#1455BD]"})," Оюутны дэвшүүлсэн сэдэв (",l.length,")"]})}),r.jsx("div",{className:"p-2 space-y-1",children:l.length===0?r.jsx("div",{className:"text-center p-6 text-slate-500 text-sm",children:"Одоогоор хүлээгдэж буй сэдэв алга байна."}):l.map(y=>r.jsxs("button",{onClick:()=>c(y),className:`w-full text-left p-3 rounded-lg transition-all ${(o==null?void 0:o.id)===y.id?"bg-blue-50 border border-blue-200 shadow-sm":"hover:bg-slate-50 border border-transparent"}`,children:[r.jsxs("div",{className:"flex items-center gap-3",children:[r.jsx(ft,{className:"h-10 w-10 border border-white shadow-sm ring-2 ring-blue-50",children:r.jsx(mt,{className:"bg-blue-100 text-[#1455BD] font-bold",children:y.student[0]})}),r.jsxs("div",{className:"flex-1 min-w-0",children:[r.jsx("p",{className:`font-semibold text-sm truncate ${(o==null?void 0:o.id)===y.id?"text-[#1455BD]":"text-slate-900"}`,children:y.student}),r.jsx("p",{className:"text-xs text-slate-500 truncate mt-0.5",children:y.title})]})]}),r.jsxs("div",{className:"mt-3 flex justify-between items-center bg-white/50 px-2 py-1 rounded-md text-[10px] text-slate-500",children:[r.jsxs("span",{className:"flex items-center gap-1",children:[r.jsx(ln,{className:"w-3 h-3"})," ",y.submittedDate.split(" ")[0]]}),r.jsx(pe,{variant:"outline",className:`text-[9px] px-1.5 py-0 ${y.status==="pending"?"bg-blue-50 text-blue-700":y.status==="dept_review"?"bg-amber-50 text-amber-700 border-amber-200":y.status==="rejected"?"bg-rose-50 text-rose-700 border-rose-200":"bg-slate-100 text-slate-600"}`,children:y.status==="pending"?"Багш хяналтанд":y.status==="dept_review"?"Тэнхим хяналтанд":y.status==="rejected"?"Татгалзсан":"Засварт буцсан"})]})]},y.id))})]}),r.jsx("div",{className:"lg:col-span-2",children:o?r.jsxs(we,{className:"border-slate-200 shadow-sm bg-white overflow-hidden animate-in fade-in",children:[r.jsx(Ye,{className:"bg-slate-50/80 border-b border-slate-100 pb-5",children:r.jsxs("div",{className:"flex justify-between items-start gap-4 flex-wrap",children:[r.jsxs("div",{className:"flex items-center gap-4",children:[r.jsx(ft,{className:"h-14 w-14 border border-white shadow-md ring-2 ring-slate-100",children:r.jsx(mt,{className:"bg-slate-200 text-slate-700 text-xl font-bold",children:o.student[0]})}),r.jsxs("div",{children:[r.jsx("h3",{className:"font-bold text-xl text-slate-900 mb-1",children:o.student}),r.jsxs("div",{className:"flex items-center gap-3 text-sm text-slate-500",children:[r.jsxs("span",{className:"flex items-center gap-1",children:[r.jsx(If,{className:"w-3.5 h-3.5"})," ",o.studentId]}),r.jsxs("span",{className:"flex items-center gap-1",children:[r.jsx(Df,{className:"w-3.5 h-3.5"})," ",o.email]})]})]})]}),r.jsxs("div",{className:"flex gap-2 shrink-0",children:[o.status==="pending"&&r.jsxs(r.Fragment,{children:[r.jsxs(le,{variant:"outline",className:"border-rose-200 text-rose-700 hover:bg-rose-50 hover:text-rose-800",onClick:()=>m("reject"),children:[r.jsx(wi,{className:"w-4 h-4 mr-2"})," Татгалзах"]}),r.jsxs(le,{variant:"outline",className:"border-amber-200 text-amber-700 hover:bg-amber-50 hover:text-amber-800",onClick:()=>m("feedback"),children:[r.jsx(xs,{className:"w-4 h-4 mr-2"})," Засвар шаардах"]}),r.jsxs(le,{className:"bg-[#1455BD] hover:bg-[#0d3a8a] text-white",onClick:()=>m("approve"),children:[r.jsx(Rn,{className:"w-4 h-4 mr-2"})," Батлах"]})]}),o.status==="dept_review"&&r.jsxs(pe,{className:"bg-amber-50 text-amber-700 border border-amber-300 hover:bg-amber-100 px-3 py-1.5 align-middle",children:[r.jsx(Ct,{className:"w-4 h-4 mr-1.5"})," Тэнхим батлах хүлээгдэж байна"]})]})]})}),r.jsx(Te,{className:"p-0",children:r.jsxs("div",{className:"p-6 space-y-6",children:[r.jsxs("div",{className:"bg-blue-50/30 border border-blue-100/50 rounded-xl p-5",children:[r.jsx("p",{className:"text-xs font-semibold text-[#1455BD] uppercase tracking-wider mb-2",children:"Оюутны дэвшүүлсэн сэдвийн нэр"}),r.jsx("h4",{className:"text-xl font-bold text-slate-900 mb-2",children:o.title}),r.jsx("div",{className:"flex gap-2 flex-wrap mt-3",children:o.keywords.map(y=>r.jsx("span",{className:"text-[11px] px-2 py-0.5 bg-slate-100 text-slate-600 rounded-md font-medium border border-slate-200",children:y},y))})]}),r.jsxs("div",{className:"grid grid-cols-2 gap-6",children:[r.jsxs("div",{className:"col-span-2",children:[r.jsx("h5",{className:"text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3",children:"Судалгааны зорилго"}),r.jsx("div",{className:"bg-amber-50 rounded-xl p-4 border border-amber-100 text-amber-900 leading-relaxed text-sm font-medium",children:o.goal})]}),r.jsxs("div",{className:"col-span-2",children:[r.jsx("h5",{className:"text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2",children:"Сэдвийн дэлгэрэнгүй тайлбар"}),r.jsx("p",{className:"text-sm text-slate-700 leading-relaxed p-4 bg-slate-50 rounded-xl border border-slate-100",children:o.description})]})]})]})})]}):r.jsxs(we,{className:"border-slate-200 border-dashed h-96 flex flex-col items-center justify-center bg-white",children:[r.jsx("div",{className:"w-16 h-16 bg-slate-50 rounded-full flex items-center justify-center mb-4",children:r.jsx(hs,{className:"w-8 h-8 text-slate-300"})}),r.jsx("p",{className:"text-slate-500 text-sm",children:"Зүүн талаас оюутны дэвшүүлсэн сэдвийг сонгож дэлгэрэнгүй харна уу."})]})})]}),r.jsxs(_i,{open:!!d,onClose:()=>m(null),children:[r.jsx(Ri,{title:d==="approve"?"Сэдвийг батлах":d==="reject"?"Сэдвээс татгалзах":"Засварт буцаах",icon:d==="approve"?r.jsx(Rn,{className:"w-5 h-5 text-[#1455BD]"}):d==="reject"?r.jsx(Ct,{className:"w-5 h-5 text-rose-600"}):r.jsx(xs,{className:"w-5 h-5 text-amber-600"}),onClose:()=>m(null)}),r.jsx(Pi,{children:d==="approve"?r.jsxs("p",{className:"text-slate-600",children:["Та ",r.jsx("strong",{children:o==null?void 0:o.student})," оюутны дэвшүүлсэн сэдвийг батлахдаа итгэлтэй байна уу? Ингэснээр энэ сэдэв уг оюутны албан ёсны дипломын сэдэв болон батлагдах болно."]}):d==="reject"?r.jsx("p",{className:"text-slate-600",children:"Та уг сэдвээс бүр мөсөн татгалзах гэж байна. Сэдэв шаардлага хангаагүй тохиолдолд үүнийг сонгоно уу."}):r.jsxs("div",{className:"space-y-4",children:[r.jsx("p",{className:"text-slate-600",children:"Та уг сэдэвт засвар шаардаж оюутан руу буцаах гэж байна. Засварын талаарх тайлбараа үлдээнэ үү."}),r.jsx(ms,{placeholder:"Санал хүсэлт болон сайжруулах зүйлсийг дэлгэрэнгүй бичнэ үү...",rows:4,className:"text-sm",value:p,onChange:y=>g(y.target.value)})]})}),r.jsxs(Ti,{children:[r.jsx(le,{variant:"outline",onClick:()=>m(null),children:"Цуцлах"}),r.jsx(le,{className:d==="approve"?"bg-[#1455BD] hover:bg-[#0d3a8a] text-white":d==="reject"?"bg-rose-600 hover:bg-rose-700 text-white":"bg-amber-600 hover:bg-amber-700 text-white",onClick:h,disabled:d==="feedback"&&p.trim()==="",children:d==="approve"?"Батлах":d==="reject"?"Татгалзах":"Илгээх"})]})]})]})}function ef(){const[l,u]=x.useState("plan-review");return r.jsxs("div",{className:"space-y-6 max-w-[1400px] mx-auto pb-10",children:[r.jsxs(we,{className:"border-slate-200 shadow-sm overflow-hidden bg-white",children:[r.jsx("div",{className:"h-2 w-full bg-[#1455BD]"}),r.jsx(Te,{className:"p-6",children:r.jsxs("div",{className:"flex flex-col md:flex-row gap-6 items-center justify-between",children:[r.jsxs("div",{className:"flex-1 space-y-2",children:[r.jsx("h1",{className:"text-2xl font-bold text-slate-900",children:"Удирдсан дипломын ажлууд"}),r.jsx("p",{className:"text-slate-600 text-sm max-w-3xl leading-relaxed",children:"Өөрийн удирдаж буй оюутнуудын судалгааны ажил, 15 долоо хоногийн төлөвлөгөө болон сэдвийн хүсэлтүүдийг нэг дороос удирдах самбар."})]}),r.jsxs("div",{className:"flex gap-4 w-full md:w-auto",children:[r.jsxs("div",{className:"bg-blue-50/50 border border-blue-100 p-3 rounded-lg flex items-center gap-3",children:[r.jsx("div",{className:"p-2 bg-blue-100 text-[#1455BD] rounded-md",children:r.jsx(Gn,{className:"w-5 h-5"})}),r.jsxs("div",{children:[r.jsx("p",{className:"text-xs font-semibold text-slate-500 uppercase tracking-wider",children:"Удирдаж буй"}),r.jsx("p",{className:"text-xl font-bold text-slate-900",children:"4 оюутан"})]})]}),r.jsxs("div",{className:"bg-amber-50/50 border border-amber-100 p-3 rounded-lg flex items-center gap-3",children:[r.jsx("div",{className:"p-2 bg-amber-100 text-amber-700 rounded-md",children:r.jsx(Ct,{className:"w-5 h-5"})}),r.jsxs("div",{children:[r.jsx("p",{className:"text-xs font-semibold text-slate-500 uppercase tracking-wider",children:"Хүлээгдэж буй"}),r.jsx("p",{className:"text-xl font-bold text-slate-900",children:"3 хүсэлт"})]})]})]})]})})]}),r.jsxs(Ei,{value:l,onValueChange:u,className:"w-full",children:[r.jsx("div",{className:"bg-white px-2 rounded-t-xl border-b border-slate-200 overflow-x-auto custom-scrollbar",children:r.jsxs(Jl,{className:"w-auto flex justify-start bg-transparent h-auto p-0 gap-6 min-w-max",children:[r.jsx(_n,{value:"plan-review",className:"data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-[#1455BD] data-[state=active]:text-[#1455BD] rounded-none py-4 px-2 text-sm font-medium transition-all text-slate-500 hover:text-slate-700",children:r.jsxs("div",{className:"flex items-center gap-2",children:[r.jsx(ug,{className:"w-4 h-4"}),"Сэдэв дэвшүүлэх & Төлөвлөгөө хянах"]})}),r.jsx(_n,{value:"topic-requests",className:"data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-[#1455BD] data-[state=active]:text-[#1455BD] rounded-none py-4 px-2 text-sm font-medium transition-all text-slate-500 hover:text-slate-700 relative",children:r.jsxs("div",{className:"flex items-center gap-2",children:[r.jsx(hs,{className:"w-4 h-4"}),"Сэдэв сонгох хүсэлтүүд",r.jsx("span",{className:"ml-1 bg-rose-100 text-rose-600 px-1.5 py-0.5 rounded-full text-[10px] font-bold inline-flex items-center justify-center",children:"2"})]})}),r.jsx(_n,{value:"student-proposals",className:"data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-[#1455BD] data-[state=active]:text-[#1455BD] rounded-none py-4 px-2 text-sm font-medium transition-all text-slate-500 hover:text-slate-700 relative",children:r.jsxs("div",{className:"flex items-center gap-2",children:[r.jsx(hs,{className:"w-4 h-4"}),"Оюутны сэдэв хянах",r.jsx("span",{className:"ml-1 bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded-full text-[10px] font-bold inline-flex items-center justify-center",children:"1"})]})})]})}),r.jsx(Vt,{value:"plan-review",className:"mt-6 animate-in fade-in slide-in-from-bottom-2 duration-300",children:r.jsx(yy,{})}),r.jsx(Vt,{value:"topic-requests",className:"mt-6 animate-in fade-in slide-in-from-bottom-2 duration-300",children:r.jsx(by,{})}),r.jsx(Vt,{value:"student-proposals",className:"mt-6 animate-in fade-in slide-in-from-bottom-2 duration-300",children:r.jsx(jy,{})})]})]})}const ky=[{id:1,student:"Д.Оч",avatar:"AJ",lastMessage:"Thank you for the feedback on Chapter 3!",time:"10:30 AM",unread:2},{id:2,student:"Б.Батбаяр",avatar:"PS",lastMessage:"I've uploaded the revised methodology section.",time:"Yesterday",unread:0},{id:3,student:"С.Мөнхбаяр",avatar:"DB",lastMessage:"When can we schedule the next review meeting?",time:"Yesterday",unread:1}],Sy=[{id:1,sender:"student",text:"Good morning, Professor. I've completed the revisions you suggested for Chapter 3.",time:"9:45 AM"},{id:2,sender:"teacher",text:"Great! Let me review it and I'll get back to you by this afternoon.",time:"9:50 AM"},{id:3,sender:"student",text:"Thank you! I also wanted to ask about the methodology section.",time:"10:15 AM"},{id:4,sender:"student",text:"Should I include more details about the data collection process?",time:"10:16 AM"},{id:5,sender:"teacher",text:"Yes, definitely. Include information about your sample size, selection criteria, and any validation methods you used.",time:"10:20 AM"},{id:6,sender:"student",text:"Thank you for the feedback on Chapter 3!",time:"10:30 AM"}];function tf(){const[l,u]=x.useState(1),[o,c]=x.useState(""),[d,m]=x.useState(""),p=ky.filter(h=>h.student.toLowerCase().includes(d.toLowerCase())),g=()=>{o.trim()&&(alert(`Message sent: ${o}`),c(""))};return r.jsx("div",{className:"h-[calc(100vh-200px)]",children:r.jsx(we,{className:"h-full",children:r.jsx(Te,{className:"p-0 h-full",children:r.jsxs("div",{className:"grid grid-cols-12 h-full",children:[r.jsxs("div",{className:"col-span-4 border-r border-slate-200 flex flex-col h-full",children:[r.jsx("div",{className:"p-4 border-b border-slate-200",children:r.jsxs("div",{className:"relative",children:[r.jsx(Ql,{className:"absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 h-4 w-4"}),r.jsx(yr,{placeholder:"Search students...",value:d,onChange:h=>m(h.target.value),className:"pl-10"})]})}),r.jsx("div",{className:"flex-1 overflow-y-auto",children:p.map(h=>r.jsx("button",{onClick:()=>u(h.id),className:`w-full p-4 border-b border-slate-100 hover:bg-slate-50 transition-colors text-left ${l===h.id?"bg-emerald-50 border-l-4 border-l-emerald-600":""}`,children:r.jsxs("div",{className:"flex items-start gap-3",children:[r.jsx(ft,{children:r.jsx(mt,{className:"bg-emerald-100 text-emerald-700",children:h.avatar})}),r.jsxs("div",{className:"flex-1 min-w-0",children:[r.jsxs("div",{className:"flex items-center justify-between mb-1",children:[r.jsx("p",{className:"font-medium text-sm truncate",children:h.student}),r.jsx("span",{className:"text-xs text-slate-500",children:h.time})]}),r.jsx("p",{className:"text-sm text-slate-600 truncate",children:h.lastMessage})]}),h.unread>0&&r.jsx(pe,{className:"bg-emerald-600 text-white rounded-full h-5 w-5 flex items-center justify-center text-xs",children:h.unread})]})},h.id))})]}),r.jsxs("div",{className:"col-span-8 flex flex-col h-full",children:[r.jsxs("div",{className:"p-4 border-b border-slate-200 flex items-center justify-between",children:[r.jsxs("div",{className:"flex items-center gap-3",children:[r.jsx(ft,{children:r.jsx(mt,{className:"bg-emerald-100 text-emerald-700",children:"AJ"})}),r.jsxs("div",{children:[r.jsx("p",{className:"font-medium",children:"Alex Johnson"}),r.jsx("p",{className:"text-xs text-slate-500",children:"Computer Science • STU2024001"})]})]}),r.jsx(le,{variant:"ghost",size:"icon",children:r.jsx(eg,{className:"h-5 w-5"})})]}),r.jsx("div",{className:"flex-1 overflow-y-auto p-4 space-y-4",children:Sy.map(h=>r.jsx("div",{className:`flex ${h.sender==="teacher"?"justify-end":"justify-start"}`,children:r.jsxs("div",{className:`max-w-[70%] rounded-lg p-3 ${h.sender==="teacher"?"bg-emerald-600 text-white":"bg-slate-100 text-slate-900"}`,children:[r.jsx("p",{className:"text-sm",children:h.text}),r.jsx("p",{className:`text-xs mt-1 ${h.sender==="teacher"?"text-emerald-100":"text-slate-500"}`,children:h.time})]})},h.id))}),r.jsx("div",{className:"p-4 border-t border-slate-200",children:r.jsxs("div",{className:"flex gap-2",children:[r.jsx(le,{variant:"ghost",size:"icon",children:r.jsx(vg,{className:"h-5 w-5"})}),r.jsx(yr,{placeholder:"Type your message...",value:o,onChange:h=>c(h.target.value),onKeyPress:h=>h.key==="Enter"&&g(),className:"flex-1"}),r.jsxs(le,{className:"bg-emerald-600 hover:bg-emerald-700",onClick:g,children:[r.jsx(zf,{className:"h-4 w-4 mr-2"}),"Send"]})]})})]})]})})})})}var Mi="Progress",Li=100,[Cy]=js(Mi),[Ey,_y]=Cy(Mi),Pm=x.forwardRef((l,u)=>{const{__scopeProgress:o,value:c=null,max:d,getValueLabel:m=Ry,...p}=l;(d||d===0)&&!nf(d)&&console.error(Py(`${d}`,"Progress"));const g=nf(d)?d:Li;c!==null&&!rf(c,g)&&console.error(Ty(`${c}`,"Progress"));const h=rf(c,g)?c:null,y=Vl(h)?m(h,g):void 0;return r.jsx(Ey,{scope:o,value:h,max:g,children:r.jsx(zt.div,{"aria-valuemax":g,"aria-valuemin":0,"aria-valuenow":Vl(h)?h:void 0,"aria-valuetext":y,role:"progressbar","data-state":Lm(h,g),"data-value":h??void 0,"data-max":g,...p,ref:u})})});Pm.displayName=Mi;var Tm="ProgressIndicator",Mm=x.forwardRef((l,u)=>{const{__scopeProgress:o,...c}=l,d=_y(Tm,o);return r.jsx(zt.div,{"data-state":Lm(d.value,d.max),"data-value":d.value??void 0,"data-max":d.max,...c,ref:u})});Mm.displayName=Tm;function Ry(l,u){return`${Math.round(l/u*100)}%`}function Lm(l,u){return l==null?"indeterminate":l===u?"complete":"loading"}function Vl(l){return typeof l=="number"}function nf(l){return Vl(l)&&!isNaN(l)&&l>0}function rf(l,u){return Vl(l)&&!isNaN(l)&&l<=u&&l>=0}function Py(l,u){return`Invalid prop \`max\` of value \`${l}\` supplied to \`${u}\`. Only numbers greater than 0 are valid max values. Defaulting to \`${Li}\`.`}function Ty(l,u){return`Invalid prop \`value\` of value \`${l}\` supplied to \`${u}\`. The \`value\` prop must be:
+ * Original code has MIT license: Copyright (c) Luke Edwards <luke.edwards05@gmail.com> (lukeed.com)
+ */
+function twJoin() {
+  let index = 0;
+  let argument;
+  let resolvedValue;
+  let string = '';
+  while (index < arguments.length) {
+    if (argument = arguments[index++]) {
+      if (resolvedValue = toValue(argument)) {
+        string && (string += ' ');
+        string += resolvedValue;
+      }
+    }
+  }
+  return string;
+}
+const toValue = mix => {
+  if (typeof mix === 'string') {
+    return mix;
+  }
+  let resolvedValue;
+  let string = '';
+  for (let k = 0; k < mix.length; k++) {
+    if (mix[k]) {
+      if (resolvedValue = toValue(mix[k])) {
+        string && (string += ' ');
+        string += resolvedValue;
+      }
+    }
+  }
+  return string;
+};
+function createTailwindMerge(createConfigFirst, ...createConfigRest) {
+  let configUtils;
+  let cacheGet;
+  let cacheSet;
+  let functionToCall = initTailwindMerge;
+  function initTailwindMerge(classList) {
+    const config = createConfigRest.reduce((previousConfig, createConfigCurrent) => createConfigCurrent(previousConfig), createConfigFirst());
+    configUtils = createConfigUtils(config);
+    cacheGet = configUtils.cache.get;
+    cacheSet = configUtils.cache.set;
+    functionToCall = tailwindMerge;
+    return tailwindMerge(classList);
+  }
+  function tailwindMerge(classList) {
+    const cachedResult = cacheGet(classList);
+    if (cachedResult) {
+      return cachedResult;
+    }
+    const result = mergeClassList(classList, configUtils);
+    cacheSet(classList, result);
+    return result;
+  }
+  return function callTailwindMerge() {
+    return functionToCall(twJoin.apply(null, arguments));
+  };
+}
+const fromTheme = key => {
+  const themeGetter = theme => theme[key] || [];
+  themeGetter.isThemeGetter = true;
+  return themeGetter;
+};
+const arbitraryValueRegex = /^\[(?:(\w[\w-]*):)?(.+)\]$/i;
+const arbitraryVariableRegex = /^\((?:(\w[\w-]*):)?(.+)\)$/i;
+const fractionRegex = /^\d+\/\d+$/;
+const tshirtUnitRegex = /^(\d+(\.\d+)?)?(xs|sm|md|lg|xl)$/;
+const lengthUnitRegex = /\d+(%|px|r?em|[sdl]?v([hwib]|min|max)|pt|pc|in|cm|mm|cap|ch|ex|r?lh|cq(w|h|i|b|min|max))|\b(calc|min|max|clamp)\(.+\)|^0$/;
+const colorFunctionRegex = /^(rgba?|hsla?|hwb|(ok)?(lab|lch))\(.+\)$/;
+// Shadow always begins with x and y offset separated by underscore optionally prepended by inset
+const shadowRegex = /^(inset_)?-?((\d+)?\.?(\d+)[a-z]+|0)_-?((\d+)?\.?(\d+)[a-z]+|0)/;
+const imageRegex = /^(url|image|image-set|cross-fade|element|(repeating-)?(linear|radial|conic)-gradient)\(.+\)$/;
+const isFraction = value => fractionRegex.test(value);
+const isNumber$1 = value => !!value && !Number.isNaN(Number(value));
+const isInteger = value => !!value && Number.isInteger(Number(value));
+const isPercent = value => value.endsWith('%') && isNumber$1(value.slice(0, -1));
+const isTshirtSize = value => tshirtUnitRegex.test(value);
+const isAny = () => true;
+const isLengthOnly = value =>
+// `colorFunctionRegex` check is necessary because color functions can have percentages in them which which would be incorrectly classified as lengths.
+// For example, `hsl(0 0% 0%)` would be classified as a length without this check.
+// I could also use lookbehind assertion in `lengthUnitRegex` but that isn't supported widely enough.
+lengthUnitRegex.test(value) && !colorFunctionRegex.test(value);
+const isNever = () => false;
+const isShadow = value => shadowRegex.test(value);
+const isImage = value => imageRegex.test(value);
+const isAnyNonArbitrary = value => !isArbitraryValue(value) && !isArbitraryVariable(value);
+const isArbitrarySize = value => getIsArbitraryValue(value, isLabelSize, isNever);
+const isArbitraryValue = value => arbitraryValueRegex.test(value);
+const isArbitraryLength = value => getIsArbitraryValue(value, isLabelLength, isLengthOnly);
+const isArbitraryNumber = value => getIsArbitraryValue(value, isLabelNumber, isNumber$1);
+const isArbitraryPosition = value => getIsArbitraryValue(value, isLabelPosition, isNever);
+const isArbitraryImage = value => getIsArbitraryValue(value, isLabelImage, isImage);
+const isArbitraryShadow = value => getIsArbitraryValue(value, isLabelShadow, isShadow);
+const isArbitraryVariable = value => arbitraryVariableRegex.test(value);
+const isArbitraryVariableLength = value => getIsArbitraryVariable(value, isLabelLength);
+const isArbitraryVariableFamilyName = value => getIsArbitraryVariable(value, isLabelFamilyName);
+const isArbitraryVariablePosition = value => getIsArbitraryVariable(value, isLabelPosition);
+const isArbitraryVariableSize = value => getIsArbitraryVariable(value, isLabelSize);
+const isArbitraryVariableImage = value => getIsArbitraryVariable(value, isLabelImage);
+const isArbitraryVariableShadow = value => getIsArbitraryVariable(value, isLabelShadow, true);
+// Helpers
+const getIsArbitraryValue = (value, testLabel, testValue) => {
+  const result = arbitraryValueRegex.exec(value);
+  if (result) {
+    if (result[1]) {
+      return testLabel(result[1]);
+    }
+    return testValue(result[2]);
+  }
+  return false;
+};
+const getIsArbitraryVariable = (value, testLabel, shouldMatchNoLabel = false) => {
+  const result = arbitraryVariableRegex.exec(value);
+  if (result) {
+    if (result[1]) {
+      return testLabel(result[1]);
+    }
+    return shouldMatchNoLabel;
+  }
+  return false;
+};
+// Labels
+const isLabelPosition = label => label === 'position' || label === 'percentage';
+const isLabelImage = label => label === 'image' || label === 'url';
+const isLabelSize = label => label === 'length' || label === 'size' || label === 'bg-size';
+const isLabelLength = label => label === 'length';
+const isLabelNumber = label => label === 'number';
+const isLabelFamilyName = label => label === 'family-name';
+const isLabelShadow = label => label === 'shadow';
+const getDefaultConfig = () => {
+  /**
+   * Theme getters for theme variable namespaces
+   * @see https://tailwindcss.com/docs/theme#theme-variable-namespaces
+   */
+  /***/
+  const themeColor = fromTheme('color');
+  const themeFont = fromTheme('font');
+  const themeText = fromTheme('text');
+  const themeFontWeight = fromTheme('font-weight');
+  const themeTracking = fromTheme('tracking');
+  const themeLeading = fromTheme('leading');
+  const themeBreakpoint = fromTheme('breakpoint');
+  const themeContainer = fromTheme('container');
+  const themeSpacing = fromTheme('spacing');
+  const themeRadius = fromTheme('radius');
+  const themeShadow = fromTheme('shadow');
+  const themeInsetShadow = fromTheme('inset-shadow');
+  const themeTextShadow = fromTheme('text-shadow');
+  const themeDropShadow = fromTheme('drop-shadow');
+  const themeBlur = fromTheme('blur');
+  const themePerspective = fromTheme('perspective');
+  const themeAspect = fromTheme('aspect');
+  const themeEase = fromTheme('ease');
+  const themeAnimate = fromTheme('animate');
+  /**
+   * Helpers to avoid repeating the same scales
+   *
+   * We use functions that create a new array every time they're called instead of static arrays.
+   * This ensures that users who modify any scale by mutating the array (e.g. with `array.push(element)`) don't accidentally mutate arrays in other parts of the config.
+   */
+  /***/
+  const scaleBreak = () => ['auto', 'avoid', 'all', 'avoid-page', 'page', 'left', 'right', 'column'];
+  const scalePosition = () => ['center', 'top', 'bottom', 'left', 'right', 'top-left',
+  // Deprecated since Tailwind CSS v4.1.0, see https://github.com/tailwindlabs/tailwindcss/pull/17378
+  'left-top', 'top-right',
+  // Deprecated since Tailwind CSS v4.1.0, see https://github.com/tailwindlabs/tailwindcss/pull/17378
+  'right-top', 'bottom-right',
+  // Deprecated since Tailwind CSS v4.1.0, see https://github.com/tailwindlabs/tailwindcss/pull/17378
+  'right-bottom', 'bottom-left',
+  // Deprecated since Tailwind CSS v4.1.0, see https://github.com/tailwindlabs/tailwindcss/pull/17378
+  'left-bottom'];
+  const scalePositionWithArbitrary = () => [...scalePosition(), isArbitraryVariable, isArbitraryValue];
+  const scaleOverflow = () => ['auto', 'hidden', 'clip', 'visible', 'scroll'];
+  const scaleOverscroll = () => ['auto', 'contain', 'none'];
+  const scaleUnambiguousSpacing = () => [isArbitraryVariable, isArbitraryValue, themeSpacing];
+  const scaleInset = () => [isFraction, 'full', 'auto', ...scaleUnambiguousSpacing()];
+  const scaleGridTemplateColsRows = () => [isInteger, 'none', 'subgrid', isArbitraryVariable, isArbitraryValue];
+  const scaleGridColRowStartAndEnd = () => ['auto', {
+    span: ['full', isInteger, isArbitraryVariable, isArbitraryValue]
+  }, isInteger, isArbitraryVariable, isArbitraryValue];
+  const scaleGridColRowStartOrEnd = () => [isInteger, 'auto', isArbitraryVariable, isArbitraryValue];
+  const scaleGridAutoColsRows = () => ['auto', 'min', 'max', 'fr', isArbitraryVariable, isArbitraryValue];
+  const scaleAlignPrimaryAxis = () => ['start', 'end', 'center', 'between', 'around', 'evenly', 'stretch', 'baseline', 'center-safe', 'end-safe'];
+  const scaleAlignSecondaryAxis = () => ['start', 'end', 'center', 'stretch', 'center-safe', 'end-safe'];
+  const scaleMargin = () => ['auto', ...scaleUnambiguousSpacing()];
+  const scaleSizing = () => [isFraction, 'auto', 'full', 'dvw', 'dvh', 'lvw', 'lvh', 'svw', 'svh', 'min', 'max', 'fit', ...scaleUnambiguousSpacing()];
+  const scaleColor = () => [themeColor, isArbitraryVariable, isArbitraryValue];
+  const scaleBgPosition = () => [...scalePosition(), isArbitraryVariablePosition, isArbitraryPosition, {
+    position: [isArbitraryVariable, isArbitraryValue]
+  }];
+  const scaleBgRepeat = () => ['no-repeat', {
+    repeat: ['', 'x', 'y', 'space', 'round']
+  }];
+  const scaleBgSize = () => ['auto', 'cover', 'contain', isArbitraryVariableSize, isArbitrarySize, {
+    size: [isArbitraryVariable, isArbitraryValue]
+  }];
+  const scaleGradientStopPosition = () => [isPercent, isArbitraryVariableLength, isArbitraryLength];
+  const scaleRadius = () => [
+  // Deprecated since Tailwind CSS v4.0.0
+  '', 'none', 'full', themeRadius, isArbitraryVariable, isArbitraryValue];
+  const scaleBorderWidth = () => ['', isNumber$1, isArbitraryVariableLength, isArbitraryLength];
+  const scaleLineStyle = () => ['solid', 'dashed', 'dotted', 'double'];
+  const scaleBlendMode = () => ['normal', 'multiply', 'screen', 'overlay', 'darken', 'lighten', 'color-dodge', 'color-burn', 'hard-light', 'soft-light', 'difference', 'exclusion', 'hue', 'saturation', 'color', 'luminosity'];
+  const scaleMaskImagePosition = () => [isNumber$1, isPercent, isArbitraryVariablePosition, isArbitraryPosition];
+  const scaleBlur = () => [
+  // Deprecated since Tailwind CSS v4.0.0
+  '', 'none', themeBlur, isArbitraryVariable, isArbitraryValue];
+  const scaleRotate = () => ['none', isNumber$1, isArbitraryVariable, isArbitraryValue];
+  const scaleScale = () => ['none', isNumber$1, isArbitraryVariable, isArbitraryValue];
+  const scaleSkew = () => [isNumber$1, isArbitraryVariable, isArbitraryValue];
+  const scaleTranslate = () => [isFraction, 'full', ...scaleUnambiguousSpacing()];
+  return {
+    cacheSize: 500,
+    theme: {
+      animate: ['spin', 'ping', 'pulse', 'bounce'],
+      aspect: ['video'],
+      blur: [isTshirtSize],
+      breakpoint: [isTshirtSize],
+      color: [isAny],
+      container: [isTshirtSize],
+      'drop-shadow': [isTshirtSize],
+      ease: ['in', 'out', 'in-out'],
+      font: [isAnyNonArbitrary],
+      'font-weight': ['thin', 'extralight', 'light', 'normal', 'medium', 'semibold', 'bold', 'extrabold', 'black'],
+      'inset-shadow': [isTshirtSize],
+      leading: ['none', 'tight', 'snug', 'normal', 'relaxed', 'loose'],
+      perspective: ['dramatic', 'near', 'normal', 'midrange', 'distant', 'none'],
+      radius: [isTshirtSize],
+      shadow: [isTshirtSize],
+      spacing: ['px', isNumber$1],
+      text: [isTshirtSize],
+      'text-shadow': [isTshirtSize],
+      tracking: ['tighter', 'tight', 'normal', 'wide', 'wider', 'widest']
+    },
+    classGroups: {
+      // --------------
+      // --- Layout ---
+      // --------------
+      /**
+       * Aspect Ratio
+       * @see https://tailwindcss.com/docs/aspect-ratio
+       */
+      aspect: [{
+        aspect: ['auto', 'square', isFraction, isArbitraryValue, isArbitraryVariable, themeAspect]
+      }],
+      /**
+       * Container
+       * @see https://tailwindcss.com/docs/container
+       * @deprecated since Tailwind CSS v4.0.0
+       */
+      container: ['container'],
+      /**
+       * Columns
+       * @see https://tailwindcss.com/docs/columns
+       */
+      columns: [{
+        columns: [isNumber$1, isArbitraryValue, isArbitraryVariable, themeContainer]
+      }],
+      /**
+       * Break After
+       * @see https://tailwindcss.com/docs/break-after
+       */
+      'break-after': [{
+        'break-after': scaleBreak()
+      }],
+      /**
+       * Break Before
+       * @see https://tailwindcss.com/docs/break-before
+       */
+      'break-before': [{
+        'break-before': scaleBreak()
+      }],
+      /**
+       * Break Inside
+       * @see https://tailwindcss.com/docs/break-inside
+       */
+      'break-inside': [{
+        'break-inside': ['auto', 'avoid', 'avoid-page', 'avoid-column']
+      }],
+      /**
+       * Box Decoration Break
+       * @see https://tailwindcss.com/docs/box-decoration-break
+       */
+      'box-decoration': [{
+        'box-decoration': ['slice', 'clone']
+      }],
+      /**
+       * Box Sizing
+       * @see https://tailwindcss.com/docs/box-sizing
+       */
+      box: [{
+        box: ['border', 'content']
+      }],
+      /**
+       * Display
+       * @see https://tailwindcss.com/docs/display
+       */
+      display: ['block', 'inline-block', 'inline', 'flex', 'inline-flex', 'table', 'inline-table', 'table-caption', 'table-cell', 'table-column', 'table-column-group', 'table-footer-group', 'table-header-group', 'table-row-group', 'table-row', 'flow-root', 'grid', 'inline-grid', 'contents', 'list-item', 'hidden'],
+      /**
+       * Screen Reader Only
+       * @see https://tailwindcss.com/docs/display#screen-reader-only
+       */
+      sr: ['sr-only', 'not-sr-only'],
+      /**
+       * Floats
+       * @see https://tailwindcss.com/docs/float
+       */
+      float: [{
+        float: ['right', 'left', 'none', 'start', 'end']
+      }],
+      /**
+       * Clear
+       * @see https://tailwindcss.com/docs/clear
+       */
+      clear: [{
+        clear: ['left', 'right', 'both', 'none', 'start', 'end']
+      }],
+      /**
+       * Isolation
+       * @see https://tailwindcss.com/docs/isolation
+       */
+      isolation: ['isolate', 'isolation-auto'],
+      /**
+       * Object Fit
+       * @see https://tailwindcss.com/docs/object-fit
+       */
+      'object-fit': [{
+        object: ['contain', 'cover', 'fill', 'none', 'scale-down']
+      }],
+      /**
+       * Object Position
+       * @see https://tailwindcss.com/docs/object-position
+       */
+      'object-position': [{
+        object: scalePositionWithArbitrary()
+      }],
+      /**
+       * Overflow
+       * @see https://tailwindcss.com/docs/overflow
+       */
+      overflow: [{
+        overflow: scaleOverflow()
+      }],
+      /**
+       * Overflow X
+       * @see https://tailwindcss.com/docs/overflow
+       */
+      'overflow-x': [{
+        'overflow-x': scaleOverflow()
+      }],
+      /**
+       * Overflow Y
+       * @see https://tailwindcss.com/docs/overflow
+       */
+      'overflow-y': [{
+        'overflow-y': scaleOverflow()
+      }],
+      /**
+       * Overscroll Behavior
+       * @see https://tailwindcss.com/docs/overscroll-behavior
+       */
+      overscroll: [{
+        overscroll: scaleOverscroll()
+      }],
+      /**
+       * Overscroll Behavior X
+       * @see https://tailwindcss.com/docs/overscroll-behavior
+       */
+      'overscroll-x': [{
+        'overscroll-x': scaleOverscroll()
+      }],
+      /**
+       * Overscroll Behavior Y
+       * @see https://tailwindcss.com/docs/overscroll-behavior
+       */
+      'overscroll-y': [{
+        'overscroll-y': scaleOverscroll()
+      }],
+      /**
+       * Position
+       * @see https://tailwindcss.com/docs/position
+       */
+      position: ['static', 'fixed', 'absolute', 'relative', 'sticky'],
+      /**
+       * Top / Right / Bottom / Left
+       * @see https://tailwindcss.com/docs/top-right-bottom-left
+       */
+      inset: [{
+        inset: scaleInset()
+      }],
+      /**
+       * Right / Left
+       * @see https://tailwindcss.com/docs/top-right-bottom-left
+       */
+      'inset-x': [{
+        'inset-x': scaleInset()
+      }],
+      /**
+       * Top / Bottom
+       * @see https://tailwindcss.com/docs/top-right-bottom-left
+       */
+      'inset-y': [{
+        'inset-y': scaleInset()
+      }],
+      /**
+       * Start
+       * @see https://tailwindcss.com/docs/top-right-bottom-left
+       */
+      start: [{
+        start: scaleInset()
+      }],
+      /**
+       * End
+       * @see https://tailwindcss.com/docs/top-right-bottom-left
+       */
+      end: [{
+        end: scaleInset()
+      }],
+      /**
+       * Top
+       * @see https://tailwindcss.com/docs/top-right-bottom-left
+       */
+      top: [{
+        top: scaleInset()
+      }],
+      /**
+       * Right
+       * @see https://tailwindcss.com/docs/top-right-bottom-left
+       */
+      right: [{
+        right: scaleInset()
+      }],
+      /**
+       * Bottom
+       * @see https://tailwindcss.com/docs/top-right-bottom-left
+       */
+      bottom: [{
+        bottom: scaleInset()
+      }],
+      /**
+       * Left
+       * @see https://tailwindcss.com/docs/top-right-bottom-left
+       */
+      left: [{
+        left: scaleInset()
+      }],
+      /**
+       * Visibility
+       * @see https://tailwindcss.com/docs/visibility
+       */
+      visibility: ['visible', 'invisible', 'collapse'],
+      /**
+       * Z-Index
+       * @see https://tailwindcss.com/docs/z-index
+       */
+      z: [{
+        z: [isInteger, 'auto', isArbitraryVariable, isArbitraryValue]
+      }],
+      // ------------------------
+      // --- Flexbox and Grid ---
+      // ------------------------
+      /**
+       * Flex Basis
+       * @see https://tailwindcss.com/docs/flex-basis
+       */
+      basis: [{
+        basis: [isFraction, 'full', 'auto', themeContainer, ...scaleUnambiguousSpacing()]
+      }],
+      /**
+       * Flex Direction
+       * @see https://tailwindcss.com/docs/flex-direction
+       */
+      'flex-direction': [{
+        flex: ['row', 'row-reverse', 'col', 'col-reverse']
+      }],
+      /**
+       * Flex Wrap
+       * @see https://tailwindcss.com/docs/flex-wrap
+       */
+      'flex-wrap': [{
+        flex: ['nowrap', 'wrap', 'wrap-reverse']
+      }],
+      /**
+       * Flex
+       * @see https://tailwindcss.com/docs/flex
+       */
+      flex: [{
+        flex: [isNumber$1, isFraction, 'auto', 'initial', 'none', isArbitraryValue]
+      }],
+      /**
+       * Flex Grow
+       * @see https://tailwindcss.com/docs/flex-grow
+       */
+      grow: [{
+        grow: ['', isNumber$1, isArbitraryVariable, isArbitraryValue]
+      }],
+      /**
+       * Flex Shrink
+       * @see https://tailwindcss.com/docs/flex-shrink
+       */
+      shrink: [{
+        shrink: ['', isNumber$1, isArbitraryVariable, isArbitraryValue]
+      }],
+      /**
+       * Order
+       * @see https://tailwindcss.com/docs/order
+       */
+      order: [{
+        order: [isInteger, 'first', 'last', 'none', isArbitraryVariable, isArbitraryValue]
+      }],
+      /**
+       * Grid Template Columns
+       * @see https://tailwindcss.com/docs/grid-template-columns
+       */
+      'grid-cols': [{
+        'grid-cols': scaleGridTemplateColsRows()
+      }],
+      /**
+       * Grid Column Start / End
+       * @see https://tailwindcss.com/docs/grid-column
+       */
+      'col-start-end': [{
+        col: scaleGridColRowStartAndEnd()
+      }],
+      /**
+       * Grid Column Start
+       * @see https://tailwindcss.com/docs/grid-column
+       */
+      'col-start': [{
+        'col-start': scaleGridColRowStartOrEnd()
+      }],
+      /**
+       * Grid Column End
+       * @see https://tailwindcss.com/docs/grid-column
+       */
+      'col-end': [{
+        'col-end': scaleGridColRowStartOrEnd()
+      }],
+      /**
+       * Grid Template Rows
+       * @see https://tailwindcss.com/docs/grid-template-rows
+       */
+      'grid-rows': [{
+        'grid-rows': scaleGridTemplateColsRows()
+      }],
+      /**
+       * Grid Row Start / End
+       * @see https://tailwindcss.com/docs/grid-row
+       */
+      'row-start-end': [{
+        row: scaleGridColRowStartAndEnd()
+      }],
+      /**
+       * Grid Row Start
+       * @see https://tailwindcss.com/docs/grid-row
+       */
+      'row-start': [{
+        'row-start': scaleGridColRowStartOrEnd()
+      }],
+      /**
+       * Grid Row End
+       * @see https://tailwindcss.com/docs/grid-row
+       */
+      'row-end': [{
+        'row-end': scaleGridColRowStartOrEnd()
+      }],
+      /**
+       * Grid Auto Flow
+       * @see https://tailwindcss.com/docs/grid-auto-flow
+       */
+      'grid-flow': [{
+        'grid-flow': ['row', 'col', 'dense', 'row-dense', 'col-dense']
+      }],
+      /**
+       * Grid Auto Columns
+       * @see https://tailwindcss.com/docs/grid-auto-columns
+       */
+      'auto-cols': [{
+        'auto-cols': scaleGridAutoColsRows()
+      }],
+      /**
+       * Grid Auto Rows
+       * @see https://tailwindcss.com/docs/grid-auto-rows
+       */
+      'auto-rows': [{
+        'auto-rows': scaleGridAutoColsRows()
+      }],
+      /**
+       * Gap
+       * @see https://tailwindcss.com/docs/gap
+       */
+      gap: [{
+        gap: scaleUnambiguousSpacing()
+      }],
+      /**
+       * Gap X
+       * @see https://tailwindcss.com/docs/gap
+       */
+      'gap-x': [{
+        'gap-x': scaleUnambiguousSpacing()
+      }],
+      /**
+       * Gap Y
+       * @see https://tailwindcss.com/docs/gap
+       */
+      'gap-y': [{
+        'gap-y': scaleUnambiguousSpacing()
+      }],
+      /**
+       * Justify Content
+       * @see https://tailwindcss.com/docs/justify-content
+       */
+      'justify-content': [{
+        justify: [...scaleAlignPrimaryAxis(), 'normal']
+      }],
+      /**
+       * Justify Items
+       * @see https://tailwindcss.com/docs/justify-items
+       */
+      'justify-items': [{
+        'justify-items': [...scaleAlignSecondaryAxis(), 'normal']
+      }],
+      /**
+       * Justify Self
+       * @see https://tailwindcss.com/docs/justify-self
+       */
+      'justify-self': [{
+        'justify-self': ['auto', ...scaleAlignSecondaryAxis()]
+      }],
+      /**
+       * Align Content
+       * @see https://tailwindcss.com/docs/align-content
+       */
+      'align-content': [{
+        content: ['normal', ...scaleAlignPrimaryAxis()]
+      }],
+      /**
+       * Align Items
+       * @see https://tailwindcss.com/docs/align-items
+       */
+      'align-items': [{
+        items: [...scaleAlignSecondaryAxis(), {
+          baseline: ['', 'last']
+        }]
+      }],
+      /**
+       * Align Self
+       * @see https://tailwindcss.com/docs/align-self
+       */
+      'align-self': [{
+        self: ['auto', ...scaleAlignSecondaryAxis(), {
+          baseline: ['', 'last']
+        }]
+      }],
+      /**
+       * Place Content
+       * @see https://tailwindcss.com/docs/place-content
+       */
+      'place-content': [{
+        'place-content': scaleAlignPrimaryAxis()
+      }],
+      /**
+       * Place Items
+       * @see https://tailwindcss.com/docs/place-items
+       */
+      'place-items': [{
+        'place-items': [...scaleAlignSecondaryAxis(), 'baseline']
+      }],
+      /**
+       * Place Self
+       * @see https://tailwindcss.com/docs/place-self
+       */
+      'place-self': [{
+        'place-self': ['auto', ...scaleAlignSecondaryAxis()]
+      }],
+      // Spacing
+      /**
+       * Padding
+       * @see https://tailwindcss.com/docs/padding
+       */
+      p: [{
+        p: scaleUnambiguousSpacing()
+      }],
+      /**
+       * Padding X
+       * @see https://tailwindcss.com/docs/padding
+       */
+      px: [{
+        px: scaleUnambiguousSpacing()
+      }],
+      /**
+       * Padding Y
+       * @see https://tailwindcss.com/docs/padding
+       */
+      py: [{
+        py: scaleUnambiguousSpacing()
+      }],
+      /**
+       * Padding Start
+       * @see https://tailwindcss.com/docs/padding
+       */
+      ps: [{
+        ps: scaleUnambiguousSpacing()
+      }],
+      /**
+       * Padding End
+       * @see https://tailwindcss.com/docs/padding
+       */
+      pe: [{
+        pe: scaleUnambiguousSpacing()
+      }],
+      /**
+       * Padding Top
+       * @see https://tailwindcss.com/docs/padding
+       */
+      pt: [{
+        pt: scaleUnambiguousSpacing()
+      }],
+      /**
+       * Padding Right
+       * @see https://tailwindcss.com/docs/padding
+       */
+      pr: [{
+        pr: scaleUnambiguousSpacing()
+      }],
+      /**
+       * Padding Bottom
+       * @see https://tailwindcss.com/docs/padding
+       */
+      pb: [{
+        pb: scaleUnambiguousSpacing()
+      }],
+      /**
+       * Padding Left
+       * @see https://tailwindcss.com/docs/padding
+       */
+      pl: [{
+        pl: scaleUnambiguousSpacing()
+      }],
+      /**
+       * Margin
+       * @see https://tailwindcss.com/docs/margin
+       */
+      m: [{
+        m: scaleMargin()
+      }],
+      /**
+       * Margin X
+       * @see https://tailwindcss.com/docs/margin
+       */
+      mx: [{
+        mx: scaleMargin()
+      }],
+      /**
+       * Margin Y
+       * @see https://tailwindcss.com/docs/margin
+       */
+      my: [{
+        my: scaleMargin()
+      }],
+      /**
+       * Margin Start
+       * @see https://tailwindcss.com/docs/margin
+       */
+      ms: [{
+        ms: scaleMargin()
+      }],
+      /**
+       * Margin End
+       * @see https://tailwindcss.com/docs/margin
+       */
+      me: [{
+        me: scaleMargin()
+      }],
+      /**
+       * Margin Top
+       * @see https://tailwindcss.com/docs/margin
+       */
+      mt: [{
+        mt: scaleMargin()
+      }],
+      /**
+       * Margin Right
+       * @see https://tailwindcss.com/docs/margin
+       */
+      mr: [{
+        mr: scaleMargin()
+      }],
+      /**
+       * Margin Bottom
+       * @see https://tailwindcss.com/docs/margin
+       */
+      mb: [{
+        mb: scaleMargin()
+      }],
+      /**
+       * Margin Left
+       * @see https://tailwindcss.com/docs/margin
+       */
+      ml: [{
+        ml: scaleMargin()
+      }],
+      /**
+       * Space Between X
+       * @see https://tailwindcss.com/docs/margin#adding-space-between-children
+       */
+      'space-x': [{
+        'space-x': scaleUnambiguousSpacing()
+      }],
+      /**
+       * Space Between X Reverse
+       * @see https://tailwindcss.com/docs/margin#adding-space-between-children
+       */
+      'space-x-reverse': ['space-x-reverse'],
+      /**
+       * Space Between Y
+       * @see https://tailwindcss.com/docs/margin#adding-space-between-children
+       */
+      'space-y': [{
+        'space-y': scaleUnambiguousSpacing()
+      }],
+      /**
+       * Space Between Y Reverse
+       * @see https://tailwindcss.com/docs/margin#adding-space-between-children
+       */
+      'space-y-reverse': ['space-y-reverse'],
+      // --------------
+      // --- Sizing ---
+      // --------------
+      /**
+       * Size
+       * @see https://tailwindcss.com/docs/width#setting-both-width-and-height
+       */
+      size: [{
+        size: scaleSizing()
+      }],
+      /**
+       * Width
+       * @see https://tailwindcss.com/docs/width
+       */
+      w: [{
+        w: [themeContainer, 'screen', ...scaleSizing()]
+      }],
+      /**
+       * Min-Width
+       * @see https://tailwindcss.com/docs/min-width
+       */
+      'min-w': [{
+        'min-w': [themeContainer, 'screen', /** Deprecated. @see https://github.com/tailwindlabs/tailwindcss.com/issues/2027#issuecomment-2620152757 */
+        'none', ...scaleSizing()]
+      }],
+      /**
+       * Max-Width
+       * @see https://tailwindcss.com/docs/max-width
+       */
+      'max-w': [{
+        'max-w': [themeContainer, 'screen', 'none', /** Deprecated since Tailwind CSS v4.0.0. @see https://github.com/tailwindlabs/tailwindcss.com/issues/2027#issuecomment-2620152757 */
+        'prose', /** Deprecated since Tailwind CSS v4.0.0. @see https://github.com/tailwindlabs/tailwindcss.com/issues/2027#issuecomment-2620152757 */
+        {
+          screen: [themeBreakpoint]
+        }, ...scaleSizing()]
+      }],
+      /**
+       * Height
+       * @see https://tailwindcss.com/docs/height
+       */
+      h: [{
+        h: ['screen', ...scaleSizing()]
+      }],
+      /**
+       * Min-Height
+       * @see https://tailwindcss.com/docs/min-height
+       */
+      'min-h': [{
+        'min-h': ['screen', 'none', ...scaleSizing()]
+      }],
+      /**
+       * Max-Height
+       * @see https://tailwindcss.com/docs/max-height
+       */
+      'max-h': [{
+        'max-h': ['screen', ...scaleSizing()]
+      }],
+      // ------------------
+      // --- Typography ---
+      // ------------------
+      /**
+       * Font Size
+       * @see https://tailwindcss.com/docs/font-size
+       */
+      'font-size': [{
+        text: ['base', themeText, isArbitraryVariableLength, isArbitraryLength]
+      }],
+      /**
+       * Font Smoothing
+       * @see https://tailwindcss.com/docs/font-smoothing
+       */
+      'font-smoothing': ['antialiased', 'subpixel-antialiased'],
+      /**
+       * Font Style
+       * @see https://tailwindcss.com/docs/font-style
+       */
+      'font-style': ['italic', 'not-italic'],
+      /**
+       * Font Weight
+       * @see https://tailwindcss.com/docs/font-weight
+       */
+      'font-weight': [{
+        font: [themeFontWeight, isArbitraryVariable, isArbitraryNumber]
+      }],
+      /**
+       * Font Stretch
+       * @see https://tailwindcss.com/docs/font-stretch
+       */
+      'font-stretch': [{
+        'font-stretch': ['ultra-condensed', 'extra-condensed', 'condensed', 'semi-condensed', 'normal', 'semi-expanded', 'expanded', 'extra-expanded', 'ultra-expanded', isPercent, isArbitraryValue]
+      }],
+      /**
+       * Font Family
+       * @see https://tailwindcss.com/docs/font-family
+       */
+      'font-family': [{
+        font: [isArbitraryVariableFamilyName, isArbitraryValue, themeFont]
+      }],
+      /**
+       * Font Variant Numeric
+       * @see https://tailwindcss.com/docs/font-variant-numeric
+       */
+      'fvn-normal': ['normal-nums'],
+      /**
+       * Font Variant Numeric
+       * @see https://tailwindcss.com/docs/font-variant-numeric
+       */
+      'fvn-ordinal': ['ordinal'],
+      /**
+       * Font Variant Numeric
+       * @see https://tailwindcss.com/docs/font-variant-numeric
+       */
+      'fvn-slashed-zero': ['slashed-zero'],
+      /**
+       * Font Variant Numeric
+       * @see https://tailwindcss.com/docs/font-variant-numeric
+       */
+      'fvn-figure': ['lining-nums', 'oldstyle-nums'],
+      /**
+       * Font Variant Numeric
+       * @see https://tailwindcss.com/docs/font-variant-numeric
+       */
+      'fvn-spacing': ['proportional-nums', 'tabular-nums'],
+      /**
+       * Font Variant Numeric
+       * @see https://tailwindcss.com/docs/font-variant-numeric
+       */
+      'fvn-fraction': ['diagonal-fractions', 'stacked-fractions'],
+      /**
+       * Letter Spacing
+       * @see https://tailwindcss.com/docs/letter-spacing
+       */
+      tracking: [{
+        tracking: [themeTracking, isArbitraryVariable, isArbitraryValue]
+      }],
+      /**
+       * Line Clamp
+       * @see https://tailwindcss.com/docs/line-clamp
+       */
+      'line-clamp': [{
+        'line-clamp': [isNumber$1, 'none', isArbitraryVariable, isArbitraryNumber]
+      }],
+      /**
+       * Line Height
+       * @see https://tailwindcss.com/docs/line-height
+       */
+      leading: [{
+        leading: [/** Deprecated since Tailwind CSS v4.0.0. @see https://github.com/tailwindlabs/tailwindcss.com/issues/2027#issuecomment-2620152757 */
+        themeLeading, ...scaleUnambiguousSpacing()]
+      }],
+      /**
+       * List Style Image
+       * @see https://tailwindcss.com/docs/list-style-image
+       */
+      'list-image': [{
+        'list-image': ['none', isArbitraryVariable, isArbitraryValue]
+      }],
+      /**
+       * List Style Position
+       * @see https://tailwindcss.com/docs/list-style-position
+       */
+      'list-style-position': [{
+        list: ['inside', 'outside']
+      }],
+      /**
+       * List Style Type
+       * @see https://tailwindcss.com/docs/list-style-type
+       */
+      'list-style-type': [{
+        list: ['disc', 'decimal', 'none', isArbitraryVariable, isArbitraryValue]
+      }],
+      /**
+       * Text Alignment
+       * @see https://tailwindcss.com/docs/text-align
+       */
+      'text-alignment': [{
+        text: ['left', 'center', 'right', 'justify', 'start', 'end']
+      }],
+      /**
+       * Placeholder Color
+       * @deprecated since Tailwind CSS v3.0.0
+       * @see https://v3.tailwindcss.com/docs/placeholder-color
+       */
+      'placeholder-color': [{
+        placeholder: scaleColor()
+      }],
+      /**
+       * Text Color
+       * @see https://tailwindcss.com/docs/text-color
+       */
+      'text-color': [{
+        text: scaleColor()
+      }],
+      /**
+       * Text Decoration
+       * @see https://tailwindcss.com/docs/text-decoration
+       */
+      'text-decoration': ['underline', 'overline', 'line-through', 'no-underline'],
+      /**
+       * Text Decoration Style
+       * @see https://tailwindcss.com/docs/text-decoration-style
+       */
+      'text-decoration-style': [{
+        decoration: [...scaleLineStyle(), 'wavy']
+      }],
+      /**
+       * Text Decoration Thickness
+       * @see https://tailwindcss.com/docs/text-decoration-thickness
+       */
+      'text-decoration-thickness': [{
+        decoration: [isNumber$1, 'from-font', 'auto', isArbitraryVariable, isArbitraryLength]
+      }],
+      /**
+       * Text Decoration Color
+       * @see https://tailwindcss.com/docs/text-decoration-color
+       */
+      'text-decoration-color': [{
+        decoration: scaleColor()
+      }],
+      /**
+       * Text Underline Offset
+       * @see https://tailwindcss.com/docs/text-underline-offset
+       */
+      'underline-offset': [{
+        'underline-offset': [isNumber$1, 'auto', isArbitraryVariable, isArbitraryValue]
+      }],
+      /**
+       * Text Transform
+       * @see https://tailwindcss.com/docs/text-transform
+       */
+      'text-transform': ['uppercase', 'lowercase', 'capitalize', 'normal-case'],
+      /**
+       * Text Overflow
+       * @see https://tailwindcss.com/docs/text-overflow
+       */
+      'text-overflow': ['truncate', 'text-ellipsis', 'text-clip'],
+      /**
+       * Text Wrap
+       * @see https://tailwindcss.com/docs/text-wrap
+       */
+      'text-wrap': [{
+        text: ['wrap', 'nowrap', 'balance', 'pretty']
+      }],
+      /**
+       * Text Indent
+       * @see https://tailwindcss.com/docs/text-indent
+       */
+      indent: [{
+        indent: scaleUnambiguousSpacing()
+      }],
+      /**
+       * Vertical Alignment
+       * @see https://tailwindcss.com/docs/vertical-align
+       */
+      'vertical-align': [{
+        align: ['baseline', 'top', 'middle', 'bottom', 'text-top', 'text-bottom', 'sub', 'super', isArbitraryVariable, isArbitraryValue]
+      }],
+      /**
+       * Whitespace
+       * @see https://tailwindcss.com/docs/whitespace
+       */
+      whitespace: [{
+        whitespace: ['normal', 'nowrap', 'pre', 'pre-line', 'pre-wrap', 'break-spaces']
+      }],
+      /**
+       * Word Break
+       * @see https://tailwindcss.com/docs/word-break
+       */
+      break: [{
+        break: ['normal', 'words', 'all', 'keep']
+      }],
+      /**
+       * Overflow Wrap
+       * @see https://tailwindcss.com/docs/overflow-wrap
+       */
+      wrap: [{
+        wrap: ['break-word', 'anywhere', 'normal']
+      }],
+      /**
+       * Hyphens
+       * @see https://tailwindcss.com/docs/hyphens
+       */
+      hyphens: [{
+        hyphens: ['none', 'manual', 'auto']
+      }],
+      /**
+       * Content
+       * @see https://tailwindcss.com/docs/content
+       */
+      content: [{
+        content: ['none', isArbitraryVariable, isArbitraryValue]
+      }],
+      // -------------------
+      // --- Backgrounds ---
+      // -------------------
+      /**
+       * Background Attachment
+       * @see https://tailwindcss.com/docs/background-attachment
+       */
+      'bg-attachment': [{
+        bg: ['fixed', 'local', 'scroll']
+      }],
+      /**
+       * Background Clip
+       * @see https://tailwindcss.com/docs/background-clip
+       */
+      'bg-clip': [{
+        'bg-clip': ['border', 'padding', 'content', 'text']
+      }],
+      /**
+       * Background Origin
+       * @see https://tailwindcss.com/docs/background-origin
+       */
+      'bg-origin': [{
+        'bg-origin': ['border', 'padding', 'content']
+      }],
+      /**
+       * Background Position
+       * @see https://tailwindcss.com/docs/background-position
+       */
+      'bg-position': [{
+        bg: scaleBgPosition()
+      }],
+      /**
+       * Background Repeat
+       * @see https://tailwindcss.com/docs/background-repeat
+       */
+      'bg-repeat': [{
+        bg: scaleBgRepeat()
+      }],
+      /**
+       * Background Size
+       * @see https://tailwindcss.com/docs/background-size
+       */
+      'bg-size': [{
+        bg: scaleBgSize()
+      }],
+      /**
+       * Background Image
+       * @see https://tailwindcss.com/docs/background-image
+       */
+      'bg-image': [{
+        bg: ['none', {
+          linear: [{
+            to: ['t', 'tr', 'r', 'br', 'b', 'bl', 'l', 'tl']
+          }, isInteger, isArbitraryVariable, isArbitraryValue],
+          radial: ['', isArbitraryVariable, isArbitraryValue],
+          conic: [isInteger, isArbitraryVariable, isArbitraryValue]
+        }, isArbitraryVariableImage, isArbitraryImage]
+      }],
+      /**
+       * Background Color
+       * @see https://tailwindcss.com/docs/background-color
+       */
+      'bg-color': [{
+        bg: scaleColor()
+      }],
+      /**
+       * Gradient Color Stops From Position
+       * @see https://tailwindcss.com/docs/gradient-color-stops
+       */
+      'gradient-from-pos': [{
+        from: scaleGradientStopPosition()
+      }],
+      /**
+       * Gradient Color Stops Via Position
+       * @see https://tailwindcss.com/docs/gradient-color-stops
+       */
+      'gradient-via-pos': [{
+        via: scaleGradientStopPosition()
+      }],
+      /**
+       * Gradient Color Stops To Position
+       * @see https://tailwindcss.com/docs/gradient-color-stops
+       */
+      'gradient-to-pos': [{
+        to: scaleGradientStopPosition()
+      }],
+      /**
+       * Gradient Color Stops From
+       * @see https://tailwindcss.com/docs/gradient-color-stops
+       */
+      'gradient-from': [{
+        from: scaleColor()
+      }],
+      /**
+       * Gradient Color Stops Via
+       * @see https://tailwindcss.com/docs/gradient-color-stops
+       */
+      'gradient-via': [{
+        via: scaleColor()
+      }],
+      /**
+       * Gradient Color Stops To
+       * @see https://tailwindcss.com/docs/gradient-color-stops
+       */
+      'gradient-to': [{
+        to: scaleColor()
+      }],
+      // ---------------
+      // --- Borders ---
+      // ---------------
+      /**
+       * Border Radius
+       * @see https://tailwindcss.com/docs/border-radius
+       */
+      rounded: [{
+        rounded: scaleRadius()
+      }],
+      /**
+       * Border Radius Start
+       * @see https://tailwindcss.com/docs/border-radius
+       */
+      'rounded-s': [{
+        'rounded-s': scaleRadius()
+      }],
+      /**
+       * Border Radius End
+       * @see https://tailwindcss.com/docs/border-radius
+       */
+      'rounded-e': [{
+        'rounded-e': scaleRadius()
+      }],
+      /**
+       * Border Radius Top
+       * @see https://tailwindcss.com/docs/border-radius
+       */
+      'rounded-t': [{
+        'rounded-t': scaleRadius()
+      }],
+      /**
+       * Border Radius Right
+       * @see https://tailwindcss.com/docs/border-radius
+       */
+      'rounded-r': [{
+        'rounded-r': scaleRadius()
+      }],
+      /**
+       * Border Radius Bottom
+       * @see https://tailwindcss.com/docs/border-radius
+       */
+      'rounded-b': [{
+        'rounded-b': scaleRadius()
+      }],
+      /**
+       * Border Radius Left
+       * @see https://tailwindcss.com/docs/border-radius
+       */
+      'rounded-l': [{
+        'rounded-l': scaleRadius()
+      }],
+      /**
+       * Border Radius Start Start
+       * @see https://tailwindcss.com/docs/border-radius
+       */
+      'rounded-ss': [{
+        'rounded-ss': scaleRadius()
+      }],
+      /**
+       * Border Radius Start End
+       * @see https://tailwindcss.com/docs/border-radius
+       */
+      'rounded-se': [{
+        'rounded-se': scaleRadius()
+      }],
+      /**
+       * Border Radius End End
+       * @see https://tailwindcss.com/docs/border-radius
+       */
+      'rounded-ee': [{
+        'rounded-ee': scaleRadius()
+      }],
+      /**
+       * Border Radius End Start
+       * @see https://tailwindcss.com/docs/border-radius
+       */
+      'rounded-es': [{
+        'rounded-es': scaleRadius()
+      }],
+      /**
+       * Border Radius Top Left
+       * @see https://tailwindcss.com/docs/border-radius
+       */
+      'rounded-tl': [{
+        'rounded-tl': scaleRadius()
+      }],
+      /**
+       * Border Radius Top Right
+       * @see https://tailwindcss.com/docs/border-radius
+       */
+      'rounded-tr': [{
+        'rounded-tr': scaleRadius()
+      }],
+      /**
+       * Border Radius Bottom Right
+       * @see https://tailwindcss.com/docs/border-radius
+       */
+      'rounded-br': [{
+        'rounded-br': scaleRadius()
+      }],
+      /**
+       * Border Radius Bottom Left
+       * @see https://tailwindcss.com/docs/border-radius
+       */
+      'rounded-bl': [{
+        'rounded-bl': scaleRadius()
+      }],
+      /**
+       * Border Width
+       * @see https://tailwindcss.com/docs/border-width
+       */
+      'border-w': [{
+        border: scaleBorderWidth()
+      }],
+      /**
+       * Border Width X
+       * @see https://tailwindcss.com/docs/border-width
+       */
+      'border-w-x': [{
+        'border-x': scaleBorderWidth()
+      }],
+      /**
+       * Border Width Y
+       * @see https://tailwindcss.com/docs/border-width
+       */
+      'border-w-y': [{
+        'border-y': scaleBorderWidth()
+      }],
+      /**
+       * Border Width Start
+       * @see https://tailwindcss.com/docs/border-width
+       */
+      'border-w-s': [{
+        'border-s': scaleBorderWidth()
+      }],
+      /**
+       * Border Width End
+       * @see https://tailwindcss.com/docs/border-width
+       */
+      'border-w-e': [{
+        'border-e': scaleBorderWidth()
+      }],
+      /**
+       * Border Width Top
+       * @see https://tailwindcss.com/docs/border-width
+       */
+      'border-w-t': [{
+        'border-t': scaleBorderWidth()
+      }],
+      /**
+       * Border Width Right
+       * @see https://tailwindcss.com/docs/border-width
+       */
+      'border-w-r': [{
+        'border-r': scaleBorderWidth()
+      }],
+      /**
+       * Border Width Bottom
+       * @see https://tailwindcss.com/docs/border-width
+       */
+      'border-w-b': [{
+        'border-b': scaleBorderWidth()
+      }],
+      /**
+       * Border Width Left
+       * @see https://tailwindcss.com/docs/border-width
+       */
+      'border-w-l': [{
+        'border-l': scaleBorderWidth()
+      }],
+      /**
+       * Divide Width X
+       * @see https://tailwindcss.com/docs/border-width#between-children
+       */
+      'divide-x': [{
+        'divide-x': scaleBorderWidth()
+      }],
+      /**
+       * Divide Width X Reverse
+       * @see https://tailwindcss.com/docs/border-width#between-children
+       */
+      'divide-x-reverse': ['divide-x-reverse'],
+      /**
+       * Divide Width Y
+       * @see https://tailwindcss.com/docs/border-width#between-children
+       */
+      'divide-y': [{
+        'divide-y': scaleBorderWidth()
+      }],
+      /**
+       * Divide Width Y Reverse
+       * @see https://tailwindcss.com/docs/border-width#between-children
+       */
+      'divide-y-reverse': ['divide-y-reverse'],
+      /**
+       * Border Style
+       * @see https://tailwindcss.com/docs/border-style
+       */
+      'border-style': [{
+        border: [...scaleLineStyle(), 'hidden', 'none']
+      }],
+      /**
+       * Divide Style
+       * @see https://tailwindcss.com/docs/border-style#setting-the-divider-style
+       */
+      'divide-style': [{
+        divide: [...scaleLineStyle(), 'hidden', 'none']
+      }],
+      /**
+       * Border Color
+       * @see https://tailwindcss.com/docs/border-color
+       */
+      'border-color': [{
+        border: scaleColor()
+      }],
+      /**
+       * Border Color X
+       * @see https://tailwindcss.com/docs/border-color
+       */
+      'border-color-x': [{
+        'border-x': scaleColor()
+      }],
+      /**
+       * Border Color Y
+       * @see https://tailwindcss.com/docs/border-color
+       */
+      'border-color-y': [{
+        'border-y': scaleColor()
+      }],
+      /**
+       * Border Color S
+       * @see https://tailwindcss.com/docs/border-color
+       */
+      'border-color-s': [{
+        'border-s': scaleColor()
+      }],
+      /**
+       * Border Color E
+       * @see https://tailwindcss.com/docs/border-color
+       */
+      'border-color-e': [{
+        'border-e': scaleColor()
+      }],
+      /**
+       * Border Color Top
+       * @see https://tailwindcss.com/docs/border-color
+       */
+      'border-color-t': [{
+        'border-t': scaleColor()
+      }],
+      /**
+       * Border Color Right
+       * @see https://tailwindcss.com/docs/border-color
+       */
+      'border-color-r': [{
+        'border-r': scaleColor()
+      }],
+      /**
+       * Border Color Bottom
+       * @see https://tailwindcss.com/docs/border-color
+       */
+      'border-color-b': [{
+        'border-b': scaleColor()
+      }],
+      /**
+       * Border Color Left
+       * @see https://tailwindcss.com/docs/border-color
+       */
+      'border-color-l': [{
+        'border-l': scaleColor()
+      }],
+      /**
+       * Divide Color
+       * @see https://tailwindcss.com/docs/divide-color
+       */
+      'divide-color': [{
+        divide: scaleColor()
+      }],
+      /**
+       * Outline Style
+       * @see https://tailwindcss.com/docs/outline-style
+       */
+      'outline-style': [{
+        outline: [...scaleLineStyle(), 'none', 'hidden']
+      }],
+      /**
+       * Outline Offset
+       * @see https://tailwindcss.com/docs/outline-offset
+       */
+      'outline-offset': [{
+        'outline-offset': [isNumber$1, isArbitraryVariable, isArbitraryValue]
+      }],
+      /**
+       * Outline Width
+       * @see https://tailwindcss.com/docs/outline-width
+       */
+      'outline-w': [{
+        outline: ['', isNumber$1, isArbitraryVariableLength, isArbitraryLength]
+      }],
+      /**
+       * Outline Color
+       * @see https://tailwindcss.com/docs/outline-color
+       */
+      'outline-color': [{
+        outline: scaleColor()
+      }],
+      // ---------------
+      // --- Effects ---
+      // ---------------
+      /**
+       * Box Shadow
+       * @see https://tailwindcss.com/docs/box-shadow
+       */
+      shadow: [{
+        shadow: [
+        // Deprecated since Tailwind CSS v4.0.0
+        '', 'none', themeShadow, isArbitraryVariableShadow, isArbitraryShadow]
+      }],
+      /**
+       * Box Shadow Color
+       * @see https://tailwindcss.com/docs/box-shadow#setting-the-shadow-color
+       */
+      'shadow-color': [{
+        shadow: scaleColor()
+      }],
+      /**
+       * Inset Box Shadow
+       * @see https://tailwindcss.com/docs/box-shadow#adding-an-inset-shadow
+       */
+      'inset-shadow': [{
+        'inset-shadow': ['none', themeInsetShadow, isArbitraryVariableShadow, isArbitraryShadow]
+      }],
+      /**
+       * Inset Box Shadow Color
+       * @see https://tailwindcss.com/docs/box-shadow#setting-the-inset-shadow-color
+       */
+      'inset-shadow-color': [{
+        'inset-shadow': scaleColor()
+      }],
+      /**
+       * Ring Width
+       * @see https://tailwindcss.com/docs/box-shadow#adding-a-ring
+       */
+      'ring-w': [{
+        ring: scaleBorderWidth()
+      }],
+      /**
+       * Ring Width Inset
+       * @see https://v3.tailwindcss.com/docs/ring-width#inset-rings
+       * @deprecated since Tailwind CSS v4.0.0
+       * @see https://github.com/tailwindlabs/tailwindcss/blob/v4.0.0/packages/tailwindcss/src/utilities.ts#L4158
+       */
+      'ring-w-inset': ['ring-inset'],
+      /**
+       * Ring Color
+       * @see https://tailwindcss.com/docs/box-shadow#setting-the-ring-color
+       */
+      'ring-color': [{
+        ring: scaleColor()
+      }],
+      /**
+       * Ring Offset Width
+       * @see https://v3.tailwindcss.com/docs/ring-offset-width
+       * @deprecated since Tailwind CSS v4.0.0
+       * @see https://github.com/tailwindlabs/tailwindcss/blob/v4.0.0/packages/tailwindcss/src/utilities.ts#L4158
+       */
+      'ring-offset-w': [{
+        'ring-offset': [isNumber$1, isArbitraryLength]
+      }],
+      /**
+       * Ring Offset Color
+       * @see https://v3.tailwindcss.com/docs/ring-offset-color
+       * @deprecated since Tailwind CSS v4.0.0
+       * @see https://github.com/tailwindlabs/tailwindcss/blob/v4.0.0/packages/tailwindcss/src/utilities.ts#L4158
+       */
+      'ring-offset-color': [{
+        'ring-offset': scaleColor()
+      }],
+      /**
+       * Inset Ring Width
+       * @see https://tailwindcss.com/docs/box-shadow#adding-an-inset-ring
+       */
+      'inset-ring-w': [{
+        'inset-ring': scaleBorderWidth()
+      }],
+      /**
+       * Inset Ring Color
+       * @see https://tailwindcss.com/docs/box-shadow#setting-the-inset-ring-color
+       */
+      'inset-ring-color': [{
+        'inset-ring': scaleColor()
+      }],
+      /**
+       * Text Shadow
+       * @see https://tailwindcss.com/docs/text-shadow
+       */
+      'text-shadow': [{
+        'text-shadow': ['none', themeTextShadow, isArbitraryVariableShadow, isArbitraryShadow]
+      }],
+      /**
+       * Text Shadow Color
+       * @see https://tailwindcss.com/docs/text-shadow#setting-the-shadow-color
+       */
+      'text-shadow-color': [{
+        'text-shadow': scaleColor()
+      }],
+      /**
+       * Opacity
+       * @see https://tailwindcss.com/docs/opacity
+       */
+      opacity: [{
+        opacity: [isNumber$1, isArbitraryVariable, isArbitraryValue]
+      }],
+      /**
+       * Mix Blend Mode
+       * @see https://tailwindcss.com/docs/mix-blend-mode
+       */
+      'mix-blend': [{
+        'mix-blend': [...scaleBlendMode(), 'plus-darker', 'plus-lighter']
+      }],
+      /**
+       * Background Blend Mode
+       * @see https://tailwindcss.com/docs/background-blend-mode
+       */
+      'bg-blend': [{
+        'bg-blend': scaleBlendMode()
+      }],
+      /**
+       * Mask Clip
+       * @see https://tailwindcss.com/docs/mask-clip
+       */
+      'mask-clip': [{
+        'mask-clip': ['border', 'padding', 'content', 'fill', 'stroke', 'view']
+      }, 'mask-no-clip'],
+      /**
+       * Mask Composite
+       * @see https://tailwindcss.com/docs/mask-composite
+       */
+      'mask-composite': [{
+        mask: ['add', 'subtract', 'intersect', 'exclude']
+      }],
+      /**
+       * Mask Image
+       * @see https://tailwindcss.com/docs/mask-image
+       */
+      'mask-image-linear-pos': [{
+        'mask-linear': [isNumber$1]
+      }],
+      'mask-image-linear-from-pos': [{
+        'mask-linear-from': scaleMaskImagePosition()
+      }],
+      'mask-image-linear-to-pos': [{
+        'mask-linear-to': scaleMaskImagePosition()
+      }],
+      'mask-image-linear-from-color': [{
+        'mask-linear-from': scaleColor()
+      }],
+      'mask-image-linear-to-color': [{
+        'mask-linear-to': scaleColor()
+      }],
+      'mask-image-t-from-pos': [{
+        'mask-t-from': scaleMaskImagePosition()
+      }],
+      'mask-image-t-to-pos': [{
+        'mask-t-to': scaleMaskImagePosition()
+      }],
+      'mask-image-t-from-color': [{
+        'mask-t-from': scaleColor()
+      }],
+      'mask-image-t-to-color': [{
+        'mask-t-to': scaleColor()
+      }],
+      'mask-image-r-from-pos': [{
+        'mask-r-from': scaleMaskImagePosition()
+      }],
+      'mask-image-r-to-pos': [{
+        'mask-r-to': scaleMaskImagePosition()
+      }],
+      'mask-image-r-from-color': [{
+        'mask-r-from': scaleColor()
+      }],
+      'mask-image-r-to-color': [{
+        'mask-r-to': scaleColor()
+      }],
+      'mask-image-b-from-pos': [{
+        'mask-b-from': scaleMaskImagePosition()
+      }],
+      'mask-image-b-to-pos': [{
+        'mask-b-to': scaleMaskImagePosition()
+      }],
+      'mask-image-b-from-color': [{
+        'mask-b-from': scaleColor()
+      }],
+      'mask-image-b-to-color': [{
+        'mask-b-to': scaleColor()
+      }],
+      'mask-image-l-from-pos': [{
+        'mask-l-from': scaleMaskImagePosition()
+      }],
+      'mask-image-l-to-pos': [{
+        'mask-l-to': scaleMaskImagePosition()
+      }],
+      'mask-image-l-from-color': [{
+        'mask-l-from': scaleColor()
+      }],
+      'mask-image-l-to-color': [{
+        'mask-l-to': scaleColor()
+      }],
+      'mask-image-x-from-pos': [{
+        'mask-x-from': scaleMaskImagePosition()
+      }],
+      'mask-image-x-to-pos': [{
+        'mask-x-to': scaleMaskImagePosition()
+      }],
+      'mask-image-x-from-color': [{
+        'mask-x-from': scaleColor()
+      }],
+      'mask-image-x-to-color': [{
+        'mask-x-to': scaleColor()
+      }],
+      'mask-image-y-from-pos': [{
+        'mask-y-from': scaleMaskImagePosition()
+      }],
+      'mask-image-y-to-pos': [{
+        'mask-y-to': scaleMaskImagePosition()
+      }],
+      'mask-image-y-from-color': [{
+        'mask-y-from': scaleColor()
+      }],
+      'mask-image-y-to-color': [{
+        'mask-y-to': scaleColor()
+      }],
+      'mask-image-radial': [{
+        'mask-radial': [isArbitraryVariable, isArbitraryValue]
+      }],
+      'mask-image-radial-from-pos': [{
+        'mask-radial-from': scaleMaskImagePosition()
+      }],
+      'mask-image-radial-to-pos': [{
+        'mask-radial-to': scaleMaskImagePosition()
+      }],
+      'mask-image-radial-from-color': [{
+        'mask-radial-from': scaleColor()
+      }],
+      'mask-image-radial-to-color': [{
+        'mask-radial-to': scaleColor()
+      }],
+      'mask-image-radial-shape': [{
+        'mask-radial': ['circle', 'ellipse']
+      }],
+      'mask-image-radial-size': [{
+        'mask-radial': [{
+          closest: ['side', 'corner'],
+          farthest: ['side', 'corner']
+        }]
+      }],
+      'mask-image-radial-pos': [{
+        'mask-radial-at': scalePosition()
+      }],
+      'mask-image-conic-pos': [{
+        'mask-conic': [isNumber$1]
+      }],
+      'mask-image-conic-from-pos': [{
+        'mask-conic-from': scaleMaskImagePosition()
+      }],
+      'mask-image-conic-to-pos': [{
+        'mask-conic-to': scaleMaskImagePosition()
+      }],
+      'mask-image-conic-from-color': [{
+        'mask-conic-from': scaleColor()
+      }],
+      'mask-image-conic-to-color': [{
+        'mask-conic-to': scaleColor()
+      }],
+      /**
+       * Mask Mode
+       * @see https://tailwindcss.com/docs/mask-mode
+       */
+      'mask-mode': [{
+        mask: ['alpha', 'luminance', 'match']
+      }],
+      /**
+       * Mask Origin
+       * @see https://tailwindcss.com/docs/mask-origin
+       */
+      'mask-origin': [{
+        'mask-origin': ['border', 'padding', 'content', 'fill', 'stroke', 'view']
+      }],
+      /**
+       * Mask Position
+       * @see https://tailwindcss.com/docs/mask-position
+       */
+      'mask-position': [{
+        mask: scaleBgPosition()
+      }],
+      /**
+       * Mask Repeat
+       * @see https://tailwindcss.com/docs/mask-repeat
+       */
+      'mask-repeat': [{
+        mask: scaleBgRepeat()
+      }],
+      /**
+       * Mask Size
+       * @see https://tailwindcss.com/docs/mask-size
+       */
+      'mask-size': [{
+        mask: scaleBgSize()
+      }],
+      /**
+       * Mask Type
+       * @see https://tailwindcss.com/docs/mask-type
+       */
+      'mask-type': [{
+        'mask-type': ['alpha', 'luminance']
+      }],
+      /**
+       * Mask Image
+       * @see https://tailwindcss.com/docs/mask-image
+       */
+      'mask-image': [{
+        mask: ['none', isArbitraryVariable, isArbitraryValue]
+      }],
+      // ---------------
+      // --- Filters ---
+      // ---------------
+      /**
+       * Filter
+       * @see https://tailwindcss.com/docs/filter
+       */
+      filter: [{
+        filter: [
+        // Deprecated since Tailwind CSS v3.0.0
+        '', 'none', isArbitraryVariable, isArbitraryValue]
+      }],
+      /**
+       * Blur
+       * @see https://tailwindcss.com/docs/blur
+       */
+      blur: [{
+        blur: scaleBlur()
+      }],
+      /**
+       * Brightness
+       * @see https://tailwindcss.com/docs/brightness
+       */
+      brightness: [{
+        brightness: [isNumber$1, isArbitraryVariable, isArbitraryValue]
+      }],
+      /**
+       * Contrast
+       * @see https://tailwindcss.com/docs/contrast
+       */
+      contrast: [{
+        contrast: [isNumber$1, isArbitraryVariable, isArbitraryValue]
+      }],
+      /**
+       * Drop Shadow
+       * @see https://tailwindcss.com/docs/drop-shadow
+       */
+      'drop-shadow': [{
+        'drop-shadow': [
+        // Deprecated since Tailwind CSS v4.0.0
+        '', 'none', themeDropShadow, isArbitraryVariableShadow, isArbitraryShadow]
+      }],
+      /**
+       * Drop Shadow Color
+       * @see https://tailwindcss.com/docs/filter-drop-shadow#setting-the-shadow-color
+       */
+      'drop-shadow-color': [{
+        'drop-shadow': scaleColor()
+      }],
+      /**
+       * Grayscale
+       * @see https://tailwindcss.com/docs/grayscale
+       */
+      grayscale: [{
+        grayscale: ['', isNumber$1, isArbitraryVariable, isArbitraryValue]
+      }],
+      /**
+       * Hue Rotate
+       * @see https://tailwindcss.com/docs/hue-rotate
+       */
+      'hue-rotate': [{
+        'hue-rotate': [isNumber$1, isArbitraryVariable, isArbitraryValue]
+      }],
+      /**
+       * Invert
+       * @see https://tailwindcss.com/docs/invert
+       */
+      invert: [{
+        invert: ['', isNumber$1, isArbitraryVariable, isArbitraryValue]
+      }],
+      /**
+       * Saturate
+       * @see https://tailwindcss.com/docs/saturate
+       */
+      saturate: [{
+        saturate: [isNumber$1, isArbitraryVariable, isArbitraryValue]
+      }],
+      /**
+       * Sepia
+       * @see https://tailwindcss.com/docs/sepia
+       */
+      sepia: [{
+        sepia: ['', isNumber$1, isArbitraryVariable, isArbitraryValue]
+      }],
+      /**
+       * Backdrop Filter
+       * @see https://tailwindcss.com/docs/backdrop-filter
+       */
+      'backdrop-filter': [{
+        'backdrop-filter': [
+        // Deprecated since Tailwind CSS v3.0.0
+        '', 'none', isArbitraryVariable, isArbitraryValue]
+      }],
+      /**
+       * Backdrop Blur
+       * @see https://tailwindcss.com/docs/backdrop-blur
+       */
+      'backdrop-blur': [{
+        'backdrop-blur': scaleBlur()
+      }],
+      /**
+       * Backdrop Brightness
+       * @see https://tailwindcss.com/docs/backdrop-brightness
+       */
+      'backdrop-brightness': [{
+        'backdrop-brightness': [isNumber$1, isArbitraryVariable, isArbitraryValue]
+      }],
+      /**
+       * Backdrop Contrast
+       * @see https://tailwindcss.com/docs/backdrop-contrast
+       */
+      'backdrop-contrast': [{
+        'backdrop-contrast': [isNumber$1, isArbitraryVariable, isArbitraryValue]
+      }],
+      /**
+       * Backdrop Grayscale
+       * @see https://tailwindcss.com/docs/backdrop-grayscale
+       */
+      'backdrop-grayscale': [{
+        'backdrop-grayscale': ['', isNumber$1, isArbitraryVariable, isArbitraryValue]
+      }],
+      /**
+       * Backdrop Hue Rotate
+       * @see https://tailwindcss.com/docs/backdrop-hue-rotate
+       */
+      'backdrop-hue-rotate': [{
+        'backdrop-hue-rotate': [isNumber$1, isArbitraryVariable, isArbitraryValue]
+      }],
+      /**
+       * Backdrop Invert
+       * @see https://tailwindcss.com/docs/backdrop-invert
+       */
+      'backdrop-invert': [{
+        'backdrop-invert': ['', isNumber$1, isArbitraryVariable, isArbitraryValue]
+      }],
+      /**
+       * Backdrop Opacity
+       * @see https://tailwindcss.com/docs/backdrop-opacity
+       */
+      'backdrop-opacity': [{
+        'backdrop-opacity': [isNumber$1, isArbitraryVariable, isArbitraryValue]
+      }],
+      /**
+       * Backdrop Saturate
+       * @see https://tailwindcss.com/docs/backdrop-saturate
+       */
+      'backdrop-saturate': [{
+        'backdrop-saturate': [isNumber$1, isArbitraryVariable, isArbitraryValue]
+      }],
+      /**
+       * Backdrop Sepia
+       * @see https://tailwindcss.com/docs/backdrop-sepia
+       */
+      'backdrop-sepia': [{
+        'backdrop-sepia': ['', isNumber$1, isArbitraryVariable, isArbitraryValue]
+      }],
+      // --------------
+      // --- Tables ---
+      // --------------
+      /**
+       * Border Collapse
+       * @see https://tailwindcss.com/docs/border-collapse
+       */
+      'border-collapse': [{
+        border: ['collapse', 'separate']
+      }],
+      /**
+       * Border Spacing
+       * @see https://tailwindcss.com/docs/border-spacing
+       */
+      'border-spacing': [{
+        'border-spacing': scaleUnambiguousSpacing()
+      }],
+      /**
+       * Border Spacing X
+       * @see https://tailwindcss.com/docs/border-spacing
+       */
+      'border-spacing-x': [{
+        'border-spacing-x': scaleUnambiguousSpacing()
+      }],
+      /**
+       * Border Spacing Y
+       * @see https://tailwindcss.com/docs/border-spacing
+       */
+      'border-spacing-y': [{
+        'border-spacing-y': scaleUnambiguousSpacing()
+      }],
+      /**
+       * Table Layout
+       * @see https://tailwindcss.com/docs/table-layout
+       */
+      'table-layout': [{
+        table: ['auto', 'fixed']
+      }],
+      /**
+       * Caption Side
+       * @see https://tailwindcss.com/docs/caption-side
+       */
+      caption: [{
+        caption: ['top', 'bottom']
+      }],
+      // ---------------------------------
+      // --- Transitions and Animation ---
+      // ---------------------------------
+      /**
+       * Transition Property
+       * @see https://tailwindcss.com/docs/transition-property
+       */
+      transition: [{
+        transition: ['', 'all', 'colors', 'opacity', 'shadow', 'transform', 'none', isArbitraryVariable, isArbitraryValue]
+      }],
+      /**
+       * Transition Behavior
+       * @see https://tailwindcss.com/docs/transition-behavior
+       */
+      'transition-behavior': [{
+        transition: ['normal', 'discrete']
+      }],
+      /**
+       * Transition Duration
+       * @see https://tailwindcss.com/docs/transition-duration
+       */
+      duration: [{
+        duration: [isNumber$1, 'initial', isArbitraryVariable, isArbitraryValue]
+      }],
+      /**
+       * Transition Timing Function
+       * @see https://tailwindcss.com/docs/transition-timing-function
+       */
+      ease: [{
+        ease: ['linear', 'initial', themeEase, isArbitraryVariable, isArbitraryValue]
+      }],
+      /**
+       * Transition Delay
+       * @see https://tailwindcss.com/docs/transition-delay
+       */
+      delay: [{
+        delay: [isNumber$1, isArbitraryVariable, isArbitraryValue]
+      }],
+      /**
+       * Animation
+       * @see https://tailwindcss.com/docs/animation
+       */
+      animate: [{
+        animate: ['none', themeAnimate, isArbitraryVariable, isArbitraryValue]
+      }],
+      // ------------------
+      // --- Transforms ---
+      // ------------------
+      /**
+       * Backface Visibility
+       * @see https://tailwindcss.com/docs/backface-visibility
+       */
+      backface: [{
+        backface: ['hidden', 'visible']
+      }],
+      /**
+       * Perspective
+       * @see https://tailwindcss.com/docs/perspective
+       */
+      perspective: [{
+        perspective: [themePerspective, isArbitraryVariable, isArbitraryValue]
+      }],
+      /**
+       * Perspective Origin
+       * @see https://tailwindcss.com/docs/perspective-origin
+       */
+      'perspective-origin': [{
+        'perspective-origin': scalePositionWithArbitrary()
+      }],
+      /**
+       * Rotate
+       * @see https://tailwindcss.com/docs/rotate
+       */
+      rotate: [{
+        rotate: scaleRotate()
+      }],
+      /**
+       * Rotate X
+       * @see https://tailwindcss.com/docs/rotate
+       */
+      'rotate-x': [{
+        'rotate-x': scaleRotate()
+      }],
+      /**
+       * Rotate Y
+       * @see https://tailwindcss.com/docs/rotate
+       */
+      'rotate-y': [{
+        'rotate-y': scaleRotate()
+      }],
+      /**
+       * Rotate Z
+       * @see https://tailwindcss.com/docs/rotate
+       */
+      'rotate-z': [{
+        'rotate-z': scaleRotate()
+      }],
+      /**
+       * Scale
+       * @see https://tailwindcss.com/docs/scale
+       */
+      scale: [{
+        scale: scaleScale()
+      }],
+      /**
+       * Scale X
+       * @see https://tailwindcss.com/docs/scale
+       */
+      'scale-x': [{
+        'scale-x': scaleScale()
+      }],
+      /**
+       * Scale Y
+       * @see https://tailwindcss.com/docs/scale
+       */
+      'scale-y': [{
+        'scale-y': scaleScale()
+      }],
+      /**
+       * Scale Z
+       * @see https://tailwindcss.com/docs/scale
+       */
+      'scale-z': [{
+        'scale-z': scaleScale()
+      }],
+      /**
+       * Scale 3D
+       * @see https://tailwindcss.com/docs/scale
+       */
+      'scale-3d': ['scale-3d'],
+      /**
+       * Skew
+       * @see https://tailwindcss.com/docs/skew
+       */
+      skew: [{
+        skew: scaleSkew()
+      }],
+      /**
+       * Skew X
+       * @see https://tailwindcss.com/docs/skew
+       */
+      'skew-x': [{
+        'skew-x': scaleSkew()
+      }],
+      /**
+       * Skew Y
+       * @see https://tailwindcss.com/docs/skew
+       */
+      'skew-y': [{
+        'skew-y': scaleSkew()
+      }],
+      /**
+       * Transform
+       * @see https://tailwindcss.com/docs/transform
+       */
+      transform: [{
+        transform: [isArbitraryVariable, isArbitraryValue, '', 'none', 'gpu', 'cpu']
+      }],
+      /**
+       * Transform Origin
+       * @see https://tailwindcss.com/docs/transform-origin
+       */
+      'transform-origin': [{
+        origin: scalePositionWithArbitrary()
+      }],
+      /**
+       * Transform Style
+       * @see https://tailwindcss.com/docs/transform-style
+       */
+      'transform-style': [{
+        transform: ['3d', 'flat']
+      }],
+      /**
+       * Translate
+       * @see https://tailwindcss.com/docs/translate
+       */
+      translate: [{
+        translate: scaleTranslate()
+      }],
+      /**
+       * Translate X
+       * @see https://tailwindcss.com/docs/translate
+       */
+      'translate-x': [{
+        'translate-x': scaleTranslate()
+      }],
+      /**
+       * Translate Y
+       * @see https://tailwindcss.com/docs/translate
+       */
+      'translate-y': [{
+        'translate-y': scaleTranslate()
+      }],
+      /**
+       * Translate Z
+       * @see https://tailwindcss.com/docs/translate
+       */
+      'translate-z': [{
+        'translate-z': scaleTranslate()
+      }],
+      /**
+       * Translate None
+       * @see https://tailwindcss.com/docs/translate
+       */
+      'translate-none': ['translate-none'],
+      // ---------------------
+      // --- Interactivity ---
+      // ---------------------
+      /**
+       * Accent Color
+       * @see https://tailwindcss.com/docs/accent-color
+       */
+      accent: [{
+        accent: scaleColor()
+      }],
+      /**
+       * Appearance
+       * @see https://tailwindcss.com/docs/appearance
+       */
+      appearance: [{
+        appearance: ['none', 'auto']
+      }],
+      /**
+       * Caret Color
+       * @see https://tailwindcss.com/docs/just-in-time-mode#caret-color-utilities
+       */
+      'caret-color': [{
+        caret: scaleColor()
+      }],
+      /**
+       * Color Scheme
+       * @see https://tailwindcss.com/docs/color-scheme
+       */
+      'color-scheme': [{
+        scheme: ['normal', 'dark', 'light', 'light-dark', 'only-dark', 'only-light']
+      }],
+      /**
+       * Cursor
+       * @see https://tailwindcss.com/docs/cursor
+       */
+      cursor: [{
+        cursor: ['auto', 'default', 'pointer', 'wait', 'text', 'move', 'help', 'not-allowed', 'none', 'context-menu', 'progress', 'cell', 'crosshair', 'vertical-text', 'alias', 'copy', 'no-drop', 'grab', 'grabbing', 'all-scroll', 'col-resize', 'row-resize', 'n-resize', 'e-resize', 's-resize', 'w-resize', 'ne-resize', 'nw-resize', 'se-resize', 'sw-resize', 'ew-resize', 'ns-resize', 'nesw-resize', 'nwse-resize', 'zoom-in', 'zoom-out', isArbitraryVariable, isArbitraryValue]
+      }],
+      /**
+       * Field Sizing
+       * @see https://tailwindcss.com/docs/field-sizing
+       */
+      'field-sizing': [{
+        'field-sizing': ['fixed', 'content']
+      }],
+      /**
+       * Pointer Events
+       * @see https://tailwindcss.com/docs/pointer-events
+       */
+      'pointer-events': [{
+        'pointer-events': ['auto', 'none']
+      }],
+      /**
+       * Resize
+       * @see https://tailwindcss.com/docs/resize
+       */
+      resize: [{
+        resize: ['none', '', 'y', 'x']
+      }],
+      /**
+       * Scroll Behavior
+       * @see https://tailwindcss.com/docs/scroll-behavior
+       */
+      'scroll-behavior': [{
+        scroll: ['auto', 'smooth']
+      }],
+      /**
+       * Scroll Margin
+       * @see https://tailwindcss.com/docs/scroll-margin
+       */
+      'scroll-m': [{
+        'scroll-m': scaleUnambiguousSpacing()
+      }],
+      /**
+       * Scroll Margin X
+       * @see https://tailwindcss.com/docs/scroll-margin
+       */
+      'scroll-mx': [{
+        'scroll-mx': scaleUnambiguousSpacing()
+      }],
+      /**
+       * Scroll Margin Y
+       * @see https://tailwindcss.com/docs/scroll-margin
+       */
+      'scroll-my': [{
+        'scroll-my': scaleUnambiguousSpacing()
+      }],
+      /**
+       * Scroll Margin Start
+       * @see https://tailwindcss.com/docs/scroll-margin
+       */
+      'scroll-ms': [{
+        'scroll-ms': scaleUnambiguousSpacing()
+      }],
+      /**
+       * Scroll Margin End
+       * @see https://tailwindcss.com/docs/scroll-margin
+       */
+      'scroll-me': [{
+        'scroll-me': scaleUnambiguousSpacing()
+      }],
+      /**
+       * Scroll Margin Top
+       * @see https://tailwindcss.com/docs/scroll-margin
+       */
+      'scroll-mt': [{
+        'scroll-mt': scaleUnambiguousSpacing()
+      }],
+      /**
+       * Scroll Margin Right
+       * @see https://tailwindcss.com/docs/scroll-margin
+       */
+      'scroll-mr': [{
+        'scroll-mr': scaleUnambiguousSpacing()
+      }],
+      /**
+       * Scroll Margin Bottom
+       * @see https://tailwindcss.com/docs/scroll-margin
+       */
+      'scroll-mb': [{
+        'scroll-mb': scaleUnambiguousSpacing()
+      }],
+      /**
+       * Scroll Margin Left
+       * @see https://tailwindcss.com/docs/scroll-margin
+       */
+      'scroll-ml': [{
+        'scroll-ml': scaleUnambiguousSpacing()
+      }],
+      /**
+       * Scroll Padding
+       * @see https://tailwindcss.com/docs/scroll-padding
+       */
+      'scroll-p': [{
+        'scroll-p': scaleUnambiguousSpacing()
+      }],
+      /**
+       * Scroll Padding X
+       * @see https://tailwindcss.com/docs/scroll-padding
+       */
+      'scroll-px': [{
+        'scroll-px': scaleUnambiguousSpacing()
+      }],
+      /**
+       * Scroll Padding Y
+       * @see https://tailwindcss.com/docs/scroll-padding
+       */
+      'scroll-py': [{
+        'scroll-py': scaleUnambiguousSpacing()
+      }],
+      /**
+       * Scroll Padding Start
+       * @see https://tailwindcss.com/docs/scroll-padding
+       */
+      'scroll-ps': [{
+        'scroll-ps': scaleUnambiguousSpacing()
+      }],
+      /**
+       * Scroll Padding End
+       * @see https://tailwindcss.com/docs/scroll-padding
+       */
+      'scroll-pe': [{
+        'scroll-pe': scaleUnambiguousSpacing()
+      }],
+      /**
+       * Scroll Padding Top
+       * @see https://tailwindcss.com/docs/scroll-padding
+       */
+      'scroll-pt': [{
+        'scroll-pt': scaleUnambiguousSpacing()
+      }],
+      /**
+       * Scroll Padding Right
+       * @see https://tailwindcss.com/docs/scroll-padding
+       */
+      'scroll-pr': [{
+        'scroll-pr': scaleUnambiguousSpacing()
+      }],
+      /**
+       * Scroll Padding Bottom
+       * @see https://tailwindcss.com/docs/scroll-padding
+       */
+      'scroll-pb': [{
+        'scroll-pb': scaleUnambiguousSpacing()
+      }],
+      /**
+       * Scroll Padding Left
+       * @see https://tailwindcss.com/docs/scroll-padding
+       */
+      'scroll-pl': [{
+        'scroll-pl': scaleUnambiguousSpacing()
+      }],
+      /**
+       * Scroll Snap Align
+       * @see https://tailwindcss.com/docs/scroll-snap-align
+       */
+      'snap-align': [{
+        snap: ['start', 'end', 'center', 'align-none']
+      }],
+      /**
+       * Scroll Snap Stop
+       * @see https://tailwindcss.com/docs/scroll-snap-stop
+       */
+      'snap-stop': [{
+        snap: ['normal', 'always']
+      }],
+      /**
+       * Scroll Snap Type
+       * @see https://tailwindcss.com/docs/scroll-snap-type
+       */
+      'snap-type': [{
+        snap: ['none', 'x', 'y', 'both']
+      }],
+      /**
+       * Scroll Snap Type Strictness
+       * @see https://tailwindcss.com/docs/scroll-snap-type
+       */
+      'snap-strictness': [{
+        snap: ['mandatory', 'proximity']
+      }],
+      /**
+       * Touch Action
+       * @see https://tailwindcss.com/docs/touch-action
+       */
+      touch: [{
+        touch: ['auto', 'none', 'manipulation']
+      }],
+      /**
+       * Touch Action X
+       * @see https://tailwindcss.com/docs/touch-action
+       */
+      'touch-x': [{
+        'touch-pan': ['x', 'left', 'right']
+      }],
+      /**
+       * Touch Action Y
+       * @see https://tailwindcss.com/docs/touch-action
+       */
+      'touch-y': [{
+        'touch-pan': ['y', 'up', 'down']
+      }],
+      /**
+       * Touch Action Pinch Zoom
+       * @see https://tailwindcss.com/docs/touch-action
+       */
+      'touch-pz': ['touch-pinch-zoom'],
+      /**
+       * User Select
+       * @see https://tailwindcss.com/docs/user-select
+       */
+      select: [{
+        select: ['none', 'text', 'all', 'auto']
+      }],
+      /**
+       * Will Change
+       * @see https://tailwindcss.com/docs/will-change
+       */
+      'will-change': [{
+        'will-change': ['auto', 'scroll', 'contents', 'transform', isArbitraryVariable, isArbitraryValue]
+      }],
+      // -----------
+      // --- SVG ---
+      // -----------
+      /**
+       * Fill
+       * @see https://tailwindcss.com/docs/fill
+       */
+      fill: [{
+        fill: ['none', ...scaleColor()]
+      }],
+      /**
+       * Stroke Width
+       * @see https://tailwindcss.com/docs/stroke-width
+       */
+      'stroke-w': [{
+        stroke: [isNumber$1, isArbitraryVariableLength, isArbitraryLength, isArbitraryNumber]
+      }],
+      /**
+       * Stroke
+       * @see https://tailwindcss.com/docs/stroke
+       */
+      stroke: [{
+        stroke: ['none', ...scaleColor()]
+      }],
+      // ---------------------
+      // --- Accessibility ---
+      // ---------------------
+      /**
+       * Forced Color Adjust
+       * @see https://tailwindcss.com/docs/forced-color-adjust
+       */
+      'forced-color-adjust': [{
+        'forced-color-adjust': ['auto', 'none']
+      }]
+    },
+    conflictingClassGroups: {
+      overflow: ['overflow-x', 'overflow-y'],
+      overscroll: ['overscroll-x', 'overscroll-y'],
+      inset: ['inset-x', 'inset-y', 'start', 'end', 'top', 'right', 'bottom', 'left'],
+      'inset-x': ['right', 'left'],
+      'inset-y': ['top', 'bottom'],
+      flex: ['basis', 'grow', 'shrink'],
+      gap: ['gap-x', 'gap-y'],
+      p: ['px', 'py', 'ps', 'pe', 'pt', 'pr', 'pb', 'pl'],
+      px: ['pr', 'pl'],
+      py: ['pt', 'pb'],
+      m: ['mx', 'my', 'ms', 'me', 'mt', 'mr', 'mb', 'ml'],
+      mx: ['mr', 'ml'],
+      my: ['mt', 'mb'],
+      size: ['w', 'h'],
+      'font-size': ['leading'],
+      'fvn-normal': ['fvn-ordinal', 'fvn-slashed-zero', 'fvn-figure', 'fvn-spacing', 'fvn-fraction'],
+      'fvn-ordinal': ['fvn-normal'],
+      'fvn-slashed-zero': ['fvn-normal'],
+      'fvn-figure': ['fvn-normal'],
+      'fvn-spacing': ['fvn-normal'],
+      'fvn-fraction': ['fvn-normal'],
+      'line-clamp': ['display', 'overflow'],
+      rounded: ['rounded-s', 'rounded-e', 'rounded-t', 'rounded-r', 'rounded-b', 'rounded-l', 'rounded-ss', 'rounded-se', 'rounded-ee', 'rounded-es', 'rounded-tl', 'rounded-tr', 'rounded-br', 'rounded-bl'],
+      'rounded-s': ['rounded-ss', 'rounded-es'],
+      'rounded-e': ['rounded-se', 'rounded-ee'],
+      'rounded-t': ['rounded-tl', 'rounded-tr'],
+      'rounded-r': ['rounded-tr', 'rounded-br'],
+      'rounded-b': ['rounded-br', 'rounded-bl'],
+      'rounded-l': ['rounded-tl', 'rounded-bl'],
+      'border-spacing': ['border-spacing-x', 'border-spacing-y'],
+      'border-w': ['border-w-x', 'border-w-y', 'border-w-s', 'border-w-e', 'border-w-t', 'border-w-r', 'border-w-b', 'border-w-l'],
+      'border-w-x': ['border-w-r', 'border-w-l'],
+      'border-w-y': ['border-w-t', 'border-w-b'],
+      'border-color': ['border-color-x', 'border-color-y', 'border-color-s', 'border-color-e', 'border-color-t', 'border-color-r', 'border-color-b', 'border-color-l'],
+      'border-color-x': ['border-color-r', 'border-color-l'],
+      'border-color-y': ['border-color-t', 'border-color-b'],
+      translate: ['translate-x', 'translate-y', 'translate-none'],
+      'translate-none': ['translate', 'translate-x', 'translate-y', 'translate-z'],
+      'scroll-m': ['scroll-mx', 'scroll-my', 'scroll-ms', 'scroll-me', 'scroll-mt', 'scroll-mr', 'scroll-mb', 'scroll-ml'],
+      'scroll-mx': ['scroll-mr', 'scroll-ml'],
+      'scroll-my': ['scroll-mt', 'scroll-mb'],
+      'scroll-p': ['scroll-px', 'scroll-py', 'scroll-ps', 'scroll-pe', 'scroll-pt', 'scroll-pr', 'scroll-pb', 'scroll-pl'],
+      'scroll-px': ['scroll-pr', 'scroll-pl'],
+      'scroll-py': ['scroll-pt', 'scroll-pb'],
+      touch: ['touch-x', 'touch-y', 'touch-pz'],
+      'touch-x': ['touch'],
+      'touch-y': ['touch'],
+      'touch-pz': ['touch']
+    },
+    conflictingClassGroupModifiers: {
+      'font-size': ['leading']
+    },
+    orderSensitiveModifiers: ['*', '**', 'after', 'backdrop', 'before', 'details-content', 'file', 'first-letter', 'first-line', 'marker', 'placeholder', 'selection']
+  };
+};
+const twMerge = /*#__PURE__*/createTailwindMerge(getDefaultConfig);
+
+function cn(...inputs) {
+  return twMerge(clsx(inputs));
+}
+
+const React$m = await importShared('react');
+const Card = React$m.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+  "div",
+  {
+    ref,
+    className: cn(
+      "rounded-xl border bg-card text-card-foreground shadow",
+      className
+    ),
+    ...props
+  }
+));
+Card.displayName = "Card";
+const CardHeader = React$m.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+  "div",
+  {
+    ref,
+    className: cn("flex flex-col space-y-1.5 p-6", className),
+    ...props
+  }
+));
+CardHeader.displayName = "CardHeader";
+const CardTitle = React$m.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+  "h3",
+  {
+    ref,
+    className: cn("font-semibold leading-none tracking-tight", className),
+    ...props
+  }
+));
+CardTitle.displayName = "CardTitle";
+const CardDescription = React$m.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+  "p",
+  {
+    ref,
+    className: cn("text-sm text-muted-foreground", className),
+    ...props
+  }
+));
+CardDescription.displayName = "CardDescription";
+const CardContent = React$m.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { ref, className: cn("p-6 pt-0", className), ...props }));
+CardContent.displayName = "CardContent";
+const CardFooter = React$m.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+  "div",
+  {
+    ref,
+    className: cn("flex items-center p-6 pt-0", className),
+    ...props
+  }
+));
+CardFooter.displayName = "CardFooter";
+
+const falsyToString = (value)=>typeof value === "boolean" ? `${value}` : value === 0 ? "0" : value;
+const cx = clsx;
+const cva = (base, config)=>(props)=>{
+        var _config_compoundVariants;
+        if ((config === null || config === void 0 ? void 0 : config.variants) == null) return cx(base, props === null || props === void 0 ? void 0 : props.class, props === null || props === void 0 ? void 0 : props.className);
+        const { variants, defaultVariants } = config;
+        const getVariantClassNames = Object.keys(variants).map((variant)=>{
+            const variantProp = props === null || props === void 0 ? void 0 : props[variant];
+            const defaultVariantProp = defaultVariants === null || defaultVariants === void 0 ? void 0 : defaultVariants[variant];
+            if (variantProp === null) return null;
+            const variantKey = falsyToString(variantProp) || falsyToString(defaultVariantProp);
+            return variants[variant][variantKey];
+        });
+        const propsWithoutUndefined = props && Object.entries(props).reduce((acc, param)=>{
+            let [key, value] = param;
+            if (value === undefined) {
+                return acc;
+            }
+            acc[key] = value;
+            return acc;
+        }, {});
+        const getCompoundVariantClassNames = config === null || config === void 0 ? void 0 : (_config_compoundVariants = config.compoundVariants) === null || _config_compoundVariants === void 0 ? void 0 : _config_compoundVariants.reduce((acc, param)=>{
+            let { class: cvClass, className: cvClassName, ...compoundVariantOptions } = param;
+            return Object.entries(compoundVariantOptions).every((param)=>{
+                let [key, value] = param;
+                return Array.isArray(value) ? value.includes({
+                    ...defaultVariants,
+                    ...propsWithoutUndefined
+                }[key]) : ({
+                    ...defaultVariants,
+                    ...propsWithoutUndefined
+                })[key] === value;
+            }) ? [
+                ...acc,
+                cvClass,
+                cvClassName
+            ] : acc;
+        }, []);
+        return cx(base, getVariantClassNames, getCompoundVariantClassNames, props === null || props === void 0 ? void 0 : props.class, props === null || props === void 0 ? void 0 : props.className);
+    };
+
+const badgeVariants = cva(
+  "inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
+  {
+    variants: {
+      variant: {
+        default: "border-transparent bg-primary text-primary-foreground shadow hover:bg-primary/80",
+        secondary: "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        destructive: "border-transparent bg-destructive text-destructive-foreground shadow hover:bg-destructive/80",
+        outline: "text-foreground"
+      }
+    },
+    defaultVariants: {
+      variant: "default"
+    }
+  }
+);
+function Badge({ className, variant, ...props }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: cn(badgeVariants({ variant }), className), ...props });
+}
+
+// packages/react/compose-refs/src/composeRefs.tsx
+const React$l = await importShared('react');
+
+function setRef(ref, value) {
+  if (typeof ref === "function") {
+    return ref(value);
+  } else if (ref !== null && ref !== void 0) {
+    ref.current = value;
+  }
+}
+function composeRefs(...refs) {
+  return (node) => {
+    let hasCleanup = false;
+    const cleanups = refs.map((ref) => {
+      const cleanup = setRef(ref, node);
+      if (!hasCleanup && typeof cleanup == "function") {
+        hasCleanup = true;
+      }
+      return cleanup;
+    });
+    if (hasCleanup) {
+      return () => {
+        for (let i = 0; i < cleanups.length; i++) {
+          const cleanup = cleanups[i];
+          if (typeof cleanup == "function") {
+            cleanup();
+          } else {
+            setRef(refs[i], null);
+          }
+        }
+      };
+    }
+  };
+}
+function useComposedRefs(...refs) {
+  return React$l.useCallback(composeRefs(...refs), refs);
+}
+
+// packages/react/slot/src/slot.tsx
+const React$k = await importShared('react');
+var Slot = React$k.forwardRef((props, forwardedRef) => {
+  const { children, ...slotProps } = props;
+  const childrenArray = React$k.Children.toArray(children);
+  const slottable = childrenArray.find(isSlottable);
+  if (slottable) {
+    const newElement = slottable.props.children;
+    const newChildren = childrenArray.map((child) => {
+      if (child === slottable) {
+        if (React$k.Children.count(newElement) > 1) return React$k.Children.only(null);
+        return React$k.isValidElement(newElement) ? newElement.props.children : null;
+      } else {
+        return child;
+      }
+    });
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(SlotClone, { ...slotProps, ref: forwardedRef, children: React$k.isValidElement(newElement) ? React$k.cloneElement(newElement, void 0, newChildren) : null });
+  }
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(SlotClone, { ...slotProps, ref: forwardedRef, children });
+});
+Slot.displayName = "Slot";
+var SlotClone = React$k.forwardRef((props, forwardedRef) => {
+  const { children, ...slotProps } = props;
+  if (React$k.isValidElement(children)) {
+    const childrenRef = getElementRef$1(children);
+    const props2 = mergeProps(slotProps, children.props);
+    if (children.type !== React$k.Fragment) {
+      props2.ref = forwardedRef ? composeRefs(forwardedRef, childrenRef) : childrenRef;
+    }
+    return React$k.cloneElement(children, props2);
+  }
+  return React$k.Children.count(children) > 1 ? React$k.Children.only(null) : null;
+});
+SlotClone.displayName = "SlotClone";
+var Slottable = ({ children }) => {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children });
+};
+function isSlottable(child) {
+  return React$k.isValidElement(child) && child.type === Slottable;
+}
+function mergeProps(slotProps, childProps) {
+  const overrideProps = { ...childProps };
+  for (const propName in childProps) {
+    const slotPropValue = slotProps[propName];
+    const childPropValue = childProps[propName];
+    const isHandler = /^on[A-Z]/.test(propName);
+    if (isHandler) {
+      if (slotPropValue && childPropValue) {
+        overrideProps[propName] = (...args) => {
+          childPropValue(...args);
+          slotPropValue(...args);
+        };
+      } else if (slotPropValue) {
+        overrideProps[propName] = slotPropValue;
+      }
+    } else if (propName === "style") {
+      overrideProps[propName] = { ...slotPropValue, ...childPropValue };
+    } else if (propName === "className") {
+      overrideProps[propName] = [slotPropValue, childPropValue].filter(Boolean).join(" ");
+    }
+  }
+  return { ...slotProps, ...overrideProps };
+}
+function getElementRef$1(element) {
+  let getter = Object.getOwnPropertyDescriptor(element.props, "ref")?.get;
+  let mayWarn = getter && "isReactWarning" in getter && getter.isReactWarning;
+  if (mayWarn) {
+    return element.ref;
+  }
+  getter = Object.getOwnPropertyDescriptor(element, "ref")?.get;
+  mayWarn = getter && "isReactWarning" in getter && getter.isReactWarning;
+  if (mayWarn) {
+    return element.props.ref;
+  }
+  return element.props.ref || element.ref;
+}
+
+const React$j = await importShared('react');
+const buttonVariants = cva(
+  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  {
+    variants: {
+      variant: {
+        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        ghost: "hover:bg-accent hover:text-accent-foreground",
+        link: "text-primary underline-offset-4 hover:underline"
+      },
+      size: {
+        default: "h-10 px-4 py-2",
+        sm: "h-9 rounded-md px-3",
+        lg: "h-11 rounded-md px-8",
+        icon: "h-10 w-10"
+      }
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "default"
+    }
+  }
+);
+const Button$1 = React$j.forwardRef(
+  ({ className, variant, size, asChild = false, ...props }, ref) => {
+    const Comp = asChild ? Slot : "button";
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Comp,
+      {
+        className: cn(buttonVariants({ variant, size, className })),
+        ref,
+        ...props
+      }
+    );
+  }
+);
+Button$1.displayName = "Button";
+
+// packages/react/context/src/createContext.tsx
+const React$i = await importShared('react');
+function createContextScope(scopeName, createContextScopeDeps = []) {
+  let defaultContexts = [];
+  function createContext3(rootComponentName, defaultContext) {
+    const BaseContext = React$i.createContext(defaultContext);
+    const index = defaultContexts.length;
+    defaultContexts = [...defaultContexts, defaultContext];
+    const Provider = (props) => {
+      const { scope, children, ...context } = props;
+      const Context = scope?.[scopeName]?.[index] || BaseContext;
+      const value = React$i.useMemo(() => context, Object.values(context));
+      return /* @__PURE__ */ jsxRuntimeExports.jsx(Context.Provider, { value, children });
+    };
+    Provider.displayName = rootComponentName + "Provider";
+    function useContext2(consumerName, scope) {
+      const Context = scope?.[scopeName]?.[index] || BaseContext;
+      const context = React$i.useContext(Context);
+      if (context) return context;
+      if (defaultContext !== void 0) return defaultContext;
+      throw new Error(`\`${consumerName}\` must be used within \`${rootComponentName}\``);
+    }
+    return [Provider, useContext2];
+  }
+  const createScope = () => {
+    const scopeContexts = defaultContexts.map((defaultContext) => {
+      return React$i.createContext(defaultContext);
+    });
+    return function useScope(scope) {
+      const contexts = scope?.[scopeName] || scopeContexts;
+      return React$i.useMemo(
+        () => ({ [`__scope${scopeName}`]: { ...scope, [scopeName]: contexts } }),
+        [scope, contexts]
+      );
+    };
+  };
+  createScope.scopeName = scopeName;
+  return [createContext3, composeContextScopes(createScope, ...createContextScopeDeps)];
+}
+function composeContextScopes(...scopes) {
+  const baseScope = scopes[0];
+  if (scopes.length === 1) return baseScope;
+  const createScope = () => {
+    const scopeHooks = scopes.map((createScope2) => ({
+      useScope: createScope2(),
+      scopeName: createScope2.scopeName
+    }));
+    return function useComposedScopes(overrideScopes) {
+      const nextScopes = scopeHooks.reduce((nextScopes2, { useScope, scopeName }) => {
+        const scopeProps = useScope(overrideScopes);
+        const currentScope = scopeProps[`__scope${scopeName}`];
+        return { ...nextScopes2, ...currentScope };
+      }, {});
+      return React$i.useMemo(() => ({ [`__scope${baseScope.scopeName}`]: nextScopes }), [nextScopes]);
+    };
+  };
+  createScope.scopeName = baseScope.scopeName;
+  return createScope;
+}
+
+// packages/react/use-callback-ref/src/useCallbackRef.tsx
+const React$h = await importShared('react');
+
+function useCallbackRef(callback) {
+  const callbackRef = React$h.useRef(callback);
+  React$h.useEffect(() => {
+    callbackRef.current = callback;
+  });
+  return React$h.useMemo(() => (...args) => callbackRef.current?.(...args), []);
+}
+
+// packages/react/use-layout-effect/src/useLayoutEffect.tsx
+const React$g = await importShared('react');
+
+var useLayoutEffect2 = Boolean(globalThis?.document) ? React$g.useLayoutEffect : () => {
+};
+
+// packages/react/primitive/src/primitive.tsx
+const React$f = await importShared('react');
+
+await importShared('react-dom');
+var NODES = [
+  "a",
+  "button",
+  "div",
+  "form",
+  "h2",
+  "h3",
+  "img",
+  "input",
+  "label",
+  "li",
+  "nav",
+  "ol",
+  "p",
+  "span",
+  "svg",
+  "ul"
+];
+var Primitive = NODES.reduce((primitive, node) => {
+  const Node = React$f.forwardRef((props, forwardedRef) => {
+    const { asChild, ...primitiveProps } = props;
+    const Comp = asChild ? Slot : node;
+    if (typeof window !== "undefined") {
+      window[Symbol.for("radix-ui")] = true;
+    }
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Comp, { ...primitiveProps, ref: forwardedRef });
+  });
+  Node.displayName = `Primitive.${node}`;
+  return { ...primitive, [node]: Node };
+}, {});
+
+// packages/react/avatar/src/avatar.tsx
+const React$e = await importShared('react');
+var AVATAR_NAME = "Avatar";
+var [createAvatarContext] = createContextScope(AVATAR_NAME);
+var [AvatarProvider, useAvatarContext] = createAvatarContext(AVATAR_NAME);
+var Avatar$1 = React$e.forwardRef(
+  (props, forwardedRef) => {
+    const { __scopeAvatar, ...avatarProps } = props;
+    const [imageLoadingStatus, setImageLoadingStatus] = React$e.useState("idle");
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(
+      AvatarProvider,
+      {
+        scope: __scopeAvatar,
+        imageLoadingStatus,
+        onImageLoadingStatusChange: setImageLoadingStatus,
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx(Primitive.span, { ...avatarProps, ref: forwardedRef })
+      }
+    );
+  }
+);
+Avatar$1.displayName = AVATAR_NAME;
+var IMAGE_NAME = "AvatarImage";
+var AvatarImage$1 = React$e.forwardRef(
+  (props, forwardedRef) => {
+    const { __scopeAvatar, src, onLoadingStatusChange = () => {
+    }, ...imageProps } = props;
+    const context = useAvatarContext(IMAGE_NAME, __scopeAvatar);
+    const imageLoadingStatus = useImageLoadingStatus(src, imageProps.referrerPolicy);
+    const handleLoadingStatusChange = useCallbackRef((status) => {
+      onLoadingStatusChange(status);
+      context.onImageLoadingStatusChange(status);
+    });
+    useLayoutEffect2(() => {
+      if (imageLoadingStatus !== "idle") {
+        handleLoadingStatusChange(imageLoadingStatus);
+      }
+    }, [imageLoadingStatus, handleLoadingStatusChange]);
+    return imageLoadingStatus === "loaded" ? /* @__PURE__ */ jsxRuntimeExports.jsx(Primitive.img, { ...imageProps, ref: forwardedRef, src }) : null;
+  }
+);
+AvatarImage$1.displayName = IMAGE_NAME;
+var FALLBACK_NAME = "AvatarFallback";
+var AvatarFallback$1 = React$e.forwardRef(
+  (props, forwardedRef) => {
+    const { __scopeAvatar, delayMs, ...fallbackProps } = props;
+    const context = useAvatarContext(FALLBACK_NAME, __scopeAvatar);
+    const [canRender, setCanRender] = React$e.useState(delayMs === void 0);
+    React$e.useEffect(() => {
+      if (delayMs !== void 0) {
+        const timerId = window.setTimeout(() => setCanRender(true), delayMs);
+        return () => window.clearTimeout(timerId);
+      }
+    }, [delayMs]);
+    return canRender && context.imageLoadingStatus !== "loaded" ? /* @__PURE__ */ jsxRuntimeExports.jsx(Primitive.span, { ...fallbackProps, ref: forwardedRef }) : null;
+  }
+);
+AvatarFallback$1.displayName = FALLBACK_NAME;
+function useImageLoadingStatus(src, referrerPolicy) {
+  const [loadingStatus, setLoadingStatus] = React$e.useState("idle");
+  useLayoutEffect2(() => {
+    if (!src) {
+      setLoadingStatus("error");
+      return;
+    }
+    let isMounted = true;
+    const image = new window.Image();
+    const updateStatus = (status) => () => {
+      if (!isMounted) return;
+      setLoadingStatus(status);
+    };
+    setLoadingStatus("loading");
+    image.onload = updateStatus("loaded");
+    image.onerror = updateStatus("error");
+    image.src = src;
+    if (referrerPolicy) {
+      image.referrerPolicy = referrerPolicy;
+    }
+    return () => {
+      isMounted = false;
+    };
+  }, [src, referrerPolicy]);
+  return loadingStatus;
+}
+var Root$2 = Avatar$1;
+var Image = AvatarImage$1;
+var Fallback = AvatarFallback$1;
+
+const React$d = await importShared('react');
+const Avatar = React$d.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+  Root$2,
+  {
+    ref,
+    className: cn(
+      "relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full",
+      className
+    ),
+    ...props
+  }
+));
+Avatar.displayName = Root$2.displayName;
+const AvatarImage = React$d.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+  Image,
+  {
+    ref,
+    className: cn("aspect-square h-full w-full", className),
+    ...props
+  }
+));
+AvatarImage.displayName = Image.displayName;
+const AvatarFallback = React$d.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+  Fallback,
+  {
+    ref,
+    className: cn(
+      "flex h-full w-full items-center justify-center rounded-full bg-muted",
+      className
+    ),
+    ...props
+  }
+));
+AvatarFallback.displayName = Fallback.displayName;
+
+const stats = [
+  { label: "Хуваарилагдсан оюутнууд", value: 12, icon: Users, color: "text-[#1455BD]", bg: "bg-blue-50" },
+  { label: "Хүлээгдэж буй тайлан", value: 5, icon: FileText, color: "text-orange-600", bg: "bg-orange-50", urgent: true },
+  { label: "Удахгүй болох үнэлгээ", value: 3, icon: Calendar, color: "text-purple-600", bg: "bg-purple-50" },
+  { label: "Дууссан хяналт", value: 28, icon: CircleCheckBig, color: "text-emerald-600", bg: "bg-emerald-50" }
+];
+const pendingReports = [
+  { id: 1, student: "Д.Оч", type: "Явц 2-ын тайлан", date: "2 өдрийн өмнө илгээсэн", urgency: "high" },
+  { id: 2, student: "Б.Батбаяр", type: "Урьдчилсан хамгаалалтын ноорог", date: "3 өдрийн өмнө илгээсэн", urgency: "high" },
+  { id: 3, student: "С.Мөнхбаяр", type: "Явц 1-ийн тайлан", date: "Өнөөдөр илгээсэн", urgency: "normal" }
+];
+const upcomingEvaluations = [
+  { id: 1, type: "Урьдчилсан хамгаалалтын хяналтын хороо", student: "Д.Оч", date: "2026-03-25T10:00:00", daysLeft: 6 },
+  { id: 2, type: "Эцсийн хамгаалалт", student: "Б.Батбаяр", date: "2026-04-10T14:00:00", daysLeft: 22 }
+];
+const activityFeed = [
+  { id: 1, text: "Д.Оч-ны судалгааны төлөвлөгөөг зөвшөөрлөо.", time: "2 цагийн өмнө", icon: CircleCheckBig, color: "text-emerald-500" },
+  { id: 2, text: "Б.Батбаяр урьдчилсан хамгаалалтын шинэ ноорог оруулав.", time: "5 цагийн өмнө", icon: Upload, color: "text-blue-500" },
+  { id: 3, text: "С.Мөнхбаяр-ны эцсийн хамгаалалтад комисс томилогдлоо.", time: "1 өдрийн өмнө", icon: Users, color: "text-purple-500" },
+  { id: 4, text: "Т.Түвшинбаяр-ны 2-р бүлэгт тайлбар нэмлээ.", time: "2 өдрийн өмнө", icon: MessageSquare, color: "text-slate-500" }
+];
+function TeacherDashboard() {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-6 max-w-7xl mx-auto pb-10", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col md:flex-row justify-between items-start md:items-center gap-4", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-2xl font-bold text-slate-900", children: "Хянах самбар" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-slate-600 mt-1", children: "Өнөөдөр оюутнуудтай холбоотой тойм мэдээлэл." })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(Button$1, { className: "bg-[#1455BD] hover:bg-[#0d3a8a] text-white shadow-sm transition-all rounded-lg", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(FileText, { className: "w-4 h-4 mr-2" }),
+        "Бүх хүлээгдэж буйг хянах"
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4", children: stats.map((stat, index) => {
+      const Icon = stat.icon;
+      return /* @__PURE__ */ jsxRuntimeExports.jsxs(Card, { className: "border-slate-200 shadow-sm hover:shadow-md transition-shadow group cursor-pointer relative overflow-hidden", children: [
+        stat.urgent && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute top-0 right-0 w-12 h-12 overflow-hidden", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute top-[8px] -right-[14px] bg-rose-500 text-white text-[8px] font-bold uppercase tracking-widest py-0.5 px-4 rotate-45 shadow-sm", children: "Action" }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(CardContent, { className: "p-5 flex items-center justify-between", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm font-medium text-slate-500 mb-1", children: stat.label }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-3xl font-bold text-slate-900", children: stat.value })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `w-12 h-12 rounded-xl flex items-center justify-center transition-colors group-hover:scale-110 duration-300 ${stat.bg}`, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { className: `w-6 h-6 ${stat.color}` }) })
+        ] })
+      ] }, index);
+    }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 lg:grid-cols-3 gap-6", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "lg:col-span-2 space-y-6", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(Card, { className: "border-slate-200 shadow-sm", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(CardHeader, { className: "pb-3 border-b border-slate-100 flex flex-row items-center justify-between bg-slate-50/50", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(CardTitle, { className: "text-lg font-semibold flex items-center text-slate-800", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(FileText, { className: "w-5 h-5 mr-2 text-orange-600" }),
+              "Хянах шаардлагатай тайлан"
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Button$1, { variant: "ghost", size: "sm", className: "text-slate-500 hover:text-[#1455BD] text-xs h-8", children: "Дараалал харах" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(CardContent, { className: "p-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "divide-y divide-slate-100", children: pendingReports.map((report) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-4 hover:bg-slate-50 transition-colors flex flex-col sm:flex-row justify-between sm:items-center gap-4 group cursor-pointer", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(Avatar, { className: "h-9 w-9 border border-slate-200", children: /* @__PURE__ */ jsxRuntimeExports.jsx(AvatarFallback, { className: "bg-blue-50 text-[#1455BD] text-xs font-bold", children: report.student.split(" ").map((n) => n[0]).join("") }) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-semibold text-sm text-slate-900", children: report.student }),
+                  report.urgency === "high" && /* @__PURE__ */ jsxRuntimeExports.jsx(Badge, { className: "bg-rose-100 text-rose-700 hover:bg-rose-200 border-0 text-[10px] px-1.5 py-0 rounded", children: "Яаралтай" })
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-xs text-slate-500 mt-0.5", children: [
+                  report.type,
+                  " • ",
+                  report.date
+                ] })
+              ] })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Button$1, { variant: "outline", size: "sm", className: "border-slate-200 bg-white hover:bg-slate-50 hover:text-[#1455BD] shadow-sm shrink-0", children: "Одоо хянах" })
+          ] }, report.id)) }) })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(Card, { className: "border-slate-200 shadow-sm", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(CardHeader, { className: "pb-3 border-b border-slate-100", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(CardTitle, { className: "text-lg font-semibold flex items-center text-slate-800", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Activity, { className: "w-5 h-5 mr-2 text-[#1455BD]" }),
+            "Сүүлийн үйл ажиллагаа"
+          ] }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(CardContent, { className: "p-6", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative border-l-2 border-slate-100 space-y-6 ml-2", children: activityFeed.map((activity, index) => {
+              const Icon = activity.icon;
+              return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative pl-6", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-white border-2 border-slate-200 flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `w-1.5 h-1.5 rounded-full bg-slate-300` }) }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col sm:flex-row justify-between sm:items-center gap-1", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-sm text-slate-700", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-medium mr-1.5 inline-flex items-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { className: `w-4 h-4 mr-1 ${activity.color}` }) }),
+                    activity.text
+                  ] }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs text-slate-400 whitespace-nowrap", children: activity.time })
+                ] })
+              ] }, activity.id);
+            }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Button$1, { variant: "ghost", size: "sm", className: "w-full text-xs text-[#1455BD] mt-4 hover:bg-blue-50/50", children: "Дэлгэрэнгүй харах" })
+          ] })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-6", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(Card, { className: "border-slate-200 shadow-sm", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(CardHeader, { className: "pb-3 border-b border-slate-100 bg-[#1455BD]/5", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(CardTitle, { className: "text-lg font-semibold flex items-center text-slate-800", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Calendar, { className: "w-5 h-5 mr-2 text-[#1455BD]" }),
+            "Удахгүй болох үнэлгээ"
+          ] }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(CardContent, { className: "p-4 space-y-4 bg-slate-50/30", children: [
+            upcomingEvaluations.map((evalItem) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-4 rounded-xl border border-slate-200 bg-white hover:border-[#1455BD]/30 hover:shadow-sm transition-all group cursor-pointer relative overflow-hidden", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute left-0 top-0 bottom-0 w-1 bg-[#1455BD]/20 group-hover:bg-[#1455BD] transition-colors" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex justify-between items-start mb-2 pl-2", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsxs(Badge, { variant: "outline", className: "bg-blue-50/50 text-[#1455BD] border-blue-100 font-medium", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(Clock, { className: "w-3 h-3 mr-1" }),
+                  evalItem.daysLeft,
+                  " хоногийн дараа"
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowRight, { className: "w-4 h-4 text-slate-300 group-hover:text-[#1455BD] transition-colors" })
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "pl-2", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-semibold text-sm text-slate-900 leading-snug", children: evalItem.type }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-xs text-slate-600 mt-1", children: [
+                  "Оюутан: ",
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-medium", children: evalItem.student })
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-xs font-medium text-slate-400 mt-2 flex items-center", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(Calendar, { className: "w-3 h-3 mr-1" }),
+                  new Date(evalItem.date).toLocaleDateString("en-US", { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" })
+                ] })
+              ] })
+            ] }, evalItem.id)),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Button$1, { variant: "outline", className: "w-full text-xs font-semibold text-slate-600 border-slate-200 mt-2 hover:bg-slate-50 hover:text-[#1455BD] shadow-sm", children: "Бүтэн хуваарь харах" })
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Card, { className: "border-slate-200 shadow-sm border-t-4 border-t-emerald-500", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(CardContent, { className: "p-5", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("h3", { className: "text-sm font-bold text-slate-700 uppercase tracking-widest mb-4 flex items-center gap-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(TrendingUp, { className: "w-4 h-4 text-emerald-500" }),
+            "Улирлын явц"
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-4", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex justify-between text-xs mb-1", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-medium text-slate-600", children: "Хэвийн явцтай оюутнууд" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-bold text-slate-900", children: "10/12" })
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-1.5 w-full bg-slate-100 rounded-full overflow-hidden", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-full bg-emerald-500", style: { width: "83%" } }) })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex justify-between text-xs mb-1", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-medium text-slate-600", children: "Комиссын даалгавар дууссан" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-bold text-slate-900", children: "8/15" })
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-1.5 w-full bg-slate-100 rounded-full overflow-hidden", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-full bg-[#1455BD]", style: { width: "53%" } }) })
+            ] })
+          ] })
+        ] }) })
+      ] })
+    ] })
+  ] });
+}
+
+// packages/core/primitive/src/primitive.tsx
+function composeEventHandlers(originalEventHandler, ourEventHandler, { checkForDefaultPrevented = true } = {}) {
+  return function handleEvent(event) {
+    originalEventHandler?.(event);
+    if (checkForDefaultPrevented === false || !event.defaultPrevented) {
+      return ourEventHandler?.(event);
+    }
+  };
+}
+
+// packages/react/collection/src/collection.tsx
+const React$c = await importShared('react');
+function createCollection(name) {
+  const PROVIDER_NAME = name + "CollectionProvider";
+  const [createCollectionContext, createCollectionScope] = createContextScope(PROVIDER_NAME);
+  const [CollectionProviderImpl, useCollectionContext] = createCollectionContext(
+    PROVIDER_NAME,
+    { collectionRef: { current: null }, itemMap: /* @__PURE__ */ new Map() }
+  );
+  const CollectionProvider = (props) => {
+    const { scope, children } = props;
+    const ref = React$c.useRef(null);
+    const itemMap = React$c.useRef(/* @__PURE__ */ new Map()).current;
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(CollectionProviderImpl, { scope, itemMap, collectionRef: ref, children });
+  };
+  CollectionProvider.displayName = PROVIDER_NAME;
+  const COLLECTION_SLOT_NAME = name + "CollectionSlot";
+  const CollectionSlot = React$c.forwardRef(
+    (props, forwardedRef) => {
+      const { scope, children } = props;
+      const context = useCollectionContext(COLLECTION_SLOT_NAME, scope);
+      const composedRefs = useComposedRefs(forwardedRef, context.collectionRef);
+      return /* @__PURE__ */ jsxRuntimeExports.jsx(Slot, { ref: composedRefs, children });
+    }
+  );
+  CollectionSlot.displayName = COLLECTION_SLOT_NAME;
+  const ITEM_SLOT_NAME = name + "CollectionItemSlot";
+  const ITEM_DATA_ATTR = "data-radix-collection-item";
+  const CollectionItemSlot = React$c.forwardRef(
+    (props, forwardedRef) => {
+      const { scope, children, ...itemData } = props;
+      const ref = React$c.useRef(null);
+      const composedRefs = useComposedRefs(forwardedRef, ref);
+      const context = useCollectionContext(ITEM_SLOT_NAME, scope);
+      React$c.useEffect(() => {
+        context.itemMap.set(ref, { ref, ...itemData });
+        return () => void context.itemMap.delete(ref);
+      });
+      return /* @__PURE__ */ jsxRuntimeExports.jsx(Slot, { ...{ [ITEM_DATA_ATTR]: "" }, ref: composedRefs, children });
+    }
+  );
+  CollectionItemSlot.displayName = ITEM_SLOT_NAME;
+  function useCollection(scope) {
+    const context = useCollectionContext(name + "CollectionConsumer", scope);
+    const getItems = React$c.useCallback(() => {
+      const collectionNode = context.collectionRef.current;
+      if (!collectionNode) return [];
+      const orderedNodes = Array.from(collectionNode.querySelectorAll(`[${ITEM_DATA_ATTR}]`));
+      const items = Array.from(context.itemMap.values());
+      const orderedItems = items.sort(
+        (a, b) => orderedNodes.indexOf(a.ref.current) - orderedNodes.indexOf(b.ref.current)
+      );
+      return orderedItems;
+    }, [context.collectionRef, context.itemMap]);
+    return getItems;
+  }
+  return [
+    { Provider: CollectionProvider, Slot: CollectionSlot, ItemSlot: CollectionItemSlot },
+    useCollection,
+    createCollectionScope
+  ];
+}
+
+// packages/react/id/src/id.tsx
+const React$b = await importShared('react');
+var useReactId = React$b["useId".toString()] || (() => void 0);
+var count = 0;
+function useId(deterministicId) {
+  const [id, setId] = React$b.useState(useReactId());
+  useLayoutEffect2(() => {
+    setId((reactId) => reactId ?? String(count++));
+  }, [deterministicId]);
+  return (id ? `radix-${id}` : "");
+}
+
+// packages/react/use-controllable-state/src/useControllableState.tsx
+const React$a = await importShared('react');
+function useControllableState({
+  prop,
+  defaultProp,
+  onChange = () => {
+  }
+}) {
+  const [uncontrolledProp, setUncontrolledProp] = useUncontrolledState({ defaultProp, onChange });
+  const isControlled = prop !== void 0;
+  const value = isControlled ? prop : uncontrolledProp;
+  const handleChange = useCallbackRef(onChange);
+  const setValue = React$a.useCallback(
+    (nextValue) => {
+      if (isControlled) {
+        const setter = nextValue;
+        const value2 = typeof nextValue === "function" ? setter(prop) : nextValue;
+        if (value2 !== prop) handleChange(value2);
+      } else {
+        setUncontrolledProp(nextValue);
+      }
+    },
+    [isControlled, prop, setUncontrolledProp, handleChange]
+  );
+  return [value, setValue];
+}
+function useUncontrolledState({
+  defaultProp,
+  onChange
+}) {
+  const uncontrolledState = React$a.useState(defaultProp);
+  const [value] = uncontrolledState;
+  const prevValueRef = React$a.useRef(value);
+  const handleChange = useCallbackRef(onChange);
+  React$a.useEffect(() => {
+    if (prevValueRef.current !== value) {
+      handleChange(value);
+      prevValueRef.current = value;
+    }
+  }, [value, prevValueRef, handleChange]);
+  return uncontrolledState;
+}
+
+// packages/react/direction/src/Direction.tsx
+const React$9 = await importShared('react');
+var DirectionContext = React$9.createContext(void 0);
+function useDirection(localDir) {
+  const globalDir = React$9.useContext(DirectionContext);
+  return localDir || globalDir || "ltr";
+}
+
+// packages/react/roving-focus/src/roving-focus-group.tsx
+const React$8 = await importShared('react');
+var ENTRY_FOCUS = "rovingFocusGroup.onEntryFocus";
+var EVENT_OPTIONS = { bubbles: false, cancelable: true };
+var GROUP_NAME = "RovingFocusGroup";
+var [Collection, useCollection, createCollectionScope] = createCollection(GROUP_NAME);
+var [createRovingFocusGroupContext, createRovingFocusGroupScope] = createContextScope(
+  GROUP_NAME,
+  [createCollectionScope]
+);
+var [RovingFocusProvider, useRovingFocusContext] = createRovingFocusGroupContext(GROUP_NAME);
+var RovingFocusGroup = React$8.forwardRef(
+  (props, forwardedRef) => {
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Collection.Provider, { scope: props.__scopeRovingFocusGroup, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Collection.Slot, { scope: props.__scopeRovingFocusGroup, children: /* @__PURE__ */ jsxRuntimeExports.jsx(RovingFocusGroupImpl, { ...props, ref: forwardedRef }) }) });
+  }
+);
+RovingFocusGroup.displayName = GROUP_NAME;
+var RovingFocusGroupImpl = React$8.forwardRef((props, forwardedRef) => {
+  const {
+    __scopeRovingFocusGroup,
+    orientation,
+    loop = false,
+    dir,
+    currentTabStopId: currentTabStopIdProp,
+    defaultCurrentTabStopId,
+    onCurrentTabStopIdChange,
+    onEntryFocus,
+    preventScrollOnEntryFocus = false,
+    ...groupProps
+  } = props;
+  const ref = React$8.useRef(null);
+  const composedRefs = useComposedRefs(forwardedRef, ref);
+  const direction = useDirection(dir);
+  const [currentTabStopId = null, setCurrentTabStopId] = useControllableState({
+    prop: currentTabStopIdProp,
+    defaultProp: defaultCurrentTabStopId,
+    onChange: onCurrentTabStopIdChange
+  });
+  const [isTabbingBackOut, setIsTabbingBackOut] = React$8.useState(false);
+  const handleEntryFocus = useCallbackRef(onEntryFocus);
+  const getItems = useCollection(__scopeRovingFocusGroup);
+  const isClickFocusRef = React$8.useRef(false);
+  const [focusableItemsCount, setFocusableItemsCount] = React$8.useState(0);
+  React$8.useEffect(() => {
+    const node = ref.current;
+    if (node) {
+      node.addEventListener(ENTRY_FOCUS, handleEntryFocus);
+      return () => node.removeEventListener(ENTRY_FOCUS, handleEntryFocus);
+    }
+  }, [handleEntryFocus]);
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    RovingFocusProvider,
+    {
+      scope: __scopeRovingFocusGroup,
+      orientation,
+      dir: direction,
+      loop,
+      currentTabStopId,
+      onItemFocus: React$8.useCallback(
+        (tabStopId) => setCurrentTabStopId(tabStopId),
+        [setCurrentTabStopId]
+      ),
+      onItemShiftTab: React$8.useCallback(() => setIsTabbingBackOut(true), []),
+      onFocusableItemAdd: React$8.useCallback(
+        () => setFocusableItemsCount((prevCount) => prevCount + 1),
+        []
+      ),
+      onFocusableItemRemove: React$8.useCallback(
+        () => setFocusableItemsCount((prevCount) => prevCount - 1),
+        []
+      ),
+      children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Primitive.div,
+        {
+          tabIndex: isTabbingBackOut || focusableItemsCount === 0 ? -1 : 0,
+          "data-orientation": orientation,
+          ...groupProps,
+          ref: composedRefs,
+          style: { outline: "none", ...props.style },
+          onMouseDown: composeEventHandlers(props.onMouseDown, () => {
+            isClickFocusRef.current = true;
+          }),
+          onFocus: composeEventHandlers(props.onFocus, (event) => {
+            const isKeyboardFocus = !isClickFocusRef.current;
+            if (event.target === event.currentTarget && isKeyboardFocus && !isTabbingBackOut) {
+              const entryFocusEvent = new CustomEvent(ENTRY_FOCUS, EVENT_OPTIONS);
+              event.currentTarget.dispatchEvent(entryFocusEvent);
+              if (!entryFocusEvent.defaultPrevented) {
+                const items = getItems().filter((item) => item.focusable);
+                const activeItem = items.find((item) => item.active);
+                const currentItem = items.find((item) => item.id === currentTabStopId);
+                const candidateItems = [activeItem, currentItem, ...items].filter(
+                  Boolean
+                );
+                const candidateNodes = candidateItems.map((item) => item.ref.current);
+                focusFirst(candidateNodes, preventScrollOnEntryFocus);
+              }
+            }
+            isClickFocusRef.current = false;
+          }),
+          onBlur: composeEventHandlers(props.onBlur, () => setIsTabbingBackOut(false))
+        }
+      )
+    }
+  );
+});
+var ITEM_NAME = "RovingFocusGroupItem";
+var RovingFocusGroupItem = React$8.forwardRef(
+  (props, forwardedRef) => {
+    const {
+      __scopeRovingFocusGroup,
+      focusable = true,
+      active = false,
+      tabStopId,
+      ...itemProps
+    } = props;
+    const autoId = useId();
+    const id = tabStopId || autoId;
+    const context = useRovingFocusContext(ITEM_NAME, __scopeRovingFocusGroup);
+    const isCurrentTabStop = context.currentTabStopId === id;
+    const getItems = useCollection(__scopeRovingFocusGroup);
+    const { onFocusableItemAdd, onFocusableItemRemove } = context;
+    React$8.useEffect(() => {
+      if (focusable) {
+        onFocusableItemAdd();
+        return () => onFocusableItemRemove();
+      }
+    }, [focusable, onFocusableItemAdd, onFocusableItemRemove]);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Collection.ItemSlot,
+      {
+        scope: __scopeRovingFocusGroup,
+        id,
+        focusable,
+        active,
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+          Primitive.span,
+          {
+            tabIndex: isCurrentTabStop ? 0 : -1,
+            "data-orientation": context.orientation,
+            ...itemProps,
+            ref: forwardedRef,
+            onMouseDown: composeEventHandlers(props.onMouseDown, (event) => {
+              if (!focusable) event.preventDefault();
+              else context.onItemFocus(id);
+            }),
+            onFocus: composeEventHandlers(props.onFocus, () => context.onItemFocus(id)),
+            onKeyDown: composeEventHandlers(props.onKeyDown, (event) => {
+              if (event.key === "Tab" && event.shiftKey) {
+                context.onItemShiftTab();
+                return;
+              }
+              if (event.target !== event.currentTarget) return;
+              const focusIntent = getFocusIntent(event, context.orientation, context.dir);
+              if (focusIntent !== void 0) {
+                if (event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) return;
+                event.preventDefault();
+                const items = getItems().filter((item) => item.focusable);
+                let candidateNodes = items.map((item) => item.ref.current);
+                if (focusIntent === "last") candidateNodes.reverse();
+                else if (focusIntent === "prev" || focusIntent === "next") {
+                  if (focusIntent === "prev") candidateNodes.reverse();
+                  const currentIndex = candidateNodes.indexOf(event.currentTarget);
+                  candidateNodes = context.loop ? wrapArray(candidateNodes, currentIndex + 1) : candidateNodes.slice(currentIndex + 1);
+                }
+                setTimeout(() => focusFirst(candidateNodes));
+              }
+            })
+          }
+        )
+      }
+    );
+  }
+);
+RovingFocusGroupItem.displayName = ITEM_NAME;
+var MAP_KEY_TO_FOCUS_INTENT = {
+  ArrowLeft: "prev",
+  ArrowUp: "prev",
+  ArrowRight: "next",
+  ArrowDown: "next",
+  PageUp: "first",
+  Home: "first",
+  PageDown: "last",
+  End: "last"
+};
+function getDirectionAwareKey(key, dir) {
+  if (dir !== "rtl") return key;
+  return key === "ArrowLeft" ? "ArrowRight" : key === "ArrowRight" ? "ArrowLeft" : key;
+}
+function getFocusIntent(event, orientation, dir) {
+  const key = getDirectionAwareKey(event.key, dir);
+  if (orientation === "vertical" && ["ArrowLeft", "ArrowRight"].includes(key)) return void 0;
+  if (orientation === "horizontal" && ["ArrowUp", "ArrowDown"].includes(key)) return void 0;
+  return MAP_KEY_TO_FOCUS_INTENT[key];
+}
+function focusFirst(candidates, preventScroll = false) {
+  const PREVIOUSLY_FOCUSED_ELEMENT = document.activeElement;
+  for (const candidate of candidates) {
+    if (candidate === PREVIOUSLY_FOCUSED_ELEMENT) return;
+    candidate.focus({ preventScroll });
+    if (document.activeElement !== PREVIOUSLY_FOCUSED_ELEMENT) return;
+  }
+}
+function wrapArray(array, startIndex) {
+  return array.map((_, index) => array[(startIndex + index) % array.length]);
+}
+var Root$1 = RovingFocusGroup;
+var Item = RovingFocusGroupItem;
+
+// packages/react/presence/src/Presence.tsx
+const React2 = await importShared('react');
+
+// packages/react/presence/src/useStateMachine.tsx
+const React$7 = await importShared('react');
+
+function useStateMachine(initialState, machine) {
+  return React$7.useReducer((state, event) => {
+    const nextState = machine[state][event];
+    return nextState ?? state;
+  }, initialState);
+}
+
+// packages/react/presence/src/Presence.tsx
+var Presence = (props) => {
+  const { present, children } = props;
+  const presence = usePresence(present);
+  const child = typeof children === "function" ? children({ present: presence.isPresent }) : React2.Children.only(children);
+  const ref = useComposedRefs(presence.ref, getElementRef(child));
+  const forceMount = typeof children === "function";
+  return forceMount || presence.isPresent ? React2.cloneElement(child, { ref }) : null;
+};
+Presence.displayName = "Presence";
+function usePresence(present) {
+  const [node, setNode] = React2.useState();
+  const stylesRef = React2.useRef({});
+  const prevPresentRef = React2.useRef(present);
+  const prevAnimationNameRef = React2.useRef("none");
+  const initialState = present ? "mounted" : "unmounted";
+  const [state, send] = useStateMachine(initialState, {
+    mounted: {
+      UNMOUNT: "unmounted",
+      ANIMATION_OUT: "unmountSuspended"
+    },
+    unmountSuspended: {
+      MOUNT: "mounted",
+      ANIMATION_END: "unmounted"
+    },
+    unmounted: {
+      MOUNT: "mounted"
+    }
+  });
+  React2.useEffect(() => {
+    const currentAnimationName = getAnimationName(stylesRef.current);
+    prevAnimationNameRef.current = state === "mounted" ? currentAnimationName : "none";
+  }, [state]);
+  useLayoutEffect2(() => {
+    const styles = stylesRef.current;
+    const wasPresent = prevPresentRef.current;
+    const hasPresentChanged = wasPresent !== present;
+    if (hasPresentChanged) {
+      const prevAnimationName = prevAnimationNameRef.current;
+      const currentAnimationName = getAnimationName(styles);
+      if (present) {
+        send("MOUNT");
+      } else if (currentAnimationName === "none" || styles?.display === "none") {
+        send("UNMOUNT");
+      } else {
+        const isAnimating = prevAnimationName !== currentAnimationName;
+        if (wasPresent && isAnimating) {
+          send("ANIMATION_OUT");
+        } else {
+          send("UNMOUNT");
+        }
+      }
+      prevPresentRef.current = present;
+    }
+  }, [present, send]);
+  useLayoutEffect2(() => {
+    if (node) {
+      let timeoutId;
+      const ownerWindow = node.ownerDocument.defaultView ?? window;
+      const handleAnimationEnd = (event) => {
+        const currentAnimationName = getAnimationName(stylesRef.current);
+        const isCurrentAnimation = currentAnimationName.includes(event.animationName);
+        if (event.target === node && isCurrentAnimation) {
+          send("ANIMATION_END");
+          if (!prevPresentRef.current) {
+            const currentFillMode = node.style.animationFillMode;
+            node.style.animationFillMode = "forwards";
+            timeoutId = ownerWindow.setTimeout(() => {
+              if (node.style.animationFillMode === "forwards") {
+                node.style.animationFillMode = currentFillMode;
+              }
+            });
+          }
+        }
+      };
+      const handleAnimationStart = (event) => {
+        if (event.target === node) {
+          prevAnimationNameRef.current = getAnimationName(stylesRef.current);
+        }
+      };
+      node.addEventListener("animationstart", handleAnimationStart);
+      node.addEventListener("animationcancel", handleAnimationEnd);
+      node.addEventListener("animationend", handleAnimationEnd);
+      return () => {
+        ownerWindow.clearTimeout(timeoutId);
+        node.removeEventListener("animationstart", handleAnimationStart);
+        node.removeEventListener("animationcancel", handleAnimationEnd);
+        node.removeEventListener("animationend", handleAnimationEnd);
+      };
+    } else {
+      send("ANIMATION_END");
+    }
+  }, [node, send]);
+  return {
+    isPresent: ["mounted", "unmountSuspended"].includes(state),
+    ref: React2.useCallback((node2) => {
+      if (node2) stylesRef.current = getComputedStyle(node2);
+      setNode(node2);
+    }, [])
+  };
+}
+function getAnimationName(styles) {
+  return styles?.animationName || "none";
+}
+function getElementRef(element) {
+  let getter = Object.getOwnPropertyDescriptor(element.props, "ref")?.get;
+  let mayWarn = getter && "isReactWarning" in getter && getter.isReactWarning;
+  if (mayWarn) {
+    return element.ref;
+  }
+  getter = Object.getOwnPropertyDescriptor(element, "ref")?.get;
+  mayWarn = getter && "isReactWarning" in getter && getter.isReactWarning;
+  if (mayWarn) {
+    return element.props.ref;
+  }
+  return element.props.ref || element.ref;
+}
+
+// packages/react/tabs/src/tabs.tsx
+const React$6 = await importShared('react');
+var TABS_NAME = "Tabs";
+var [createTabsContext] = createContextScope(TABS_NAME, [
+  createRovingFocusGroupScope
+]);
+var useRovingFocusGroupScope = createRovingFocusGroupScope();
+var [TabsProvider, useTabsContext] = createTabsContext(TABS_NAME);
+var Tabs$1 = React$6.forwardRef(
+  (props, forwardedRef) => {
+    const {
+      __scopeTabs,
+      value: valueProp,
+      onValueChange,
+      defaultValue,
+      orientation = "horizontal",
+      dir,
+      activationMode = "automatic",
+      ...tabsProps
+    } = props;
+    const direction = useDirection(dir);
+    const [value, setValue] = useControllableState({
+      prop: valueProp,
+      onChange: onValueChange,
+      defaultProp: defaultValue
+    });
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(
+      TabsProvider,
+      {
+        scope: __scopeTabs,
+        baseId: useId(),
+        value,
+        onValueChange: setValue,
+        orientation,
+        dir: direction,
+        activationMode,
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+          Primitive.div,
+          {
+            dir: direction,
+            "data-orientation": orientation,
+            ...tabsProps,
+            ref: forwardedRef
+          }
+        )
+      }
+    );
+  }
+);
+Tabs$1.displayName = TABS_NAME;
+var TAB_LIST_NAME = "TabsList";
+var TabsList$1 = React$6.forwardRef(
+  (props, forwardedRef) => {
+    const { __scopeTabs, loop = true, ...listProps } = props;
+    const context = useTabsContext(TAB_LIST_NAME, __scopeTabs);
+    const rovingFocusGroupScope = useRovingFocusGroupScope(__scopeTabs);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Root$1,
+      {
+        asChild: true,
+        ...rovingFocusGroupScope,
+        orientation: context.orientation,
+        dir: context.dir,
+        loop,
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+          Primitive.div,
+          {
+            role: "tablist",
+            "aria-orientation": context.orientation,
+            ...listProps,
+            ref: forwardedRef
+          }
+        )
+      }
+    );
+  }
+);
+TabsList$1.displayName = TAB_LIST_NAME;
+var TRIGGER_NAME = "TabsTrigger";
+var TabsTrigger$1 = React$6.forwardRef(
+  (props, forwardedRef) => {
+    const { __scopeTabs, value, disabled = false, ...triggerProps } = props;
+    const context = useTabsContext(TRIGGER_NAME, __scopeTabs);
+    const rovingFocusGroupScope = useRovingFocusGroupScope(__scopeTabs);
+    const triggerId = makeTriggerId(context.baseId, value);
+    const contentId = makeContentId(context.baseId, value);
+    const isSelected = value === context.value;
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Item,
+      {
+        asChild: true,
+        ...rovingFocusGroupScope,
+        focusable: !disabled,
+        active: isSelected,
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+          Primitive.button,
+          {
+            type: "button",
+            role: "tab",
+            "aria-selected": isSelected,
+            "aria-controls": contentId,
+            "data-state": isSelected ? "active" : "inactive",
+            "data-disabled": disabled ? "" : void 0,
+            disabled,
+            id: triggerId,
+            ...triggerProps,
+            ref: forwardedRef,
+            onMouseDown: composeEventHandlers(props.onMouseDown, (event) => {
+              if (!disabled && event.button === 0 && event.ctrlKey === false) {
+                context.onValueChange(value);
+              } else {
+                event.preventDefault();
+              }
+            }),
+            onKeyDown: composeEventHandlers(props.onKeyDown, (event) => {
+              if ([" ", "Enter"].includes(event.key)) context.onValueChange(value);
+            }),
+            onFocus: composeEventHandlers(props.onFocus, () => {
+              const isAutomaticActivation = context.activationMode !== "manual";
+              if (!isSelected && !disabled && isAutomaticActivation) {
+                context.onValueChange(value);
+              }
+            })
+          }
+        )
+      }
+    );
+  }
+);
+TabsTrigger$1.displayName = TRIGGER_NAME;
+var CONTENT_NAME = "TabsContent";
+var TabsContent$1 = React$6.forwardRef(
+  (props, forwardedRef) => {
+    const { __scopeTabs, value, forceMount, children, ...contentProps } = props;
+    const context = useTabsContext(CONTENT_NAME, __scopeTabs);
+    const triggerId = makeTriggerId(context.baseId, value);
+    const contentId = makeContentId(context.baseId, value);
+    const isSelected = value === context.value;
+    const isMountAnimationPreventedRef = React$6.useRef(isSelected);
+    React$6.useEffect(() => {
+      const rAF = requestAnimationFrame(() => isMountAnimationPreventedRef.current = false);
+      return () => cancelAnimationFrame(rAF);
+    }, []);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Presence, { present: forceMount || isSelected, children: ({ present }) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Primitive.div,
+      {
+        "data-state": isSelected ? "active" : "inactive",
+        "data-orientation": context.orientation,
+        role: "tabpanel",
+        "aria-labelledby": triggerId,
+        hidden: !present,
+        id: contentId,
+        tabIndex: 0,
+        ...contentProps,
+        ref: forwardedRef,
+        style: {
+          ...props.style,
+          animationDuration: isMountAnimationPreventedRef.current ? "0s" : void 0
+        },
+        children: present && children
+      }
+    ) });
+  }
+);
+TabsContent$1.displayName = CONTENT_NAME;
+function makeTriggerId(baseId, value) {
+  return `${baseId}-trigger-${value}`;
+}
+function makeContentId(baseId, value) {
+  return `${baseId}-content-${value}`;
+}
+var Root2 = Tabs$1;
+var List = TabsList$1;
+var Trigger = TabsTrigger$1;
+var Content = TabsContent$1;
+
+const React$5 = await importShared('react');
+const Tabs = Root2;
+const TabsList = React$5.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+  List,
+  {
+    ref,
+    className: cn(
+      "inline-flex h-10 items-center justify-center rounded-md bg-muted p-1 text-muted-foreground",
+      className
+    ),
+    ...props
+  }
+));
+TabsList.displayName = List.displayName;
+const TabsTrigger = React$5.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+  Trigger,
+  {
+    ref,
+    className: cn(
+      "inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm",
+      className
+    ),
+    ...props
+  }
+));
+TabsTrigger.displayName = Trigger.displayName;
+const TabsContent = React$5.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+  Content,
+  {
+    ref,
+    className: cn(
+      "mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+      className
+    ),
+    ...props
+  }
+));
+TabsContent.displayName = Content.displayName;
+
+const {useState: useState$3} = await importShared('react');
+const assignedStudents = [
+  { id: 1, name: "Alex Johnson", thesis: "Эмнэлгийн зургийн оношлогоонд гүн суралцахуй", stage: "Урьдчилсан хамгаалалт", status: "In Progress", progress: 75, avatar: "AJ" },
+  { id: 2, name: "Maria Garcia", thesis: "Нийлүүлэлтийн сүлжээний тогтвортой байдал дахь блокчейн", stage: "Явцын тайлан 1", status: "Review", progress: 30, avatar: "MG" },
+  { id: 3, name: "James Smith", thesis: "Квантум шифрлэлтийн протоколууд", stage: "Явцын тайлан 2", status: "Draft", progress: 50, avatar: "JS" },
+  { id: 4, name: "Sarah Williams", thesis: "IoT төхөөрөмжид зориулсан захын тооцоолол", stage: "Эцсийн хамгаалалт", status: "Submitted", progress: 95, avatar: "SW" }
+];
+const submittedReports = [
+  { id: 1, studentId: 2, student: "Maria Garcia", type: "Явцын тайлан 1", file: "Progress1_Garcia.pdf", date: "2 цагийн өмнө", status: "Хянах шаардлагатай", urgency: "high" },
+  { id: 2, studentId: 4, student: "Sarah Williams", type: "Эцсийн дипломын ноорог", file: "Final_Draft_SW.pdf", date: "1 өдрийн өмнө", status: "Хянах шаардлагатай", urgency: "normal" },
+  { id: 3, studentId: 1, student: "Alex Johnson", type: "Урьдчилсан хамгаалалтын слайд", file: "Slides_v2.pptx", date: "3 өдрийн өмнө", status: "Хянасан", urgency: "low" }
+];
+const rubricCriteria$1 = [
+  { id: 1, name: "Уран зохиолын тойм", max: 20 },
+  { id: 2, name: "Аргачлалын загвар", max: 30 },
+  { id: 3, name: "Урьдчилсан үр дүнгүүд", max: 30 },
+  { id: 4, name: "Форматлалт & Тод байдал", max: 20 }
+];
+function TeacherStudents() {
+  const [search, setSearch] = useState$3("");
+  const [activeTab, setActiveTab] = useState$3("roster");
+  const [reviewReportId, setReviewReportId] = useState$3(null);
+  const [commentInput, setCommentInput] = useState$3("");
+  const [reviewStatus, setReviewStatus] = useState$3("idle");
+  const [evalStudentId, setEvalStudentId] = useState$3(null);
+  const [scores, setScores] = useState$3({});
+  const [evalStatus, setEvalStatus] = useState$3("idle");
+  const totalScore = Object.values(scores).reduce((a, b) => a + (b || 0), 0);
+  const handleReviewAction = (action) => {
+    setReviewStatus("success");
+    setTimeout(() => {
+      setReviewStatus("idle");
+      setReviewReportId(null);
+    }, 2e3);
+  };
+  const handleSubmitEvaluation = () => {
+    setEvalStatus("loading");
+    setTimeout(() => {
+      setEvalStatus("success");
+      setTimeout(() => {
+        setEvalStatus("idle");
+        setEvalStudentId(null);
+        setScores({});
+      }, 2e3);
+    }, 1500);
+  };
+  const getStatusBadge = (status) => {
+    switch (status) {
+      case "In Progress":
+        return /* @__PURE__ */ jsxRuntimeExports.jsx(Badge, { className: "bg-blue-50 text-[#1455BD] border-blue-100", children: "Хийгдэж байна" });
+      case "Review":
+        return /* @__PURE__ */ jsxRuntimeExports.jsx(Badge, { className: "bg-orange-50 text-orange-600 border-orange-100", children: "Хянагдаж байна" });
+      case "Draft":
+        return /* @__PURE__ */ jsxRuntimeExports.jsx(Badge, { className: "bg-slate-50 text-slate-600 border-slate-200", children: "Ноорог" });
+      case "Submitted":
+        return /* @__PURE__ */ jsxRuntimeExports.jsx(Badge, { className: "bg-purple-50 text-purple-600 border-purple-100", children: "Илгээсэн" });
+      default:
+        return /* @__PURE__ */ jsxRuntimeExports.jsx(Badge, { variant: "outline", children: status });
+    }
+  };
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-6 max-w-7xl mx-auto pb-10", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col md:flex-row md:items-center justify-between gap-4", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("h1", { className: "text-2xl font-bold text-slate-900 flex items-center gap-2", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Users, { className: "w-6 h-6 text-[#1455BD]" }),
+          "Хуваарилагдсан оюутнууд"
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-slate-600 mt-1", children: "Суралцагчдаа удирдах, тайланг хянах, үнэлгээ илгаах." })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Search, { className: "w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "input",
+            {
+              type: "text",
+              placeholder: "Оюутан хайх...",
+              className: "pl-9 pr-4 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:border-[#1455BD] focus:ring-1 focus:ring-[#1455BD] w-64 bg-white",
+              value: search,
+              onChange: (e) => setSearch(e.target.value)
+            }
+          )
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(Button$1, { variant: "outline", className: "border-slate-200 bg-white", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Funnel, { className: "w-4 h-4 mr-2" }),
+          "Шүүх"
+        ] })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(Tabs, { value: activeTab, onValueChange: setActiveTab, className: "w-full", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(TabsList, { className: "w-full justify-start border-b border-slate-200 rounded-none bg-transparent h-auto p-0 space-x-6", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(TabsTrigger, { value: "roster", className: "data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-[#1455BD] data-[state=active]:text-[#1455BD] rounded-none py-3 px-1", children: "Оюутны жагсаалт" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(TabsTrigger, { value: "reports", className: "data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-[#1455BD] data-[state=active]:text-[#1455BD] rounded-none py-3 px-1", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "flex items-center gap-2", children: [
+          "Илгээсэн тайлангууд",
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Badge, { className: "bg-orange-100 text-orange-700 hover:bg-orange-200 border-0 text-[10px] px-1.5 py-0 h-4", children: "2" })
+        ] }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(TabsTrigger, { value: "evaluations", className: "data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-[#1455BD] data-[state=active]:text-[#1455BD] rounded-none py-3 px-1", children: "Үнэлгээний маягт" })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(TabsContent, { value: "roster", className: "mt-6", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4", children: assignedStudents.map((student) => /* @__PURE__ */ jsxRuntimeExports.jsxs(Card, { className: "border-slate-200 shadow-sm hover:shadow-md hover:border-blue-200 transition-all group overflow-hidden", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-1.5 w-full bg-slate-100", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-full bg-[#1455BD]", style: { width: `${student.progress}%` } }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(CardContent, { className: "p-5", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-start gap-4", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Avatar, { className: "h-12 w-12 border border-slate-200", children: /* @__PURE__ */ jsxRuntimeExports.jsx(AvatarFallback, { className: "bg-blue-50 text-[#1455BD] font-bold", children: student.avatar }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1 min-w-0", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex justify-between items-start mb-1", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-bold text-slate-900 truncate", children: student.name }),
+              getStatusBadge(student.status)
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-slate-600 line-clamp-2 mb-3 h-10", children: student.thesis }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between text-xs text-slate-500 mb-4 bg-slate-50 p-2 rounded-md border border-slate-100", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "font-semibold text-slate-700", children: [
+                "Шат: ",
+                student.stage
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { children: [
+                student.progress,
+                "% дууссан"
+              ] })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-2", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(Button$1, { variant: "outline", size: "sm", className: "flex-1 text-xs border-slate-200 hover:bg-slate-50 hover:text-[#1455BD]", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(Eye, { className: "w-3.5 h-3.5 mr-1.5" }),
+                " Харах"
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(Button$1, { variant: "outline", size: "sm", className: "flex-1 text-xs border-slate-200 hover:bg-slate-50 hover:text-[#1455BD]", onClick: () => setActiveTab("reports"), children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(FileText, { className: "w-3.5 h-3.5 mr-1.5" }),
+                " Хянах"
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(Button$1, { size: "sm", className: "flex-1 text-xs bg-white text-[#1455BD] border border-blue-200 hover:bg-blue-50 shadow-sm", onClick: () => {
+                setActiveTab("evaluations");
+                setEvalStudentId(student.id);
+              }, children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(Award, { className: "w-3.5 h-3.5 mr-1.5" }),
+                " Үнэлэх"
+              ] })
+            ] })
+          ] })
+        ] }) })
+      ] }, student.id)) }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(TabsContent, { value: "reports", className: "mt-6", children: reviewReportId === null ? /* @__PURE__ */ jsxRuntimeExports.jsxs(Card, { className: "border-slate-200 shadow-sm", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(CardHeader, { className: "border-b border-slate-100 bg-slate-50/50 pb-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex justify-between items-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(CardTitle, { className: "text-lg text-slate-800", children: "Тайлан хянах дараалал" }) }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(CardContent, { className: "p-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "divide-y divide-slate-100", children: submittedReports.map((report) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-4 sm:p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:bg-slate-50 transition-colors", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-start gap-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `w-10 h-10 rounded-xl flex items-center justify-center shrink-0 border ${report.status === "Хянах шаардлагатай" ? "bg-orange-50 border-orange-100 text-orange-600" : "bg-slate-100 border-slate-200 text-slate-500"}`, children: /* @__PURE__ */ jsxRuntimeExports.jsx(FileText, { className: "w-5 h-5" }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2 mb-1", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-bold text-slate-900", children: report.student }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(Badge, { variant: "outline", className: "text-[10px] text-slate-500 bg-white border-slate-200 uppercase tracking-wide px-1.5 py-0", children: report.type })
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-sm text-slate-600 flex items-center gap-2", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(FileDown, { className: "w-3.5 h-3.5" }),
+                " ",
+                report.file
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-xs text-slate-400 mt-1 flex items-center", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(Clock, { className: "w-3 h-3 mr-1" }),
+                " Илгээсэн: ",
+                report.date
+              ] })
+            ] })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between md:justify-end gap-4 w-full md:w-auto", children: [
+            report.status === "Хянах шаардлагатай" ? /* @__PURE__ */ jsxRuntimeExports.jsx(Badge, { className: "bg-orange-100 text-orange-700 hover:bg-orange-200 border-0", children: "Хянах шаардлагатай" }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(Badge, { className: "bg-slate-100 text-slate-700 border-0", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(CircleCheckBig, { className: "w-3 h-3 mr-1" }),
+              " Хянасан"
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(
+              Button$1,
+              {
+                size: "sm",
+                className: "bg-[#1455BD] hover:bg-[#0d3a8a] text-white",
+                onClick: () => setReviewReportId(report.id),
+                children: [
+                  "Хянах нээх",
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronRight, { className: "w-4 h-4 ml-1" })
+                ]
+              }
+            )
+          ] })
+        ] }, report.id)) }) })
+      ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 lg:grid-cols-3 gap-6 h-[800px] bg-slate-50 p-4 rounded-xl border border-slate-200", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "lg:col-span-2 bg-white rounded-lg border border-slate-300 shadow-sm overflow-hidden flex flex-col", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "h-12 border-b border-slate-200 bg-slate-100/50 flex items-center justify-between px-4", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2 text-sm font-medium text-slate-700", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(FileText, { className: "w-4 h-4 text-[#1455BD]" }),
+              "Progress1_Garcia.pdf"
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-2", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(Button$1, { variant: "ghost", size: "sm", className: "h-8 text-slate-500", children: "Томруулах" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(Button$1, { variant: "ghost", size: "sm", className: "h-8 text-slate-500", children: "Татах" })
+            ] })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex-1 bg-slate-200/50 p-8 flex justify-center overflow-y-auto", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "w-full max-w-lg bg-white shadow-md p-10 h-[1000px]", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-2xl font-bold mb-6 text-center", children: "1-р бүлэг: Оршил" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-4 text-slate-300", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-4 bg-slate-200 rounded w-full" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-4 bg-slate-200 rounded w-[90%]" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-4 bg-slate-200 rounded w-[95%]" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-4 bg-slate-200 rounded w-[80%]" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-4 bg-slate-200 rounded w-full" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-4 bg-slate-200 rounded w-[85%]" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-4 bg-slate-200 rounded w-[90%]" })
+            ] })
+          ] }) })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-white rounded-lg border border-slate-200 shadow-sm flex flex-col", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-4 border-b border-slate-100", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(Button$1, { variant: "ghost", size: "sm", className: "mb-4 -ml-2 text-slate-500 hover:text-[#1455BD]", onClick: () => setReviewReportId(null), children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronRight, { className: "w-4 h-4 mr-1 rotate-180" }),
+              " Дараалал руу буцах"
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-bold text-lg text-slate-900", children: "Maria Garcia" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-slate-500 mb-2", children: "Явцын тайлан 1 • v1" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Badge, { className: "bg-orange-50 text-orange-600 border-orange-100", children: "Хянах шаардлагатай" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1 p-4 overflow-y-auto space-y-4 bg-slate-50/50", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-white border border-slate-200 p-3 rounded-lg shadow-sm text-sm", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-semibold text-slate-800 mb-1", children: "Maria Garcia" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-slate-600", children: "Уран зохиолын хяналтын хэсэгт анхаарлаа хандуулсан Явцын тайлан 1-ийг хавсаргав." })
+            ] }),
+            reviewStatus === "success" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-green-50 border border-green-200 p-3 rounded-lg flex items-center gap-2 text-green-700 text-sm animate-in fade-in duration-300", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(CircleCheckBig, { className: "w-4 h-4" }),
+              " Үйлдэл амжилттай бүртгэгдлээ!"
+            ] })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-4 border-t border-slate-100 space-y-4", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "textarea",
+              {
+                className: "w-full text-sm border border-slate-300 rounded-lg p-3 outline-none focus:border-[#1455BD] focus:ring-1 focus:ring-[#1455BD] resize-none h-24",
+                placeholder: "Санал хүсэлтээ бичнэ үү...",
+                value: commentInput,
+                onChange: (e) => setCommentInput(e.target.value)
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-2 gap-2", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                Button$1,
+                {
+                  variant: "outline",
+                  className: "border-orange-200 text-orange-700 hover:bg-orange-50 text-xs h-9",
+                  onClick: () => handleReviewAction(),
+                  disabled: reviewStatus !== "idle",
+                  children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(ShieldAlert, { className: "w-3.5 h-3.5 mr-1.5" }),
+                    " Засвар хүсэх"
+                  ]
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                Button$1,
+                {
+                  className: "bg-green-600 hover:bg-green-700 text-white text-xs h-9",
+                  onClick: () => handleReviewAction(),
+                  disabled: reviewStatus !== "idle",
+                  children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(FileCheck, { className: "w-3.5 h-3.5 mr-1.5" }),
+                    " Зөвшөөрөх"
+                  ]
+                }
+              )
+            ] })
+          ] })
+        ] })
+      ] }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(TabsContent, { value: "evaluations", className: "mt-6", children: evalStudentId === null ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center py-12 bg-slate-50 border border-slate-200 rounded-xl", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Award, { className: "w-12 h-12 text-slate-300 mx-auto mb-4" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-lg font-semibold text-slate-700", children: "Үнэлэх оюутан сонгоно уу" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-slate-500 mt-1 max-w-sm mx-auto", children: 'Оюутны жагсаалт руу очоод "Үнэлэх" дарна уу.' })
+      ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(Card, { className: "border-slate-200 shadow-sm max-w-3xl mx-auto", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(CardHeader, { className: "bg-slate-50/50 border-b border-slate-100", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex justify-between items-center mb-1", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(CardTitle, { className: "text-lg text-slate-900", children: "Явцын тайлан 1-ийн үнэлгээний маягт" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Button$1, { variant: "ghost", size: "sm", className: "text-slate-500", onClick: () => setEvalStudentId(null), children: "Хаах" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(CardDescription, { children: [
+            "Үнэлж байгаа: ",
+            /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: assignedStudents.find((s) => s.id === evalStudentId)?.name })
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(CardContent, { className: "p-0", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "divide-y divide-slate-100", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-12 gap-4 p-4 bg-slate-50/80 text-xs font-bold text-slate-500 uppercase tracking-widest", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "col-span-6", children: "Үнэлгээний шалгуур" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "col-span-3 text-center", children: "Оноо" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "col-span-3 text-center", children: "Дээд" })
+          ] }),
+          rubricCriteria$1.map((criterion) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-12 gap-4 p-4 items-center hover:bg-slate-50 transition-colors", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "col-span-6", children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-medium text-slate-800 text-sm", children: criterion.name }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "col-span-3 flex justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "input",
+              {
+                type: "number",
+                min: 0,
+                max: criterion.max,
+                className: "w-16 border border-slate-300 rounded-md py-1 px-2 text-center text-sm focus:outline-none focus:border-[#1455BD]",
+                value: scores[criterion.id] || "",
+                onChange: (e) => setScores({ ...scores, [criterion.id]: parseInt(e.target.value) || 0 })
+              }
+            ) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "col-span-3 text-center text-slate-500 font-medium text-sm", children: [
+              "/ ",
+              criterion.max
+            ] })
+          ] }, criterion.id)),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-6 bg-slate-50 border-t-2 border-slate-200", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex justify-between items-center mb-6", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "text-lg font-bold text-slate-800", children: "Нийт оноо" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-baseline gap-1", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-3xl font-extrabold text-[#1455BD]", children: totalScore }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-slate-500 font-medium", children: "/ 100" })
+              ] })
+            ] }),
+            evalStatus === "success" ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-green-50 border border-green-200 text-green-700 p-4 rounded-lg flex items-center justify-center gap-2 font-medium animate-in fade-in zoom-in duration-300", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(CircleCheckBig, { className: "w-5 h-5" }),
+              " Үнэлгээ амжилттай хадгалагдлаа!"
+            ] }) : /* @__PURE__ */ jsxRuntimeExports.jsx(
+              Button$1,
+              {
+                className: "w-full bg-[#1455BD] hover:bg-[#0d3a8a] text-white shadow-sm",
+                size: "lg",
+                onClick: handleSubmitEvaluation,
+                disabled: evalStatus === "loading",
+                children: evalStatus === "loading" ? "Илгааж байна..." : "Үнэлгээ илгаах"
+              }
+            )
+          ] })
+        ] }) })
+      ] }) })
+    ] })
+  ] });
+}
+
+const remotesMap = {
+'shared_ui':{url:'http://localhost:8080/microfrontends/shared-ui-module/dist/remoteEntry.js',format:'esm',from:'vite'},
+  'module_thesis':{url:'http://localhost:8080/microfrontends/module-thesis/dist/remoteEntry.js',format:'esm',from:'vite'}
+};
+                const currentImports = {};
+
+                function get(name, remoteFrom) {
+                    return __federation_import(name).then(module => () => {
+                        return module
+                    })
+                }
+                
+                function merge(obj1, obj2) {
+                  const mergedObj = Object.assign(obj1, obj2);
+                  for (const key of Object.keys(mergedObj)) {
+                    if (typeof mergedObj[key] === 'object' && typeof obj2[key] === 'object') {
+                      mergedObj[key] = merge(mergedObj[key], obj2[key]);
+                    }
+                  }
+                  return mergedObj;
+                }
+
+                const wrapShareModule = remoteFrom => {
+                  return merge({
+                    'react':{'18.3.1':{get:()=>get(new URL('chunk-__federation_shared_react.js', import.meta.url).href), loaded:1}},'react-dom':{'18.3.1':{get:()=>get(new URL('chunk-__federation_shared_react-dom.js', import.meta.url).href), loaded:1}},'antd':{'5.29.3':{get:()=>get(new URL('chunk-__federation_shared_antd.js', import.meta.url).href), loaded:1}}
+                  }, (globalThis.__federation_shared__ || {})['default'] || {});
+                };
+
+                async function __federation_import(name) {
+                    currentImports[name] ??= import(name);
+                    return currentImports[name]
+                }
+
+                async function __federation_method_ensure(remoteId) {
+                    const remote = remotesMap[remoteId];
+                    if (!remote.inited) {
+                        if (['esm', 'systemjs'].includes(remote.format)) {
+                            // loading js with import(...)
+                            return new Promise((resolve, reject) => {
+                                const getUrl = () => Promise.resolve(remote.url);
+                                getUrl().then(url => {
+                                    import(/* @vite-ignore */ url).then(lib => {
+                                        if (!remote.inited) {
+                                            const shareScope = wrapShareModule();
+                                            lib.init(shareScope);
+                                            remote.lib = lib;
+                                            remote.lib.init(shareScope);
+                                            remote.inited = true;
+                                        }
+                                        resolve(remote.lib);
+                                    }).catch(reject);
+                                });
+                            })
+                        }
+                    } else {
+                        return remote.lib;
+                    }
+                }
+
+                function __federation_method_wrapDefault(module, need) {
+                    if (!module?.default && need) {
+                        let obj = Object.create(null);
+                        obj.default = module;
+                        obj.__esModule = true;
+                        return obj;
+                    }
+                    return module;
+                }
+
+                function __federation_method_getRemote(remoteName, componentName) {
+                    return __federation_method_ensure(remoteName).then((remote) => remote.get(componentName).then(factory => factory()));
+                }
+
+const React$4 = await importShared('react');
+const {Suspense} = React$4;
+
+const {Spin,Alert,Button} = await importShared('antd');
+
+const RemoteThesisView = React$4.lazy(
+  () => __federation_method_getRemote("module_thesis" , "./ThesisView").then(module=>__federation_method_wrapDefault(module, true))
+);
+const SUPERVISED_STUDENTS = [
+  {
+    id: 1,
+    name: "Д.Оч",
+    thesisTitle: "Дүрс таних системд CNN ашиглах",
+    stage: "Явц 2",
+    status: "Submitted",
+    progress: 80,
+    lastSubmission: "2 өдрийн өмнө"
+  },
+  {
+    id: 2,
+    name: "Б.Батбаяр",
+    thesisTitle: "Байгалийн хэлний боловсруулалт",
+    stage: "Урьдчилсан хамгаалалт",
+    status: "Revision Required",
+    progress: 65,
+    lastSubmission: "3 өдрийн өмнө"
+  },
+  {
+    id: 3,
+    name: "С.Мөнхбаяр",
+    thesisTitle: "IoT мэдрэгчийн сүлжээ",
+    stage: "Явц 1",
+    status: "In Progress",
+    progress: 40,
+    lastSubmission: "Өнөөдөр"
+  },
+  {
+    id: 4,
+    name: "Т.Түвшинбаяр",
+    thesisTitle: "Блокчейн аюулгүй байдал",
+    stage: "Сэдвийн зөвшөөрөл",
+    status: "Approved",
+    progress: 20,
+    lastSubmission: "1 долоо хоногийн өмнө"
+  }
+];
+class ThesisLoadError extends React$4.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+  render() {
+    if (this.state.hasError) {
+      return /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Alert,
+        {
+          type: "error",
+          message: "Thesis module ачаалагдсангүй",
+          description: /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { style: { margin: "8px 0" }, children: [
+              "module-thesis сервер ажиллаж байгаа эсэхийг шалгана уу:",
+              " ",
+              /* @__PURE__ */ jsxRuntimeExports.jsx("code", { children: "npm run dev" }),
+              " (port 3013)."
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { size: "small", onClick: () => window.location.reload(), children: "Дахин оролдох" })
+          ] }),
+          showIcon: true
+        }
+      );
+    }
+    return this.props.children;
+  }
+}
+function TeacherThesis() {
+  const handleReviewReport = (studentId) => {
+    console.log("Review report for student", studentId);
+  };
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(ThesisLoadError, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+    Suspense,
+    {
+      fallback: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { display: "flex", justifyContent: "center", padding: 80 }, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Spin, { size: "large", tip: "Thesis module ачаалж байна..." }) }),
+      children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+        RemoteThesisView,
+        {
+          role: "teacher",
+          students: SUPERVISED_STUDENTS,
+          onReviewReport: handleReviewReport
+        }
+      )
+    }
+  ) });
+}
+
+const React$3 = await importShared('react');
+const Input = React$3.forwardRef(
+  ({ className, type, ...props }, ref) => {
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "input",
+      {
+        type,
+        className: cn(
+          "flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
+          className
+        ),
+        ref,
+        ...props
+      }
+    );
+  }
+);
+Input.displayName = "Input";
+
+const {useState: useState$2} = await importShared('react');
+const conversations = [
+  {
+    id: 1,
+    student: "Д.Оч",
+    avatar: "AJ",
+    lastMessage: "Thank you for the feedback on Chapter 3!",
+    time: "10:30 AM",
+    unread: 2
+  },
+  {
+    id: 2,
+    student: "Б.Батбаяр",
+    avatar: "PS",
+    lastMessage: "I've uploaded the revised methodology section.",
+    time: "Yesterday",
+    unread: 0
+  },
+  {
+    id: 3,
+    student: "С.Мөнхбаяр",
+    avatar: "DB",
+    lastMessage: "When can we schedule the next review meeting?",
+    time: "Yesterday",
+    unread: 1
+  }
+];
+const messages = [
+  {
+    id: 1,
+    sender: "student",
+    text: "Good morning, Professor. I've completed the revisions you suggested for Chapter 3.",
+    time: "9:45 AM"
+  },
+  {
+    id: 2,
+    sender: "teacher",
+    text: "Great! Let me review it and I'll get back to you by this afternoon.",
+    time: "9:50 AM"
+  },
+  {
+    id: 3,
+    sender: "student",
+    text: "Thank you! I also wanted to ask about the methodology section.",
+    time: "10:15 AM"
+  },
+  {
+    id: 4,
+    sender: "student",
+    text: "Should I include more details about the data collection process?",
+    time: "10:16 AM"
+  },
+  {
+    id: 5,
+    sender: "teacher",
+    text: "Yes, definitely. Include information about your sample size, selection criteria, and any validation methods you used.",
+    time: "10:20 AM"
+  },
+  {
+    id: 6,
+    sender: "student",
+    text: "Thank you for the feedback on Chapter 3!",
+    time: "10:30 AM"
+  }
+];
+function TeacherMessages() {
+  const [selectedConversation, setSelectedConversation] = useState$2(1);
+  const [messageText, setMessageText] = useState$2("");
+  const [searchQuery, setSearchQuery] = useState$2("");
+  const filteredConversations = conversations.filter(
+    (conv) => conv.student.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+  const handleSendMessage = () => {
+    if (messageText.trim()) {
+      alert(`Message sent: ${messageText}`);
+      setMessageText("");
+    }
+  };
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-[calc(100vh-200px)]", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Card, { className: "h-full", children: /* @__PURE__ */ jsxRuntimeExports.jsx(CardContent, { className: "p-0 h-full", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-12 h-full", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "col-span-4 border-r border-slate-200 flex flex-col h-full", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "p-4 border-b border-slate-200", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Search, { className: "absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 h-4 w-4" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          Input,
+          {
+            placeholder: "Search students...",
+            value: searchQuery,
+            onChange: (e) => setSearchQuery(e.target.value),
+            className: "pl-10"
+          }
+        )
+      ] }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex-1 overflow-y-auto", children: filteredConversations.map((conv) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "button",
+        {
+          onClick: () => setSelectedConversation(conv.id),
+          className: `w-full p-4 border-b border-slate-100 hover:bg-slate-50 transition-colors text-left ${selectedConversation === conv.id ? "bg-emerald-50 border-l-4 border-l-emerald-600" : ""}`,
+          children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-start gap-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Avatar, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(AvatarFallback, { className: "bg-emerald-100 text-emerald-700", children: conv.avatar }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1 min-w-0", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between mb-1", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-medium text-sm truncate", children: conv.student }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs text-slate-500", children: conv.time })
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-slate-600 truncate", children: conv.lastMessage })
+            ] }),
+            conv.unread > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx(Badge, { className: "bg-emerald-600 text-white rounded-full h-5 w-5 flex items-center justify-center text-xs", children: conv.unread })
+          ] })
+        },
+        conv.id
+      )) })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "col-span-8 flex flex-col h-full", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-4 border-b border-slate-200 flex items-center justify-between", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Avatar, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(AvatarFallback, { className: "bg-emerald-100 text-emerald-700", children: "AJ" }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-medium", children: "Alex Johnson" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-slate-500", children: "Computer Science • STU2024001" })
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Button$1, { variant: "ghost", size: "icon", children: /* @__PURE__ */ jsxRuntimeExports.jsx(EllipsisVertical, { className: "h-5 w-5" }) })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex-1 overflow-y-auto p-4 space-y-4", children: messages.map((msg) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "div",
+        {
+          className: `flex ${msg.sender === "teacher" ? "justify-end" : "justify-start"}`,
+          children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            "div",
+            {
+              className: `max-w-[70%] rounded-lg p-3 ${msg.sender === "teacher" ? "bg-emerald-600 text-white" : "bg-slate-100 text-slate-900"}`,
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm", children: msg.text }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "p",
+                  {
+                    className: `text-xs mt-1 ${msg.sender === "teacher" ? "text-emerald-100" : "text-slate-500"}`,
+                    children: msg.time
+                  }
+                )
+              ]
+            }
+          )
+        },
+        msg.id
+      )) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "p-4 border-t border-slate-200", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-2", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Button$1, { variant: "ghost", size: "icon", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Paperclip, { className: "h-5 w-5" }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          Input,
+          {
+            placeholder: "Type your message...",
+            value: messageText,
+            onChange: (e) => setMessageText(e.target.value),
+            onKeyPress: (e) => e.key === "Enter" && handleSendMessage(),
+            className: "flex-1"
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(Button$1, { className: "bg-emerald-600 hover:bg-emerald-700", onClick: handleSendMessage, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Send, { className: "h-4 w-4 mr-2" }),
+          "Send"
+        ] })
+      ] }) })
+    ] })
+  ] }) }) }) });
+}
+
+// packages/react/progress/src/progress.tsx
+const React$2 = await importShared('react');
+var PROGRESS_NAME = "Progress";
+var DEFAULT_MAX = 100;
+var [createProgressContext] = createContextScope(PROGRESS_NAME);
+var [ProgressProvider, useProgressContext] = createProgressContext(PROGRESS_NAME);
+var Progress$1 = React$2.forwardRef(
+  (props, forwardedRef) => {
+    const {
+      __scopeProgress,
+      value: valueProp = null,
+      max: maxProp,
+      getValueLabel = defaultGetValueLabel,
+      ...progressProps
+    } = props;
+    if ((maxProp || maxProp === 0) && !isValidMaxNumber(maxProp)) {
+      console.error(getInvalidMaxError(`${maxProp}`, "Progress"));
+    }
+    const max = isValidMaxNumber(maxProp) ? maxProp : DEFAULT_MAX;
+    if (valueProp !== null && !isValidValueNumber(valueProp, max)) {
+      console.error(getInvalidValueError(`${valueProp}`, "Progress"));
+    }
+    const value = isValidValueNumber(valueProp, max) ? valueProp : null;
+    const valueLabel = isNumber(value) ? getValueLabel(value, max) : void 0;
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(ProgressProvider, { scope: __scopeProgress, value, max, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Primitive.div,
+      {
+        "aria-valuemax": max,
+        "aria-valuemin": 0,
+        "aria-valuenow": isNumber(value) ? value : void 0,
+        "aria-valuetext": valueLabel,
+        role: "progressbar",
+        "data-state": getProgressState(value, max),
+        "data-value": value ?? void 0,
+        "data-max": max,
+        ...progressProps,
+        ref: forwardedRef
+      }
+    ) });
+  }
+);
+Progress$1.displayName = PROGRESS_NAME;
+var INDICATOR_NAME = "ProgressIndicator";
+var ProgressIndicator = React$2.forwardRef(
+  (props, forwardedRef) => {
+    const { __scopeProgress, ...indicatorProps } = props;
+    const context = useProgressContext(INDICATOR_NAME, __scopeProgress);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Primitive.div,
+      {
+        "data-state": getProgressState(context.value, context.max),
+        "data-value": context.value ?? void 0,
+        "data-max": context.max,
+        ...indicatorProps,
+        ref: forwardedRef
+      }
+    );
+  }
+);
+ProgressIndicator.displayName = INDICATOR_NAME;
+function defaultGetValueLabel(value, max) {
+  return `${Math.round(value / max * 100)}%`;
+}
+function getProgressState(value, maxValue) {
+  return value == null ? "indeterminate" : value === maxValue ? "complete" : "loading";
+}
+function isNumber(value) {
+  return typeof value === "number";
+}
+function isValidMaxNumber(max) {
+  return isNumber(max) && !isNaN(max) && max > 0;
+}
+function isValidValueNumber(value, max) {
+  return isNumber(value) && !isNaN(value) && value <= max && value >= 0;
+}
+function getInvalidMaxError(propValue, componentName) {
+  return `Invalid prop \`max\` of value \`${propValue}\` supplied to \`${componentName}\`. Only numbers greater than 0 are valid max values. Defaulting to \`${DEFAULT_MAX}\`.`;
+}
+function getInvalidValueError(propValue, componentName) {
+  return `Invalid prop \`value\` of value \`${propValue}\` supplied to \`${componentName}\`. The \`value\` prop must be:
   - a positive number
-  - less than the value passed to \`max\` (or ${Li} if no \`max\` prop is set)
+  - less than the value passed to \`max\` (or ${DEFAULT_MAX} if no \`max\` prop is set)
   - \`null\` or \`undefined\` if the progress is indeterminate.
 
-Defaulting to \`null\`.`}var Dm=Pm,My=Mm;const Wl=x.forwardRef(({className:l,value:u,...o},c)=>r.jsx(Dm,{ref:c,className:Je("relative h-4 w-full overflow-hidden rounded-full bg-secondary",l),...o,children:r.jsx(My,{className:"h-full w-full flex-1 bg-primary transition-all",style:{transform:`translateX(-${100-(u||0)}%)`}})}));Wl.displayName=Dm.displayName;const ni=[{id:1,name:"Д.Оч",avatar:"AJ",thesis:"Эмнэлгийн зургийн оношлогоонд гүн суралцах",stage:"Урьдчилсан хамгаалалт",deadline:"2026-04-15",daysLeft:27,revisionState:"Байхгүй",submitted:!0,progress:78,status:"on_track"},{id:2,name:"Б.Батбаяр",avatar:"MG",thesis:"Нийлүүлэлтийн сүлжээн дэх блокчейн",stage:"Явц 1",deadline:"2026-03-22",daysLeft:-2,revisionState:"Шаардлагатай",submitted:!1,progress:28,status:"overdue"},{id:3,name:"С.Мөнхбаяр",avatar:"JS",thesis:"Квантум шифрлэлтийн протоколууд",stage:"Явц 2",deadline:"2026-04-05",daysLeft:17,revisionState:"Засварлаж буй",submitted:!0,progress:51,status:"needs_revision"},{id:4,name:"Т.Түвшинбаяр",avatar:"SW",thesis:"IoT ухаалаг төхөөрөмжид зориулсан захын тооцоолол",stage:"Эцсийн хамгаалалт",deadline:"2026-05-30",daysLeft:72,revisionState:"Байхгүй",submitted:!0,progress:94,status:"on_track"},{id:5,name:"Э.Энхбаяр",avatar:"DC",thesis:"Эмнэлгийн шийдвэрт NLP ашиглах",stage:"Явц 1",deadline:"2026-03-20",daysLeft:-4,revisionState:"Шаардлагатай",submitted:!1,progress:19,status:"overdue"},{id:6,name:"О.Оюунчимэг",avatar:"EB",thesis:"Роботын замнал төлөвлөлт",stage:"Явц 2",deadline:"2026-04-10",daysLeft:22,revisionState:"Байхгүй",submitted:!0,progress:60,status:"on_track"}],Ly=[{student:"Д.Оч",milestone:"Урьдчилсан хамгаалалтын хяналт",date:"2026/04/15",daysLeft:27},{student:"Б.Батбаяр",milestone:"Явц 2-ын тайлангийн эцсийн хугацаа",date:"2026/04/10",daysLeft:22},{student:"С.Мөнхбаяр",milestone:"Засварын дахин илгаах эцсийн хугацаа",date:"2026/04/05",daysLeft:17}],Dy={on_track:{label:"Хэвийн",color:"bg-emerald-100 text-emerald-700 border-emerald-200",icon:Rn},overdue:{label:"Хоцорсон",color:"bg-rose-100 text-rose-700 border-rose-200",icon:Ct},needs_revision:{label:"Засвар шаардлагатай",color:"bg-orange-100 text-orange-700 border-orange-200",icon:Af}};function sf(){const[l,u]=x.useState(""),[o,c]=x.useState("Бүгд"),[d,m]=x.useState("Бүгд"),[p,g]=x.useState("deadline"),[h,y]=x.useState("asc"),[N,j]=x.useState(null),T=S=>{p===S?y(H=>H==="asc"?"desc":"asc"):(g(S),y("asc"))},A=["Бүгд","Явц 1","Явц 2","Урьдчилсан хамгаалалт","Эцсийн хамгаалалт"],I=[{key:"Бүгд",label:"Бүгд"},{key:"on_track",label:"Хэвийн"},{key:"overdue",label:"Хоцорсон"},{key:"needs_revision",label:"Засвар шаардлагатай"}],M=ni.filter(S=>o==="Бүгд"||S.stage===o).filter(S=>d==="Бүгд"||S.status===d).filter(S=>S.name.toLowerCase().includes(l.toLowerCase())||S.thesis.toLowerCase().includes(l.toLowerCase())).sort((S,H)=>{const U=typeof S[p]=="string"?S[p].toLowerCase():S[p],ie=typeof H[p]=="string"?H[p].toLowerCase():H[p];return U<ie?h==="asc"?-1:1:U>ie?h==="asc"?1:-1:0}),D=({col:S})=>p===S?h==="asc"?r.jsx(Hx,{className:"w-3 h-3"}):r.jsx(Tf,{className:"w-3 h-3"}):r.jsx(Dx,{className:"w-3 h-3 opacity-40"}),_=ni.filter(S=>S.status==="overdue"),R=ni.filter(S=>S.status==="needs_revision");return r.jsxs("div",{className:"space-y-6 max-w-7xl mx-auto pb-10",children:[r.jsx("div",{className:"flex flex-col md:flex-row md:items-center justify-between gap-4",children:r.jsxs("div",{children:[r.jsxs("h1",{className:"text-2xl font-bold text-slate-900 flex items-center gap-2",children:[r.jsx(bi,{className:"w-6 h-6 text-[#1455BD]"}),"Явцын хяналт"]}),r.jsx("p",{className:"text-slate-500 mt-1",children:"Хянаж буй бүх оюутны шат, эцсийн хугацаа, илгаалтын байдлыг хянах."})]})}),r.jsxs("div",{className:"grid grid-cols-1 md:grid-cols-2 gap-4",children:[r.jsx(we,{className:"border-rose-200 bg-rose-50/40 shadow-sm",children:r.jsxs(Te,{className:"p-4",children:[r.jsxs("h3",{className:"flex items-center gap-2 font-bold text-rose-700 text-sm mb-3",children:[r.jsx(Ct,{className:"w-4 h-4"})," Хоцорсон оюутнууд (",_.length,")"]}),r.jsx("div",{className:"space-y-2",children:_.map(S=>r.jsxs("div",{className:"flex items-center justify-between bg-white border border-rose-100 rounded-lg px-3 py-2",children:[r.jsxs("div",{children:[r.jsx("span",{className:"font-semibold text-sm text-slate-900",children:S.name}),r.jsxs("span",{className:"text-xs text-rose-600 ml-2 font-medium",children:[Math.abs(S.daysLeft)," хоног хоцорсон"]})]}),r.jsx(pe,{className:"bg-rose-100 text-rose-700 border-rose-200 border text-[10px] px-1.5 py-0 h-4",children:S.stage})]},S.id))})]})}),r.jsx(we,{className:"border-orange-200 bg-orange-50/40 shadow-sm",children:r.jsxs(Te,{className:"p-4",children:[r.jsxs("h3",{className:"flex items-center gap-2 font-bold text-orange-700 text-sm mb-3",children:[r.jsx(Af,{className:"w-4 h-4"})," Засвар шаардлагатай (",R.length,")"]}),r.jsx("div",{className:"space-y-2",children:R.map(S=>r.jsxs("div",{className:"flex items-center justify-between bg-white border border-orange-100 rounded-lg px-3 py-2",children:[r.jsxs("div",{children:[r.jsx("span",{className:"font-semibold text-sm text-slate-900",children:S.name}),r.jsx("span",{className:"text-xs text-orange-600 ml-2 font-medium",children:"Засварлаж буй"})]}),r.jsx(pe,{className:"bg-orange-100 text-orange-700 border-orange-200 border text-[10px] px-1.5 py-0 h-4",children:S.stage})]},S.id))})]})})]}),r.jsxs(we,{className:"border-slate-200 shadow-sm",children:[r.jsx(Ye,{className:"border-b border-slate-100 bg-slate-50/50 pb-4",children:r.jsxs("div",{className:"flex flex-col md:flex-row md:items-center gap-3",children:[r.jsxs("div",{className:"relative flex-1",children:[r.jsx(Ql,{className:"w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"}),r.jsx("input",{type:"text",placeholder:"Оюутан эсвэл дипломын ажлаар хайх...",className:"pl-9 pr-4 py-2 border border-slate-200 rounded-lg text-sm w-full focus:outline-none focus:border-[#1455BD] bg-white",value:l,onChange:S=>u(S.target.value)})]}),r.jsxs("div",{className:"flex gap-2 flex-wrap",children:[r.jsx("select",{className:"border border-slate-200 rounded-lg text-sm px-3 py-2 bg-white focus:outline-none focus:border-[#1455BD]",value:o,onChange:S=>c(S.target.value),children:A.map(S=>r.jsx("option",{children:S},S))}),r.jsx("select",{className:"border border-slate-200 rounded-lg text-sm px-3 py-2 bg-white focus:outline-none focus:border-[#1455BD]",value:d,onChange:S=>m(S.target.value),children:I.map(({key:S,label:H})=>r.jsx("option",{value:S,children:H},S))})]})]})}),r.jsx(Te,{className:"p-0 overflow-x-auto",children:r.jsxs("table",{className:"w-full min-w-[900px]",children:[r.jsx("thead",{children:r.jsx("tr",{className:"bg-slate-50 border-b border-slate-100",children:[{label:"Оюутан",key:"name"},{label:"Шат",key:"stage"},{label:"Эцсийн хугацаа",key:"deadline"},{label:"Засварын байдал",key:null},{label:"Илгаалт",key:null},{label:"Дэвшил",key:"progress"},{label:"Байдал",key:null},{label:"",key:null}].map(({label:S,key:H},U)=>r.jsx("th",{className:"text-left px-5 py-3",children:H?r.jsxs("button",{onClick:()=>T(H),className:"flex items-center gap-1.5 text-xs font-bold text-slate-500 uppercase tracking-widest hover:text-[#1455BD] transition-colors",children:[S," ",r.jsx(D,{col:H})]}):r.jsx("span",{className:"text-xs font-bold text-slate-500 uppercase tracking-widest",children:S})},U))})}),r.jsx("tbody",{className:"divide-y divide-slate-100",children:M.length===0?r.jsx("tr",{children:r.jsxs("td",{colSpan:8,className:"text-center py-16 text-slate-400 text-sm",children:[r.jsx(Lf,{className:"w-10 h-10 mx-auto mb-3 text-slate-200"}),"Шүүлтэд тохирох оюутан олдсонгүй."]})}):M.map(S=>{const H=Dy[S.status],U=H.icon;return r.jsxs("tr",{className:"hover:bg-slate-50 transition-colors group",children:[r.jsx("td",{className:"px-5 py-4",children:r.jsxs("div",{className:"flex items-center gap-3",children:[r.jsx(ft,{className:"h-8 w-8 border border-slate-200",children:r.jsx(mt,{className:"bg-blue-50 text-[#1455BD] text-xs font-bold",children:S.avatar})}),r.jsxs("div",{children:[r.jsx("p",{className:"font-semibold text-sm text-slate-900",children:S.name}),r.jsx("p",{className:"text-xs text-slate-500 line-clamp-1 max-w-[180px]",children:S.thesis})]})]})}),r.jsx("td",{className:"px-5 py-4",children:r.jsx(pe,{variant:"outline",className:"bg-blue-50 text-[#1455BD] border-blue-100 font-medium text-xs",children:S.stage})}),r.jsxs("td",{className:"px-5 py-4",children:[r.jsxs("div",{className:"flex items-center gap-1.5",children:[r.jsx(ln,{className:"w-3.5 h-3.5 text-slate-400"}),r.jsx("span",{className:"text-sm text-slate-700",children:S.deadline})]}),S.daysLeft<0?r.jsxs("span",{className:"text-[11px] font-bold text-rose-600 flex items-center mt-0.5",children:[r.jsx(Ct,{className:"w-3 h-3 mr-0.5"}),Math.abs(S.daysLeft)," хоног хоцорсон"]}):S.daysLeft<=7?r.jsxs("span",{className:"text-[11px] font-bold text-orange-500 flex items-center mt-0.5",children:[r.jsx(Ns,{className:"w-3 h-3 mr-0.5"}),S.daysLeft," хоног үлдсэн"]}):r.jsxs("span",{className:"text-[11px] text-slate-400 mt-0.5",children:[S.daysLeft," хоног үлдсэн"]})]}),r.jsx("td",{className:"px-5 py-4",children:r.jsx("span",{className:`text-xs font-medium px-2 py-0.5 rounded-full border ${S.revisionState==="Байхгүй"?"bg-slate-50 text-slate-500 border-slate-200":S.revisionState==="Шаардлагатай"?"bg-rose-50 text-rose-600 border-rose-200":"bg-orange-50 text-orange-600 border-orange-200"}`,children:S.revisionState})}),r.jsx("td",{className:"px-5 py-4",children:S.submitted?r.jsxs("span",{className:"flex items-center gap-1 text-emerald-600 text-xs font-medium",children:[r.jsx(Rn,{className:"w-3.5 h-3.5"})," Илгээсэн"]}):r.jsxs("span",{className:"flex items-center gap-1 text-rose-600 text-xs font-medium",children:[r.jsx(wr,{className:"w-3.5 h-3.5"})," Илгаагаагүй"]})}),r.jsx("td",{className:"px-5 py-4 min-w-[140px]",children:r.jsxs("div",{className:"flex items-center gap-2",children:[r.jsx(Wl,{value:S.progress,className:"h-1.5 flex-1"}),r.jsxs("span",{className:"text-xs font-bold text-slate-600 w-8 text-right",children:[S.progress,"%"]})]})}),r.jsx("td",{className:"px-5 py-4",children:r.jsxs(pe,{className:`flex items-center gap-1 border ${H.color} text-xs`,children:[r.jsx(U,{className:"w-3 h-3"}),H.label]})}),r.jsx("td",{className:"px-5 py-4",children:r.jsxs(le,{variant:"ghost",size:"sm",className:"text-xs text-slate-500 hover:text-[#1455BD] opacity-0 group-hover:opacity-100 transition-opacity",onClick:()=>j(S),children:[r.jsx(Mf,{className:"w-4 h-4 mr-1"})," Дэлгэрэнгүй"]})})]},S.id)})})]})})]}),r.jsxs(we,{className:"border-slate-200 shadow-sm",children:[r.jsx(Ye,{className:"border-b border-slate-100 pb-3",children:r.jsxs(vt,{className:"text-base font-semibold text-slate-800 flex items-center gap-2",children:[r.jsx(ln,{className:"w-4 h-4 text-[#1455BD]"})," Ойрын чухал цэгүүд"]})}),r.jsx(Te,{className:"p-4 grid grid-cols-1 md:grid-cols-3 gap-3",children:Ly.map((S,H)=>r.jsxs("div",{className:"p-4 bg-slate-50 rounded-xl border border-slate-200 hover:border-blue-200 hover:bg-blue-50/10 transition-all",children:[r.jsxs("div",{className:"flex items-center justify-between mb-2",children:[r.jsxs("span",{className:"text-xs font-bold text-slate-500 uppercase tracking-widest",children:[S.daysLeft," хоногийн дотор"]}),r.jsx(pe,{variant:"outline",className:"text-[10px] bg-white border-slate-200 text-slate-600",children:S.date})]}),r.jsx("p",{className:"font-semibold text-sm text-slate-900",children:S.milestone}),r.jsx("p",{className:"text-xs text-slate-500 mt-1",children:S.student})]},H))})]}),N&&r.jsx("div",{className:"fixed inset-0 bg-slate-900/40 z-50 flex justify-end",onClick:()=>j(null),children:r.jsxs("div",{className:"w-full max-w-md bg-white h-full shadow-xl overflow-y-auto",onClick:S=>S.stopPropagation(),children:[r.jsxs("div",{className:"p-6 border-b border-slate-100 flex justify-between items-start",children:[r.jsxs("div",{children:[r.jsx("h2",{className:"text-xl font-bold text-slate-900",children:N.name}),r.jsx("p",{className:"text-sm text-slate-500 mt-1",children:N.thesis})]}),r.jsx("button",{onClick:()=>j(null),className:"p-2 hover:bg-slate-100 rounded-lg",children:r.jsx(wr,{className:"w-5 h-5 text-slate-500"})})]}),r.jsxs("div",{className:"p-6 space-y-5",children:[r.jsx("div",{className:"grid grid-cols-2 gap-4",children:[{label:"Шат",value:N.stage},{label:"Эцсийн хугацаа",value:N.deadline},{label:"Илгээсэн эсэх",value:N.submitted?"Тийм ✓":"Үгүй ✗"},{label:"Засвар",value:N.revisionState}].map(({label:S,value:H})=>r.jsxs("div",{className:"bg-slate-50 rounded-lg p-3 border border-slate-100",children:[r.jsx("p",{className:"text-xs font-bold text-slate-400 uppercase tracking-wider mb-1",children:S}),r.jsx("p",{className:"text-sm font-semibold text-slate-900",children:H})]},S))}),r.jsxs("div",{children:[r.jsx("p",{className:"text-xs font-bold text-slate-500 uppercase tracking-widest mb-2",children:"Нийт дэвшил"}),r.jsxs("div",{className:"flex items-center gap-3",children:[r.jsx(Wl,{value:N.progress,className:"flex-1 h-2"}),r.jsxs("span",{className:"text-lg font-extrabold text-[#1455BD]",children:[N.progress,"%"]})]})]}),r.jsxs(le,{className:"w-full bg-[#1455BD] hover:bg-[#0d3a8a] text-white",children:[r.jsx(nn,{className:"w-4 h-4 mr-2"})," Тайлангийн түүхийг харах"]})]})]})})]})}const lf=[{id:1,name:"Д.Оч",avatar:"AJ",thesis:"Эмнэлгийн зургийн оношлогоонд гүн суралцах",stage:"Урьдчилсан хамгаалалт",scheduledDate:"2026/04/15",daysLeft:27,role:"Комиссийн гишүүн",evalStatus:"Хүлээгдэж буй",rubricAccess:!0,overallScore:null,comments:[{author:"Д-р Хоппер",text:"Арга зүйн хэсгийг дэлгэрэнгүй болгох шаардлагатай.",time:"2 өдрийн өмнө"}]},{id:2,name:"Б.Батбаяр",avatar:"SW",thesis:"IoT ухаалаг төхөөрөмжид зориулсан захын тооцоолол",stage:"Эцсийн хамгаалалт",scheduledDate:"2026/05/30",daysLeft:72,role:"Дарга",evalStatus:"Дууссан",rubricAccess:!0,overallScore:88,comments:[{author:"Та",text:"Хамгаалалтын танилцуулгад маш сайн гүйцэтгэсэн.",time:"5 өдрийн өмнө"}]},{id:3,name:"С.Мөнхбаяр",avatar:"LP",thesis:"CNN ашиглан жолоодох зурвасыг илрүүлэх",stage:"Явц 2",scheduledDate:"2026/04/08",daysLeft:20,role:"Комиссийн гишүүн",evalStatus:"Хүлээгдэж буй",rubricAccess:!1,overallScore:null,comments:[]},{id:4,name:"Т.Түвшинбаяр",avatar:"TR",thesis:"BERT ашиглан нийгмийн мэдээний сентимент шинжилгээ",stage:"Урьдчилсан хамгаалалт",scheduledDate:"2026/04/20",daysLeft:32,role:"Мэргэжлийн хянагч",evalStatus:"Дууссан",rubricAccess:!0,overallScore:74,comments:[{author:"Та",text:"Дүгнэлтийн бүлгийг чангатгах шаардлагатай.",time:"1 долоо хоногийн өмнө"}]}],af=[{name:"Эх сурвалжийн шинжилгээний чанар",weight:20,max:20},{name:"Судалгааны арга зүй",weight:25,max:25},{name:"Үр дүн ба шинжилгээ",weight:30,max:30},{name:"Танилцуулга ба тодорхой байдал",weight:15,max:15},{name:"Асуулт хариулт",weight:10,max:10}],Iy=[{date:"04/08",student:"С.Мөнхбаяр",type:"Явц 2-ын хяналт",time:"9:00",room:"Семинарын өрөө A"},{date:"04/15",student:"Д.Оч",type:"Урьдчилсан хамгаалалтын хороо",time:"10:00",room:"Хурлын танхим B"},{date:"04/20",student:"Т.Түвшинбаяр",type:"Урьдчилсан хамгаалалтын хороо",time:"14:00",room:"Семинарын өрөө C"},{date:"05/30",student:"Б.Батбаяр",type:"Эцсийн хамгаалалт",time:"10:00",room:"Их танхим"}];function of(){const[l,u]=x.useState("students"),[o,c]=x.useState(null),[d,m]=x.useState({}),[p,g]=x.useState(""),[h,y]=x.useState(!1),[N,j]=x.useState(!1),T=Object.values(d).reduce((_,R)=>_+R,0),A=af.reduce((_,R)=>_+R.max,0),I=()=>{j(!0),setTimeout(()=>{j(!1),y(!0)},1500)},M=lf.filter(_=>_.evalStatus==="Хүлээгдэж буй"),D=lf.filter(_=>_.evalStatus==="Дууссан");return r.jsxs("div",{className:"space-y-6 max-w-7xl mx-auto pb-10",children:[r.jsxs("div",{className:"flex flex-col md:flex-row md:items-center justify-between gap-4",children:[r.jsxs("div",{children:[r.jsxs("h1",{className:"text-2xl font-bold text-slate-900 flex items-center gap-2",children:[r.jsx(Gn,{className:"w-6 h-6 text-[#1455BD]"}),"Комисс"]}),r.jsx("p",{className:"text-slate-500 mt-1",children:"Комиссийн гишүүнээр хуваарилагдсан оюутнуудын үнэлгээг удирдах."})]}),r.jsxs("div",{className:"flex gap-3",children:[r.jsxs(pe,{className:"bg-orange-50 text-orange-700 border-orange-200 border flex items-center gap-1.5 px-3 py-1.5",children:[r.jsx(Ct,{className:"w-3.5 h-3.5"})," ",M.length," хүлээгдэж буй үнэлгээ"]}),r.jsxs(pe,{className:"bg-emerald-50 text-emerald-700 border-emerald-200 border flex items-center gap-1.5 px-3 py-1.5",children:[r.jsx(Ut,{className:"w-3.5 h-3.5"})," ",D.length," дууссан"]})]})]}),r.jsxs(Ei,{value:l,onValueChange:u,children:[r.jsx(Jl,{className:"w-full justify-start border-b border-slate-200 rounded-none bg-transparent h-auto p-0 space-x-6",children:[{value:"students",label:"Хуваарилагдсан оюутнууд"},{value:"schedule",label:"Хуваарь"},{value:"completed",label:"Дууссан үнэлгээнүүд"}].map(_=>r.jsx(_n,{value:_.value,className:"data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-[#1455BD] data-[state=active]:text-[#1455BD] rounded-none py-3 px-1 text-slate-600",children:_.label},_.value))}),r.jsxs(Vt,{value:"students",className:"mt-6 space-y-4",children:[r.jsx("h2",{className:"text-sm font-bold text-slate-500 uppercase tracking-widest",children:"Хүлээгдэж буй үнэлгээнүүд"}),r.jsx("div",{className:"grid grid-cols-1 md:grid-cols-2 gap-4",children:M.map(_=>r.jsxs(we,{className:"border-orange-200 shadow-sm hover:shadow-md hover:border-orange-300 transition-all group overflow-hidden cursor-pointer",onClick:()=>c(_),children:[r.jsx("div",{className:"h-1 bg-orange-300"}),r.jsxs(Te,{className:"p-5",children:[r.jsxs("div",{className:"flex items-start gap-3 mb-4",children:[r.jsx(ft,{className:"h-10 w-10 border border-slate-200",children:r.jsx(mt,{className:"bg-orange-50 text-orange-700 font-bold text-sm",children:_.avatar})}),r.jsxs("div",{className:"flex-1",children:[r.jsxs("div",{className:"flex justify-between items-start",children:[r.jsx("p",{className:"font-bold text-slate-900",children:_.name}),r.jsx(pe,{className:"bg-orange-100 text-orange-700 border-0",children:"Хүлээгдэж буй"})]}),r.jsx("p",{className:"text-xs text-slate-500 line-clamp-2 mt-0.5",children:_.thesis})]})]}),r.jsx("div",{className:"grid grid-cols-2 gap-3 text-xs mb-4",children:[{label:"Шат",value:_.stage},{label:"Үүрэг",value:_.role},{label:"Огноо",value:_.scheduledDate},{label:"Үлдсэн хоног",value:`${_.daysLeft} хоног`,warn:_.daysLeft<=10}].map(R=>r.jsxs("div",{className:"bg-slate-50 rounded-lg p-2 border border-slate-100",children:[r.jsx("span",{className:"text-slate-400 font-semibold uppercase tracking-wide block mb-0.5",children:R.label}),r.jsx("span",{className:`font-medium ${R.warn?"text-orange-600":"text-slate-800"}`,children:R.value})]},R.label))}),r.jsxs("div",{className:"flex gap-2",children:[r.jsxs(le,{size:"sm",className:"flex-1 bg-[#1455BD] hover:bg-[#0d3a8a] text-white text-xs",children:[r.jsx(Pg,{className:"w-3.5 h-3.5 mr-1.5"})," Үнэлэх"]}),r.jsxs(le,{size:"sm",variant:"outline",className:"border-slate-200 text-slate-600 text-xs hover:bg-slate-50",children:[r.jsx(nn,{className:"w-3.5 h-3.5 mr-1.5"})," Шалгуур"]})]})]})]},_.id))}),r.jsx("h2",{className:"text-sm font-bold text-slate-500 uppercase tracking-widest pt-4",children:"Дууссан үнэлгээнүүд"}),r.jsx(we,{className:"border-slate-200 shadow-sm",children:r.jsx(Te,{className:"p-0",children:r.jsx("div",{className:"divide-y divide-slate-100",children:D.map(_=>r.jsxs("div",{className:"p-4 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:bg-slate-50 transition-colors group cursor-pointer",onClick:()=>c(_),children:[r.jsxs("div",{className:"flex items-center gap-3",children:[r.jsx(ft,{className:"h-9 w-9 border border-slate-200",children:r.jsx(mt,{className:"bg-blue-50 text-[#1455BD] text-xs font-bold",children:_.avatar})}),r.jsxs("div",{children:[r.jsx("p",{className:"font-semibold text-sm text-slate-900",children:_.name}),r.jsx("p",{className:"text-xs text-slate-500 line-clamp-1 max-w-xs",children:_.thesis})]})]}),r.jsxs("div",{className:"flex items-center gap-4",children:[r.jsx(pe,{className:"bg-blue-50 text-[#1455BD] border-blue-100",children:_.stage}),r.jsxs("div",{className:"flex items-center gap-1.5",children:[r.jsx($x,{className:"w-4 h-4 text-emerald-600"}),r.jsxs("span",{className:"font-bold text-emerald-700",children:[_.overallScore," / 100"]})]}),r.jsxs(pe,{className:"bg-emerald-100 text-emerald-700 border-0",children:[r.jsx(Ut,{className:"w-3 h-3 mr-1"})," Дууссан"]}),r.jsx(ai,{className:"w-4 h-4 text-slate-300 group-hover:text-[#1455BD] transition-colors"})]})]},_.id))})})})]}),r.jsx(Vt,{value:"schedule",className:"mt-6",children:r.jsxs(we,{className:"border-slate-200 shadow-sm",children:[r.jsx(Ye,{className:"border-b border-slate-100 pb-4",children:r.jsxs(vt,{className:"text-lg font-semibold flex items-center gap-2 text-slate-800",children:[r.jsx(ln,{className:"w-5 h-5 text-[#1455BD]"})," Комиссийн хуваарь"]})}),r.jsx(Te,{className:"p-0",children:r.jsx("div",{className:"divide-y divide-slate-100",children:Iy.map((_,R)=>r.jsxs("div",{className:"p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:bg-slate-50 transition-colors",children:[r.jsxs("div",{className:"flex items-center gap-4",children:[r.jsxs("div",{className:"w-12 h-12 rounded-xl bg-blue-50 border border-blue-100 flex flex-col items-center justify-center shrink-0",children:[r.jsx("span",{className:"text-[10px] font-bold text-slate-500 leading-none",children:_.date.split("/")[0]+"/"}),r.jsx("span",{className:"text-xl font-extrabold text-[#1455BD] leading-none",children:_.date.split("/")[1]})]}),r.jsxs("div",{children:[r.jsx("h3",{className:"font-semibold text-slate-900",children:_.type}),r.jsxs("p",{className:"text-sm text-slate-600",children:["Оюутан: ",r.jsx("span",{className:"font-medium",children:_.student})]}),r.jsxs("div",{className:"flex items-center gap-4 mt-1.5 text-xs text-slate-400",children:[r.jsxs("span",{className:"flex items-center gap-1",children:[r.jsx(Ns,{className:"w-3 h-3"}),_.time]}),r.jsx("span",{children:_.room})]})]})]}),r.jsx(le,{variant:"outline",size:"sm",className:"border-slate-200 text-slate-700 hover:bg-slate-50 shrink-0",children:"Дэлгэрэнгүй харах"})]},R))})})]})}),r.jsx(Vt,{value:"completed",className:"mt-6 space-y-4",children:D.map(_=>r.jsx(we,{className:"border-slate-200 shadow-sm hover:shadow-md transition-all",children:r.jsxs(Te,{className:"p-5",children:[r.jsxs("div",{className:"flex items-start justify-between mb-5",children:[r.jsxs("div",{className:"flex items-center gap-3",children:[r.jsx(ft,{className:"h-10 w-10 border border-slate-200",children:r.jsx(mt,{className:"bg-blue-50 text-[#1455BD] font-bold",children:_.avatar})}),r.jsxs("div",{children:[r.jsx("p",{className:"font-bold text-slate-900",children:_.name}),r.jsx("p",{className:"text-xs text-slate-500 max-w-md",children:_.thesis})]})]}),r.jsxs("div",{className:"text-right",children:[r.jsxs("p",{className:"text-2xl font-extrabold text-[#1455BD]",children:[_.overallScore,r.jsx("span",{className:"text-sm text-slate-400 font-medium",children:"/100"})]}),r.jsx(pe,{className:"bg-emerald-100 text-emerald-700 border-0 mt-1",children:"Эцсийн оноо"})]})]}),r.jsx(Wl,{value:_.overallScore??0,className:"h-2 mb-4"}),r.jsxs("div",{children:[r.jsx("h4",{className:"text-xs font-bold text-slate-500 uppercase tracking-widest mb-3",children:"Тайлбарын түүх"}),_.comments.length>0?_.comments.map((R,S)=>r.jsxs("div",{className:"flex items-start gap-2 bg-slate-50 rounded-lg border border-slate-100 p-3 text-sm",children:[r.jsx(xs,{className:"w-4 h-4 text-slate-400 mt-0.5 shrink-0"}),r.jsxs("div",{children:[r.jsxs("span",{className:"font-semibold text-slate-800",children:[R.author,": "]}),r.jsx("span",{className:"text-slate-600",children:R.text}),r.jsx("div",{className:"text-xs text-slate-400 mt-1",children:R.time})]})]},S)):r.jsx("p",{className:"text-sm text-slate-400 italic",children:"Тайлбар бичигдээгүй байна."})]})]})},_.id))})]}),o&&r.jsx("div",{className:"fixed inset-0 bg-slate-900/40 z-50 flex justify-end",onClick:()=>{c(null),y(!1),m({})},children:r.jsxs("div",{className:"w-full max-w-lg bg-white h-full shadow-xl overflow-y-auto flex flex-col",onClick:_=>_.stopPropagation(),children:[r.jsxs("div",{className:`p-6 border-b border-slate-100 flex justify-between items-start ${o.evalStatus==="Дууссан"?"bg-emerald-50/30":"bg-orange-50/20"}`,children:[r.jsxs("div",{children:[r.jsxs("p",{className:"text-xs font-bold text-slate-400 uppercase tracking-widest mb-1",children:[o.role," · ",o.stage]}),r.jsx("h2",{className:"text-xl font-bold text-slate-900",children:o.name}),r.jsx("p",{className:"text-sm text-slate-500 mt-1 max-w-xs leading-snug",children:o.thesis}),r.jsxs("div",{className:"flex items-center gap-2 mt-3",children:[r.jsxs(pe,{className:o.evalStatus==="Дууссан"?"bg-emerald-100 text-emerald-700 border-0":"bg-orange-100 text-orange-700 border-0",children:[o.evalStatus==="Дууссан"?r.jsx(Ut,{className:"w-3 h-3 mr-1"}):r.jsx(Ct,{className:"w-3 h-3 mr-1"}),o.evalStatus]}),r.jsxs(pe,{variant:"outline",className:"bg-white border-slate-200 text-slate-600",children:[r.jsx(ln,{className:"w-3 h-3 mr-1"})," ",o.scheduledDate]})]})]}),r.jsx("button",{onClick:()=>{c(null),y(!1),m({})},className:"p-2 hover:bg-slate-100 rounded-lg",children:r.jsx(wr,{className:"w-5 h-5 text-slate-500"})})]}),r.jsxs("div",{className:"p-6 border-b border-slate-100",children:[r.jsx("h3",{className:"text-sm font-bold text-slate-700 mb-3 uppercase tracking-widest",children:"Тайлбарын түүх"}),o.comments.length>0?r.jsx("div",{className:"space-y-2",children:o.comments.map((_,R)=>r.jsxs("div",{className:"bg-slate-50 border border-slate-100 rounded-lg p-3 text-sm",children:[r.jsxs("p",{className:"font-semibold text-slate-800 mb-1",children:[_.author," ",r.jsxs("span",{className:"text-xs text-slate-400 font-normal",children:["· ",_.time]})]}),r.jsx("p",{className:"text-slate-600",children:_.text})]},R))}):r.jsx("p",{className:"text-sm text-slate-400 italic",children:"Одоохондоо тайлбар байхгүй."}),r.jsxs("div",{className:"flex gap-2 mt-4",children:[r.jsx("input",{className:"flex-1 border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#1455BD]",placeholder:"Тайлбар нэмэх...",value:p,onChange:_=>g(_.target.value)}),r.jsx(le,{size:"sm",className:"bg-[#1455BD] hover:bg-[#0d3a8a] text-white shrink-0",children:r.jsx(zf,{className:"w-4 h-4"})})]})]}),r.jsxs("div",{className:"p-6 flex-1",children:[r.jsx("h3",{className:"text-sm font-bold text-slate-700 mb-4 uppercase tracking-widest",children:"Үнэлгээний шалгуур"}),h?r.jsxs("div",{className:"text-center py-10",children:[r.jsx("div",{className:"w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4",children:r.jsx(Ut,{className:"w-8 h-8 text-emerald-600"})}),r.jsx("h3",{className:"text-xl font-bold text-slate-900 mb-1",children:"Үнэлгээ хадгалагдлаа!"}),r.jsxs("p",{className:"text-slate-500 text-sm",children:["Нийт оноо: ",r.jsxs("strong",{className:"text-[#1455BD]",children:[T," / ",A]})]})]}):r.jsxs(r.Fragment,{children:[r.jsx("div",{className:"space-y-4",children:af.map((_,R)=>r.jsxs("div",{className:"bg-slate-50 border border-slate-100 rounded-xl p-4",children:[r.jsxs("div",{className:"flex justify-between items-center mb-2",children:[r.jsx("p",{className:"font-semibold text-sm text-slate-800",children:_.name}),r.jsxs("span",{className:"text-xs text-slate-400 font-medium",children:["Дээд: ",_.max," оноо"]})]}),r.jsxs("div",{className:"flex items-center gap-3",children:[r.jsx("input",{type:"range",min:0,max:_.max,value:d[R]||0,onChange:S=>m({...d,[R]:parseInt(S.target.value)}),className:"flex-1 accent-[#1455BD]"}),r.jsx("input",{type:"number",min:0,max:_.max,value:d[R]||0,onChange:S=>m({...d,[R]:Math.min(_.max,parseInt(S.target.value)||0)}),className:"w-14 text-center border border-slate-300 rounded-md py-1 text-sm focus:outline-none focus:border-[#1455BD]"})]})]},R))}),r.jsxs("div",{className:"mt-6 p-4 bg-blue-50 rounded-xl border border-blue-100 flex justify-between items-center",children:[r.jsx("span",{className:"font-bold text-slate-700",children:"Нийт оноо"}),r.jsxs("span",{className:"text-2xl font-extrabold text-[#1455BD]",children:[T," ",r.jsxs("span",{className:"text-slate-400 text-base font-medium",children:["/ ",A]})]})]}),r.jsx(le,{className:"w-full mt-4 bg-[#1455BD] hover:bg-[#0d3a8a] text-white",size:"lg",onClick:I,disabled:N,children:N?"Илгааж байна...":"Үнэлгээ илгаах"})]})]})]})})]})}const zy=[{label:"Progress Monitoring",desc:"Track all students' stages and deadlines in real-time."},{label:"Committee Dashboard",desc:"Unified rubric scoring, averages, and committee results."},{label:"Final Evaluation Flow",desc:"Weighted final scores, defense notes, and signed submissions."}];function Ay(){const l=ws();return r.jsxs("div",{className:"flex flex-col items-center justify-center min-h-[75vh] text-center px-6 py-12",children:[r.jsxs("div",{className:"relative mb-8",children:[r.jsx("div",{className:"w-24 h-24 bg-blue-50 border border-slate-200 rounded-3xl flex items-center justify-center shadow-sm",children:r.jsx(qx,{className:"w-12 h-12 text-[#1455BD]"})}),r.jsx("span",{className:"absolute -top-2 -right-2 w-7 h-7 bg-orange-100 border border-orange-200 rounded-full flex items-center justify-center",children:r.jsx(_g,{className:"w-4 h-4 text-orange-500"})})]}),r.jsx("h2",{className:"text-3xl font-extrabold text-slate-900 mb-2 tracking-tight",children:"Тун удахгүй"}),r.jsx("span",{className:"inline-block bg-blue-50 border border-blue-100 text-[#1455BD] text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full mb-5",children:"In Active Development"}),r.jsx("p",{className:"text-slate-500 text-sm max-w-md mb-10 leading-relaxed",children:"Энэ хэсэг одоо идэвхтэй боловсруулагдаж байна. Гүйцэтгэлийн чанарын хамт тун удахгүй гарна."}),r.jsx("div",{className:"grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl w-full mb-10",children:zy.map((u,o)=>r.jsxs("div",{className:"bg-white border border-slate-200 rounded-xl p-4 text-left hover:border-blue-200 hover:shadow-sm transition-all group",children:[r.jsx("div",{className:"w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mb-3 group-hover:bg-blue-100 transition-colors",children:r.jsx(Ns,{className:"w-4 h-4 text-[#1455BD]"})}),r.jsx("h3",{className:"text-sm font-semibold text-slate-900 mb-1",children:u.label}),r.jsx("p",{className:"text-xs text-slate-500 leading-snug",children:u.desc})]},o))}),r.jsxs("div",{className:"flex flex-col sm:flex-row items-center gap-3",children:[r.jsxs("button",{onClick:()=>l(-1),className:"flex items-center gap-2 px-5 py-2.5 bg-[#1455BD] text-white text-sm font-medium rounded-xl hover:bg-blue-700 transition-colors shadow-sm",children:[r.jsx(Px,{className:"w-4 h-4"}),"Буцах"]}),r.jsxs("button",{className:"flex items-center gap-2 px-5 py-2.5 bg-white border border-slate-200 text-slate-700 text-sm font-medium rounded-xl hover:bg-slate-50 hover:border-slate-300 transition-colors shadow-sm",children:[r.jsx(Rf,{className:"w-4 h-4 text-slate-400"}),"Мэдэгдэл авах"]})]})]})}function Fy({user:l}){return r.jsx(fx,{children:r.jsxs(U0,{children:[r.jsxs(dt,{path:"/teacher",element:r.jsx(Gg,{user:l}),children:[r.jsx(dt,{index:!0,element:r.jsx(Wv,{})}),r.jsx(dt,{path:"students",element:r.jsx(xy,{})}),r.jsx(dt,{path:"thesis",element:r.jsx(ef,{})}),r.jsx(dt,{path:"messages",element:r.jsx(tf,{})}),r.jsx(dt,{path:"reports",element:r.jsx(ef,{})}),r.jsx(dt,{path:"evaluations",element:r.jsx(of,{})}),r.jsx(dt,{path:"feedback",element:r.jsx(tf,{})}),r.jsx(dt,{path:"progress",element:r.jsx(sf,{})}),r.jsx(dt,{path:"committee",element:r.jsx(of,{})}),r.jsx(dt,{path:"scores",element:r.jsx(sf,{})}),r.jsx(dt,{path:"settings",element:r.jsx(Ay,{})})]}),r.jsx(dt,{path:"*",element:r.jsx(O0,{to:"/teacher",replace:!0})})]})})}const ri=document.getElementById("microfrontend-root");if(ri){const l=Wg("teacher");l&&(ri.innerHTML="",$h.createRoot(ri).render(r.jsx(en.StrictMode,{children:r.jsx(Fy,{user:l})})))}else console.error("[module-teacher] #microfrontend-root элемент олдсонгүй");
+Defaulting to \`null\`.`;
+}
+var Root = Progress$1;
+var Indicator = ProgressIndicator;
+
+const React$1 = await importShared('react');
+const Progress = React$1.forwardRef(({ className, value, ...props }, ref) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+  Root,
+  {
+    ref,
+    className: cn(
+      "relative h-4 w-full overflow-hidden rounded-full bg-secondary",
+      className
+    ),
+    ...props,
+    children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Indicator,
+      {
+        className: "h-full w-full flex-1 bg-primary transition-all",
+        style: { transform: `translateX(-${100 - (value || 0)}%)` }
+      }
+    )
+  }
+));
+Progress.displayName = Root.displayName;
+
+const {useState: useState$1} = await importShared('react');
+const allStudents = [
+  { id: 1, name: "Д.Оч", avatar: "AJ", thesis: "Эмнэлгийн зургийн оношлогоонд гүн суралцах", stage: "Урьдчилсан хамгаалалт", deadline: "2026-04-15", daysLeft: 27, revisionState: "Байхгүй", submitted: true, progress: 78, status: "on_track" },
+  { id: 2, name: "Б.Батбаяр", avatar: "MG", thesis: "Нийлүүлэлтийн сүлжээн дэх блокчейн", stage: "Явц 1", deadline: "2026-03-22", daysLeft: -2, revisionState: "Шаардлагатай", submitted: false, progress: 28, status: "overdue" },
+  { id: 3, name: "С.Мөнхбаяр", avatar: "JS", thesis: "Квантум шифрлэлтийн протоколууд", stage: "Явц 2", deadline: "2026-04-05", daysLeft: 17, revisionState: "Засварлаж буй", submitted: true, progress: 51, status: "needs_revision" },
+  { id: 4, name: "Т.Түвшинбаяр", avatar: "SW", thesis: "IoT ухаалаг төхөөрөмжид зориулсан захын тооцоолол", stage: "Эцсийн хамгаалалт", deadline: "2026-05-30", daysLeft: 72, revisionState: "Байхгүй", submitted: true, progress: 94, status: "on_track" },
+  { id: 5, name: "Э.Энхбаяр", avatar: "DC", thesis: "Эмнэлгийн шийдвэрт NLP ашиглах", stage: "Явц 1", deadline: "2026-03-20", daysLeft: -4, revisionState: "Шаардлагатай", submitted: false, progress: 19, status: "overdue" },
+  { id: 6, name: "О.Оюунчимэг", avatar: "EB", thesis: "Роботын замнал төлөвлөлт", stage: "Явц 2", deadline: "2026-04-10", daysLeft: 22, revisionState: "Байхгүй", submitted: true, progress: 60, status: "on_track" }
+];
+const upcomingMilestones = [
+  { student: "Д.Оч", milestone: "Урьдчилсан хамгаалалтын хяналт", date: "2026/04/15", daysLeft: 27 },
+  { student: "Б.Батбаяр", milestone: "Явц 2-ын тайлангийн эцсийн хугацаа", date: "2026/04/10", daysLeft: 22 },
+  { student: "С.Мөнхбаяр", milestone: "Засварын дахин илгаах эцсийн хугацаа", date: "2026/04/05", daysLeft: 17 }
+];
+const statusConfig = {
+  on_track: { label: "Хэвийн", color: "bg-emerald-100 text-emerald-700 border-emerald-200", icon: CircleCheck },
+  overdue: { label: "Хоцорсон", color: "bg-rose-100 text-rose-700 border-rose-200", icon: CircleAlert },
+  needs_revision: { label: "Засвар шаардлагатай", color: "bg-orange-100 text-orange-700 border-orange-200", icon: TriangleAlert }
+};
+function TeacherProgress() {
+  const [search, setSearch] = useState$1("");
+  const [stageFilter, setStageFilter] = useState$1("Бүгд");
+  const [statusFilter, setStatusFilter] = useState$1("Бүгд");
+  const [sortKey, setSortKey] = useState$1("deadline");
+  const [sortDir, setSortDir] = useState$1("asc");
+  const [selectedStudent, setSelectedStudent] = useState$1(null);
+  const handleSort = (key) => {
+    if (sortKey === key) setSortDir((d) => d === "asc" ? "desc" : "asc");
+    else {
+      setSortKey(key);
+      setSortDir("asc");
+    }
+  };
+  const stageFilters = ["Бүгд", "Явц 1", "Явц 2", "Урьдчилсан хамгаалалт", "Эцсийн хамгаалалт"];
+  const statusFilters = [
+    { key: "Бүгд", label: "Бүгд" },
+    { key: "on_track", label: "Хэвийн" },
+    { key: "overdue", label: "Хоцорсон" },
+    { key: "needs_revision", label: "Засвар шаардлагатай" }
+  ];
+  const filtered = allStudents.filter((s) => stageFilter === "Бүгд" || s.stage === stageFilter).filter((s) => statusFilter === "Бүгд" || s.status === statusFilter).filter((s) => s.name.toLowerCase().includes(search.toLowerCase()) || s.thesis.toLowerCase().includes(search.toLowerCase())).sort((a, b) => {
+    const valA = typeof a[sortKey] === "string" ? a[sortKey].toLowerCase() : a[sortKey];
+    const valB = typeof b[sortKey] === "string" ? b[sortKey].toLowerCase() : b[sortKey];
+    if (valA < valB) return sortDir === "asc" ? -1 : 1;
+    if (valA > valB) return sortDir === "asc" ? 1 : -1;
+    return 0;
+  });
+  const SortIcon = ({ col }) => sortKey === col ? sortDir === "asc" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronUp, { className: "w-3 h-3" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronDown, { className: "w-3 h-3" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowUpDown, { className: "w-3 h-3 opacity-40" });
+  const overdue = allStudents.filter((s) => s.status === "overdue");
+  const needsRevision = allStudents.filter((s) => s.status === "needs_revision");
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-6 max-w-7xl mx-auto pb-10", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-col md:flex-row md:items-center justify-between gap-4", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("h1", { className: "text-2xl font-bold text-slate-900 flex items-center gap-2", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(TrendingUp, { className: "w-6 h-6 text-[#1455BD]" }),
+        "Явцын хяналт"
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-slate-500 mt-1", children: "Хянаж буй бүх оюутны шат, эцсийн хугацаа, илгаалтын байдлыг хянах." })
+    ] }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-4", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Card, { className: "border-rose-200 bg-rose-50/40 shadow-sm", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(CardContent, { className: "p-4", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("h3", { className: "flex items-center gap-2 font-bold text-rose-700 text-sm mb-3", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(CircleAlert, { className: "w-4 h-4" }),
+          " Хоцорсон оюутнууд (",
+          overdue.length,
+          ")"
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-2", children: overdue.map((s) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between bg-white border border-rose-100 rounded-lg px-3 py-2", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-semibold text-sm text-slate-900", children: s.name }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-xs text-rose-600 ml-2 font-medium", children: [
+              Math.abs(s.daysLeft),
+              " хоног хоцорсон"
+            ] })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Badge, { className: "bg-rose-100 text-rose-700 border-rose-200 border text-[10px] px-1.5 py-0 h-4", children: s.stage })
+        ] }, s.id)) })
+      ] }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Card, { className: "border-orange-200 bg-orange-50/40 shadow-sm", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(CardContent, { className: "p-4", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("h3", { className: "flex items-center gap-2 font-bold text-orange-700 text-sm mb-3", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(TriangleAlert, { className: "w-4 h-4" }),
+          " Засвар шаардлагатай (",
+          needsRevision.length,
+          ")"
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-2", children: needsRevision.map((s) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between bg-white border border-orange-100 rounded-lg px-3 py-2", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-semibold text-sm text-slate-900", children: s.name }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs text-orange-600 ml-2 font-medium", children: "Засварлаж буй" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Badge, { className: "bg-orange-100 text-orange-700 border-orange-200 border text-[10px] px-1.5 py-0 h-4", children: s.stage })
+        ] }, s.id)) })
+      ] }) })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(Card, { className: "border-slate-200 shadow-sm", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(CardHeader, { className: "border-b border-slate-100 bg-slate-50/50 pb-4", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col md:flex-row md:items-center gap-3", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative flex-1", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Search, { className: "w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("input", { type: "text", placeholder: "Оюутан эсвэл дипломын ажлаар хайх...", className: "pl-9 pr-4 py-2 border border-slate-200 rounded-lg text-sm w-full focus:outline-none focus:border-[#1455BD] bg-white", value: search, onChange: (e) => setSearch(e.target.value) })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-2 flex-wrap", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("select", { className: "border border-slate-200 rounded-lg text-sm px-3 py-2 bg-white focus:outline-none focus:border-[#1455BD]", value: stageFilter, onChange: (e) => setStageFilter(e.target.value), children: stageFilters.map((s) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { children: s }, s)) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("select", { className: "border border-slate-200 rounded-lg text-sm px-3 py-2 bg-white focus:outline-none focus:border-[#1455BD]", value: statusFilter, onChange: (e) => setStatusFilter(e.target.value), children: statusFilters.map(({ key, label }) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: key, children: label }, key)) })
+        ] })
+      ] }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(CardContent, { className: "p-0 overflow-x-auto", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("table", { className: "w-full min-w-[900px]", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("thead", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("tr", { className: "bg-slate-50 border-b border-slate-100", children: [
+          { label: "Оюутан", key: "name" },
+          { label: "Шат", key: "stage" },
+          { label: "Эцсийн хугацаа", key: "deadline" },
+          { label: "Засварын байдал", key: null },
+          { label: "Илгаалт", key: null },
+          { label: "Дэвшил", key: "progress" },
+          { label: "Байдал", key: null },
+          { label: "", key: null }
+        ].map(({ label, key }, i) => /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "text-left px-5 py-3", children: key ? /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { onClick: () => handleSort(key), className: "flex items-center gap-1.5 text-xs font-bold text-slate-500 uppercase tracking-widest hover:text-[#1455BD] transition-colors", children: [
+          label,
+          " ",
+          /* @__PURE__ */ jsxRuntimeExports.jsx(SortIcon, { col: key })
+        ] }) : /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs font-bold text-slate-500 uppercase tracking-widest", children: label }) }, i)) }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("tbody", { className: "divide-y divide-slate-100", children: filtered.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsx("tr", { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("td", { colSpan: 8, className: "text-center py-16 text-slate-400 text-sm", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Funnel, { className: "w-10 h-10 mx-auto mb-3 text-slate-200" }),
+          "Шүүлтэд тохирох оюутан олдсонгүй."
+        ] }) }) : filtered.map((s) => {
+          const statusCfg = statusConfig[s.status];
+          const StatusIcon = statusCfg.icon;
+          return /* @__PURE__ */ jsxRuntimeExports.jsxs("tr", { className: "hover:bg-slate-50 transition-colors group", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-5 py-4", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(Avatar, { className: "h-8 w-8 border border-slate-200", children: /* @__PURE__ */ jsxRuntimeExports.jsx(AvatarFallback, { className: "bg-blue-50 text-[#1455BD] text-xs font-bold", children: s.avatar }) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-semibold text-sm text-slate-900", children: s.name }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-slate-500 line-clamp-1 max-w-[180px]", children: s.thesis })
+              ] })
+            ] }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-5 py-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Badge, { variant: "outline", className: "bg-blue-50 text-[#1455BD] border-blue-100 font-medium text-xs", children: s.stage }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("td", { className: "px-5 py-4", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-1.5", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(Calendar, { className: "w-3.5 h-3.5 text-slate-400" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm text-slate-700", children: s.deadline })
+              ] }),
+              s.daysLeft < 0 ? /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-[11px] font-bold text-rose-600 flex items-center mt-0.5", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(CircleAlert, { className: "w-3 h-3 mr-0.5" }),
+                Math.abs(s.daysLeft),
+                " хоног хоцорсон"
+              ] }) : s.daysLeft <= 7 ? /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-[11px] font-bold text-orange-500 flex items-center mt-0.5", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(Clock, { className: "w-3 h-3 mr-0.5" }),
+                s.daysLeft,
+                " хоног үлдсэн"
+              ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-[11px] text-slate-400 mt-0.5", children: [
+                s.daysLeft,
+                " хоног үлдсэн"
+              ] })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-5 py-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: `text-xs font-medium px-2 py-0.5 rounded-full border ${s.revisionState === "Байхгүй" ? "bg-slate-50 text-slate-500 border-slate-200" : s.revisionState === "Шаардлагатай" ? "bg-rose-50 text-rose-600 border-rose-200" : "bg-orange-50 text-orange-600 border-orange-200"}`, children: s.revisionState }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-5 py-4", children: s.submitted ? /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "flex items-center gap-1 text-emerald-600 text-xs font-medium", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(CircleCheck, { className: "w-3.5 h-3.5" }),
+              " Илгээсэн"
+            ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "flex items-center gap-1 text-rose-600 text-xs font-medium", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(X, { className: "w-3.5 h-3.5" }),
+              " Илгаагаагүй"
+            ] }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-5 py-4 min-w-[140px]", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(Progress, { value: s.progress, className: "h-1.5 flex-1" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-xs font-bold text-slate-600 w-8 text-right", children: [
+                s.progress,
+                "%"
+              ] })
+            ] }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-5 py-4", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Badge, { className: `flex items-center gap-1 border ${statusCfg.color} text-xs`, children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(StatusIcon, { className: "w-3 h-3" }),
+              statusCfg.label
+            ] }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-5 py-4", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Button$1, { variant: "ghost", size: "sm", className: "text-xs text-slate-500 hover:text-[#1455BD] opacity-0 group-hover:opacity-100 transition-opacity", onClick: () => setSelectedStudent(s), children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(Eye, { className: "w-4 h-4 mr-1" }),
+              " Дэлгэрэнгүй"
+            ] }) })
+          ] }, s.id);
+        }) })
+      ] }) })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(Card, { className: "border-slate-200 shadow-sm", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(CardHeader, { className: "border-b border-slate-100 pb-3", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(CardTitle, { className: "text-base font-semibold text-slate-800 flex items-center gap-2", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Calendar, { className: "w-4 h-4 text-[#1455BD]" }),
+        " Ойрын чухал цэгүүд"
+      ] }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(CardContent, { className: "p-4 grid grid-cols-1 md:grid-cols-3 gap-3", children: upcomingMilestones.map((m, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-4 bg-slate-50 rounded-xl border border-slate-200 hover:border-blue-200 hover:bg-blue-50/10 transition-all", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between mb-2", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-xs font-bold text-slate-500 uppercase tracking-widest", children: [
+            m.daysLeft,
+            " хоногийн дотор"
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Badge, { variant: "outline", className: "text-[10px] bg-white border-slate-200 text-slate-600", children: m.date })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-semibold text-sm text-slate-900", children: m.milestone }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-slate-500 mt-1", children: m.student })
+      ] }, i)) })
+    ] }),
+    selectedStudent && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "fixed inset-0 bg-slate-900/40 z-50 flex justify-end", onClick: () => setSelectedStudent(null), children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "w-full max-w-md bg-white h-full shadow-xl overflow-y-auto", onClick: (e) => e.stopPropagation(), children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-6 border-b border-slate-100 flex justify-between items-start", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-xl font-bold text-slate-900", children: selectedStudent.name }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-slate-500 mt-1", children: selectedStudent.thesis })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => setSelectedStudent(null), className: "p-2 hover:bg-slate-100 rounded-lg", children: /* @__PURE__ */ jsxRuntimeExports.jsx(X, { className: "w-5 h-5 text-slate-500" }) })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-6 space-y-5", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-2 gap-4", children: [
+          { label: "Шат", value: selectedStudent.stage },
+          { label: "Эцсийн хугацаа", value: selectedStudent.deadline },
+          { label: "Илгээсэн эсэх", value: selectedStudent.submitted ? "Тийм ✓" : "Үгүй ✗" },
+          { label: "Засвар", value: selectedStudent.revisionState }
+        ].map(({ label, value }) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-slate-50 rounded-lg p-3 border border-slate-100", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs font-bold text-slate-400 uppercase tracking-wider mb-1", children: label }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm font-semibold text-slate-900", children: value })
+        ] }, label)) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs font-bold text-slate-500 uppercase tracking-widest mb-2", children: "Нийт дэвшил" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Progress, { value: selectedStudent.progress, className: "flex-1 h-2" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-lg font-extrabold text-[#1455BD]", children: [
+              selectedStudent.progress,
+              "%"
+            ] })
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(Button$1, { className: "w-full bg-[#1455BD] hover:bg-[#0d3a8a] text-white", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(FileText, { className: "w-4 h-4 mr-2" }),
+          " Тайлангийн түүхийг харах"
+        ] })
+      ] })
+    ] }) })
+  ] });
+}
+
+const {useState} = await importShared('react');
+const committeeStudents = [
+  {
+    id: 1,
+    name: "Д.Оч",
+    avatar: "AJ",
+    thesis: "Эмнэлгийн зургийн оношлогоонд гүн суралцах",
+    stage: "Урьдчилсан хамгаалалт",
+    scheduledDate: "2026/04/15",
+    daysLeft: 27,
+    role: "Комиссийн гишүүн",
+    evalStatus: "Хүлээгдэж буй",
+    rubricAccess: true,
+    overallScore: null,
+    comments: [
+      { author: "Д-р Хоппер", text: "Арга зүйн хэсгийг дэлгэрэнгүй болгох шаардлагатай.", time: "2 өдрийн өмнө" }
+    ]
+  },
+  {
+    id: 2,
+    name: "Б.Батбаяр",
+    avatar: "SW",
+    thesis: "IoT ухаалаг төхөөрөмжид зориулсан захын тооцоолол",
+    stage: "Эцсийн хамгаалалт",
+    scheduledDate: "2026/05/30",
+    daysLeft: 72,
+    role: "Дарга",
+    evalStatus: "Дууссан",
+    rubricAccess: true,
+    overallScore: 88,
+    comments: [
+      { author: "Та", text: "Хамгаалалтын танилцуулгад маш сайн гүйцэтгэсэн.", time: "5 өдрийн өмнө" }
+    ]
+  },
+  {
+    id: 3,
+    name: "С.Мөнхбаяр",
+    avatar: "LP",
+    thesis: "CNN ашиглан жолоодох зурвасыг илрүүлэх",
+    stage: "Явц 2",
+    scheduledDate: "2026/04/08",
+    daysLeft: 20,
+    role: "Комиссийн гишүүн",
+    evalStatus: "Хүлээгдэж буй",
+    rubricAccess: false,
+    overallScore: null,
+    comments: []
+  },
+  {
+    id: 4,
+    name: "Т.Түвшинбаяр",
+    avatar: "TR",
+    thesis: "BERT ашиглан нийгмийн мэдээний сентимент шинжилгээ",
+    stage: "Урьдчилсан хамгаалалт",
+    scheduledDate: "2026/04/20",
+    daysLeft: 32,
+    role: "Мэргэжлийн хянагч",
+    evalStatus: "Дууссан",
+    rubricAccess: true,
+    overallScore: 74,
+    comments: [
+      { author: "Та", text: "Дүгнэлтийн бүлгийг чангатгах шаардлагатай.", time: "1 долоо хоногийн өмнө" }
+    ]
+  }
+];
+const rubricCriteria = [
+  { name: "Эх сурвалжийн шинжилгээний чанар", weight: 20, max: 20 },
+  { name: "Судалгааны арга зүй", weight: 25, max: 25 },
+  { name: "Үр дүн ба шинжилгээ", weight: 30, max: 30 },
+  { name: "Танилцуулга ба тодорхой байдал", weight: 15, max: 15 },
+  { name: "Асуулт хариулт", weight: 10, max: 10 }
+];
+const scheduleItems = [
+  { date: "04/08", student: "С.Мөнхбаяр", type: "Явц 2-ын хяналт", time: "9:00", room: "Семинарын өрөө A" },
+  { date: "04/15", student: "Д.Оч", type: "Урьдчилсан хамгаалалтын хороо", time: "10:00", room: "Хурлын танхим B" },
+  { date: "04/20", student: "Т.Түвшинбаяр", type: "Урьдчилсан хамгаалалтын хороо", time: "14:00", room: "Семинарын өрөө C" },
+  { date: "05/30", student: "Б.Батбаяр", type: "Эцсийн хамгаалалт", time: "10:00", room: "Их танхим" }
+];
+function TeacherCommittee() {
+  const [activeTab, setActiveTab] = useState("students");
+  const [selectedStudent, setSelectedStudent] = useState(null);
+  const [scores, setScores] = useState({});
+  const [comment, setComment] = useState("");
+  const [evalSubmitted, setEvalSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const totalScore = Object.values(scores).reduce((a, b) => a + b, 0);
+  const maxScore = rubricCriteria.reduce((a, b) => a + b.max, 0);
+  const handleSubmit = () => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      setEvalSubmitted(true);
+    }, 1500);
+  };
+  const pending = committeeStudents.filter((s) => s.evalStatus === "Хүлээгдэж буй");
+  const completed = committeeStudents.filter((s) => s.evalStatus === "Дууссан");
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-6 max-w-7xl mx-auto pb-10", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col md:flex-row md:items-center justify-between gap-4", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("h1", { className: "text-2xl font-bold text-slate-900 flex items-center gap-2", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Users, { className: "w-6 h-6 text-[#1455BD]" }),
+          "Комисс"
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-slate-500 mt-1", children: "Комиссийн гишүүнээр хуваарилагдсан оюутнуудын үнэлгээг удирдах." })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-3", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(Badge, { className: "bg-orange-50 text-orange-700 border-orange-200 border flex items-center gap-1.5 px-3 py-1.5", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(CircleAlert, { className: "w-3.5 h-3.5" }),
+          " ",
+          pending.length,
+          " хүлээгдэж буй үнэлгээ"
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(Badge, { className: "bg-emerald-50 text-emerald-700 border-emerald-200 border flex items-center gap-1.5 px-3 py-1.5", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(CircleCheckBig, { className: "w-3.5 h-3.5" }),
+          " ",
+          completed.length,
+          " дууссан"
+        ] })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(Tabs, { value: activeTab, onValueChange: setActiveTab, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(TabsList, { className: "w-full justify-start border-b border-slate-200 rounded-none bg-transparent h-auto p-0 space-x-6", children: [
+        { value: "students", label: "Хуваарилагдсан оюутнууд" },
+        { value: "schedule", label: "Хуваарь" },
+        { value: "completed", label: "Дууссан үнэлгээнүүд" }
+      ].map((tab) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+        TabsTrigger,
+        {
+          value: tab.value,
+          className: "data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-[#1455BD] data-[state=active]:text-[#1455BD] rounded-none py-3 px-1 text-slate-600",
+          children: tab.label
+        },
+        tab.value
+      )) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(TabsContent, { value: "students", className: "mt-6 space-y-4", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-sm font-bold text-slate-500 uppercase tracking-widest", children: "Хүлээгдэж буй үнэлгээнүүд" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-4", children: pending.map((s) => /* @__PURE__ */ jsxRuntimeExports.jsxs(Card, { className: "border-orange-200 shadow-sm hover:shadow-md hover:border-orange-300 transition-all group overflow-hidden cursor-pointer", onClick: () => setSelectedStudent(s), children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-1 bg-orange-300" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(CardContent, { className: "p-5", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-start gap-3 mb-4", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(Avatar, { className: "h-10 w-10 border border-slate-200", children: /* @__PURE__ */ jsxRuntimeExports.jsx(AvatarFallback, { className: "bg-orange-50 text-orange-700 font-bold text-sm", children: s.avatar }) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex justify-between items-start", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-bold text-slate-900", children: s.name }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(Badge, { className: "bg-orange-100 text-orange-700 border-0", children: "Хүлээгдэж буй" })
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-slate-500 line-clamp-2 mt-0.5", children: s.thesis })
+              ] })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-2 gap-3 text-xs mb-4", children: [
+              { label: "Шат", value: s.stage },
+              { label: "Үүрэг", value: s.role },
+              { label: "Огноо", value: s.scheduledDate },
+              { label: "Үлдсэн хоног", value: `${s.daysLeft} хоног`, warn: s.daysLeft <= 10 }
+            ].map((item) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-slate-50 rounded-lg p-2 border border-slate-100", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-slate-400 font-semibold uppercase tracking-wide block mb-0.5", children: item.label }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: `font-medium ${item.warn ? "text-orange-600" : "text-slate-800"}`, children: item.value })
+            ] }, item.label)) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-2", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(Button$1, { size: "sm", className: "flex-1 bg-[#1455BD] hover:bg-[#0d3a8a] text-white text-xs", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(Star, { className: "w-3.5 h-3.5 mr-1.5" }),
+                " Үнэлэх"
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(Button$1, { size: "sm", variant: "outline", className: "border-slate-200 text-slate-600 text-xs hover:bg-slate-50", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(FileText, { className: "w-3.5 h-3.5 mr-1.5" }),
+                " Шалгуур"
+              ] })
+            ] })
+          ] })
+        ] }, s.id)) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-sm font-bold text-slate-500 uppercase tracking-widest pt-4", children: "Дууссан үнэлгээнүүд" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Card, { className: "border-slate-200 shadow-sm", children: /* @__PURE__ */ jsxRuntimeExports.jsx(CardContent, { className: "p-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "divide-y divide-slate-100", children: completed.map((s) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-4 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:bg-slate-50 transition-colors group cursor-pointer", onClick: () => setSelectedStudent(s), children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Avatar, { className: "h-9 w-9 border border-slate-200", children: /* @__PURE__ */ jsxRuntimeExports.jsx(AvatarFallback, { className: "bg-blue-50 text-[#1455BD] text-xs font-bold", children: s.avatar }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-semibold text-sm text-slate-900", children: s.name }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-slate-500 line-clamp-1 max-w-xs", children: s.thesis })
+            ] })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-4", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Badge, { className: "bg-blue-50 text-[#1455BD] border-blue-100", children: s.stage }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-1.5", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(ChartColumn, { className: "w-4 h-4 text-emerald-600" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "font-bold text-emerald-700", children: [
+                s.overallScore,
+                " / 100"
+              ] })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(Badge, { className: "bg-emerald-100 text-emerald-700 border-0", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(CircleCheckBig, { className: "w-3 h-3 mr-1" }),
+              " Дууссан"
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronRight, { className: "w-4 h-4 text-slate-300 group-hover:text-[#1455BD] transition-colors" })
+          ] })
+        ] }, s.id)) }) }) })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(TabsContent, { value: "schedule", className: "mt-6", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Card, { className: "border-slate-200 shadow-sm", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(CardHeader, { className: "border-b border-slate-100 pb-4", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(CardTitle, { className: "text-lg font-semibold flex items-center gap-2 text-slate-800", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Calendar, { className: "w-5 h-5 text-[#1455BD]" }),
+          " Комиссийн хуваарь"
+        ] }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(CardContent, { className: "p-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "divide-y divide-slate-100", children: scheduleItems.map((item, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:bg-slate-50 transition-colors", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-4", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "w-12 h-12 rounded-xl bg-blue-50 border border-blue-100 flex flex-col items-center justify-center shrink-0", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-[10px] font-bold text-slate-500 leading-none", children: item.date.split("/")[0] + "/" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xl font-extrabold text-[#1455BD] leading-none", children: item.date.split("/")[1] })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-semibold text-slate-900", children: item.type }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-sm text-slate-600", children: [
+                "Оюутан: ",
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-medium", children: item.student })
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-4 mt-1.5 text-xs text-slate-400", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "flex items-center gap-1", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(Clock, { className: "w-3 h-3" }),
+                  item.time
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: item.room })
+              ] })
+            ] })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Button$1, { variant: "outline", size: "sm", className: "border-slate-200 text-slate-700 hover:bg-slate-50 shrink-0", children: "Дэлгэрэнгүй харах" })
+        ] }, i)) }) })
+      ] }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(TabsContent, { value: "completed", className: "mt-6 space-y-4", children: completed.map((s) => /* @__PURE__ */ jsxRuntimeExports.jsx(Card, { className: "border-slate-200 shadow-sm hover:shadow-md transition-all", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(CardContent, { className: "p-5", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-start justify-between mb-5", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Avatar, { className: "h-10 w-10 border border-slate-200", children: /* @__PURE__ */ jsxRuntimeExports.jsx(AvatarFallback, { className: "bg-blue-50 text-[#1455BD] font-bold", children: s.avatar }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-bold text-slate-900", children: s.name }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-slate-500 max-w-md", children: s.thesis })
+            ] })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-right", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-2xl font-extrabold text-[#1455BD]", children: [
+              s.overallScore,
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm text-slate-400 font-medium", children: "/100" })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Badge, { className: "bg-emerald-100 text-emerald-700 border-0 mt-1", children: "Эцсийн оноо" })
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Progress, { value: s.overallScore ?? 0, className: "h-2 mb-4" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "text-xs font-bold text-slate-500 uppercase tracking-widest mb-3", children: "Тайлбарын түүх" }),
+          s.comments.length > 0 ? s.comments.map((c, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-start gap-2 bg-slate-50 rounded-lg border border-slate-100 p-3 text-sm", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(MessageSquare, { className: "w-4 h-4 text-slate-400 mt-0.5 shrink-0" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "font-semibold text-slate-800", children: [
+                c.author,
+                ": "
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-slate-600", children: c.text }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-xs text-slate-400 mt-1", children: c.time })
+            ] })
+          ] }, i)) : /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-slate-400 italic", children: "Тайлбар бичигдээгүй байна." })
+        ] })
+      ] }) }, s.id)) })
+    ] }),
+    selectedStudent && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "fixed inset-0 bg-slate-900/40 z-50 flex justify-end", onClick: () => {
+      setSelectedStudent(null);
+      setEvalSubmitted(false);
+      setScores({});
+    }, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "w-full max-w-lg bg-white h-full shadow-xl overflow-y-auto flex flex-col", onClick: (e) => e.stopPropagation(), children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `p-6 border-b border-slate-100 flex justify-between items-start ${selectedStudent.evalStatus === "Дууссан" ? "bg-emerald-50/30" : "bg-orange-50/20"}`, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-xs font-bold text-slate-400 uppercase tracking-widest mb-1", children: [
+            selectedStudent.role,
+            " · ",
+            selectedStudent.stage
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-xl font-bold text-slate-900", children: selectedStudent.name }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-slate-500 mt-1 max-w-xs leading-snug", children: selectedStudent.thesis }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2 mt-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(Badge, { className: selectedStudent.evalStatus === "Дууссан" ? "bg-emerald-100 text-emerald-700 border-0" : "bg-orange-100 text-orange-700 border-0", children: [
+              selectedStudent.evalStatus === "Дууссан" ? /* @__PURE__ */ jsxRuntimeExports.jsx(CircleCheckBig, { className: "w-3 h-3 mr-1" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(CircleAlert, { className: "w-3 h-3 mr-1" }),
+              selectedStudent.evalStatus
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(Badge, { variant: "outline", className: "bg-white border-slate-200 text-slate-600", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(Calendar, { className: "w-3 h-3 mr-1" }),
+              " ",
+              selectedStudent.scheduledDate
+            ] })
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => {
+          setSelectedStudent(null);
+          setEvalSubmitted(false);
+          setScores({});
+        }, className: "p-2 hover:bg-slate-100 rounded-lg", children: /* @__PURE__ */ jsxRuntimeExports.jsx(X, { className: "w-5 h-5 text-slate-500" }) })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-6 border-b border-slate-100", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-sm font-bold text-slate-700 mb-3 uppercase tracking-widest", children: "Тайлбарын түүх" }),
+        selectedStudent.comments.length > 0 ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-2", children: selectedStudent.comments.map((c, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-slate-50 border border-slate-100 rounded-lg p-3 text-sm", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "font-semibold text-slate-800 mb-1", children: [
+            c.author,
+            " ",
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-xs text-slate-400 font-normal", children: [
+              "· ",
+              c.time
+            ] })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-slate-600", children: c.text })
+        ] }, i)) }) : /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-slate-400 italic", children: "Одоохондоо тайлбар байхгүй." }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-2 mt-4", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("input", { className: "flex-1 border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#1455BD]", placeholder: "Тайлбар нэмэх...", value: comment, onChange: (e) => setComment(e.target.value) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Button$1, { size: "sm", className: "bg-[#1455BD] hover:bg-[#0d3a8a] text-white shrink-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Send, { className: "w-4 h-4" }) })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-6 flex-1", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-sm font-bold text-slate-700 mb-4 uppercase tracking-widest", children: "Үнэлгээний шалгуур" }),
+        evalSubmitted ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center py-10", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(CircleCheckBig, { className: "w-8 h-8 text-emerald-600" }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-xl font-bold text-slate-900 mb-1", children: "Үнэлгээ хадгалагдлаа!" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-slate-500 text-sm", children: [
+            "Нийт оноо: ",
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("strong", { className: "text-[#1455BD]", children: [
+              totalScore,
+              " / ",
+              maxScore
+            ] })
+          ] })
+        ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-4", children: rubricCriteria.map((criterion, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-slate-50 border border-slate-100 rounded-xl p-4", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex justify-between items-center mb-2", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-semibold text-sm text-slate-800", children: criterion.name }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-xs text-slate-400 font-medium", children: [
+                "Дээд: ",
+                criterion.max,
+                " оноо"
+              ] })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("input", { type: "range", min: 0, max: criterion.max, value: scores[i] || 0, onChange: (e) => setScores({ ...scores, [i]: parseInt(e.target.value) }), className: "flex-1 accent-[#1455BD]" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("input", { type: "number", min: 0, max: criterion.max, value: scores[i] || 0, onChange: (e) => setScores({ ...scores, [i]: Math.min(criterion.max, parseInt(e.target.value) || 0) }), className: "w-14 text-center border border-slate-300 rounded-md py-1 text-sm focus:outline-none focus:border-[#1455BD]" })
+            ] })
+          ] }, i)) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-6 p-4 bg-blue-50 rounded-xl border border-blue-100 flex justify-between items-center", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-bold text-slate-700", children: "Нийт оноо" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-2xl font-extrabold text-[#1455BD]", children: [
+              totalScore,
+              " ",
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-slate-400 text-base font-medium", children: [
+                "/ ",
+                maxScore
+              ] })
+            ] })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Button$1, { className: "w-full mt-4 bg-[#1455BD] hover:bg-[#0d3a8a] text-white", size: "lg", onClick: handleSubmit, disabled: loading, children: loading ? "Илгааж байна..." : "Үнэлгээ илгаах" })
+        ] })
+      ] })
+    ] }) })
+  ] });
+}
+
+const features = [
+  { label: "Progress Monitoring", desc: "Track all students' stages and deadlines in real-time." },
+  { label: "Committee Dashboard", desc: "Unified rubric scoring, averages, and committee results." },
+  { label: "Final Evaluation Flow", desc: "Weighted final scores, defense notes, and signed submissions." }
+];
+function ComingSoon() {
+  const navigate = useNavigate();
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col items-center justify-center min-h-[75vh] text-center px-6 py-12", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative mb-8", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-24 h-24 bg-blue-50 border border-slate-200 rounded-3xl flex items-center justify-center shadow-sm", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Construction, { className: "w-12 h-12 text-[#1455BD]" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute -top-2 -right-2 w-7 h-7 bg-orange-100 border border-orange-200 rounded-full flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Sparkles, { className: "w-4 h-4 text-orange-500" }) })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-3xl font-extrabold text-slate-900 mb-2 tracking-tight", children: "Тун удахгүй" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "inline-block bg-blue-50 border border-blue-100 text-[#1455BD] text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full mb-5", children: "In Active Development" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-slate-500 text-sm max-w-md mb-10 leading-relaxed", children: "Энэ хэсэг одоо идэвхтэй боловсруулагдаж байна. Гүйцэтгэлийн чанарын хамт тун удахгүй гарна." }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl w-full mb-10", children: features.map((f, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-white border border-slate-200 rounded-xl p-4 text-left hover:border-blue-200 hover:shadow-sm transition-all group", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mb-3 group-hover:bg-blue-100 transition-colors", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Clock, { className: "w-4 h-4 text-[#1455BD]" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-sm font-semibold text-slate-900 mb-1", children: f.label }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-slate-500 leading-snug", children: f.desc })
+    ] }, i)) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col sm:flex-row items-center gap-3", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "button",
+        {
+          onClick: () => navigate(-1),
+          className: "flex items-center gap-2 px-5 py-2.5 bg-[#1455BD] text-white text-sm font-medium rounded-xl hover:bg-blue-700 transition-colors shadow-sm",
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowLeft, { className: "w-4 h-4" }),
+            "Буцах"
+          ]
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { className: "flex items-center gap-2 px-5 py-2.5 bg-white border border-slate-200 text-slate-700 text-sm font-medium rounded-xl hover:bg-slate-50 hover:border-slate-300 transition-colors shadow-sm", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Bell, { className: "w-4 h-4 text-slate-400" }),
+        "Мэдэгдэл авах"
+      ] })
+    ] })
+  ] });
+}
+
+function App({ user }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(HashRouter, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Routes, { children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(Route, { path: "/teacher", element: /* @__PURE__ */ jsxRuntimeExports.jsx(TeacherLayout, { user }), children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { index: true, element: /* @__PURE__ */ jsxRuntimeExports.jsx(TeacherDashboard, {}) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "students", element: /* @__PURE__ */ jsxRuntimeExports.jsx(TeacherStudents, {}) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "thesis", element: /* @__PURE__ */ jsxRuntimeExports.jsx(TeacherThesis, {}) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "messages", element: /* @__PURE__ */ jsxRuntimeExports.jsx(TeacherMessages, {}) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "reports", element: /* @__PURE__ */ jsxRuntimeExports.jsx(TeacherThesis, {}) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "evaluations", element: /* @__PURE__ */ jsxRuntimeExports.jsx(TeacherCommittee, {}) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "feedback", element: /* @__PURE__ */ jsxRuntimeExports.jsx(TeacherMessages, {}) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "progress", element: /* @__PURE__ */ jsxRuntimeExports.jsx(TeacherProgress, {}) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "committee", element: /* @__PURE__ */ jsxRuntimeExports.jsx(TeacherCommittee, {}) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "scores", element: /* @__PURE__ */ jsxRuntimeExports.jsx(TeacherProgress, {}) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "settings", element: /* @__PURE__ */ jsxRuntimeExports.jsx(ComingSoon, {}) })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "*", element: /* @__PURE__ */ jsxRuntimeExports.jsx(Navigate, { to: "/teacher", replace: true }) })
+  ] }) });
+}
+
+const React = await importShared('react');
+const container = document.getElementById("microfrontend-root");
+if (container) {
+  const user = guardRoute("teacher");
+  if (user) {
+    container.innerHTML = "";
+    const root = clientExports.createRoot(container);
+    root.render(
+      /* @__PURE__ */ jsxRuntimeExports.jsx(React.StrictMode, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(App, { user }) })
+    );
+  }
+} else {
+  console.error("[module-teacher] #microfrontend-root элемент олдсонгүй");
+}

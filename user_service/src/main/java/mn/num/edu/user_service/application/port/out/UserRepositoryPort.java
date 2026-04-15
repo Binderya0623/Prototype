@@ -12,4 +12,6 @@ public interface UserRepositoryPort {
     Mono<User> save(User user);
     Mono<User> findById(String id);
     Flux<User> findAll();
+    Flux<User> findStudents(String departmentId);
+    Flux<User> findTeachers(String departmentId);
 }

@@ -8,7 +8,7 @@ import { logout } from "../../lib/authGuard";
 
 const pageTitles: Record<string, { title: string; subtitle: string }> = {
   "/teacher": { title: "Хянах самбар", subtitle: "Тавтай морилно уу, Багш" },
-  "/teacher/students": { title: "Хуваарилагдсан оюутнууд", subtitle: "Харьцлаж буй оюутнуудынгоо харах, удирдах" },
+  "/teacher/students": { title: "Оюутнууд", subtitle: "Харьцлаж буй оюутнуудынгоо харах, удирдах" },
   "/teacher/progress": { title: "Явцын хяналт", subtitle: "Бүх оюутны дэвшил, шат, эцсийн хугацааг хянах" },
   "/teacher/committee": { title: "Комисс", subtitle: "Комиссийн үнэлгээний даалгавраа удирдах" },
   "/teacher/evaluations": { title: "Комисс", subtitle: "Комиссийн үнэлгээний даалгавраа удирдах" },

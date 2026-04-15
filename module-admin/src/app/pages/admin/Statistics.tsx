@@ -1,19 +1,11 @@
 import { Card, CardContent, CardHeader, CardTitle } from "../../components/ui/card";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 import { TrendingUp, Users, BookOpen, CheckCircle } from "lucide-react";
 import { theses, teachers, students } from "../../data/mockData";
 
 const COLORS = ["#3b82f6", "#10b981", "#f59e0b", "#8b5cf6", "#ef4444"];
 
 export default function Statistics() {
-  // Status distribution
-  const statusData = [
-    { name: "Явцаалалдаа байна", value: theses.filter((t) => t.status === "In Progress").length },
-    { name: "Хянагдаж буй", value: theses.filter((t) => t.status === "Under Review").length },
-    { name: "Зөвшөөрлөгдсөн", value: theses.filter((t) => t.status === "Approved").length },
-    { name: "Төлөвлөгө шатанда", value: theses.filter((t) => t.status === "Planning").length },
-  ];
-
   // Department distribution
   const deptData = [
     { name: "Компьютер", theses: theses.filter((t) => t.department === "Computer Science").length },
@@ -21,13 +13,6 @@ export default function Statistics() {
     { name: "Програмког", theses: theses.filter((t) => t.department === "Software Engineering").length },
     { name: "КХО/Робот", theses: theses.filter((t) => t.department === "AI & Robotics").length },
     { name: "Кибер", theses: theses.filter((t) => t.department === "Cybersecurity").length },
-  ];
-
-  // Type distribution
-  const typeData = [
-    { name: "Bachelor's", value: theses.filter((t) => t.type === "Bachelor's").length },
-    { name: "Master's", value: theses.filter((t) => t.type === "Master's").length },
-    { name: "PhD", value: theses.filter((t) => t.type === "PhD").length },
   ];
 
   // Teacher workload
@@ -85,64 +70,7 @@ export default function Statistics() {
         </Card>
       </div>
 
-      {/* Charts Row 1 */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* Status Distribution */}
-        <Card>
-          <CardHeader>
-            <CardTitle>Дипломын ажлын байдлын тархалт</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <ResponsiveContainer width="100%" height={300}>
-              <PieChart>
-                <Pie
-                  data={statusData}
-                  cx="50%"
-                  cy="50%"
-                  labelLine={false}
-                  label={({ name, value }) => `${name}: ${value}`}
-                  outerRadius={100}
-                  fill="#8884d8"
-                  dataKey="value"
-                >
-                  {statusData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                  ))}
-                </Pie>
-                <Tooltip />
-              </PieChart>
-            </ResponsiveContainer>
-          </CardContent>
-        </Card>
 
-        {/* Type Distribution */}
-        <Card>
-          <CardHeader>
-            <CardTitle>Дипломын ажлын төрөлийн тархалт</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <ResponsiveContainer width="100%" height={300}>
-              <PieChart>
-                <Pie
-                  data={typeData}
-                  cx="50%"
-                  cy="50%"
-                  labelLine={false}
-                  label={({ name, value }) => `${name}: ${value}`}
-                  outerRadius={100}
-                  fill="#8884d8"
-                  dataKey="value"
-                >
-                  {typeData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                  ))}
-                </Pie>
-                <Tooltip />
-              </PieChart>
-            </ResponsiveContainer>
-          </CardContent>
-        </Card>
-      </div>
 
       {/* Charts Row 2 */}
       <div className="grid grid-cols-1 gap-6">

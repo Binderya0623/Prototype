@@ -10,7 +10,7 @@ const pageTitles: Record<string, { title: string; subtitle: string }> = {
   "/student": { title: "Миний Хянах самбар", subtitle: "Судалгааны ажлын явцаа хянах" },
   "/student/thesis": { title: "Миний судалгааны ажил", subtitle: "Судалгааны ажил, тайлан, илгээлтийг удирдах" },
   "/student/feedback": { title: "Санал хүсэлт", subtitle: "Багшийн зөвлөгөө болон сэтгэгдэл" },
-  "/student/deadlines": { title: "Хугацаа болон Хамгаалалт", subtitle: "Ирж буй хугацаа болон хамгаалалтын хуваарь" },
+  "/student/deadlines": { title: "Хамгаалалт", subtitle: "Ирж буй хугацаа болон хамгаалалтын хуваарь" },
   "/student/grade": { title: "Эцсийн дүн", subtitle: "Эцсийн дүн болон үр дүнг харах" },
   "/student/messages": { title: "Зурвасууд", subtitle: "Удирдагч багштайгаа харилцах" },
   "/student/profile": { title: "Миний профайл", subtitle: "Хувийн мэдээллээ харах, засварлах" },

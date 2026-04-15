@@ -38,7 +38,7 @@ export default function AdminLayout({ user }: AdminLayoutProps) {
     .toUpperCase();
 
   return (
-    <div className="flex h-screen bg-slate-100 overflow-hidden">
+    <div className="flex h-screen bg-slate-50 overflow-hidden">
       <AdminSidebar collapsed={collapsed} onToggle={() => setCollapsed(!collapsed)} />
       <div className="flex flex-col flex-1 min-w-0">
         <TopHeader

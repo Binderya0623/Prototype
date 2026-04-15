@@ -12,7 +12,7 @@ const menuItems = [
   { icon: Home, label: "Хянах самбар", path: "/student" },
   { icon: BookOpen, label: "Миний судалгааны ажил", path: "/student/thesis" },
   { icon: MessageSquare, label: "Санал хүсэлт", path: "/student/feedback" },
-  { icon: Calendar, label: "Хугацаа болон Хамгаалалт", path: "/student/deadlines" },
+  { icon: Calendar, label: "Хамгаалалт", path: "/student/deadlines" },
   { icon: Award, label: "Эцсийн дүн", path: "/student/grade" },
 ];
 export default function StudentSidebar({ collapsed, onToggle }: StudentSidebarProps) {

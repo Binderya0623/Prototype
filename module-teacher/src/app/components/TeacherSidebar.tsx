@@ -11,7 +11,7 @@ interface TeacherSidebarProps {
 const menuItems = [
   { icon: Home, label: "Хянах самбар", path: "/teacher" },
   { icon: FileSearch, label: "Судалгааны удирдлага", path: "/teacher/thesis" },
-  { icon: Users, label: "Хуваарилагдсан оюутнууд", path: "/teacher/students" },
+  { icon: Users, label: "Оюутнууд", path: "/teacher/students" },
   { icon: TrendingUp, label: "Явцын хяналт", path: "/teacher/progress" },
   { icon: CheckCircle, label: "Комисс", path: "/teacher/committee" },
 ];

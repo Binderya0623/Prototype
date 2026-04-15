@@ -1,0 +1,29 @@
+CREATE TABLE IF NOT EXISTS users (
+    id VARCHAR(255) PRIMARY KEY,
+    first_name VARCHAR(255) NOT NULL,
+    last_name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    department_id VARCHAR(255),
+    system_role VARCHAR(50) NOT NULL,
+    active BOOLEAN NOT NULL,
+    created_at TIMESTAMP NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS students (
+    id VARCHAR(255) PRIMARY KEY,
+    user_id VARCHAR(255) NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    student_id VARCHAR(255) NOT NULL UNIQUE,
+    major VARCHAR(255)
+);
+
+CREATE TABLE IF NOT EXISTS teachers (
+    id VARCHAR(255) PRIMARY KEY,
+    user_id VARCHAR(255) NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    position VARCHAR(255)
+);
+
+CREATE TABLE IF NOT EXISTS departments (
+    id VARCHAR(255) PRIMARY KEY,
+    user_id VARCHAR(255) NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    department_name VARCHAR(255) NOT NULL
+);
